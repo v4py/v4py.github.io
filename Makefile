@@ -1,25 +1,25 @@
-.PHONY: help runall clean build serve site publish
+.PHONY: help install clean build serve site publish
+
+export GEM_HOME = $(CURDIR)/.gems
 
 help:
 	@echo "Make sure you're running these in 'poetry shell'."
 	@echo "Please use 'make <target>' where <target> is one of:"
 	@echo "  install     to install the necessary dependencies for jupyter-book to build"
-	@echo "  clean       to clean out site build files"
+	@echo "  clean       remove ignored files (built site, caches, non-customized resources)"
 	@echo "  build       to build the Jekyll input and store in _build/"
 	@echo "  serve       to serve the repository locally with Jekyll"
 	@echo "  site        to build the final site HTML, store in _site/"
 	@echo "  publish     build _site/ and publish to GitHub pages"
 
-
 install:
-	poetry install
-	jupyter-book install ./
+	scripts/install.sh
 
 content: src
-	scripts/generate_content.sh
+	scripts/src2content.sh
 
 clean:
-	python scripts/clean.py
+	git clean -dfX
 
 build: content
 	jupyter-book build ./ --overwrite

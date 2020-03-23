@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 script_dir=$( dirname $( realpath "$0" ) )
 root=$( realpath "$script_dir"/.. )
 

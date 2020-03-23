@@ -1,5 +1,21 @@
+# auto-generated from src during the book's lifecycle
 content
 _build
 _site
+
+# copied over from the Jupyter book skeleton -- let's not put this stuff
+# under version control if possible
+Gemfile
+Gemfile.lock
+Guardfile
+_includes/
+_layouts/
+_sass/
+assets/
+runtime.txt
+scripts/clean.py
+
+.gems
 .sass-cache
 .python-version
+__pycache__
