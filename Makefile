@@ -1,6 +1,7 @@
 .PHONY: help runall clean build serve site publish
 
 help:
+	@echo "Make sure you're running these in 'poetry shell'."
 	@echo "Please use 'make <target>' where <target> is one of:"
 	@echo "  install     to install the necessary dependencies for jupyter-book to build"
 	@echo "  clean       to clean out site build files"
@@ -11,6 +12,7 @@ help:
 
 
 install:
+	poetry install
 	jupyter-book install ./
 
 content: src
