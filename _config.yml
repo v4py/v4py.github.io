@@ -147,11 +147,15 @@ exclude:
 - scripts/
 - Gemfile
 - Gemfile.lock
+- Makefile
+- Guardfile
 - node_modules
 - vendor/bundle/
 - vendor/cache/
 - vendor/gems/
 - vendor/ruby/
+- pyproject.toml
+- poetry.lock
 
 # plugins:
 # - jekyll-redirect-from
