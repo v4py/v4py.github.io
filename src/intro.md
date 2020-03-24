@@ -17,6 +17,18 @@ jupyter:
 - started programming at uni, so it's never too late :)
 - probably **the most useful skill** since learning to read
 
+Interact links, to open the notebook interactively. If you have an
+account at <https://jupyter.korpus.cz> (attendees of the V4Py summer
+school do), you can also use that. But careful, due to some bugs in the
+software, the links don't work as intended if you're not already logged
+in. In that case:
+
+1. Click on the Interact button once and log into JupyterLab.
+2. Close the JupyterLab tab.
+3. Click on the Interact button a second time. JupyterLab should now
+   automatically open the appropriate notebook.
+4. If that doesn't happen, try reloading the page.
+
 # Python gives you wings!
 
 ![Python XKCD](https://imgs.xkcd.com/comics/python.png)

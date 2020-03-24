@@ -32,5 +32,8 @@ done
 # *do* want their Gemfile.lock to get the combination of deps which
 # happened to work for the jupyter-book devs
 cp "$( poetry env info --path )"/lib/python*/site-packages/jupyter_book/book_template/Gemfile.lock .
+for patch in patches/*; do
+  patch -p1 <"$patch"
+done
 
 jupyter-book install ./

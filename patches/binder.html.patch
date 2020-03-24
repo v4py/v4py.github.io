@@ -1,0 +1,10 @@
+--- a/_includes/buttons/binder.html	2020-03-24 18:17:50.000000000 +0100
++++ b/_includes/buttons/binder.html	2020-03-24 18:18:44.000000000 +0100
+@@ -9,6 +9,6 @@
+ {% capture interact_url_binder %}v2/gh/{{ site.binder_repo_org }}/{{ site.binder_repo_name }}/{{ site.binder_repo_branch }}?{{ binder_interact_prefix }}{{ page.interact_link | url_encode }}{% endcapture %}
+ {% capture interact_icon_binder %}{{ site.images_url | relative_url }}/logo_binder.svg{% endcapture %}
+ 
+-<a href="{{ site.binderhub_url }}/{{ interact_url_binder }}"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="{{ interact_icon_binder }}" alt="Interact" />{{ site.binderhub_interact_text }}</button></a>
++<a target="_blank" href="{{ site.binderhub_url }}/{{ interact_url_binder }}"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="{{ interact_icon_binder }}" alt="Interact" />{{ site.binderhub_interact_text }}</button></a>
+ 
+ {%- endif %}
