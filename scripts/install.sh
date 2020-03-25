@@ -6,7 +6,7 @@ script_dir=$( dirname $( realpath "$0" ) )
 root=$( realpath "$script_dir"/.. )
 
 if ! command -v ruby >/dev/null 2>&1; then
-  >&2 echo 'Install ruby (preferably 2.6) first.'
+  >&2 echo 'Install ruby (preferably <2.7), including dev files, first.'
   abort=1
 fi
 if ! command -v poetry >/dev/null 2>&1; then
@@ -17,6 +17,7 @@ fi
 
 cd "$root"
 poetry install
+gem install bundler -v 1.17.2
 
 tmp=$( mktemp -d )
 jupyter-book create --out-folder "$tmp" tmp

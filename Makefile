@@ -1,6 +1,7 @@
 .PHONY: help install clean build serve site publish
 
-export GEM_HOME = $(CURDIR)/.gems
+export GEM_HOME := $(CURDIR)/.gems
+export PATH := $(GEM_HOME)/bin:$(PATH)
 
 help:
 	@echo "Make sure you're running these in 'poetry shell'."
