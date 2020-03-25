@@ -72,7 +72,7 @@ Using Python:
 
 - Python 2 vs. **Python 3**
 
-# Running the code yourself
+# How to use this book
 
 This book actually consists of a series of [Jupyter
 notebooks](https://jupyter.org/), which is a file format, recognizable
@@ -118,7 +118,7 @@ need to [download the notebooks
 manually](https://github.com/v4py/v4py.github.io/archive/master.zip)
 (after unzipping, the notebooks are in the `content/` subdirectory).
 
-# Example: a frequency analysis of this text
+# Diving right in: a frequency analysis of this text
 
 To get our feet wet, let's do a quick frequency analysis of the text
 you're currently reading. If you've never programmed before, don't worry
