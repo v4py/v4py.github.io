@@ -21,7 +21,7 @@
 #
 # See the links below for an example.
 
-- header: Navigation
+- header: Table of contents
 
 # Chapter titles are currently inferred based on the first level 1
 # heading in each file. Note that this requires hash-prefix header
@@ -32,6 +32,7 @@
 # <https://jupyterbook.org/features/titles.html>
 - url: /intro
 - url: /basics
+- url: /outro
 
 # A chapter w/ a collection of sections beneath it
 # - title: Features and customization

@@ -65,6 +65,37 @@ Using Python:
   Distribution](https://www.anaconda.com/distribution/)
 - but we'll be using <https://jupyter.korpus.cz>
 
+# Example: a quick frequency analysis of this text
+
+```python
+import requests
+```
+
+```python
+response = requests.get("https://raw.githubusercontent.com/v4py/v4py.github.io/source/src/intro.md")
+```
+
+Inspecting the `response` variable, we see `<Response [200]>`. `200` is
+the [HTTP
+code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) which
+indicates that all went well with our request and we received a
+sucessful response.
+
+```python
+response
+```
+
+If we don't remember which code is which, we can check that everything
+is fine by inspecting the `ok` attribute on the `response` object.
+
+```python
+response.ok
+```
+
+```python
+intro = response.text
+```
+
 # NLTK Book
 
 A great, longer free resource. <http://www.nltk.org/book/>
@@ -137,3 +168,5 @@ More advanced users will probably be aware that both can also be
 installed using standard command line Python package managers like
 `conda` or `pip`. If the previous sentence sounds like gibberish to you,
 don't worry, you can safely ignore it :)
+
+<!-- vim: set spell spelllang=en: -->

@@ -52,6 +52,22 @@ webencodings = "*"
 
 [[package]]
 category = "main"
+description = "Python package for providing Mozilla's CA Bundle."
+name = "certifi"
+optional = false
+python-versions = "*"
+version = "2019.11.28"
+
+[[package]]
+category = "main"
+description = "Universal encoding detector for Python 2 and 3"
+name = "chardet"
+optional = false
+python-versions = "*"
+version = "3.0.4"
+
+[[package]]
+category = "main"
 description = "Composable command line interface toolkit"
 name = "click"
 optional = false
@@ -128,6 +144,14 @@ name = "ghp-import"
 optional = false
 python-versions = "*"
 version = "0.5.5"
+
+[[package]]
+category = "main"
+description = "Internationalized Domain Names in Applications (IDNA)"
+name = "idna"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "2.9"
 
 [[package]]
 category = "dev"
@@ -765,6 +789,24 @@ python-versions = "*"
 version = "2019.12.20"
 
 [[package]]
+category = "main"
+description = "Python HTTP for Humans."
+name = "requests"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+version = "2.23.0"
+
+[package.dependencies]
+certifi = ">=2017.4.17"
+chardet = ">=3.0.2,<4"
+idna = ">=2.5,<3"
+urllib3 = ">=1.21.1,<1.25.0 || >1.25.0,<1.25.1 || >1.25.1,<1.26"
+
+[package.extras]
+security = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)"]
+socks = ["PySocks (>=1.5.6,<1.5.7 || >1.5.7)", "win-inet-pton"]
+
+[[package]]
 category = "dev"
 description = "ruamel.yaml is a YAML parser/emitter that supports roundtrip preservation of comments, seq/map flow style, and map key order"
 name = "ruamel.yaml"
@@ -882,6 +924,19 @@ python-versions = "*"
 version = "1.2.0.3"
 
 [[package]]
+category = "main"
+description = "HTTP library with thread-safe connection pooling, file post, and more."
+name = "urllib3"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4"
+version = "1.25.8"
+
+[package.extras]
+brotli = ["brotlipy (>=0.6.0)"]
+secure = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "certifi", "ipaddress"]
+socks = ["PySocks (>=1.5.6,<1.5.7 || >1.5.7,<2.0)"]
+
+[[package]]
 category = "dev"
 description = "Measures number of Terminal column cells of wide-character codes"
 name = "wcwidth"
@@ -924,7 +979,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "665f406e5b1938b603fb79b34eba448451c459472cdb179abe192fa3cd83d5c5"
+content-hash = "6592f83f1cd516117707df7f6e95b84488261cdf0ab9716778a891d6a878dd8b"
 python-versions = "3.7.*"
 
 [metadata.files]
@@ -947,6 +1002,14 @@ backcall = [
 bleach = [
     {file = "bleach-3.1.3-py2.py3-none-any.whl", hash = "sha256:53165a6596e7899c4338d847315fec508110a53bd6fd15c127c2e0d0860264e3"},
     {file = "bleach-3.1.3.tar.gz", hash = "sha256:f8dfd8a7e26443e986c4e44df31870da8e906ea61096af06ba5d5cc2d519842a"},
+]
+certifi = [
+    {file = "certifi-2019.11.28-py2.py3-none-any.whl", hash = "sha256:017c25db2a153ce562900032d5bc68e9f191e44e9a0f762f373977de9df1fbb3"},
+    {file = "certifi-2019.11.28.tar.gz", hash = "sha256:25b64c7da4cd7479594d035c08c2d809eb4aab3a26e5a990ea98cc450c320f1f"},
+]
+chardet = [
+    {file = "chardet-3.0.4-py2.py3-none-any.whl", hash = "sha256:fc323ffcaeaed0e0a02bf4d117757b98aed530d9ed4531e3e15460124c106691"},
+    {file = "chardet-3.0.4.tar.gz", hash = "sha256:84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"},
 ]
 click = [
     {file = "click-7.1.1-py2.py3-none-any.whl", hash = "sha256:e345d143d80bf5ee7534056164e5e112ea5e22716bbb1ce727941f4c8b471b9a"},
@@ -978,6 +1041,10 @@ entrypoints = [
 ]
 ghp-import = [
     {file = "ghp-import-0.5.5.tar.gz", hash = "sha256:3e924ea720e4e1f82d56753db2154bfb86067472c5830732159c3a4c4fbc75d7"},
+]
+idna = [
+    {file = "idna-2.9-py2.py3-none-any.whl", hash = "sha256:a068a21ceac8a4d63dbfd964670474107f541babbd2250d61922f029858365fa"},
+    {file = "idna-2.9.tar.gz", hash = "sha256:7588d1c14ae4c77d74036e8c22ff447b26d0fde8f007354fd48a7814db15b7cb"},
 ]
 importlib-metadata = [
     {file = "importlib_metadata-1.5.0-py2.py3-none-any.whl", hash = "sha256:b97607a1a18a5100839aec1dc26a1ea17ee0d93b20b0f008d80a5a050afb200b"},
@@ -1397,6 +1464,10 @@ regex = [
     {file = "regex-2019.12.20-cp38-cp38-win_amd64.whl", hash = "sha256:d3ee0b035816e0520fac928de31b6572106f0d75597f6fa3206969a02baba06f"},
     {file = "regex-2019.12.20.tar.gz", hash = "sha256:106e25a841921d8259dcef2a42786caae35bc750fb996f830065b3dfaa67b77e"},
 ]
+requests = [
+    {file = "requests-2.23.0-py2.py3-none-any.whl", hash = "sha256:43999036bfa82904b6af1d99e4882b560e5e2c68e5c4b0aa03b655f3d7d73fee"},
+    {file = "requests-2.23.0.tar.gz", hash = "sha256:b3f43d496c6daba4493e7c431722aeb7dbc6288f52a6e04e7b6023b0247817e6"},
+]
 "ruamel.yaml" = [
     {file = "ruamel.yaml-0.16.10-py2.py3-none-any.whl", hash = "sha256:0962fd7999e064c4865f96fb1e23079075f4a2a14849bcdc5cdba53a24f9759b"},
     {file = "ruamel.yaml-0.16.10.tar.gz", hash = "sha256:099c644a778bf72ffa00524f78dd0b6476bca94a1da344130f4bf3381ce5b954"},
@@ -1470,6 +1541,10 @@ traitlets = [
     {file = "ufal.udpipe-1.2.0.3-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:b37e5fc2f80b68d2959139a4a530cad23b8b0d8271f590ba48a22b1d49c1647c"},
     {file = "ufal.udpipe-1.2.0.3-cp38-cp38-win_amd64.whl", hash = "sha256:b1bbcdbf9b0667e7ff9cc535b6176c9b9d6d51ccdb131c0add2a56af17c55476"},
     {file = "ufal.udpipe-1.2.0.3.tar.gz", hash = "sha256:ea0a339840c6072a677937dc38cda03455dec0359db468e091a92393309c48cd"},
+]
+urllib3 = [
+    {file = "urllib3-1.25.8-py2.py3-none-any.whl", hash = "sha256:2f3db8b19923a873b3e5256dc9c2dedfa883e33d87c690d9c7913e1f40673cdc"},
+    {file = "urllib3-1.25.8.tar.gz", hash = "sha256:87716c2d2a7121198ebcb7ce7cccf6ce5e9ba539041cfbaeecfb641dc0bf6acc"},
 ]
 wcwidth = [
     {file = "wcwidth-0.1.9-py2.py3-none-any.whl", hash = "sha256:cafe2186b3c009a04067022ce1dcd79cb38d8d65ee4f4791b8888d6599d1bbe1"},
