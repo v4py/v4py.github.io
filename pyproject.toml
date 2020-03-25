@@ -6,7 +6,7 @@ authors = ["David Lukes <dafydd.lukes@gmail.com>", "Rudolf Rosa <rosa@ufal.mff.c
 license = "CC-BY-SA-4.0"
 
 [tool.poetry.dependencies]
-python = "3.7"
+python = "3.7.*"
 nltk = "^3.4.5"
 corpy = "^0.2.3"
 
