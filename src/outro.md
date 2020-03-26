@@ -91,6 +91,8 @@ either Raymond Hettinger, Ned Batchelder or David Beazley. Their
 contributions are consistently extremely informative, well-prepared and
 entertaining at the same time.
 
+### Improving your Python chops
+
 <!-- Beazley: builtins _____________________________________________ -->
 
 <!-- #md tags=["popout"] -->
@@ -130,26 +132,7 @@ confidence.
 </iframe>
 <!-- #endmd -->
 
-<!-- Beazley: mission impossible ___________________________________ -->
-
-<!-- #md tags=["popout"] -->
-
-A real-life story on how Python helped David Beazley to make sense of
-large amounts of unknown data in order to prepare an expert testimony in
-a legal case. More on the entertaining side than the educational, but it
-*will* teach you that Python is a Swiss-army knife for slicing and
-dicing data. The *Mission: Impossible* of programming conference talks,
-with Python starring as agent Ethan Hunt!
-
-<!-- #endmd -->
-
-<!-- #md -->
-<iframe width="560" height="315"
-  src="https://www.youtube-nocookie.com/embed/RZ4Sn-Y7AP8" frameborder="0"
-  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen>
-</iframe>
-<!-- #endmd -->
+### Data analysis and NLP
 
 <!-- VanderPlas: statistics ________________________________________ -->
 
@@ -173,20 +156,46 @@ myself.
 </iframe>
 <!-- #endmd -->
 
-<!-- VanderPlas: visualization _____________________________________ -->
+<!-- VanderPlas: cutting-edge viz __________________________________ -->
 
 <!-- #md tags=["popout"] -->
 
-Good visualization is a key part of any data analysis, and we've
-previously established that Jake VanderPlas has interesting and useful
-things to say about data analysis in Python, so let's listen to him on
-the subject of visualization!
+Visualization is currently a rapidly evolving landscape in Python, and
+this talk is about new developments based on the *grammar of graphics*
+and *declarative visualization* approach, which was popularized by the R
+package [ggplot2](https://ggplot2.tidyverse.org/). The first part is a
+teaches you how to think about visualization in general, while the
+second introduces the [Altair](https://altair-viz.github.io/) library.
 
 <!-- #endmd -->
 
 <!-- #md -->
 <iframe width="560" height="315"
   src="https://www.youtube-nocookie.com/embed/vTingdk_pVM" frameborder="0"
+  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen>
+</iframe>
+<!-- #endmd -->
+
+<!-- VanderPlas: traditional viz ___________________________________ -->
+
+<!-- #md tags=["popout"] -->
+
+By contrast, this older talk gives an overview of the Python
+visualization landscape including the more traditional and established
+Python visualization tools, which many people continue using and which
+aren't going away anytime soon. Their advantage is that they're mature,
+stable and widely known, so it can be much easier to get help on how to
+use them from random people on the internet. A good accompanying
+resource for this talk is [Part
+4](https://jakevdp.github.io/PythonDataScienceHandbook/04.00-introduction-to-matplotlib.html)
+of the *Python Data Science Handbook*.
+
+<!-- #endmd -->
+
+<!-- #md -->
+<iframe width="560" height="315"
+  src="https://www.youtube-nocookie.com/embed/FytuB8nFHPQ" frameborder="0"
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen>
 </iframe>
@@ -211,9 +220,32 @@ process typically looks like and what are the pitfalls to look out for.
 </iframe>
 <!-- #endmd -->
 
+### War stories
+
+<!-- Beazley: mission impossible ___________________________________ -->
+
+<!-- #md tags=["popout"] -->
+
+A real-life story on how Python helped David Beazley to make sense of
+large amounts of unknown data in order to prepare an expert testimony in
+a legal case. More on the entertaining side than the educational, but it
+*will* teach you that Python is a Swiss-army knife for slicing and
+dicing data. The *Mission: Impossible* of programming conference talks,
+with Python starring as agent Ethan Hunt!
+
+<!-- #endmd -->
+
+<!-- #md -->
+<iframe width="560" height="315"
+  src="https://www.youtube-nocookie.com/embed/RZ4Sn-Y7AP8" frameborder="0"
+  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen>
+</iframe>
+<!-- #endmd -->
+
 <!-- _______________________________________________________________ -->
 
----
+### Nuts and bolts (advanced)
 
 And finally, here are a few more advanced talks which I heartily
 recommend watching after you've spent a little more time with Python:

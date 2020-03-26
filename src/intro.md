@@ -139,13 +139,27 @@ and every word means. The goal at this point is to get familiar with how
 Python code looks and how the terminology sounds, even if you don't
 fully understand what's happening yet.
 
-We start by **importing** the
-[`requests`](https://requests.readthedocs.io/) *library*, which contains
-functionality related to fetching data from the web. Think of it as
-Python's equivalent of a simple web browser.
+<!-- #md tags=["popout"] -->
+
+**HTML** is the [Hypertext Markup
+Language](https://en.wikipedia.org/wiki/HTML) and it's what web pages
+are built from, specifically their structure. Layout is mostly done
+using [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) and
+interactive features with
+[JavaScript](https://en.wikipedia.org/wiki/JavaScript).
+
+<!-- #endmd -->
+
+We start by **importing** `HTMLSession` from the
+[`requests_html`](http://html.python-requests.org) **library**, which
+contains functionality related to fetching HTML pages from the web.  We
+create a fresh `HTMLSession` **object** and store it in the `session`
+**variable**. Think of it as a simple web browser inside Python.
 
 ```python
-import requests
+from requests_html import HTMLSession
+
+session = HTMLSession()
 ```
 
 <!-- #md tags=["popout"] -->
@@ -156,19 +170,17 @@ It's the main protocol used for sending around data on the web.
 
 <!-- #endmd -->
 
-The **source code** for this book is stored in a [repository on
-GitHub](https://github.com/v4py/v4py.github.io). I went ahead and
-figured out what the download link for the present notebook is. We can
-fetch the notebook by calling the `get()` **function** inside the
-`requests` **module**, which returns an HTTP response.
+We can fetch the page you're currently reading by calling the `get()`
+**method** of the `session` object and passing it the link to this
+website as an **argument**. We get back an HTTP response.
 
 ```python
-link = "https://raw.githubusercontent.com/v4py/v4py.github.io/master/content/intro.ipynb"
-response = requests.get(link)
+link = "https://v4py.github.io/intro.html"
+response = session.get(link)
 ```
 
-Inspecting the `response` **variable**, we see `<Response [200]>`. `200`
-is the [HTTP status
+Inspecting the `response` variable, we see `<Response [200]>`. `200` is
+the [HTTP status
 code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) which
 indicates that all went well with our request and we received a
 sucessful response.
@@ -179,37 +191,132 @@ response
 
 If we don't know or remember which HTTP status code is which, we can
 check that everything is fine by inspecting the `.ok` **attribute** on
-the `response` **object**.
+the `response` object.
 
 ```python
 response.ok
 ```
 
-Hopefully, the contents of this notebook should be stored somewhere on
-that `response` object. And indeed it is, we can access it as one long
-**string** of **characters** via the `.text` attribute. Let's take a look
-at a **slice** of the string, just to make sure we downloaded the right
+The contents of the web page are stored in the `.html` attribute of the
+`response` object.
+
+```python
+response.html
+```
+
+That attribute is itself an object with attributes and methods of its
+own, which allow us to inspect it and manipulate it. For instance, it
+has in turn its own `.html` attribute, which contains the raw HTML code
+underlying the web page you're reading, stored as a **string** of
+**characters**. We can take a look at a **slice** of the first 50
+characters of the string, just to make sure we downloaded the right
 document.
 
 ```python
-string = response.text
-string[500:550]
+response.html.html[:50]
 ```
 
-Great, that looks familiar. Now in order to do a frequency analysis, we
-need to split that text into words or **tokens**, which is a technical
-term used when we want to avoid the kind of philosophical hairsplitting
-that linguists sometimes engage in with respect to what is or is not a
-word. Referring to words as 'tokens' is basically a way of saying, "I
-don't want to pick a fight about the precise meaning of 'word' right
-now, I made a pragmatic decision to split the text into pieces which
-broadly make sense, but of course reasonable people might disagree on
-the details." It also allows us to be precise that we are referring to
-specific *instances* of words. The word 'word' is ambiguous, a sentence
-like "I know I screwed up." can be described as containing either 5
-(total running) words or 4 (different) words. If we want to avoid
-confusion, we can say instead that it consists of **5 tokens** and **4
-types**.
+Uh-oh, I don't remember reading anything about any doctypes at the
+beginning of this text. What's this all about? Well this is all part of
+the HTML language, which tells your browser how to display this web
+page. Trouble is, from our point of view as linguists, this is just junk
+that we need to get rid of. One thing we could try is the `.text`
+attribute, which extracts only the text parts of a web page.
+
+```python
+# the first 50 characters
+response.html.text[:50]
+```
+
+```python
+# the last 50 characters
+response.html.text[-50:]
+```
+
+That looks somewhat better, but there's clearly still some "junk" left.
+Turns out that the "text" content of an HTML page includes not only all
+the stuff that's visible on the page (navigation elements, button
+labels, and other things we probably want to exclude from our analysis),
+but also invisible things like JavaScript programs which add
+interactivity to the page (surrounded by `<script/>` tags) or CSS styles
+which define the layout and other aesthetic aspects of the page
+(surrounded by `<style/>` tags).
+
+Ideally, we'd like to get rid of all of this. How to achieve that? We
+first need to figure out which parts of the HTML enclose the content
+we're interested in. For that, we'll use our browser's inspector tools.
+If you right click anywhere on this page, you should get a menu where on
+of the items says something like *Inspect* or *Inspect Element*. Click
+on that and a pane will open beside the page which lets you peek under
+the hood of this page. If you right click on this paragraph specifically
+and select *Inspect Element*, the inspector will focus on where in the
+HTML hierarchy this particular paragraph is placed.
+
+![Firefox inspector screenshot](images/intro/inspector.png)
+
+We can see that this paragraph is contained with a `<div/>` HTML element
+which has a class of `rendered_html`, among others. This sounds like a
+property which could be true of all the interesting content on this page
+-- after all, we know it was *rendered* from a Jupyter notebook to HTML
+-- so let's go on a limb here and retrieve all of those `divs` using the
+`.find()` method. This method uses [CSS
+selectors](https://www.w3schools.com/cssref/css_selectors.asp) to slice
+and dice the page; all we need to know right now is that the syntax to
+find all HTML elements of a certain class is to prefix the class name
+with a period, so `.rendered_html` in our case. We get back a **list**
+of `divs`; the `clean=True` **keyword argument** makes sure that we
+throw away those pesky invisible `<script/>` and `<style/>` tags, if
+any.
+
+```python tags=["full_width"]
+divs = response.html.find(".rendered_html", clean=True)
+divs[:5]
+```
+
+<!-- TODO: explain escape sequence or later? -->
+
+Each of these `divs` has a `.text` attribute, which hopefully contains
+reasonable text and not some junk. We'd like to lump it all together
+into one long string before moving on to further processing, because we
+don't really care which part of the text was in which `div`, we just
+want to have it all in one place to make things easy. So we can join all
+of those `.text` attributes into one string by splicing a **newline**
+character, written using the **escape sequence** `"\n"`, in between
+every two pieces of text.
+
+```python
+string = "\n".join(div.text for div in divs)
+string[:30]
+```
+
+<!-- TODO: explain function vs. method or later? -->
+
+This is starting to look good! We've possibly thrown out some stuff that
+could have been included, like the chapter title, but it's definitely
+much better than accidentally including all that JavaScript junk in our
+analysis. Just to see how much stuff we've gotten rid of, we can compare
+the number of characters using the `len()` **function**.
+
+<!-- TODO: add something like "we've cut it roughly in half!" based on how -->
+<!-- much it turns out to be in the end -->
+
+```python
+len(response.html.full_text), len(response.html.text), len(string)
+```
+
+Now in order to do a frequency analysis, we need to split that text into
+words or **tokens**, which is a technical term used when we want to
+avoid the kind of philosophical hairsplitting that linguists sometimes
+engage in with respect to what is or is not a word. Referring to words
+as 'tokens' is basically a way of saying, "I don't want to pick a fight
+about the precise meaning of 'word' right now, I made a pragmatic
+decision to split the text into pieces which broadly make sense, but of
+course reasonable people might disagree on the details." It also allows
+us to be precise that we are referring to specific *instances* of words.
+The word 'word' is ambiguous, a sentence like "I know I screwed up." can
+be described as containing either 5 (total running) words or 4
+(different) words. If we want to avoid confusion, we can say instead
+that it consists of **5 tokens** and **4 types**.
 
 Word-splitting or **tokenization** is a trickier problem than it might
 seem at first glance, because punctuation keeps getting in the way. So
@@ -217,7 +324,7 @@ let's not do it manually ourselves, let's use instead the
 `word_tokenize()` function in the [`nltk`](http://www.nltk.org/)
 library, which hopefully covers some of the edge cases we wouldn't think
 of right off the bat if we were to implement it ourselves off the top of
-our head. This function returns a **list** of strings, and again we can
+our head. This function **returns** a list of strings, and again we can
 do a sanity check by inspecting a slice of it.
 
 ```python
@@ -309,9 +416,17 @@ conditional **expression** is satisfied. By dedenting, we escape the
 tyranny of those fors and ifs, so that the last line gets executed only
 once, after the for-loop has completed.
 
+Notice also that with suitably chosen variable names, Python code can
+read almost like English. Readability is one of Python's main strengths,
+though it can sometimes be a pitfall for beginners -- when they're not
+sure how to do something in Python, they try to write it in an
+English-like way and hope for the best, but this approach can yield
+valid Python code which however does something different than the plain
+English interpretation would suggest.
+
 We are now finally in a position to create a **frequency distribution**,
-using the `nltk.FreqDist` **class**. It's easy, we just **pass** it our
-list of clean tokens.
+using the `nltk.FreqDist` **class**. It's easy, we just pass it our list
+of clean tokens.
 
 <!-- #md tags=["popout"] -->
 
@@ -351,6 +466,69 @@ from corpy.vis import wordcloud
 
 wordcloud(freq_dist, size=(800, 400), rounded=True)
 ```
+
+Whew! That was actually a lot of work. Now that we've figured out how to
+do this, we could package all of these steps into a reusable recipe, so
+that we don't have to re-cobble all of this together if we want to run a
+same analysis on a different chapter. We can do so by writing a
+function. Again, as with for-loops and if statements, everything that's
+indented under the function header starting with `def` is part of the
+function body, and will be run step by step each time the function is
+**called**.
+
+```python
+def chapter_wordcloud(link, size=(800, 400), rounded=True):
+    session = HTMLSession()
+    response = session.get(link)
+    divs = response.html.find(".rendered_html", clean=True)
+    string = "\n".join(div.text for div in divs)
+    tokenized = nltk.word_tokenize(string.lower())
+    stop_set = set(nltk.corpus.stopwords.words("english"))
+    cleaned = []
+    for token in tokenized:
+        if token.isalpha() and token not in stop_set:
+            cleaned.append(token)
+    # if we want just the wordcloud, we can also directly create it from
+    # a list of tokens, without making an intermediate nltk.FreqDist
+    return wordcloud(cleaned, size=size, rounded=rounded)
+```
+
+The `return` keyword specifies what the result is that the function
+spits out at the other end. Once the function reaches a return
+statement, it stops execution and gives the result back to whoever
+called the function.
+
+We can now easily create a wordcloud based on the final chapter of this
+book, for comparison.
+
+```python tags=["full_width"]
+chapter_wordcloud("https://v4py.github.io/outro.html")
+```
+
+Indeed, we can use this function on any chapter in any online book
+created (much like the present book) with the [jupyter-book]() package,
+because they all use the same HTML structure. For instance, here's a
+wordcloud of the chapter on [*Regular
+Expressions*](https://www.textbook.ds100.org/ch/08/text_regex.html) from
+the book [*Principles and Techniques of Data
+Science*](https://www.textbook.ds100.org/).
+
+```python tags=["full_width"]
+chapter_wordcloud("https://www.textbook.ds100.org/ch/08/text_regex.html")
+```
+
+This is the real power of programming: once you've figured out and
+tweaked a processing and analysis recipe, you can apply it to similar
+data with lightning speed and each time consistently in exactly the same
+way.
+
+To wrap up, let me reiterate that I realize this is a lot to take in if
+this is your first time seeing Python code, and even more so if this is
+your first time seeing any programming language code whatsoever. Again,
+it's totally fine if you don't understand all the details at this point.
+I encourage you to revisit this extended worked example once you're done
+reading the book, as a way to reflect on what you've learned and bring
+it all together.
 
 # NLTK Book
 
