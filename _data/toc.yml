@@ -33,6 +33,9 @@
 - url: /intro
 - url: /basics
 - url: /outro
+- url: /appendix
+  sections:
+    - url: /appendix/notebooks
 
 # A chapter w/ a collection of sections beneath it
 # - title: Features and customization
