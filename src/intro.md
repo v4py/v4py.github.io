@@ -77,11 +77,12 @@ Using Python:
 This book actually consists of a series of [Jupyter
 notebooks](https://jupyter.org/), which is a file format, recognizable
 by its `.ipynb` extension, which intermixes expository prose with
-programming code; it can be opened using
-[JupyterLab](https://jupyterlab.readthedocs.io/), which runs in your
-browser. In the notebooks, code is stored inside code cells which can be
-modified and run at will, which encourages interactive exploration and
-makes learning easier. This is what a code cell looks like:
+programming code. It can be opened using the
+[JupyterLab](https://jupyterlab.readthedocs.io/) application, which runs
+in your browser. In the notebooks, code is stored inside code cells
+which can be modified and run at will, which encourages interactive
+exploration and makes learning easier. This is what a code cell looks
+like:
 
 ```python
 1 + 1
@@ -117,6 +118,15 @@ Navigator](https://docs.anaconda.com/anaconda/navigator/), and you'll
 need to [download the notebooks
 manually](https://github.com/v4py/v4py.github.io/archive/master.zip)
 (after unzipping, the notebooks are in the `content/` subdirectory).
+
+If you want to learn more about using notebooks, [here's a gallery of
+interesting notebooks to help you get acquainted with the
+format](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks),
+including some introductory tutorials on how to use it right. The
+JupyterLab notebook user interface is described in more detail in [their
+docs](https://jupyterlab.readthedocs.io/en/latest/user/notebook.html).
+Finally, some usage tips which I personally find useful can be found in
+the [this blog post](https://dlukes.github.io/jupyter-magic.html)
 
 # Diving right in: a frequency analysis of this text
 

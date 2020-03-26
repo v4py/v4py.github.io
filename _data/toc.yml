@@ -32,6 +32,7 @@
 # <https://jupyterbook.org/features/titles.html>
 - url: /intro
 - url: /basics
+- url: /unicode
 - url: /outro
 
 # A chapter w/ a collection of sections beneath it
