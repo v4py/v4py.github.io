@@ -132,6 +132,11 @@ confidence.
 </iframe>
 <!-- #endmd -->
 
+<!-- =============================================================== -->
+<!-- #md tags=["full_width"] -->
+---
+<!-- #endmd -->
+
 ### Data analysis and NLP
 
 <!-- VanderPlas: PyData 101 ________________________________________ -->
@@ -241,6 +246,11 @@ process typically looks like and what are the pitfalls to look out for.
 </iframe>
 <!-- #endmd -->
 
+<!-- =============================================================== -->
+<!-- #md tags=["full_width"] -->
+---
+<!-- #endmd -->
+
 ### War stories
 
 <!-- Beazley: mission impossible ___________________________________ -->
@@ -264,12 +274,15 @@ with Python starring as agent Ethan Hunt!
 </iframe>
 <!-- #endmd -->
 
-<!-- _______________________________________________________________ -->
+<!-- =============================================================== -->
+<!-- #md tags=["full_width"] -->
+---
+<!-- #endmd -->
 
 ### Nuts and bolts (advanced)
 
 And finally, here are a few more advanced talks which I heartily
-recommend watching after you've spent a little more time with Python:
+recommend watching after you've spent a little more time with Python.
 
 <!-- Hettinger: dictionaries _______________________________________ -->
 

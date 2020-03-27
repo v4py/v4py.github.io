@@ -53,10 +53,14 @@ If you're curious how that works, just take a moment to reflect on what
 you do implicitly each time you read a regular decimal number: you
 multiply the individual digits with increasing powers of 10, which is
 the **base** of the decimal system, starting from the right, and add
-this all up. E.g. for 12: $2 \times 10^0 + 1 \times 10^1 = 2 \times 1 +
-1 \times 10 = 12$. For binary 1100, this goes: $0 \times 2^0 + 0 \times
-2^1 + 1 \times 2^2 + 1 \times 2^3 = 0 + 0 + 4 + 8 = 12$. And for
-hexadecimal c: $c \times 16^0 = c \times 1 = 12 \times 1 = 12$.
+this all up:
+
+- e.g. for (regular decimal) 12: $2 \times 10^0 + 1 \times 10^1 = 2
+  \times 1 + 1 \times 10 = 12$
+- for binary 1100, this goes: $0 \times 2^0 + 0 \times 2^1 + 1 \times
+  2^2 + 1 \times 2^3 = 0 + 0 + 4 + 8 = 12$
+- and for hexadecimal c: $c \times 16^0 = c \times 1 = 12 \times 1 =
+  12$.
 
 <!-- #md tags=["popout"] -->
 
@@ -66,8 +70,8 @@ and [some early
 computers](https://en.wikipedia.org/wiki/Decimal_computer) used that
 design. In practice though, it's much harder to make such slots
 reliable: distinguishing between ten levels per slot, e.g. based on
-differences in voltage, is much harder than distinguishing between just
-two.
+differences in voltage, is much more error prone than distinguishing
+between just two.
 
 <!-- #endmd -->
 
