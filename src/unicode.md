@@ -29,7 +29,7 @@ text is ultimately represented as numbers. So we need to be relatively
 comfortable with the different ways numbers are commonly written down in
 the context of computers:
 
-1. as a **decimal** number, using 10 digits 0--9 (e.g. 12)
+1. as a plain old **decimal** number, using 10 digits 0--9 (e.g. 12)
 2. as a **binary** number, using only 2 digits, 0 and 1 (e.g. 1100,
    which equals decimal 12)
 3. as a **hexadecimal** number, using 16 digits: 0--9 and a--f (e.g. c,
@@ -162,6 +162,87 @@ if shorter binary numbers are **padded to a 4-bit width**:
 
 The padding has no effect on the value, much like decimal 42 and
 00000042 are effectively the same numbers.
+
+# Representing text: a DIY approach
+
+With that out of the way, the best way to understand how computers
+represent text, and why it works like it does, is to try and come up
+with our own system to do that. First of all, we'll need a table of all
+the **characters** we want to support, mapping each on of them, you
+guessed it, to a unique number, since computers only work with numbers.
+For this toy example, let's say four characters are enough:
+
+| number | character |
+| ---    | ---       |
+| 1      | a         |
+| 2      | b         |
+| 3      | c         |
+| 4      | d         |
+
+Such a table is called a **character set**, and each row is a
+**codepoint**, which basically means a number/character pair. Let's
+represent our character set as a Python dictionary; since we'll mostly
+be concerned with going from characters to numbers, we'll use the
+characters as keys.
+
+```python
+charset = dict(a=1, b=2, c=3, d=4)
+charset
+```
+
+Now, we've just established that computers typically know only about two
+digits, 0 and 1, but our character set goes up to 4, so we're going to
+have to come up with a way to **encode** these numbers into series of
+0's and 1's so that we can store them in computer memory. We can think
+of an **encoding** as a function which decides how to turn a number into
+a sequence of bits. A very simple encoding would be to turn each number
+into the corresponding number of 1's and store those in the memory.
+
+<!-- #md tags=["popout"] -->
+
+For these demonstration purposes, we'll be representing computer memory
+as strings of 1's and 0's, as it's easier to implement and understand
+than if we actually twiddled with individual bits.
+
+<!-- #endmd -->
+
+```python
+def encoding1(char):
+    num = charset[char]
+    return "1" * num
+```
+
+Let's see how our new `encoding1` encodes each character in `charset`.
+
+```python
+for char in charset.keys():
+    print(char, "->", encoding1(char))
+```
+
+Looks fine so far, all of the characters map to a different sequence of
+bits! Now for something more challenging: let's see how it handles
+encoding strings which consist of multiple characters.
+
+```python
+[encoding1(char) for char in "ac"]
+```
+
+This seems fine as well, except we have to remember that computer memory
+is just a long line of contiguous slots, with no boundaries between
+them. Even when we conceptually split it into bytes, the byte boundaries
+every eight bits are just imagined, it's not like there's some kind of
+fence in the memory after every eight slots. So we have to join this
+list of strings in order to get a more accurate idea of what our
+encoding would actually look like when stored in memory.
+
+```python
+"".join(encoding1(char) for char in "ac")
+```
+
+Uh-oh. Can you spot the problem? Our encoding works perfectly well one
+way, to encode characters into bits, but in the other direction, it
+breaks down, because we don't really have a way to reconstruct the
+boundaries between individual characters. Given our encoding, The bits
 
 # Fixed-width encodings
 
