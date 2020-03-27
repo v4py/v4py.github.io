@@ -35,11 +35,34 @@ nltk.download(["punkt", "stopwords"])
 - started programming at uni, so it's never too late :)
 - probably **the most useful skill** since learning to read
 
+The source code of this book lives in a [GitHub
+repository](https://github.com/v4py/v4py.github.io). Please open issues
+with requests for clarification, tips for improvement, or even just
+typos!
+
 # Python gives you wings!
+
+So what is this Python thing all about?
 
 ![Python XKCD](https://imgs.xkcd.com/comics/python.png)
 
 Credit: Randall Munroe, XKCD, <https://xkcd.com/353/>
+
+GvR, The Making of Python: a teaching language, originally for small
+programs -> teachability, understandability and readability matters
+(unlike R)
+
+Coming from R: Python is a general purpose language -> maybe a bit
+harder to find one's way around the landscape for a particular purpose
+(e.g. statistics or data science), but it pays off in that you're not
+limited by the one intended use, which is a good thing whenever you
+embark on a bigger project. R starts to get really ugly really quickly
+when using it for anything that's not easily achieved by an existing
+library, and though it deserves an honorable mention for having a lot of
+libraries with useful functionality, some of them very well-designed
+(tidyverse), it's one of the laws of programming that there will always
+be at least this one thing in your project that there is no existing
+library for (or maybe there is, but you can't seem to find it).
 
 # Target audience
 

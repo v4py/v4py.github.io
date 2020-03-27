@@ -134,17 +134,38 @@ confidence.
 
 ### Data analysis and NLP
 
-<!-- VanderPlas: statistics ________________________________________ -->
+<!-- VanderPlas: PyData 101 ________________________________________ -->
 
 <!-- #md tags=["popout"] -->
 
 If you're interested in using Python for data analysis, I can recommend
-anything by Jake VanderPlas. This particular talk may be titled
-*Statistics for Hackers*, but in reality it's geared towards anyone with
-a keen mind who's interested in statistics but hasn't had extensive
-formal training in math, which means they sometimes struggle with a
-formula-heavy approach. Which often applies to linguists, including
-myself.
+anything by Jake VanderPlas (who wrote the *Python Data Science
+Handbook* mentioned earlier). This is an introductory talk which
+provides basic orientation in the Python data analysis landscape -- what
+tools exist and when to use which. As a keynote, it's somewhat longer
+and also provides a bit of historical background on Python, with a bias
+for data science applications of course.
+
+<!-- #endmd -->
+
+<!-- #md -->
+<iframe width="560" height="315"
+  src="https://www.youtube-nocookie.com/embed/Iq9DzN6mvYA" frameborder="0"
+  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen>
+</iframe>
+<!-- #endmd -->
+
+<!-- VanderPlas: statistics ________________________________________ -->
+
+<!-- #md tags=["popout"] -->
+
+A bit unsure how statistics works, or what it's even good for? This
+particular talk may be titled *Statistics for Hackers*, but in reality
+it's geared towards anyone with a keen mind who's interested in
+statistics but hasn't had extensive formal training in math, which means
+they sometimes struggle with a formula-heavy approach. Which often
+applies to linguists, including myself.
 
 <!-- #endmd -->
 
