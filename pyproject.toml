@@ -11,6 +11,7 @@ nltk = "^3.4.5"
 corpy = "^0.2.3"
 requests = "^2.23.0"
 requests-html = "^0.10.0"
+pandas = "^1.0.3"
 
 [tool.poetry.dev-dependencies]
 jupyterlab = "^2.0.1"

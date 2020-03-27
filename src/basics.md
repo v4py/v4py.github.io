@@ -12,7 +12,7 @@ jupyter:
     name: python3
 ---
 
-# Python basics
+# A tour of Python and NLTK
 
 # Python notebooks: your fancy new calculator
 
