@@ -445,11 +445,11 @@ character mappings beyond that, are called **`ASCII`-compatible**.
 `ASCII` compatibility is a good thing&trade;, because when you start
 reading a character stream in a computer, there's **no way to know in
 advance what encoding it is in** (unless it's a file you've encoded
-yourself). So in practice, a heuristic has been established to start
-reading the stream assuming it's `ASCII` by default, and switch to a
-different encoding if evidence becomes available to the contrary. For
-instance, HTML files describing web pages displayed in your browser
-should all start with something like this:
+yourself and you happen to remember). So in practice, a heuristic has
+been established to start reading the stream assuming it's `ASCII` by
+default, and switch to a different encoding if evidence becomes
+available to the contrary. For instance, HTML files describing web pages
+displayed in your browser should all start with something like this:
 
 ```html
 <!DOCTYPE html>
