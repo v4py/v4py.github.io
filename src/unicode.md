@@ -413,7 +413,7 @@ instance.
 
 <!-- #endmd -->
 
-This means ASCII can represent [128 different
+This means `ASCII` can represent [128 different
 characters](http://www.ascii-code.com/), which comfortably fits the
 basic Latin alphabet (both lowercase and uppercase), Arabic numerals,
 punctuation and some "control characters" which were primarily useful on
@@ -451,7 +451,7 @@ default, and switch to a different encoding if evidence becomes
 available to the contrary. For instance, HTML files describing web pages
 displayed in your browser should all start with something like this:
 
-```html
+```html .noeval
 <!DOCTYPE html>
 <html>
 <head>
@@ -760,15 +760,16 @@ using `UTF-8` as a default** if you don't know, for at least two reasons
    than fixed-width encodings, in the sense that not all sequences of
    bytes are valid `UTF-8`.
 
- That second point probably requires elaboration. For instance, if one byte starts with 11, then the following one *must* start
- with 10 (see above). If it starts with anything else, it's an error.
- By contrast, in a fixed-width encoding, *any* sequence of bytes is
- valid. Decoding will always succeed, but if you use the wrong
- fixed-width encoding, the result will be garbage, which you might not
- notice. Therefore, it makes sense to default to `UTF-8`: if it works,
- then there's a good chance that the file actually *was* encoded in
- `UTF-8` and you've read the data in correctly; if it fails, you get an
- explicit error which prompts you to investigate further.
+ That second point probably requires elaboration. For instance, if one
+ byte starts with 11, then the following one *must* start with 10 (see
+ above). If it starts with anything else, it's an error.  By contrast,
+ in a fixed-width encoding, *any* sequence of bytes is valid. Decoding
+ will always succeed, but if you use the wrong fixed-width encoding, the
+ result will be garbage, which you might not notice. Therefore, it makes
+ sense to default to `UTF-8`: if it works, then there's a good chance
+ that the file actually *was* encoded in `UTF-8` and you've read the
+ data in correctly; if it fails, you get an explicit error which prompts
+ you to investigate further.
 
 Another good idea, when dealing with Unicode text from an unknown and
 unreliable source, is to look at the set of codepoints contained in it
@@ -827,9 +828,9 @@ So to sum up:
   can be deceptive, when in doubt, examine which codepoints you're
   actually dealing with and/or normalize.
 - Unicode can be encoded using different encodings. Some are fixed-width
-  (UTF-32, which we haven't mentioned yet), some are almost fixed-width
-  (UTF-16), some are variable-width (UTF-8).
-- UTF-8 has many desirable properties, so you should always use it
+  (`UTF-32`, which we haven't mentioned yet), some are almost
+  fixed-width (`UTF-16`), some are variable-width (`UTF-8`).
+- `UTF-8` has many desirable properties, so you should always use it
   when saving plain text files, and always assume it as a first try when
   opening files in an unknown encoding.
 - Internally, Python uses a custom representation of Unicode, which is
