@@ -57,10 +57,6 @@
 
 - divider: true
 - header: Links
-- title: Visegrad Fund
-  url: https://www.visegradfund.org/
-  external: true
-  not_numbered: true
 - title: ÚFAL MFF UK
   url: https://ufal.mff.cuni.cz/
   external: true
