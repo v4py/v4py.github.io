@@ -57,7 +57,7 @@
 
 - divider: true
 - header: Links
-- title: Sponsored by the Visegrad Fund
+- title: Visegrad Fund
   url: https://www.visegradfund.org/
   external: true
   not_numbered: true

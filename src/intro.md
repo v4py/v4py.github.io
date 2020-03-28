@@ -32,6 +32,15 @@ import nltk
 nltk.download(["punkt", "stopwords"])
 ```
 
+<!-- #md tags=["popout"] -->
+
+**Acknowledgments:** The authors are grateful to [Visegrad
+Fund](https://www.visegradfund.org/) grant nr. 21820079 "Training
+Digital Scholars: Knowledge Exchange between V4 and Austria" for kindly
+sponsoring this project.
+
+<!-- #endmd -->
+
 - started programming at uni, so it's never too late :)
 - probably **the most useful skill** since learning to read
 
