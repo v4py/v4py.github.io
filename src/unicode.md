@@ -144,9 +144,9 @@ for a sequence of 4 bits, i.e. half a byte ($2^4 = 16$).
 0xab == 0b10101011
 ```
 
-In other words, instead of binary 10101011, we can just write
-hexadecimal ab and save ourselves some space. Of course, this only works
-if shorter binary numbers are **padded to a 4-bit width**:
+In other words, instead of binary `10101011`, we can just write
+hexadecimal `ab` and save ourselves some space. Of course, this only
+works if shorter binary numbers are **padded to a 4-bit width**:
 
 ```python
 0x2 == 0b10
@@ -208,8 +208,8 @@ into the corresponding number of 1's and store those in the memory.
 <!-- #md tags=["popout"] -->
 
 For these demonstration purposes, we'll be representing computer memory
-as strings of 1's and 0's, as it's easier to implement and understand
-than if we actually twiddled with individual bits.
+as strings of 1's and 0's, as it's easier to implement and also see
+what's going on than if we actually twiddled with individual bits.
 
 <!-- #endmd -->
 
@@ -749,10 +749,10 @@ the encoding by default. Unfortunately, Windows is different. To be on
 the safe side, whenever opening files in Python, you can specify the
 encoding explicitly:
 
-```python .noeval
+~~~python
 with open("unicode.ipynb", encoding="utf-8") as file:
     pass
-```
+~~~
 
 In fact, it's **always a good idea to specify the encoding explicitly,
 using `UTF-8` as a default** if you don't know, for at least two reasons
