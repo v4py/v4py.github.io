@@ -554,8 +554,8 @@ for line in result.split('\n'):
 * The last tool we will look at is
   [UDPipe](https://lindat.mff.cuni.cz/services/udpipe/)
 * It performs tokenization, lemmatization, morphological tagging, and
-  syntactic dependency parsing.
-* It follows the Universal Dependencies standards
+  dependency syntax parsing.
+* It follows the [Universal Dependencies](http://universaldependencies.org) standards
 * It supports something like 50 languages!
 * As usual:
   * Check out the tool online
@@ -625,7 +625,7 @@ a `TokenList`.  Let's see just the first sentence.
 sentences[0]
 ```
 
-And let's see just the fifth word from the first sentence.
+And let's see just the sixth word from the first sentence.
 
 ```python
 sentences[0][5]
@@ -639,18 +639,6 @@ word form and the Universal Part-of-speech tag for the word.
 ```python
 print(sentences[0][5]['form'])
 print(sentences[0][5]['upostag'])
-```
-
-```python
-url = "http://lindat.mff.cuni.cz/services/udpipe/api/process"
-parameters = {
-    "data": "All human beings are born free and equal in dignity and rights.",
-    "model": "english",
-    "tokenizer": 1,
-    "tagger": 1,
-}
-response = requests.post(url, parameters)
-the_output = conllu.parse(response.json()['result'])
 ```
 
 ### Playing with the output
