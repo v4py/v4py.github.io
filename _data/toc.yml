@@ -33,6 +33,12 @@
 - url: /intro
 - url: /basics
 - url: /unicode
+- url: /data
+- url: /case
+  expand_sections: true
+  sections:
+    - url: /case/collocations
+    - url: /case/keywords
 - url: /outro
 
 # A chapter w/ a collection of sections beneath it

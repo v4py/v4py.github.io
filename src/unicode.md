@@ -534,14 +534,14 @@ in the history of writing, even adding new ones like
 is much bigger than the character sets we've seen so far -- its most
 frequently used subset, the [Basic Multilingual
 Plane](https://en.wikipedia.org/wiki/Plane_%28Unicode%29#Basic_Multilingual_Plane),
-has $2^16$ codepoints, but overall the number of codepoints is past 1M
+has $2^{16}$ codepoints, but overall the number of codepoints is past 1M
 and there's room to accommodate many more.
 
 ```python
 2**16
 ```
 
-Now, the most straightforward representation for $2^16$ codepoints is
+Now, the most straightforward representation for $2^{16}$ codepoints is
 what? Well, it's simply using 16 bits per character, i.e. 2 bytes. That
 encoding exists, it's called `UTF-16` ("UTF" stands for "Unicode
 Transformation Format"), but consider the drawbacks:
@@ -562,7 +562,7 @@ represented by either 7, 8 or 16 bits. In other words, you could jump
 around the string in multiples of 7, 8 or 16 and always land at the
 beginning of a character. (Not exactly true for `UTF-16`, because it is
 something more than just a "16-bit `ASCII`": it has ways of handling
-characters beyond $2^16$ using so-called [surrogate
+characters beyond $2^{16}$ using so-called [surrogate
 sequences](https://en.wikipedia.org/wiki/UTF-16#U.2B10000_to_U.2B10FFFF)
 -- but you get the gist.)
 
