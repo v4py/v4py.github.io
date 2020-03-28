@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+
+  <title>Parting words</title>
+  <meta name="description" content="# Parting words# Where to go from here## BooksAs a general introduction to Python programming which focuses onlinguistic applications, I've already recommend...">
+
+  <link rel="canonical" href="https://v4py.github.io//src/outro.html">
+  <link rel="alternate" type="application/rss+xml" title="An Introduction to Python for Linguists" href="https://v4py.github.io//feed.xml">
+
+  <meta property="og:url"         content="https://v4py.github.io//src/outro.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Parting words" />
+<meta property="og:description" content="# Parting words# Where to go from here## BooksAs a general introduction to Python programming which focuses onlinguistic applications, I've already recommend..." />
+<meta property="og:image"       content="https://v4py.github.io/images/logo/python.svg" />
+
+<meta name="twitter:card" content="summary">
+
+
+  <script type="application/ld+json">
+  {
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": "https://v4py.github.io//src/outro.html",
+  "headline": "Parting words",
+  "datePublished": "2020-03-28T11:42:54+01:00",
+  "dateModified": "2020-03-28T11:42:54+01:00",
+  "description": "# Parting words# Where to go from here## BooksAs a general introduction to Python programming which focuses onlinguistic applications, I've already recommend...",
+  "author": {
+    "@type": "Person",
+    "name": "David Lukeš, Rudolf Rosa"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data 100 at UC Berkeley",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://v4py.github.io/",
+      "width": 60,
+      "height": 60
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://v4py.github.io/",
+    "height": 60,
+    "width": 60
+  }
+}
+
+  </script>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+
+  <!-- <link rel="manifest" href="/manifest.json"> -->
+  <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="theme-color" content="#233947">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="/images/logo/favicon.ico">
+
+  <!-- MathJax Config -->
+  <!-- Allow inline math using $ and automatically break long math lines -->
+<!-- (mostly) copied from nbconvert configuration -->
+<!-- https://github.com/jupyter/nbconvert/blob/master/nbconvert/templates/html/mathjax.tpl -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    // Center justify equations in code and markdown cells. Elsewhere
+    // we use CSS to left justify single line equations in code cells.
+    displayAlign: 'center',
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}},
+        linebreaks: { automatic: true },
+    },
+    
+});
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML' async></script>
+
+
+  <!-- DOM updating function -->
+  <script src="/assets/js/page/dom-update.js"></script>
+
+  <!-- Selectors for elements on the page -->
+  <script src="/assets/js/page/documentSelectors.js"></script>
+
+  <!-- Define some javascript variables that will be useful in other javascript -->
+  <script>
+    const site_basename = '/';
+  </script>
+
+  <!-- Add AnchorJS to let headers be linked -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js" async></script>
+  <script src="/assets/js/page/anchors.js" async></script>
+
+  <!-- Include Turbolinks to make page loads fast -->
+  <!-- https://github.com/turbolinks/turbolinks -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js" async></script>
+  <meta name="turbolinks-cache-control" content="no-cache">
+
+  <!-- Load nbinteract for widgets -->
+  
+
+  <!-- Load Thebelab for interactive widgets -->
+  <!-- Include Thebelab for interactive code if it's enabled -->
+
+
+
+  <!-- Load the auto-generating TOC (non-async otherwise the TOC won't load w/ turbolinks) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.8.1/tocbot.min.js" async></script>
+  <script src="/assets/js/page/tocbot.js"></script>
+
+  <!-- Google analytics -->
+  
+
+
+  <!-- Clipboard copy button -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script>
+
+  <!-- Load custom website scripts -->
+  <script src="/assets/js/scripts.js" async></script>
+
+  <!-- Load custom user CSS and JS  -->
+  <script src="/assets/custom/custom.js" async></script>
+  <link rel="stylesheet" href="/assets/custom/custom.css">
+
+  <!-- Update interact links w/ REST param, is defined in includes so we can use templates -->
+  
+<script>
+/**
+  * To auto-embed hub URLs in interact links if given in a RESTful fashion
+ */
+
+function getJsonFromUrl(url) {
+  var query = url.split('?');
+  if (query.length < 2) {
+    // No queries so just return false
+    return false;
+  }
+  query = query[1];
+  // Collect REST params into a dictionary
+  var result = {};
+  query.split("&").forEach(function(part) {
+    var item = part.split("=");
+    result[item[0]] = decodeURIComponent(item[1]);
+  });
+  return result;
+}
+    
+function dict2param(dict) {
+    params = Object.keys(dict).map(function(k) {
+        return encodeURIComponent(k) + '=' + encodeURIComponent(dict[k])
+    });
+    return params.join('&')
+}
+
+// Parse a Binder URL, converting it to the string needed for JupyterHub
+function binder2Jupyterhub(url) {
+  newUrl = {};
+  parts = url.split('v2/gh/')[1];
+  // Grab the base repo information
+  repoinfo = parts.split('?')[0];
+  var [org, repo, ref] = repoinfo.split('/');
+  newUrl['repo'] = ['https://github.com', org, repo].join('/');
+  newUrl['branch'] = ref
+  // Grab extra parameters passed
+  params = getJsonFromUrl(url);
+  if (params['filepath'] !== undefined) {
+    newUrl['subPath'] = params['filepath']
+  }
+  return dict2param(newUrl);
+}
+
+// Filter out potentially unsafe characters to prevent xss
+function safeUrl(url)
+{
+   return String(encodeURIComponent(url))
+            .replace(/&/g, '&amp;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+}
+
+function addParamToInternalLinks(hub) {
+  var links = document.querySelectorAll("a").forEach(function(link) {
+    var href = link.href;
+    // If the link is an internal link...
+    if (href.search("https://v4py.github.io") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
+      // Assume we're an internal link, add the hub param to it
+      var params = getJsonFromUrl(href);
+      if (params !== false) {
+        // We have REST params, so append a new one
+        params['jupyterhub'] = hub;
+      } else {
+        // Create the REST params
+        params = {'jupyterhub': hub};
+      }
+      // Update the link
+      var newHref = href.split('?')[0] + '?' + dict2param(params);
+      link.setAttribute('href', decodeURIComponent(newHref));
+    }
+  });
+  return false;
+}
+
+
+// Update interact links
+function updateInteractLink() {
+    // hack to make this work since it expects a ? in the URL
+    rest = getJsonFromUrl("?" + location.search.substr(1));
+    jupyterHubUrl = rest['jupyterhub'];
+    var hubType = null;
+    var hubUrl = null;
+    if (jupyterHubUrl !== undefined) {
+      hubType = 'jupyterhub';
+      hubUrl = jupyterHubUrl;
+    }
+
+    if (hubType !== null) {
+      // Sanitize the hubUrl
+      hubUrl = safeUrl(hubUrl);
+
+      // Add HTTP text if omitted
+      if (hubUrl.indexOf('http') < 0) {hubUrl = 'http://' + hubUrl;}
+      var interactButtons = document.querySelectorAll("button.interact-button")
+      var lastButton = interactButtons[interactButtons.length-1];
+      var link = lastButton.parentElement;
+
+      // If we've already run this, skip the link updating
+      if (link.nextElementSibling !== null) {
+        return;
+      }
+
+      // Update the link and add context div
+      var href = link.getAttribute('href');
+      if (lastButton.id === 'interact-button-binder') {
+        // If binder links exist, we need to re-work them for jupyterhub
+        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
+          // If localhost, assume we're working from a local Jupyter server and remove `/hub`
+          first = [hubUrl, 'git-sync'].join('/')
+        } else {
+          first = [hubUrl, 'hub', 'user-redirect', 'git-sync'].join('/')
+        }
+        href = first + '?' + binder2Jupyterhub(href);
+      } else {
+        // If interact button isn't binderhub, assume it's jupyterhub
+        // If JupyterHub links, we only need to replace the hub url
+        href = href.replace("https://jupyter.korpus.cz", hubUrl);
+        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
+          // Assume we're working from a local Jupyter server and remove `/hub`
+          href = href.replace("/hub/user-redirect", "");
+        }
+      }
+      link.setAttribute('href', decodeURIComponent(href));
+
+      // Add text after interact link saying where we're launching
+      hubUrlNoHttp = decodeURIComponent(hubUrl).replace('http://', '').replace('https://', '');
+      link.insertAdjacentHTML('afterend', '<div class="interact-context">on ' + hubUrlNoHttp + '</div>');
+
+      // Update internal links so we retain the hub url
+      addParamToInternalLinks(hubUrl);
+    }
+}
+
+runWhenDOMLoaded(updateInteractLink)
+document.addEventListener('turbolinks:load', updateInteractLink)
+</script>
+
+
+  <!-- Lunr search code - will only be executed on the /search page -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js" async></script>
+  <script>var initQuery = function() {
+  // See if we have a search box
+  var searchInput = document.querySelector('input#lunr_search');
+  if (searchInput === null) {
+    return;
+  }
+
+  // Function to parse our lunr cache
+  var idx = lunr(function () {
+    this.field('title')
+    this.field('excerpt')
+    this.field('categories')
+    this.field('tags')
+    this.ref('id')
+
+    this.pipeline.remove(lunr.trimmer)
+
+    for (var item in store) {
+      this.add({
+        title: store[item].title,
+        excerpt: store[item].excerpt,
+        categories: store[item].categories,
+        tags: store[item].tags,
+        id: item
+      })
+    }
+  });
+
+  // Run search upon keyup
+  searchInput.addEventListener('keyup', function () {
+    var resultdiv = document.querySelector('#results');
+    var query = document.querySelector("input#lunr_search").value.toLowerCase();
+    var result =
+      idx.query(function (q) {
+        query.split(lunr.tokenizer.separator).forEach(function (term) {
+          q.term(term, { boost: 100 })
+          if(query.lastIndexOf(" ") != query.length-1){
+            q.term(term, {  usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
+          }
+          if (term != ""){
+            q.term(term, {  usePipeline: false, editDistance: 1, boost: 1 })
+          }
+        })
+      });
+
+      // Empty the results div
+      while (resultdiv.firstChild) {
+        resultdiv.removeChild(resultdiv.firstChild);
+      }
+
+    resultdiv.insertAdjacentHTML('afterbegin', '<p class="results__found">'+result.length+' Result(s) found</p>');
+    for (var item in result) {
+      var ref = result[item].ref;
+      if(store[ref].teaser){
+        var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<div class="archive__item-teaser">'+
+                '<img src="'+store[ref].teaser+'" alt="">'+
+              '</div>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      else{
+    	  var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      resultdiv.insertAdjacentHTML('beforeend', searchitem);
+    }
+  });
+};
+
+initFunction(initQuery);
+</script>
+
+  <!-- Load JS that depends on site variables -->
+  <script src="/assets/js/page/copy-button.js" async></script>
+
+  <!-- Hide cell code -->
+  <script src="/assets/js/page/hide-cell.js" async></script>
+
+  <!-- Printing the screen -->
+  <!-- Include nbinteract for interactive widgets -->
+<script src="https://printjs-4de6.kxcdn.com/print.min.js" async></script>
+<script>
+printContent = () => {
+    // MathJax displays a second version of any math for assistive devices etc.
+    // This prevents double-rendering in the PDF output.
+    var ignoreAssistList = [];
+    assistives = document.querySelectorAll('.MathJax_Display span.MJX_Assistive_MathML').forEach((element, index) => {
+        var thisId = 'MathJax-assistive-' + index.toString();
+        element.setAttribute('id', thisId);
+        ignoreAssistList.push(thisId)
+    });
+
+    // Print the actual content object
+    printJS({
+        printable: 'textbook_content',
+        type: 'html',
+        css: "/assets/css/styles.css",
+        style: "#textbook_content {padding-top: 40px};",
+        scanStyles: false,
+        targetStyles: ["*"],
+        ignoreElements: ignoreAssistList,
+        documentTitle: "An Introduction to Python for Linguists"
+    })
+};
+
+initPrint = () => {
+    document.querySelector('#interact-button-print').addEventListener('click', printContent)
+}
+
+initFunction(initPrint)
+</script>
+
+</head>
+
+  <body>
+    <!-- Include the ThebeLab config so it gets reloaded on each page -->
+    <script type="text/x-thebe-config">{
+    requestKernel: true,
+    binderOptions: {
+    repo: "v4py/v4py.github.io",
+    ref: "master",
+    },
+    codeMirrorConfig: {
+    theme: "abcdef",
+    mode: "python"
+    },
+    kernelOptions: {
+    kernelName: "python3",
+    path: ""
+    }
+}
+</script>
+
+    <!-- .js-show-sidebar shows sidebar by default -->
+    <div id="js-textbook" class="c-textbook js-show-sidebar">
+      
+
+
+
+<nav id="js-sidebar" class="c-textbook__sidebar">
+  <a href="https://v4py.github.io"><img src="/images/logo/python.svg" class="textbook_logo" id="sidebar-logo" alt="textbook logo" data-turbolinks-permanent/></a>
+  <h2 class="c-sidebar__title">An Introduction to Python for Linguists</h2>
+  <ul class="c-sidebar__chapters">
+    
+      
+      
+        <li><h2 class="c-sidebar__title">Table of contents</li>
+        
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/intro">
+        <a class="c-sidebar__entry"
+          href="/intro.html"
+        >
+          
+            1.
+          
+          Introduction
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/basics">
+        <a class="c-sidebar__entry"
+          href="/basics.html"
+        >
+          
+            2.
+          
+          A tour of Python and NLTK
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/unicode">
+        <a class="c-sidebar__entry"
+          href="/unicode.html"
+        >
+          
+            3.
+          
+          Text inside the computer
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/data">
+        <a class="c-sidebar__entry"
+          href="/data.html"
+        >
+          
+            4.
+          
+          Getting your data into Python
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/rest">
+        <a class="c-sidebar__entry"
+          href="/rest.html"
+        >
+          
+            5.
+          
+          Working with online resources
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/case">
+        <a class="c-sidebar__entry"
+          href="/case.html"
+        >
+          
+            6.
+          
+          Case studies
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/case/collocations">
+              <a class="c-sidebar__entry"
+                href="/case/collocations.html"
+              >
+                
+                  6.1
+                
+                Determining collocation strength
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/case/keywords">
+              <a class="c-sidebar__entry"
+                href="/case/keywords.html"
+              >
+                
+                  6.2
+                
+                Keyword analysis: Donald Trump's speeches
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/outro">
+        <a class="c-sidebar__entry"
+          href="/outro.html"
+        >
+          
+            7.
+          
+          Parting words
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
+      
+      
+        <li><h2 class="c-sidebar__title">Links</li>
+        
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="https://www.visegradfund.org/">
+        <a class="c-sidebar__entry"
+          href="https://www.visegradfund.org/"
+        >
+          
+          Sponsored by the Visegrad Fund
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="https://ufal.mff.cuni.cz/">
+        <a class="c-sidebar__entry"
+          href="https://ufal.mff.cuni.cz/"
+        >
+          
+          ÚFAL MFF UK
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="https://korpus.cz/">
+        <a class="c-sidebar__entry"
+          href="https://korpus.cz/"
+        >
+          
+          Czech National Corpus
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+  </ul>
+  <p class="sidebar_footer">Powered by <a href="https://jupyterbook.org">Jupyter Book</a></p>
+</nav>
+
+      
+      <div class="c-topbar" id="top-navbar">
+  <!-- We show the sidebar by default so we use .is-active -->
+  <div class="c-topbar__buttons">
+    <button
+      id="js-sidebar-toggle"
+      class="hamburger hamburger--arrowalt is-active"
+    >
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+    <div class="buttons">
+<div class="download-buttons-dropdown">
+    <button id="dropdown-button-trigger" class="interact-button"><img src="/assets/images/download-solid.svg" alt="Download" /></button>
+    <div class="download-buttons">
+        
+        <a id="interact-button-print"><button id="interact-button-download" class="interact-button">.pdf</button></a>
+    </div>
+</div>
+
+
+</div>
+
+  </div>
+  <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
+  <aside class="sidebar__right">
+    <header><h4 class="nav__title"><img src="/assets/images/list-solid.svg" alt="Search" />   On this page</h4></header>
+    <nav class="onthispage">
+    </nav>
+  </aside>
+  <a href="/search.html" class="topbar-right-button" id="search-button">
+    <img src="/assets/images/search-solid.svg" alt="Search" />
+  </a>
+</div>
+
+      <main class="c-textbook__page" tabindex="-1">
+            <div class="c-textbook__content" id="textbook_content">
+              <h1 id="parting-words">Parting words</h1>
+
+<h1 id="where-to-go-from-here">Where to go from here</h1>
+
+<h2 id="books">Books</h2>
+
+<!-- #md tags=["popout"]-->
+<p><a href="https://www.nltk.org/book/" target="_blank">
+<img src="images/outro/nltk_book.jpg" width="200" alt="Natural Language Processing with Python book cover" />
+</a>
+<!-- #endmd --></p>
+
+<p>As a general introduction to Python programming which focuses on
+linguistic applications, I’ve already recommended <a href="https://www.nltk.org/book/"><em>Natural Language
+Processing with Python: Analyzing Text with the Natural Language
+Toolkit</em></a> by Steven Bird, Ewan Klein and
+Edward Loper, and I’m going to recommend it again. It’s a great
+resource, all the more useful since it’s freely available online. It
+doesn’t provide just recipes on how to use the latest and greatest fancy
+stuff in NLP, treating the tools as black boxes, but rather focuses on
+understanding algorithms and concepts and improving your programming
+skills. This means that it often spends time on less cutting-edge
+methods, which are however conceptually simpler and thus have better
+teaching value. Depending on what your immediate needs are, this may be
+a strength or a weakness, but in the long run, I would argue that every
+programming linguist should spend some time honing their programming
+skills instead of always blindly following how-to style recipes, because
+even copy-pasting black box code can go seriously wrong if you don’t
+have a larger picture of what’s going on.</p>
+
+<!-- #md tags=["popout"]-->
+<p><a href="https://jakevdp.github.io/PythonDataScienceHandbook/" target="_blank">
+<img src="images/outro/python_data_science.png" width="200" alt="Python Data Science Handbook cover" />
+</a>
+<!-- #endmd --></p>
+
+<p>On perhaps a more practical note, I can definitely recommend Jake
+VanderPlas’s <a href="https://jakevdp.github.io/PythonDataScienceHandbook/"><em>Python Data Science
+Handbook</em></a>, an
+other great resource which is also freely available online. This book is
+not concerned with NLP per se but rather with data analysis, i.e. with
+what happens after you’ve processed your text data and want to do some
+statistical modeling or machine learning with it. This has traditionally
+been the domain of <a href="https://www.r-project.org/">R</a>, especially among
+linguists, but R is a very idiosyncratic language which encourages the
+copy-paste, black box approach: while it sometimes provides pleasant and
+easy-to-use abstractions (especially in the
+<a href="https://www.tidyverse.org/">tidyverse</a> third-party packages), building
+them yourself or wiring them together can be challenging because the
+underlying language is not really well-designed, edge cases and
+surprising behaviors abound. Python is much easier to wrap your head
+around, perhaps because it has always been intended as a more
+general-purpose programming language, but by the same token, it can be
+sometimes hard to know which libraries and techniques to use when
+getting started with data analysis in Python. The <em>Python Data Science
+Handbook</em> is there to help you with that.</p>
+
+<h2 id="videos">Videos</h2>
+
+<p>Unlike conferences in linguistics, programming conferences are often
+recorded and professionally produced videos (including presentation
+slides) are subsequently made available, most often for free. For
+tutorials and workshops, the materials often remain available long after
+the conference via sites like GitHub, so you can follow along at your
+leisure.</p>
+
+<p>Since conferences are popular, there’s potentially <em>a lot</em> of watching
+material, not all of it great. Some people are better programmers than
+speakers or teachers, some are good at neither, but there are so many
+conferences that they can accommodate all of them. Below is a collection
+of videos that I either consider rare gems of the Python conference
+circuit, or that are particularly relevant to the subject of analyzing
+language data, or both.</p>
+
+<p>If you end up searching yourself, I can recommend almost anything by
+either Raymond Hettinger, Ned Batchelder or David Beazley. Their
+contributions are consistently extremely informative, well-prepared and
+entertaining at the same time.</p>
+
+<h3 id="improving-your-python-chops">Improving your Python chops</h3>
+
+<!-- Beazley: builtins _____________________________________________ -->
+
+<!-- #md tags=["popout"] -->
+
+<p>A great tour of Python’s built-in functionality, i.e. stuff that’s
+always available, without having to load any libraries, and tips and
+tricks on how to use it. A great way to top off your Python initiation
+and graduate to a proficient beginner.</p>
+
+<!-- #endmd -->
+
+<!-- #md -->
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/lyDLAutA88s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+<!-- #endmd -->
+
+<!-- Batchelder: variables _________________________________________ -->
+
+<!-- #md tags=["popout"] -->
+
+<p>This is perhaps the most useful intermediate Python talk ever. It’ll
+clear up any misconceptions about how variables work in Python that you
+might have accumulated on your programming journey so far, and enable
+you to work on more complicated and larger pieces of code with more
+confidence.</p>
+
+<!-- #endmd -->
+
+<!-- #md -->
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/_AEJHKGk9ns" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+<!-- #endmd -->
+
+<!-- =============================================================== -->
+<!-- #md tags=["full_width"] -->
+<hr />
+<!-- #endmd -->
+
+<h3 id="data-analysis-and-nlp">Data analysis and NLP</h3>
+
+<!-- VanderPlas: PyData 101 ________________________________________ -->
+
+<!-- #md tags=["popout"] -->
+
+<p>If you’re interested in using Python for data analysis, I can recommend
+anything by Jake VanderPlas (who wrote the <em>Python Data Science
+Handbook</em> mentioned earlier). This is an introductory talk which
+provides basic orientation in the Python data analysis landscape – what
+tools exist and when to use which. As a keynote, it’s somewhat longer
+and also provides a bit of historical background on Python, with a bias
+for data science applications of course.</p>
+
+<!-- #endmd -->
+
+<!-- #md -->
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Iq9DzN6mvYA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+<!-- #endmd -->
+
+<!-- VanderPlas: statistics ________________________________________ -->
+
+<!-- #md tags=["popout"] -->
+
+<p>A bit unsure how statistics works, or what it’s even good for? This
+particular talk may be titled <em>Statistics for Hackers</em>, but in reality
+it’s geared towards anyone with a keen mind who’s interested in
+statistics but hasn’t had extensive formal training in math, which means
+they sometimes struggle with a formula-heavy approach. Which often
+applies to linguists, including myself.</p>
+
+<!-- #endmd -->
+
+<!-- #md -->
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Iq9DzN6mvYA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+<!-- #endmd -->
+
+<!-- VanderPlas: cutting-edge viz __________________________________ -->
+
+<!-- #md tags=["popout"] -->
+
+<p>Visualization is currently a rapidly evolving landscape in Python, and
+this talk is about new developments based on the <em>grammar of graphics</em>
+and <em>declarative visualization</em> approach, which was popularized by the R
+package <a href="https://ggplot2.tidyverse.org/">ggplot2</a>. The first part is a
+teaches you how to think about visualization in general, while the
+second introduces the <a href="https://altair-viz.github.io/">Altair</a> library.</p>
+
+<!-- #endmd -->
+
+<!-- #md -->
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/vTingdk_pVM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+<!-- #endmd -->
+
+<!-- VanderPlas: traditional viz ___________________________________ -->
+
+<!-- #md tags=["popout"] -->
+
+<p>By contrast, this older talk gives an overview of the Python
+visualization landscape including the more traditional and established
+Python visualization tools, which many people continue using and which
+aren’t going away anytime soon. Their advantage is that they’re mature,
+stable and widely known, so it can be much easier to get help on how to
+use them from random people on the internet. A good accompanying
+resource for this talk is <a href="https://jakevdp.github.io/PythonDataScienceHandbook/04.00-introduction-to-matplotlib.html">Part
+4</a>
+of the <em>Python Data Science Handbook</em>.</p>
+
+<!-- #endmd -->
+
+<!-- #md -->
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/FytuB8nFHPQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+<!-- #endmd -->
+
+<!-- Zhao: NLP tutorial ____________________________________________ -->
+
+<!-- #md tags=["popout"] -->
+
+<p>An NLP tutorial whose most valuable aspect is that if offers an extended
+worked example of data analysis, from collecting raw data to
+communicating insights. It gives a very good idea of what this entire
+process typically looks like and what are the pitfalls to look out for.</p>
+
+<!-- #endmd -->
+
+<!-- #md -->
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/xvqsFTUsOmc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+<!-- #endmd -->
+
+<!-- =============================================================== -->
+<!-- #md tags=["full_width"] -->
+<hr />
+<!-- #endmd -->
+
+<h3 id="war-stories">War stories</h3>
+
+<!-- Beazley: mission impossible ___________________________________ -->
+
+<!-- #md tags=["popout"] -->
+
+<p>A real-life story on how Python helped David Beazley to make sense of
+large amounts of unknown data in order to prepare an expert testimony in
+a legal case. More on the entertaining side than the educational, but it
+<em>will</em> teach you that Python is a Swiss-army knife for slicing and
+dicing data. The <em>Mission: Impossible</em> of programming conference talks,
+with Python starring as agent Ethan Hunt!</p>
+
+<!-- #endmd -->
+
+<!-- #md -->
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/RZ4Sn-Y7AP8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+<!-- #endmd -->
+
+<!-- =============================================================== -->
+<!-- #md tags=["full_width"] -->
+<hr />
+<!-- #endmd -->
+
+<h3 id="nuts-and-bolts-advanced">Nuts and bolts (advanced)</h3>
+
+<p>And finally, here are a few more advanced talks which I heartily
+recommend watching after you’ve spent a little more time with Python.</p>
+
+<!-- Hettinger: dictionaries _______________________________________ -->
+
+<!-- #md tags=["popout"] -->
+
+<p>Dictionaries are the bread and butter of the Python programmer, and
+they’re also at the core of how many of the features in the language
+work. As such, their implementation has evolved over the years to
+incorporate increasingly clever tricks. Learn what they are from the
+proverbial horse’s mouth, Python core developer Raymond Hettinger, who’s
+also one of the most consistently entertaining conference speakers I’ve
+seen!</p>
+
+<!-- #endmd -->
+
+<!-- #md -->
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/npw4s1QTmPg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+<!-- #endmd -->
+
+<!-- Hettinger: concurrency ________________________________________ -->
+
+<!-- #md tags=["popout"] -->
+
+<p>Another talk by Raymond Hettinger, this time about making the computer
+do multiple things at the same time. Spoiler: it’s hard to get this
+right, and you should probably think twice whether you really needed
+before you start tinkering with it.</p>
+
+<!-- #endmd -->
+
+<!-- #md -->
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/9zinZmE3Ogk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+<!-- #endmd -->
+
+<!-- NJ Smith: trio ________________________________________________ -->
+
+<!-- #md tags=["popout"] -->
+
+<p>On a similar topic as the previous one, a talk on how computers can
+<em>pretend</em> they’re doing several things at the same time by quickly
+switching between tasks, and on designing a Python library which makes
+such programming fairly intuitive and less error-prone. If you’ve heard
+the buzzwords <code class="language-plaintext highlighter-rouge">async</code> and <code class="language-plaintext highlighter-rouge">await</code>, they feature prominently.</p>
+
+<!-- #endmd -->
+
+<!-- #md -->
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/oLkfnc_UMcE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+<!-- #endmd -->
+
+<h2 id="libraries">Libraries</h2>
+
+<ul>
+  <li>nltk</li>
+  <li>corpy</li>
+  <li>lxml</li>
+  <li>trio</li>
+  <li>regex (use re docs)</li>
+  <li>matplotlib</li>
+  <li>seaborn</li>
+  <li>pandas</li>
+</ul>
+
+<!-- vim: set spell spelllang=en: -->
+
+            </div>
+            <div class="c-textbook__footer" id="textbook_footer">
+              
+<nav class="c-page__nav">
+  
+
+  
+</nav>
+
+              <footer>
+  <p class="footer"></p>
+</footer>
+
+            </div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

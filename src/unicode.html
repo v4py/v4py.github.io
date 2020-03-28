@@ -1,0 +1,1717 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+
+  <title>Text inside the computer</title>
+  <meta name="description" content="# Text inside the computerTODO ... blah blah useful, prevents mistakes... even though aslinguists, we think we know everything about text, this ain't Kansasa...">
+
+  <link rel="canonical" href="https://v4py.github.io//src/unicode.html">
+  <link rel="alternate" type="application/rss+xml" title="An Introduction to Python for Linguists" href="https://v4py.github.io//feed.xml">
+
+  <meta property="og:url"         content="https://v4py.github.io//src/unicode.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Text inside the computer" />
+<meta property="og:description" content="# Text inside the computerTODO ... blah blah useful, prevents mistakes... even though aslinguists, we think we know everything about text, this ain't Kansasa..." />
+<meta property="og:image"       content="https://v4py.github.io/images/logo/python.svg" />
+
+<meta name="twitter:card" content="summary">
+
+
+  <script type="application/ld+json">
+  {
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": "https://v4py.github.io//src/unicode.html",
+  "headline": "Text inside the computer",
+  "datePublished": "2020-03-28T11:42:54+01:00",
+  "dateModified": "2020-03-28T11:42:54+01:00",
+  "description": "# Text inside the computerTODO ... blah blah useful, prevents mistakes... even though aslinguists, we think we know everything about text, this ain't Kansasa...",
+  "author": {
+    "@type": "Person",
+    "name": "David Lukeš, Rudolf Rosa"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data 100 at UC Berkeley",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://v4py.github.io/",
+      "width": 60,
+      "height": 60
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://v4py.github.io/",
+    "height": 60,
+    "width": 60
+  }
+}
+
+  </script>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+
+  <!-- <link rel="manifest" href="/manifest.json"> -->
+  <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="theme-color" content="#233947">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="/images/logo/favicon.ico">
+
+  <!-- MathJax Config -->
+  <!-- Allow inline math using $ and automatically break long math lines -->
+<!-- (mostly) copied from nbconvert configuration -->
+<!-- https://github.com/jupyter/nbconvert/blob/master/nbconvert/templates/html/mathjax.tpl -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    // Center justify equations in code and markdown cells. Elsewhere
+    // we use CSS to left justify single line equations in code cells.
+    displayAlign: 'center',
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}},
+        linebreaks: { automatic: true },
+    },
+    
+});
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML' async></script>
+
+
+  <!-- DOM updating function -->
+  <script src="/assets/js/page/dom-update.js"></script>
+
+  <!-- Selectors for elements on the page -->
+  <script src="/assets/js/page/documentSelectors.js"></script>
+
+  <!-- Define some javascript variables that will be useful in other javascript -->
+  <script>
+    const site_basename = '/';
+  </script>
+
+  <!-- Add AnchorJS to let headers be linked -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js" async></script>
+  <script src="/assets/js/page/anchors.js" async></script>
+
+  <!-- Include Turbolinks to make page loads fast -->
+  <!-- https://github.com/turbolinks/turbolinks -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js" async></script>
+  <meta name="turbolinks-cache-control" content="no-cache">
+
+  <!-- Load nbinteract for widgets -->
+  
+
+  <!-- Load Thebelab for interactive widgets -->
+  <!-- Include Thebelab for interactive code if it's enabled -->
+
+
+
+  <!-- Load the auto-generating TOC (non-async otherwise the TOC won't load w/ turbolinks) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.8.1/tocbot.min.js" async></script>
+  <script src="/assets/js/page/tocbot.js"></script>
+
+  <!-- Google analytics -->
+  
+
+
+  <!-- Clipboard copy button -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script>
+
+  <!-- Load custom website scripts -->
+  <script src="/assets/js/scripts.js" async></script>
+
+  <!-- Load custom user CSS and JS  -->
+  <script src="/assets/custom/custom.js" async></script>
+  <link rel="stylesheet" href="/assets/custom/custom.css">
+
+  <!-- Update interact links w/ REST param, is defined in includes so we can use templates -->
+  
+<script>
+/**
+  * To auto-embed hub URLs in interact links if given in a RESTful fashion
+ */
+
+function getJsonFromUrl(url) {
+  var query = url.split('?');
+  if (query.length < 2) {
+    // No queries so just return false
+    return false;
+  }
+  query = query[1];
+  // Collect REST params into a dictionary
+  var result = {};
+  query.split("&").forEach(function(part) {
+    var item = part.split("=");
+    result[item[0]] = decodeURIComponent(item[1]);
+  });
+  return result;
+}
+    
+function dict2param(dict) {
+    params = Object.keys(dict).map(function(k) {
+        return encodeURIComponent(k) + '=' + encodeURIComponent(dict[k])
+    });
+    return params.join('&')
+}
+
+// Parse a Binder URL, converting it to the string needed for JupyterHub
+function binder2Jupyterhub(url) {
+  newUrl = {};
+  parts = url.split('v2/gh/')[1];
+  // Grab the base repo information
+  repoinfo = parts.split('?')[0];
+  var [org, repo, ref] = repoinfo.split('/');
+  newUrl['repo'] = ['https://github.com', org, repo].join('/');
+  newUrl['branch'] = ref
+  // Grab extra parameters passed
+  params = getJsonFromUrl(url);
+  if (params['filepath'] !== undefined) {
+    newUrl['subPath'] = params['filepath']
+  }
+  return dict2param(newUrl);
+}
+
+// Filter out potentially unsafe characters to prevent xss
+function safeUrl(url)
+{
+   return String(encodeURIComponent(url))
+            .replace(/&/g, '&amp;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+}
+
+function addParamToInternalLinks(hub) {
+  var links = document.querySelectorAll("a").forEach(function(link) {
+    var href = link.href;
+    // If the link is an internal link...
+    if (href.search("https://v4py.github.io") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
+      // Assume we're an internal link, add the hub param to it
+      var params = getJsonFromUrl(href);
+      if (params !== false) {
+        // We have REST params, so append a new one
+        params['jupyterhub'] = hub;
+      } else {
+        // Create the REST params
+        params = {'jupyterhub': hub};
+      }
+      // Update the link
+      var newHref = href.split('?')[0] + '?' + dict2param(params);
+      link.setAttribute('href', decodeURIComponent(newHref));
+    }
+  });
+  return false;
+}
+
+
+// Update interact links
+function updateInteractLink() {
+    // hack to make this work since it expects a ? in the URL
+    rest = getJsonFromUrl("?" + location.search.substr(1));
+    jupyterHubUrl = rest['jupyterhub'];
+    var hubType = null;
+    var hubUrl = null;
+    if (jupyterHubUrl !== undefined) {
+      hubType = 'jupyterhub';
+      hubUrl = jupyterHubUrl;
+    }
+
+    if (hubType !== null) {
+      // Sanitize the hubUrl
+      hubUrl = safeUrl(hubUrl);
+
+      // Add HTTP text if omitted
+      if (hubUrl.indexOf('http') < 0) {hubUrl = 'http://' + hubUrl;}
+      var interactButtons = document.querySelectorAll("button.interact-button")
+      var lastButton = interactButtons[interactButtons.length-1];
+      var link = lastButton.parentElement;
+
+      // If we've already run this, skip the link updating
+      if (link.nextElementSibling !== null) {
+        return;
+      }
+
+      // Update the link and add context div
+      var href = link.getAttribute('href');
+      if (lastButton.id === 'interact-button-binder') {
+        // If binder links exist, we need to re-work them for jupyterhub
+        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
+          // If localhost, assume we're working from a local Jupyter server and remove `/hub`
+          first = [hubUrl, 'git-sync'].join('/')
+        } else {
+          first = [hubUrl, 'hub', 'user-redirect', 'git-sync'].join('/')
+        }
+        href = first + '?' + binder2Jupyterhub(href);
+      } else {
+        // If interact button isn't binderhub, assume it's jupyterhub
+        // If JupyterHub links, we only need to replace the hub url
+        href = href.replace("https://jupyter.korpus.cz", hubUrl);
+        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
+          // Assume we're working from a local Jupyter server and remove `/hub`
+          href = href.replace("/hub/user-redirect", "");
+        }
+      }
+      link.setAttribute('href', decodeURIComponent(href));
+
+      // Add text after interact link saying where we're launching
+      hubUrlNoHttp = decodeURIComponent(hubUrl).replace('http://', '').replace('https://', '');
+      link.insertAdjacentHTML('afterend', '<div class="interact-context">on ' + hubUrlNoHttp + '</div>');
+
+      // Update internal links so we retain the hub url
+      addParamToInternalLinks(hubUrl);
+    }
+}
+
+runWhenDOMLoaded(updateInteractLink)
+document.addEventListener('turbolinks:load', updateInteractLink)
+</script>
+
+
+  <!-- Lunr search code - will only be executed on the /search page -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js" async></script>
+  <script>var initQuery = function() {
+  // See if we have a search box
+  var searchInput = document.querySelector('input#lunr_search');
+  if (searchInput === null) {
+    return;
+  }
+
+  // Function to parse our lunr cache
+  var idx = lunr(function () {
+    this.field('title')
+    this.field('excerpt')
+    this.field('categories')
+    this.field('tags')
+    this.ref('id')
+
+    this.pipeline.remove(lunr.trimmer)
+
+    for (var item in store) {
+      this.add({
+        title: store[item].title,
+        excerpt: store[item].excerpt,
+        categories: store[item].categories,
+        tags: store[item].tags,
+        id: item
+      })
+    }
+  });
+
+  // Run search upon keyup
+  searchInput.addEventListener('keyup', function () {
+    var resultdiv = document.querySelector('#results');
+    var query = document.querySelector("input#lunr_search").value.toLowerCase();
+    var result =
+      idx.query(function (q) {
+        query.split(lunr.tokenizer.separator).forEach(function (term) {
+          q.term(term, { boost: 100 })
+          if(query.lastIndexOf(" ") != query.length-1){
+            q.term(term, {  usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
+          }
+          if (term != ""){
+            q.term(term, {  usePipeline: false, editDistance: 1, boost: 1 })
+          }
+        })
+      });
+
+      // Empty the results div
+      while (resultdiv.firstChild) {
+        resultdiv.removeChild(resultdiv.firstChild);
+      }
+
+    resultdiv.insertAdjacentHTML('afterbegin', '<p class="results__found">'+result.length+' Result(s) found</p>');
+    for (var item in result) {
+      var ref = result[item].ref;
+      if(store[ref].teaser){
+        var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<div class="archive__item-teaser">'+
+                '<img src="'+store[ref].teaser+'" alt="">'+
+              '</div>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      else{
+    	  var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      resultdiv.insertAdjacentHTML('beforeend', searchitem);
+    }
+  });
+};
+
+initFunction(initQuery);
+</script>
+
+  <!-- Load JS that depends on site variables -->
+  <script src="/assets/js/page/copy-button.js" async></script>
+
+  <!-- Hide cell code -->
+  <script src="/assets/js/page/hide-cell.js" async></script>
+
+  <!-- Printing the screen -->
+  <!-- Include nbinteract for interactive widgets -->
+<script src="https://printjs-4de6.kxcdn.com/print.min.js" async></script>
+<script>
+printContent = () => {
+    // MathJax displays a second version of any math for assistive devices etc.
+    // This prevents double-rendering in the PDF output.
+    var ignoreAssistList = [];
+    assistives = document.querySelectorAll('.MathJax_Display span.MJX_Assistive_MathML').forEach((element, index) => {
+        var thisId = 'MathJax-assistive-' + index.toString();
+        element.setAttribute('id', thisId);
+        ignoreAssistList.push(thisId)
+    });
+
+    // Print the actual content object
+    printJS({
+        printable: 'textbook_content',
+        type: 'html',
+        css: "/assets/css/styles.css",
+        style: "#textbook_content {padding-top: 40px};",
+        scanStyles: false,
+        targetStyles: ["*"],
+        ignoreElements: ignoreAssistList,
+        documentTitle: "An Introduction to Python for Linguists"
+    })
+};
+
+initPrint = () => {
+    document.querySelector('#interact-button-print').addEventListener('click', printContent)
+}
+
+initFunction(initPrint)
+</script>
+
+</head>
+
+  <body>
+    <!-- Include the ThebeLab config so it gets reloaded on each page -->
+    <script type="text/x-thebe-config">{
+    requestKernel: true,
+    binderOptions: {
+    repo: "v4py/v4py.github.io",
+    ref: "master",
+    },
+    codeMirrorConfig: {
+    theme: "abcdef",
+    mode: "python"
+    },
+    kernelOptions: {
+    kernelName: "python3",
+    path: ""
+    }
+}
+</script>
+
+    <!-- .js-show-sidebar shows sidebar by default -->
+    <div id="js-textbook" class="c-textbook js-show-sidebar">
+      
+
+
+
+<nav id="js-sidebar" class="c-textbook__sidebar">
+  <a href="https://v4py.github.io"><img src="/images/logo/python.svg" class="textbook_logo" id="sidebar-logo" alt="textbook logo" data-turbolinks-permanent/></a>
+  <h2 class="c-sidebar__title">An Introduction to Python for Linguists</h2>
+  <ul class="c-sidebar__chapters">
+    
+      
+      
+        <li><h2 class="c-sidebar__title">Table of contents</li>
+        
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/intro">
+        <a class="c-sidebar__entry"
+          href="/intro.html"
+        >
+          
+            1.
+          
+          Introduction
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/basics">
+        <a class="c-sidebar__entry"
+          href="/basics.html"
+        >
+          
+            2.
+          
+          A tour of Python and NLTK
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/unicode">
+        <a class="c-sidebar__entry"
+          href="/unicode.html"
+        >
+          
+            3.
+          
+          Text inside the computer
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/data">
+        <a class="c-sidebar__entry"
+          href="/data.html"
+        >
+          
+            4.
+          
+          Getting your data into Python
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/rest">
+        <a class="c-sidebar__entry"
+          href="/rest.html"
+        >
+          
+            5.
+          
+          Working with online resources
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/case">
+        <a class="c-sidebar__entry"
+          href="/case.html"
+        >
+          
+            6.
+          
+          Case studies
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+        
+
+        
+
+        <ul class="c-sidebar__sections">
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/case/collocations">
+              <a class="c-sidebar__entry"
+                href="/case/collocations.html"
+              >
+                
+                  6.1
+                
+                Determining collocation strength
+              </a>
+            </li>
+            
+            
+          
+            
+            
+
+            
+            
+            
+            
+
+            <li class="c-sidebar__section" data-url="/case/keywords">
+              <a class="c-sidebar__entry"
+                href="/case/keywords.html"
+              >
+                
+                  6.2
+                
+                Keyword analysis: Donald Trump's speeches
+              </a>
+            </li>
+            
+            
+          
+        </ul>
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/outro">
+        <a class="c-sidebar__entry"
+          href="/outro.html"
+        >
+          
+            7.
+          
+          Parting words
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
+      
+      
+        <li><h2 class="c-sidebar__title">Links</li>
+        
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="https://www.visegradfund.org/">
+        <a class="c-sidebar__entry"
+          href="https://www.visegradfund.org/"
+        >
+          
+          Sponsored by the Visegrad Fund
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="https://ufal.mff.cuni.cz/">
+        <a class="c-sidebar__entry"
+          href="https://ufal.mff.cuni.cz/"
+        >
+          
+          ÚFAL MFF UK
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="https://korpus.cz/">
+        <a class="c-sidebar__entry"
+          href="https://korpus.cz/"
+        >
+          
+          Czech National Corpus
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+  </ul>
+  <p class="sidebar_footer">Powered by <a href="https://jupyterbook.org">Jupyter Book</a></p>
+</nav>
+
+      
+      <div class="c-topbar" id="top-navbar">
+  <!-- We show the sidebar by default so we use .is-active -->
+  <div class="c-topbar__buttons">
+    <button
+      id="js-sidebar-toggle"
+      class="hamburger hamburger--arrowalt is-active"
+    >
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+    <div class="buttons">
+<div class="download-buttons-dropdown">
+    <button id="dropdown-button-trigger" class="interact-button"><img src="/assets/images/download-solid.svg" alt="Download" /></button>
+    <div class="download-buttons">
+        
+        <a id="interact-button-print"><button id="interact-button-download" class="interact-button">.pdf</button></a>
+    </div>
+</div>
+
+
+</div>
+
+  </div>
+  <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
+  <aside class="sidebar__right">
+    <header><h4 class="nav__title"><img src="/assets/images/list-solid.svg" alt="Search" />   On this page</h4></header>
+    <nav class="onthispage">
+    </nav>
+  </aside>
+  <a href="/search.html" class="topbar-right-button" id="search-button">
+    <img src="/assets/images/search-solid.svg" alt="Search" />
+  </a>
+</div>
+
+      <main class="c-textbook__page" tabindex="-1">
+            <div class="c-textbook__content" id="textbook_content">
+              <h1 id="text-inside-the-computer">Text inside the computer</h1>
+
+<p>TODO … blah blah useful, prevents mistakes… even though as
+linguists, we think we know everything about text, this ain’t Kansas
+anymore as they say, this is Computerland, and the rules for how text
+works are strict and sometimes surprising.</p>
+
+<p>This stuff might seem ridiculously low-level to a linguist, but if you
+get it wrong, anything that you build on top will crumble like a house
+of cards and your linguistic analyses will be likely to yield garbage.
+And just to be extra clear, <em>every single day</em>, there are professional
+programmers who get some of this wrong. When was the last time an e-shop
+maltreated the diacritics in your name, for instance?</p>
+
+<h1 id="binary-and-hexadeci-what-now">Binary and hexadeci-what-now?</h1>
+
+<p>Before we get started, humor me as I engage in a short digression on
+representing numbers, to make sure we’re all on the same page. Why
+numbers, I hear you ask, I thought this chapter was supposed to be about
+text?  Well because in a computer, it’s numbers all the way down, even
+text is ultimately represented as numbers. So we need to be relatively
+comfortable with the different ways numbers are commonly written down in
+the context of computers:</p>
+
+<ol>
+  <li>as a plain old <strong>decimal</strong> number, using 10 digits 0–9 (e.g. 12)</li>
+  <li>as a <strong>binary</strong> number, using only 2 digits, 0 and 1 (e.g. 1100,
+which equals decimal 12)</li>
+  <li>as a <strong>hexadecimal</strong> number, using 16 digits: 0–9 and a–f (e.g. c,
+which also equals decimal 12)</li>
+</ol>
+
+<p>All of these <strong>numeral systems</strong> can represent any number, the binary
+system doesn’t stop counting at 1, any more than the decimal system
+stops counting at 9 – beyond these respective points, we just add
+another digit and carry on. The only difference is that the fewer
+different digits a system uses, the more digits it takes to represent a
+number.</p>
+
+<!-- #md tags=["popout"] -->
+
+<p>The <strong>base</strong> of a numeral system corresponds to the number of digits it
+uses: 2 for binary, 10 for decimal, 16 for hexadecimal.</p>
+
+<!-- #endmd -->
+
+<p>If you’re curious how that works, just take a moment to reflect on what
+you do implicitly each time you read a regular decimal number: you
+multiply the individual digits with increasing powers of 10, which is
+the <strong>base</strong> of the decimal system, starting from the right, and add
+this all up:</p>
+
+<ul>
+  <li>e.g. for (regular decimal) 12: $2 \times 10^0 + 1 \times 10^1 = 2
+\times 1 + 1 \times 10 = 12$</li>
+  <li>for binary 1100, this goes: $0 \times 2^0 + 0 \times 2^1 + 1 \times
+2^2 + 1 \times 2^3 = 0 + 0 + 4 + 8 = 12$</li>
+  <li>and for hexadecimal c: $c \times 16^0 = c \times 1 = 12 \times 1 =
+12$.</li>
+</ul>
+
+<!-- #md tags=["popout"] -->
+
+<p>In theory, nothing prevents us from building decimal computer memory
+where each slot distinguishes between ten digits instead of two bits,
+and <a href="https://en.wikipedia.org/wiki/Decimal_computer">some early
+computers</a> used that
+design. In practice though, it’s much harder to make such slots
+reliable: distinguishing between ten levels per slot, e.g. based on
+differences in voltage, is much more error prone than distinguishing
+between just two.</p>
+
+<!-- #endmd -->
+
+<p>Decimal numbers are useful because everybody knows them, which makes
+them universally easy to read. Binary numbers are useful because they
+closely map to the underlying hardware: <strong>computer memory</strong> consists of
+<strong>bits</strong>, tiny slots each of which can hold a 0 or a 1. A group of eight
+adjacent bits is called a <strong>byte</strong>.</p>
+
+<p>As a consequence, the need often arises to convert between these
+different systems. If you don’t want to do so by hand, Python has your
+back! The <code class="language-plaintext highlighter-rouge">bin()</code> function gives you a <em>string representation</em> of the
+binary form of a number:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">bin</span><span class="p">(</span><span class="mi">65</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>As you can see, in Python, binary numbers are given a <code class="language-plaintext highlighter-rouge">0b</code> prefix to
+distinguish them from regular (decimal) numbers. The number itself is
+what follows after (i.e. 1000001).</p>
+
+<p>Similarly, hexadecimal numbers are given an <code class="language-plaintext highlighter-rouge">0x</code> prefix:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">hex</span><span class="p">(</span><span class="mi">65</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>To convert in the opposite direction, i.e. <em>to</em> decimal, just evaluate
+the binary or hexadecimal representation of a number:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mb">0b1000001</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mh">0x41</span>
+</code></pre></div></div>
+
+<p>Number literals using these different bases are mutually compatible,
+e.g. for comparison purposes:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mb">0b1000001</span> <span class="o">==</span> <span class="mh">0x41</span> <span class="o">==</span> <span class="mi">65</span>
+</code></pre></div></div>
+
+<p>Why are hexadecimals useful? They’re primarily a more <strong>convenient,
+condensed</strong> way of representing sequences of bits: each hexadecimal
+digit can represent 16 different values, and therefore it can stand in
+for a sequence of 4 bits, i.e. half a byte ($2^4 = 16$).</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mh">0xa</span> <span class="o">==</span> <span class="mb">0b1010</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mh">0xb</span> <span class="o">==</span> <span class="mb">0b1011</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># if we paste together hexadecimal a and b, it's the same as pasting
+# together binary 1010 and 1011
+</span><span class="mh">0xab</span> <span class="o">==</span> <span class="mb">0b10101011</span>
+</code></pre></div></div>
+
+<p>In other words, instead of binary <code class="language-plaintext highlighter-rouge">10101011</code>, we can just write
+hexadecimal <code class="language-plaintext highlighter-rouge">ab</code> and save ourselves some space. Of course, this only
+works if shorter binary numbers are <strong>padded to a 4-bit width</strong>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mh">0x2</span> <span class="o">==</span> <span class="mb">0b10</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mh">0x3</span> <span class="o">==</span> <span class="mb">0b11</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># if we paste together hexadecimal 2 and 3, we have to paste together
+# binary 0010 and 0011...
+</span><span class="mh">0x23</span> <span class="o">==</span> <span class="mb">0b00100011</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># ... not just 10 and 11
+</span><span class="mh">0x23</span> <span class="o">==</span> <span class="mb">0b1011</span>
+</code></pre></div></div>
+
+<p>The padding has no effect on the value, much like decimal 42 and
+00000042 are effectively the same numbers.</p>
+
+<h1 id="representing-text-a-diy-approach">Representing text: a DIY approach</h1>
+
+<p>With that out of the way, the best way to understand how computers
+represent text, and why it works like it does, is to try and come up
+with our own system to do that. First of all, we’ll need a table of all
+the <strong>characters</strong> we want to support, mapping each one of them, you
+guessed it, to a unique number, since computers only work with numbers.
+For this toy example, let’s say four characters are enough:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>number</th>
+      <th>character</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>a</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>b</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>c</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>d</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Such a table is called a <strong>character set</strong>, and each row is a
+<strong>codepoint</strong>, which basically means a number/character pair. Let’s
+represent our character set as a Python dictionary; since we’ll mostly
+be concerned with going from characters to numbers, we’ll use the
+characters as keys.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">charset</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">charset</span>
+</code></pre></div></div>
+
+<p>Now, we’ve just established that computers typically know only about two
+digits, 0 and 1, but our character set goes up to 4, so we’re going to
+have to come up with a way to <strong>encode</strong> these numbers into series of
+0’s and 1’s so that we can store them in computer memory. We can think
+of an <strong>encoding</strong> as a function which decides how to turn a number into
+a sequence of bits. A very simple encoding would be to turn each number
+into the corresponding number of 1’s and store those in the memory.</p>
+
+<!-- #md tags=["popout"] -->
+
+<p>For these demonstration purposes, we’ll be representing computer memory
+as strings of 1’s and 0’s, as it’s easier to implement and also see
+what’s going on than if we actually twiddled with individual bits.</p>
+
+<!-- #endmd -->
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">encoding1</span><span class="p">(</span><span class="n">char</span><span class="p">):</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="n">charset</span><span class="p">[</span><span class="n">char</span><span class="p">]</span>
+    <span class="k">return</span> <span class="s">"1"</span> <span class="o">*</span> <span class="n">num</span>
+</code></pre></div></div>
+
+<p>Let’s see how our new <code class="language-plaintext highlighter-rouge">encoding1</code> encodes each character in <code class="language-plaintext highlighter-rouge">charset</code>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">charset</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="s">"-&gt;"</span><span class="p">,</span> <span class="n">encoding1</span><span class="p">(</span><span class="n">char</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Looks fine so far, all of the characters map to a different sequence of
+bits! Now for something more challenging: let’s see how it handles
+encoding strings which consist of multiple characters.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="n">encoding1</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="s">"ac"</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>This seems fine as well, except we have to remember that computer memory
+is just a long line of contiguous slots, with no boundaries between
+them. Even when we conceptually split it into bytes, the byte boundaries
+every eight bits are just imagined, it’s not like there’s some kind of
+fence in the memory after every eight slots. So we have to join this
+list of strings in order to get a more accurate idea of what our
+encoding would actually look like when stored in memory.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">encoding1</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="s">"ac"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Uh-oh. Can you spot the problem? Our encoding works perfectly well one
+way, to encode characters into bits, but in the other direction, it
+breaks down, because we don’t really have a way to reconstruct the
+boundaries between individual characters. Imagine you’re a program whose
+task it is to show characters on screen based on that chunk of memory.
+You see those four 1’s. What characters should you display? Well, you
+could go for <code class="language-plaintext highlighter-rouge">aaaa</code>. Or for <code class="language-plaintext highlighter-rouge">ac</code>. Or <code class="language-plaintext highlighter-rouge">d</code>. Or… You get the gist.</p>
+
+<p>How can we fix this? We’ll definitely have to put to use that other
+binary digit we have at our disposition, 0, because we just saw our
+problem is that <code class="language-plaintext highlighter-rouge">encoding1</code> yields an undifferentiated, uninterrupted
+string of 1’s. One way we could do this is by using the 0 as a character
+terminator. This <code class="language-plaintext highlighter-rouge">encoding2</code> is basically the same as <code class="language-plaintext highlighter-rouge">encoding1</code>, just
+with a 0 tacked at the end each time.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">encoding2</span><span class="p">(</span><span class="n">char</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">encoding1</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="o">+</span> <span class="s">"0"</span>
+
+<span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">charset</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="s">"-&gt;"</span><span class="p">,</span> <span class="n">encoding2</span><span class="p">(</span><span class="n">char</span><span class="p">))</span>
+
+<span class="s">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">encoding2</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="s">"ac"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>That’s better! Now we know that each time we encounter a 0, we’ve
+reached the end of a character, and we can determine which character it
+was by counting the number of preceding 1’s. So <code class="language-plaintext highlighter-rouge">101110</code> can only
+correspond to <code class="language-plaintext highlighter-rouge">ac</code>. <code class="language-plaintext highlighter-rouge">encoding2</code> is the first encoding we’ve written
+worthy of the name because it can go both ways – at least in theory,
+the function we’ve written obviously works only for encoding; for
+<strong>decoding</strong> series of bits into characters, we’d have to write the
+inverse function. It’s a <strong>variable-width</strong> encoding, because different
+characters are encoded using different numbers of bits – <code class="language-plaintext highlighter-rouge">a</code> is encoded
+as <code class="language-plaintext highlighter-rouge">10</code> for a width of 2, whereas <code class="language-plaintext highlighter-rouge">c</code> is 4 bits wide, <code class="language-plaintext highlighter-rouge">1110</code>.</p>
+
+<!-- #md tags=["popout"] -->
+
+<p>The technical term for this kind of encoding is a <a href="https://en.wikipedia.org/wiki/Prefix_code">prefix
+code</a>. The name comes from
+the fact that you have to make sure that no character’s encoding can be
+mistaken for the prefix of another character’s (longer) encoding, which
+ensures that decoding is possible. By taking into account expected
+frequencies of the individual characters, there are ways to
+automatically come up with the optimal coding scheme, i.e. that which
+yields the shortest encoded messages on average. See <a href="https://en.wikipedia.org/wiki/Huffman_coding">Huffman
+coding</a>, but <a href="https://fasterthanli.me/blog/2019/huffman-101/">this blog
+post</a> or <a href="https://youtu.be/JsTptu56GM8">this
+video</a> might be more digestible than the
+Wikipedia article.</p>
+
+<!-- #endmd -->
+
+<p>Unfortunately, it’s not very good. The number of bits per character
+quickly gets out of hand. If we had a character set consisting of all 26
+letters of the English alphabet, the last few would take up more than 20
+bits per character, and that’s just the lowercase letters.</p>
+
+<p>The trouble is that we’ve tied 1 and 0 down to a single role: 1’s
+determine the codepoint number, and 0’s tell us when to stop adding
+those 1’s. If we could use both to encode the number, say in its usual
+binary form, then we could squeeze a lot more information into the same
+space. Something like this:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">encoding3</span><span class="p">(</span><span class="n">char</span><span class="p">):</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="n">charset</span><span class="p">[</span><span class="n">char</span><span class="p">]</span>
+    <span class="n">binary</span> <span class="o">=</span> <span class="nb">bin</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+    <span class="c1"># remove the 0b prefix from the representation
+</span>    <span class="n">without_prefix</span> <span class="o">=</span> <span class="n">binary</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+    <span class="k">return</span> <span class="n">without_prefix</span>
+
+<span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">charset</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="s">"-&gt;"</span><span class="p">,</span> <span class="n">encoding3</span><span class="p">(</span><span class="n">char</span><span class="p">))</span>
+
+<span class="s">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">encoding3</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="s">"ac"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Except <code class="language-plaintext highlighter-rouge">encoding3</code> has the same drawback as <code class="language-plaintext highlighter-rouge">encoding1</code>: it’s not a
+proper encoding, because it doesn’t work both ways, the decoding back is
+ambiguous. <code class="language-plaintext highlighter-rouge">111</code> could stand for any of <code class="language-plaintext highlighter-rouge">aaa</code>, <code class="language-plaintext highlighter-rouge">ac</code> or <code class="language-plaintext highlighter-rouge">ca</code>. So how do
+we free the hands of the 0 to use its full potential as a digit? Can we
+use something else to mark character boundaries? But we’ve established
+there <em>is</em> nothing else than 1’s and 0’s in computer memory!</p>
+
+<p>… unless we use a trick. What if we said that each character always
+has to fit into the same number of bits, e.g. 1 byte? Then we could read
+memory by chunks of 8 bits and just interpret each chunk as a character.
+It would work exactly as if there were actual boundaries delimiting
+characters in the memory, spaced evenly 8 bits apart, even though we
+know that in actual fact, there are no boundaries between the individual
+tiny memory slots. This approach is called a <strong>fixed-width</strong> encoding,
+in contrast to the variable-width approach we encountered earlier.</p>
+
+<p>For our toy character set, we don’t need 8 bits, 2 are enough to encode
+4 different characters, corresponding to the 4 different sequences of
+1’s and 0’s you can create with two available slots: <code class="language-plaintext highlighter-rouge">00</code>, <code class="language-plaintext highlighter-rouge">01</code>, <code class="language-plaintext highlighter-rouge">10</code>
+and <code class="language-plaintext highlighter-rouge">11</code>. Let’s what decimal numbers these correspond to – it’s easy,
+you can probably do it in your head, but let Python tell us anyway.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mb">0b00</span><span class="p">,</span> <span class="mb">0b01</span><span class="p">,</span> <span class="mb">0b10</span><span class="p">,</span> <span class="mb">0b11</span>
+</code></pre></div></div>
+
+<p>Neat, we can easily get those numbers by just shifting the number values
+in our character set table by 1 (i.e. subtracting 1). So an <code class="language-plaintext highlighter-rouge">encoding4</code>
+function could look something like this:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">encoding4</span><span class="p">(</span><span class="n">char</span><span class="p">):</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="n">charset</span><span class="p">[</span><span class="n">char</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">binary</span> <span class="o">=</span> <span class="nb">bin</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+    <span class="n">without_prefix</span> <span class="o">=</span> <span class="n">binary</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+    <span class="n">padded</span> <span class="o">=</span> <span class="n">without_prefix</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">"0"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">padded</span>
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">.rjust()</code> (and <code class="language-plaintext highlighter-rouge">.ljust()</code>) methods pad a string to a desired width
+with a provided padding character; in our case, we pad to a maximum
+width of 2 with 0’s, unless the string is already 2 characters wide (or
+wider). Perhaps confusingly, <code class="language-plaintext highlighter-rouge">.rjust()</code> pads on the left and vice versa;
+this is because padding on the left <em>justifies</em> the text along the
+<em>right</em> margin (hence <code class="language-plaintext highlighter-rouge">.rjust()</code>). Let’s take this baby out for a spin.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">charset</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="s">"-&gt;"</span><span class="p">,</span> <span class="n">encoding4</span><span class="p">(</span><span class="n">char</span><span class="p">))</span>
+
+<span class="s">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">encoding4</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="s">"ac"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Looks alright to me! When decoding, we just chop up the memory into
+chunks two bits wide and interpret each as a separate character, so <code class="language-plaintext highlighter-rouge">00</code>
+yields <code class="language-plaintext highlighter-rouge">a</code> and <code class="language-plaintext highlighter-rouge">10</code> yields <code class="language-plaintext highlighter-rouge">c</code>. Piece of cake. This is where we leave
+our toy example character set and encodings as they have no more to
+teach us, and pick up the thread of the story in the real world.</p>
+
+<h1 id="fixed-width-encodings-ascii-et-al">Fixed-width encodings: ASCII et al.</h1>
+
+<p>Obviously, how many different characters your encoding can handle
+depends on how many bits you allow per character:</p>
+
+<ul>
+  <li>with 1 bit you can have $2^1 = 2$ characters (one is mapped to 0, the
+other to 1)</li>
+  <li>with 2 bits you can have $2^2 = 2 \times 2 = 4$ characters (mapped to
+00, 01, 10 and 11)</li>
+  <li>with 3 bits you can have $2^3 = 2 \times 2 \times 2 = 8$ characters</li>
+  <li>etc.</li>
+</ul>
+
+<p>The oldest encoding still in widespread use is called
+<a href="https://en.wikipedia.org/wiki/ASCII"><code class="language-plaintext highlighter-rouge">ASCII</code></a>, which is a 7-bit
+encoding. What’s the number of <em>different</em> sequences of seven 1’s and
+0’s?</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># this is how Python spells 2⁷, i.e. 2*2*2*2*2*2*2
+</span><span class="mi">2</span><span class="o">**</span><span class="mi">7</span>
+</code></pre></div></div>
+
+<!-- #md tags=["popout"] -->
+
+<p>“ASCII” stands for “<strong>American</strong> Standard Code for Information
+Interchange” – which explains why there are no accented characters, for
+instance.</p>
+
+<!-- #endmd -->
+
+<p>This means <code class="language-plaintext highlighter-rouge">ASCII</code> can represent <a href="http://www.ascii-code.com/">128 different
+characters</a>, which comfortably fits the
+basic Latin alphabet (both lowercase and uppercase), Arabic numerals,
+punctuation and some “control characters” which were primarily useful on
+the old <a href="https://en.wikipedia.org/wiki/Teleprinter">teletype terminals</a>
+for which <code class="language-plaintext highlighter-rouge">ASCII</code> was designed. For instance, the letter “A” corresponds
+to the number 65 (<code class="language-plaintext highlighter-rouge">1000001</code> in binary, see above).</p>
+
+<p>Nowadays, <code class="language-plaintext highlighter-rouge">ASCII</code> is represented using 8 bits (= 1 byte), because that’s
+the unit of computer memory which has become ubiquitous (in terms of
+both hardware and software assumptions), but still uses only 7 bits’
+worth of information. That extra bit means that there’s <strong>room for
+another 128 characters in addition to the 128 ASCII ones</strong>, coming up to
+a total of 256.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="mi">7</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>What happens in the range [128; 256) is not covered by the <code class="language-plaintext highlighter-rouge">ASCII</code>
+standard. In the 1990s, many encodings were standardized which used this
+range for their own purposes, usually representing additional accented
+characters used in a particular region. E.g. Czech (and Slovak,
+Polish…) alphabets can be represented using the ISO <code class="language-plaintext highlighter-rouge">latin-2</code>
+encoding, or Microsoft’s <code class="language-plaintext highlighter-rouge">cp-1250</code>. Encodings which stick to the same
+character mappings as <code class="language-plaintext highlighter-rouge">ASCII</code> in the range [0; 128) <strong>and represent them
+physically in the same way (as 1 byte)</strong>, while potentially adding more
+character mappings beyond that, are called <strong><code class="language-plaintext highlighter-rouge">ASCII</code>-compatible</strong>.</p>
+
+<p><code class="language-plaintext highlighter-rouge">ASCII</code> compatibility is a good thing™, because when you start
+reading a character stream in a computer, there’s <strong>no way to know in
+advance what encoding it is in</strong> (unless it’s a file you’ve encoded
+yourself and you happen to remember). So in practice, a heuristic has
+been established to start reading the stream assuming it’s <code class="language-plaintext highlighter-rouge">ASCII</code> by
+default, and switch to a different encoding if evidence becomes
+available to the contrary. For instance, HTML files describing web pages
+displayed in your browser should all start with something like this:</p>
+
+<!-- #md -->
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">/&gt;</span>
+  ...
+</code></pre></div></div>
+
+<!-- #endmd -->
+
+<!-- #md tags=["popout"] -->
+
+<p>You may be thinking, that <code class="language-plaintext highlighter-rouge">charset</code> attribute should have more properly
+been called <code class="language-plaintext highlighter-rouge">encoding</code>, and you would be right. As we’ve seen, a
+character set is just a table of characters and numbers. Specifying how
+they’re represented inside the computer is the encoding’s job, which is
+what this attribute is supposed to help determine. Which only goes to
+show you that this text stuff is hard and even professional programmers
+involved in defining standards like HTML sometimes get it wrong.</p>
+
+<!-- #endmd -->
+
+<p>This way, whenever a program wants to read a file like this, it can
+start off with <code class="language-plaintext highlighter-rouge">ASCII</code>, waiting to see if it reaches the <code class="language-plaintext highlighter-rouge">charset</code> (i.e.
+encoding) attribute, and once it does, it can switch from <code class="language-plaintext highlighter-rouge">ASCII</code> to
+that encoding (<code class="language-plaintext highlighter-rouge">UTF-8</code> here) and restart reading the file, now fairly
+sure that it’s using the correct encoding. This trick works only if we
+can assume that whatever encoding the rest of the file is in, the first
+few lines can be considered as <code class="language-plaintext highlighter-rouge">ASCII</code> for all practical intents and
+purposes.</p>
+
+<p>Without the <code class="language-plaintext highlighter-rouge">charset</code> attribute, the only way to know if the encoding is
+right would be for you to look at the rendered text and see if it makes
+sense; if it did not, you’d have to resort to trial and error, manually
+switching the encodings and looking for the one in which the numbers
+behind the characters stop coming out as gibberish and are actually
+translated into intelligible text.</p>
+
+<p>Let’s take a look at printable characters in the <code class="language-plaintext highlighter-rouge">Latin-2</code> <strong>character
+set</strong>. The character set consists of mappings between positive
+<strong>integers</strong> (whole numbers) and characters; each one of these is called
+a <strong>codepoint</strong>. The <code class="language-plaintext highlighter-rouge">Latin-2</code> <strong>encoding</strong> then defines how to encode
+each of these integers as a series of bits (1’s and 0’s) in the
+computer’s memory.</p>
+
+<p>```python tags=[“output_scroll”]
+latin2_printable_characters = []</p>
+<h1 id="the-latin-2-character-set-has-256-codepoints-corresponding-to">the Latin-2 character set has 256 codepoints, corresponding to</h1>
+<h1 id="integers-from-0-to-255">integers from 0 to 255</h1>
+<p>for codepoint in range(256):
+    # the Latin-2 encoding is simple: each codepoint is encoded
+    # as the byte corresponding to that integer in binary
+    byte = bytes([codepoint])
+    character = byte.decode(encoding=”latin2”)
+    if character.isprintable():
+        latin2_printable_characters.append((codepoint, character))</p>
+
+<p>latin2_printable_characters</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+Using the 8th bit (and thus the codepoint range [128; 256)) solves the
+problem of handling languages with character sets different than that of
+American English, but introduces a lot of complexity -- whenever you
+come across a text file with an unknown encoding, it might be in one of
+literally dozens of encodings. Additional drawbacks include:
+
+- how to handle multilingual text with characters from many different
+  alphabets, which are not part of the same 8-bit encoding?
+- how to handle writing systems which have way more than 256
+  "characters", e.g. Chinese, Japanese and Korean (CJK) ideograms?
+
+# Unicode and UTF-8
+
+For these purposes, a standard character set known as
+[**Unicode**](https://en.wikipedia.org/wiki/Unicode) was developed which
+strives for universal coverage of (ultimately) all characters ever used
+in the history of writing, even adding new ones like
+[emojis](https://unicode.org/emoji/charts/full-emoji-list.html). Unicode
+is much bigger than the character sets we've seen so far -- its most
+frequently used subset, the [Basic Multilingual
+Plane](https://en.wikipedia.org/wiki/Plane_%28Unicode%29#Basic_Multilingual_Plane),
+has $2^{16}$ codepoints, but overall the number of codepoints is past 1M
+and there's room to accommodate many more.
+
+```python
+2**16
+</code></pre></div></div>
+
+<p>Now, the most straightforward representation for $2^{16}$ codepoints is
+what? Well, it’s simply using 16 bits per character, i.e. 2 bytes. That
+encoding exists, it’s called <code class="language-plaintext highlighter-rouge">UTF-16</code> (“UTF” stands for “Unicode
+Transformation Format”), but consider the drawbacks:</p>
+
+<ul>
+  <li>we’ve lost <code class="language-plaintext highlighter-rouge">ASCII</code> compatibility by the simple fact of using 2 bytes
+per character instead of 1 (encoding “a” as <code class="language-plaintext highlighter-rouge">01100001</code> or
+<code class="language-plaintext highlighter-rouge">00000000|01100001</code>, with the <code class="language-plaintext highlighter-rouge">|</code> indicating an imaginary boundary
+between bytes, is not the same thing)</li>
+  <li>encoding a string in a language which is mostly written down using
+basic letters of the Latin alphabet now takes up twice as much space
+(which is probably not a good idea, given the general dominance of
+English in electronic communication)</li>
+</ul>
+
+<p>Looks like we’ll have to think outside the box. The box in question here
+is fixed-width encodings – all of the real-world encoding schemes we’ve
+encountered so far were fixed-width, meaning that each character was
+represented by either 7, 8 or 16 bits. In other words, you could jump
+around the string in multiples of 7, 8 or 16 and always land at the
+beginning of a character. (Not exactly true for <code class="language-plaintext highlighter-rouge">UTF-16</code>, because it is
+something more than just a “16-bit <code class="language-plaintext highlighter-rouge">ASCII</code>”: it has ways of handling
+characters beyond $2^{16}$ using so-called <a href="https://en.wikipedia.org/wiki/UTF-16#U.2B10000_to_U.2B10FFFF">surrogate
+sequences</a>
+– but you get the gist.)</p>
+
+<p>The smart idea that some bright people have come up with was to use a
+variable-width encoding, specifically one that doesn’t suck, unlike our
+<code class="language-plaintext highlighter-rouge">encoding2</code>. The most ubiquitous one currently is <strong><code class="language-plaintext highlighter-rouge">UTF-8</code></strong>, which
+we’ve already met in the HTML example above. <code class="language-plaintext highlighter-rouge">UTF-8</code> <em>is</em>
+<code class="language-plaintext highlighter-rouge">ASCII</code>-compatible, i.e. the 1’s and 0’s used to encode text containing
+only <code class="language-plaintext highlighter-rouge">ASCII</code> characters are the same regardless of whether you use
+<code class="language-plaintext highlighter-rouge">ASCII</code> or <code class="language-plaintext highlighter-rouge">UTF-8</code>: it’s a sequence of 8-bit bytes. But <code class="language-plaintext highlighter-rouge">UTF-8</code> can also
+handle many more additional characters, as defined by the Unicode
+standard, by using progressively longer and longer sequences of bits.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">print_utf8_bytes</span><span class="p">(</span><span class="n">char</span><span class="p">):</span>
+    <span class="s">"""Prints binary representation of character as encoded by UTF-8.
+
+    """</span>
+    <span class="c1"># encode the string as UTF-8 and iterate over the bytes;
+</span>    <span class="c1"># iterating over a sequence of bytes yields integers in the
+</span>    <span class="c1"># range [0; 256); the formatting directive "{:08b}" does two
+</span>    <span class="c1"># things:
+</span>    <span class="c1">#   - "b" prints the integer in its binary representation
+</span>    <span class="c1">#   - "08" left-pads the binary representation with 0's to a total
+</span>    <span class="c1">#     width of 8, which is the width of a byte
+</span>    <span class="n">binary_bytes</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="s">"{byte:08b}"</span> <span class="k">for</span> <span class="n">byte</span> <span class="ow">in</span> <span class="n">char</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">"utf8"</span><span class="p">)]</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">"{char!r} encoded in UTF-8 is: {binary_bytes}"</span><span class="p">)</span>
+
+<span class="n">print_utf8_bytes</span><span class="p">(</span><span class="s">"A"</span><span class="p">)</span>   <span class="c1"># the representations...
+</span><span class="n">print_utf8_bytes</span><span class="p">(</span><span class="s">"č"</span><span class="p">)</span>   <span class="c1"># ... keep...
+</span><span class="n">print_utf8_bytes</span><span class="p">(</span><span class="s">"字"</span><span class="p">)</span>  <span class="c1"># ... getting longer.
+</span></code></pre></div></div>
+
+<p>How does that even work? The obvious problem here is that with a
+fixed-width encoding, you just chop up the string at regular intervals
+(7, 8, 16 bits) and you know that each interval represents one
+character. So <strong>how do you know where to chop up a variable
+width-encoded string, if each character can take up a different number
+of bits?</strong></p>
+
+<p>Essentially, the trick is to <strong>use some of the bits</strong> in the
+representation of a codepoint <strong>to store information</strong> not about which
+character it is (whether it’s an “A” or a “字”), but <strong>how many bits it
+occupies</strong>. This is what we did with our <code class="language-plaintext highlighter-rouge">encoding2</code>, albeit in a very
+primitive way, by simply using 0 as a character delimiter. In other
+words, if you want to skip ahead 10 characters in a string encoded with
+a variable width-encoding, you can’t just skip 10 * 7 or 8 or 16 bits;
+you have to read all the intervening characters to figure out how much
+space they take up. Take the following example:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="s">"Básník 李白"</span><span class="p">:</span>
+    <span class="n">print_utf8_bytes</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+</code></pre></div></div>
+
+<!-- #md tags=["popout"] -->
+
+<p>If this explanation of how UTF-8 works sounds confusing to you, you can
+instead try to watch the <a href="https://youtu.be/MijmeoH9LT4">Characters, Symbols and the Unicode
+Miracle</a> video by the
+<a href="https://www.youtube.com/channel/UC9-y-6csu5WGm29I7JiwpnA">Computerphile</a>
+channel on YouTube.</p>
+
+<!-- #endmd -->
+
+<p>Notice the initial bits in each byte of a character follow a pattern
+depending on how many bytes in total that character has:</p>
+
+<ul>
+  <li>if it’s a 1-byte character, that byte starts with 0</li>
+  <li>if it’s a 2-byte character, the first byte starts with 11 and the
+following one with 10</li>
+  <li>if it’s a 3-byte character, the first byte starts with 111 and the
+following ones with 10</li>
+</ul>
+
+<p>This makes it possible to find out which bytes belong to which
+characters, and also to spot invalid strings, as the <strong>leading</strong> byte in
+a <strong>multi-byte sequence</strong> always “announces” how many <strong>continuation</strong>
+bytes (= starting with 10) should follow.</p>
+
+<!-- TODO: discuss why redundancy (i.e. explicitly tagging continuation bytes -->
+<!-- with 10) is useful? though UTF-8's pickiness is lightly touched upon below -->
+
+<p>So much for a quick introduction to <code class="language-plaintext highlighter-rouge">UTF-8</code> (= the encoding), but
+there’s much more to Unicode (= the character set). While <code class="language-plaintext highlighter-rouge">UTF-8</code>
+defines only how integer numbers corresponding to codepoints are to be
+represented as 1’s and 0’s in a computer’s memory, Unicode specifies how
+those numbers are to be interpreted as characters, what their properties
+and mutual relationships are, what conversions (i.e. mappings between
+(sequences of) codepoints) they can undergo, etc.</p>
+
+<p>Consider for instance the various ways diacritics are handled: “č” can
+be represented either as a single codepoint (<a href="http://www.fileformat.info/info/unicode/char/010D/index.htm"><code class="language-plaintext highlighter-rouge">LATIN SMALL LETTER C WITH
+CARON</code></a> –
+all Unicode codepoints have cute names like this) or a sequence of two
+codepoints, the character “c” and a combining diacritic mark (<code class="language-plaintext highlighter-rouge">COMBINING
+CARON</code>). You can search for the codepoints corresponding to Unicode
+characters e.g.
+<a href="http://www.fileformat.info/info/unicode/char/search.htm">here</a> and play
+with them in Python using the <code class="language-plaintext highlighter-rouge">chr(0xXXXX)</code> built-in function or with
+the special string escape sequence <code class="language-plaintext highlighter-rouge">\uXXXX</code> (where <code class="language-plaintext highlighter-rouge">XXXX</code> is the
+hexadecimal representation of the codepoint) – both are ways to get the
+character corresponding to the given codepoint:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># "č" as LATIN SMALL LETTER C WITH CARON, codepoint 010d
+</span><span class="k">print</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="mh">0x010d</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="se">\u010d</span><span class="s">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># "č" as a sequence of LATIN SMALL LETTER C, codepoint 0063, and
+# COMBINING CARON, codepoint 030c
+</span><span class="k">print</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="mh">0x0063</span><span class="p">)</span> <span class="o">+</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0x030c</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="se">\u0063\u030c</span><span class="s">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># of course, chr() also works with decimal numbers
+</span><span class="nb">chr</span><span class="p">(</span><span class="mi">269</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>This means you have to be careful when working with languages that use
+accents, because <strong>to a computer, the two possible representations are
+of course different strings</strong>, even though to you, they’re conceptually
+the same:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s1</span> <span class="o">=</span> <span class="s">"</span><span class="se">\u010d</span><span class="s">"</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="s">"</span><span class="se">\u0063\u030c</span><span class="s">"</span>
+<span class="c1"># s1 and s2 look the same to the naked eye...
+</span><span class="k">print</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># ... but they're not
+</span><span class="n">s1</span> <span class="o">==</span> <span class="n">s2</span>
+</code></pre></div></div>
+
+<p>Watch out, <strong>they even have different lengths</strong>! This might come to bite
+you if you’re trying to compute the length of a word in letters.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"s1 is"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">s1</span><span class="p">),</span> <span class="s">"character(s) long."</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"s2 is"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">s2</span><span class="p">),</span> <span class="s">"character(s) long."</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>For this reason, even though we’ve been informally calling these Unicode
+entities “characters”, it is more accurate and less confusing to use the
+technical term “codepoints”.</p>
+
+<p>Generally, most text out there will use the first, single-codepoint
+approach whenever possible, and pre-packaged linguistic corpora will try
+to be consistent about this (unless they come from the web, which always
+warrants being suspicious and defensive about your material). If you’re
+worried about inconsistencies in your data, you can perform a
+<a href="https://en.wikipedia.org/wiki/Unicode_equivalence#Normalization">normalization</a>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">unicodedata</span> <span class="kn">import</span> <span class="n">normalize</span>
+
+<span class="c1"># NFC stands for Normal Form C; this normalization applies a canonical
+# decomposition (into a multi-codepoint representation) followed by a
+# canonical composition (into a single-codepoint representation)
+</span><span class="n">s1</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="s">"NFC"</span><span class="p">,</span> <span class="n">s1</span><span class="p">)</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="s">"NFC"</span><span class="p">,</span> <span class="n">s2</span><span class="p">)</span>
+
+<span class="n">s1</span> <span class="o">==</span> <span class="n">s2</span>
+</code></pre></div></div>
+
+<!-- TODO: explain that to find out graphemes (technically extended grapheme -->
+<!-- clusters, which are the closest thing to a layman's notion of -->
+<!-- characters), you need the regex package and \X -->
+
+<!-- TODO: move this to the getting your data into python section, along with -->
+<!-- the discussion of file IO? -->
+
+<p>Let’s wrap things up by saying that Python itself uses Unicode
+internally, but the encoding it defaults to when opening an external
+file depends on the <em>locale</em> of the system (broadly speaking, the set of
+region, language and character-encoding related settings of the
+operating system). On most modern Linux and macOS systems, this will
+probably be a <code class="language-plaintext highlighter-rouge">UTF-8</code> locale and Python will therefore assume <code class="language-plaintext highlighter-rouge">UTF-8</code> as
+the encoding by default. Unfortunately, Windows is different. To be on
+the safe side, whenever opening files in Python, you can specify the
+encoding explicitly:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"unicode.ipynb"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="k">pass</span>
+</code></pre></div></div>
+
+<p>In fact, it’s <strong>always a good idea to specify the encoding explicitly,
+using <code class="language-plaintext highlighter-rouge">UTF-8</code> as a default</strong> if you don’t know, for at least two reasons
+– it makes your code more:</p>
+
+<ol>
+  <li><strong>portable</strong> – it will work the same across different operating
+systems which assume different default encodings;</li>
+  <li>and <strong>resistant to data corruption</strong> – <code class="language-plaintext highlighter-rouge">UTF-8</code> is more restrictive
+than fixed-width encodings, in the sense that not all sequences of
+bytes are valid <code class="language-plaintext highlighter-rouge">UTF-8</code>.</li>
+</ol>
+
+<p>That second point probably requires elaboration. For instance, if one
+ byte starts with 11, then the following one <em>must</em> start with 10 (see
+ above). If it starts with anything else, it’s an error.  By contrast,
+ in a fixed-width encoding, <em>any</em> sequence of bytes is valid. Decoding
+ will always succeed, but if you use the wrong fixed-width encoding, the
+ result will be garbage, which you might not notice. Therefore, it makes
+ sense to default to <code class="language-plaintext highlighter-rouge">UTF-8</code>: if it works, then there’s a good chance
+ that the file actually <em>was</em> encoded in <code class="language-plaintext highlighter-rouge">UTF-8</code> and you’ve read the
+ data in correctly; if it fails, you get an explicit error which prompts
+ you to investigate further.</p>
+
+<p>Another good idea, when dealing with Unicode text from an unknown and
+unreliable source, is to look at the set of codepoints contained in it
+and eliminate or replace those that look suspicious. Here’s a function
+to help with that:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">unicodedata</span> <span class="k">as</span> <span class="n">ud</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+
+<span class="k">def</span> <span class="nf">inspect_codepoints</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="s">"""Create a frequency distribution of the codepoints in a string.
+
+    """</span>
+    <span class="n">char_frequencies</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span>
+        <span class="p">(</span>
+            <span class="n">freq</span><span class="p">,</span>
+            <span class="n">char</span><span class="p">,</span>
+            <span class="n">f</span><span class="s">"U+{ord(char):04x}"</span><span class="p">,</span>
+            <span class="n">ud</span><span class="o">.</span><span class="n">name</span><span class="p">(</span><span class="n">char</span><span class="p">),</span>
+            <span class="n">ud</span><span class="o">.</span><span class="n">category</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="k">for</span> <span class="n">char</span><span class="p">,</span> <span class="n">freq</span> <span class="ow">in</span> <span class="n">char_frequencies</span><span class="o">.</span><span class="n">most_common</span><span class="p">()</span>
+    <span class="p">)</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">(</span><span class="s">"freq"</span><span class="p">,</span> <span class="s">"char"</span><span class="p">,</span> <span class="s">"codepoint"</span><span class="p">,</span> <span class="s">"name"</span><span class="p">,</span> <span class="s">"category"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df</span>
+</code></pre></div></div>
+
+<p>Depending on your font configuration, it may be very hard to spot the
+two intruders in the sentence below. The frequency table shows the
+string contains regular <code class="language-plaintext highlighter-rouge">LATIN SMALL LETTER T</code> and <code class="language-plaintext highlighter-rouge">LATIN SMALL LETTER
+G</code>, but also their specialized but visually similar variants
+<code class="language-plaintext highlighter-rouge">MATHEMATICAL SANS-SERIF SMALL T</code> and <code class="language-plaintext highlighter-rouge">LATIN SMALL LETTER SCRIPT G</code>. You
+might want to replace such codepoints before doing further text
+processing…</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">inspect_codepoints</span><span class="p">(</span><span class="s">"Intruders here, good 𝗍hinɡ I checked."</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>… because of course, for a computer, the word “thing” written with two
+different variants of “g” is really just two different words, which is
+probably not what you want:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"thing"</span> <span class="o">==</span> <span class="s">"thinɡ"</span>
+</code></pre></div></div>
+
+<p>So to sum up:</p>
+
+<ul>
+  <li>Unicode strives to be a universal character set. It contains <em>a lot</em>
+of characters, many very similar-looking yet different. Appearances
+can be deceptive, when in doubt, examine which codepoints you’re
+actually dealing with and/or normalize.</li>
+  <li>Unicode can be encoded using different encodings. Some are fixed-width
+(<code class="language-plaintext highlighter-rouge">UTF-32</code>, which we haven’t mentioned yet), some are almost
+fixed-width (<code class="language-plaintext highlighter-rouge">UTF-16</code>), some are variable-width (<code class="language-plaintext highlighter-rouge">UTF-8</code>).</li>
+  <li><code class="language-plaintext highlighter-rouge">UTF-8</code> has many desirable properties, so you should always use it
+when saving plain text files, and always assume it as a first try when
+opening files in an unknown encoding.</li>
+  <li>Internally, Python uses a custom representation of Unicode, which is
+neither of the encodings we already mentioned.</li>
+  <li>The following functionality is useful for inspecting Unicode data in
+Python: the <code class="language-plaintext highlighter-rouge">ord()</code> and <code class="language-plaintext highlighter-rouge">chr()</code> built-in functions, the <code class="language-plaintext highlighter-rouge">unicodedata</code>
+standard library module, and the <code class="language-plaintext highlighter-rouge">regex</code> external package, which like
+the standard library <code class="language-plaintext highlighter-rouge">re</code> module implements regular expression support
+from Python, but unlike the latter, it provides much more extensive
+Unicode support.</li>
+</ul>
+
+            </div>
+            <div class="c-textbook__footer" id="textbook_footer">
+              
+<nav class="c-page__nav">
+  
+
+  
+</nav>
+
+              <footer>
+  <p class="footer"></p>
+</footer>
+
+            </div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
