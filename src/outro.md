@@ -14,9 +14,18 @@ jupyter:
 
 # Parting words
 
-# Where to go from here
+Now that you've made it to the end, perhaps you're wondering where to go
+from here. Programming is perhaps the easiest skill to learn using only
+the internet, so there are many options. There's also always room for
+improvement and learning new things, it's a lifelong journey. In lieu of
+parting words, here are some tips on where to get started, at least in
+the world of Python.
 
-## Books
+Thank you for reading so far, and if you have any suggestions for
+improvement, additions, or just spotted a few typos, please [report them
+on GitHub](https://github.com/v4py/v4py.github.io/issues)!
+
+# Books
 
 <!-- #md tags=["popout"]-->
 <a href="https://www.nltk.org/book/" target="_blank">
@@ -69,7 +78,7 @@ sometimes hard to know which libraries and techniques to use when
 getting started with data analysis in Python. The *Python Data Science
 Handbook* is there to help you with that.
 
-## Videos
+# Videos
 
 Unlike conferences in linguistics, programming conferences are often
 recorded and professionally produced videos (including presentation
@@ -91,7 +100,7 @@ either Raymond Hettinger, Ned Batchelder or David Beazley. Their
 contributions are consistently extremely informative, well-prepared and
 entertaining at the same time.
 
-### Improving your Python chops
+## Improving your Python chops
 
 <!-- Beazley: builtins _____________________________________________ -->
 
@@ -137,7 +146,7 @@ confidence.
 ---
 <!-- #endmd -->
 
-### Data analysis and NLP
+## Data analysis and NLP
 
 <!-- VanderPlas: PyData 101 ________________________________________ -->
 
@@ -254,7 +263,7 @@ process typically looks like and what are the pitfalls to look out for.
 ---
 <!-- #endmd -->
 
-### War stories
+## War stories
 
 <!-- Beazley: mission impossible ___________________________________ -->
 
@@ -282,7 +291,7 @@ with Python starring as agent Ethan Hunt!
 ---
 <!-- #endmd -->
 
-### Nuts and bolts (advanced)
+## Nuts and bolts (advanced)
 
 And finally, here are a few more advanced talks which I heartily
 recommend watching after you've spent a little more time with Python.
@@ -348,7 +357,7 @@ the buzzwords `async` and `await`, they feature prominently.
 </iframe>
 <!-- #endmd -->
 
-## Libraries
+# Libraries
 
 - nltk
 - corpy

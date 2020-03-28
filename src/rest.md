@@ -15,7 +15,7 @@ jupyter:
 
 # Working with online resources
 
-## How to work with this material
+# How to work with this material
 
 * There is always first a text telling you what to do
   * So first try to do it yourself without looking at the code
