@@ -451,13 +451,17 @@ default, and switch to a different encoding if evidence becomes
 available to the contrary. For instance, HTML files describing web pages
 displayed in your browser should all start with something like this:
 
-```html .noeval
+<!-- #md -->
+
+```html
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8"/>
   ...
 ```
+
+<!-- #endmd -->
 
 <!-- #md tags=["popout"] -->
 
