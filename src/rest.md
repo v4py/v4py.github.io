@@ -1,6 +1,6 @@
 ---
-author: Rudolf Rosa
 jupyter:
+  author: Rudolf Rosa
   jupytext:
     text_representation:
       extension: .md
