@@ -26,8 +26,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://v4py.github.io//intro.html",
   "headline": "Introduction",
-  "datePublished": "2020-03-28T11:42:54+01:00",
-  "dateModified": "2020-03-28T11:42:54+01:00",
+  "datePublished": "2020-03-28T11:44:14+01:00",
+  "dateModified": "2020-03-28T11:44:14+01:00",
   "description": "        Introduction    started programming at uni, so it's never too late :)probably the most useful skill since learning to readThe source code of this boo...",
   "author": {
     "@type": "Person",
@@ -422,7 +422,7 @@ initFunction(initPrint)
     },
     kernelOptions: {
     kernelName: "python3",
-    path: ""
+    path: "content"
     }
 }
 </script>
@@ -844,10 +844,34 @@ initFunction(initPrint)
 <div class="download-buttons-dropdown">
     <button id="dropdown-button-trigger" class="interact-button"><img src="/assets/images/download-solid.svg" alt="Download" /></button>
     <div class="download-buttons">
+        <a href="/content/intro.ipynb" download>
+        <button id="interact-button-download" class="interact-button">.ipynb</button>
+        </a>
         
         <a id="interact-button-print"><button id="interact-button-download" class="interact-button">.pdf</button></a>
     </div>
 </div>
+
+
+  
+  
+  
+
+
+
+
+
+
+<a target="_blank" href="https://mybinder.org/v2/gh/v4py/v4py.github.io/master?urlpath=lab/tree/content%2Fintro.ipynb"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="/assets/images/logo_binder.svg" alt="Interact" />▶ mybinder.org</button></a>
+  
+
+
+
+
+
+<a target="_blank" href="https://jupyter.korpus.cz/hub/user-redirect/git-pull?repo=https://github.com/v4py/v4py.github.io&amp;branch=master&amp;urlpath=lab%2Ftree%2Fv4py.github.io%2Fcontent%2Fintro.ipynb%3Fautodecode"><button class="interact-button" id="interact-button-jupyterhub"><img class="interact-button-logo" src="/assets/images/logo_jupyterhub.svg" alt="Interact" />▶ jupyter.korpus.cz</button></a>
+
+
 
 
 </div>
@@ -1185,7 +1209,7 @@ sucessful response.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;Response [404]&gt;</pre>
+<pre>&lt;Response [200]&gt;</pre>
 </div>
 
 </div>
@@ -1232,7 +1256,7 @@ the <code>response</code> object.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>False</pre>
+<pre>True</pre>
 </div>
 
 </div>
@@ -1329,7 +1353,7 @@ document.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#39;&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n  &lt;head&gt;\n    &lt;meta http-equ&#39;</pre>
+<pre>&#39;&lt;!DOCTYPE html&gt;\n&lt;html lang=&#34;en&#34;&gt;\n  &lt;head&gt;\n  &lt;meta &#39;</pre>
 </div>
 
 </div>
@@ -1380,7 +1404,7 @@ attribute, which extracts only the text parts of a web page.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#39;Site not found · GitHub Pages\nbody { background-co&#39;</pre>
+<pre>&#39;Introduction\n{ &#34;@context&#34;: &#34;http://schema.org&#34;, &#34;@&#39;</pre>
 </div>
 
 </div>
@@ -1415,7 +1439,7 @@ attribute, which extracts only the text parts of a web page.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#39;on, or user account.\nGitHub Status — @githubstatus&#39;</pre>
+<pre>&#39; safely ignore it :)\n〈 A tour of Python and NLTK 〉&#39;</pre>
 </div>
 
 </div>
@@ -1491,7 +1515,11 @@ any.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[]</pre>
+<pre>[&lt;Element &#39;div&#39; class=(&#39;text_cell_render&#39;, &#39;border-box-sizing&#39;, &#39;rendered_html&#39;)&gt;,
+ &lt;Element &#39;div&#39; class=(&#39;text_cell_render&#39;, &#39;border-box-sizing&#39;, &#39;rendered_html&#39;)&gt;,
+ &lt;Element &#39;div&#39; class=(&#39;text_cell_render&#39;, &#39;border-box-sizing&#39;, &#39;rendered_html&#39;)&gt;,
+ &lt;Element &#39;div&#39; class=(&#39;text_cell_render&#39;, &#39;border-box-sizing&#39;, &#39;rendered_html&#39;)&gt;,
+ &lt;Element &#39;div&#39; class=(&#39;text_cell_render&#39;, &#39;border-box-sizing&#39;, &#39;rendered_html&#39;)&gt;]</pre>
 </div>
 
 </div>
@@ -1546,7 +1574,7 @@ every two pieces of text.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#39;&#39;</pre>
+<pre>&#39;started programming at uni, so&#39;</pre>
 </div>
 
 </div>
@@ -1598,7 +1626,7 @@ the number of characters using the <code>len()</code> <strong>function</strong>.
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(1811, 1463, 0)</pre>
+<pre>(37059, 33552, 19552)</pre>
 </div>
 
 </div>
@@ -1666,7 +1694,21 @@ do a sanity check by inspecting a slice of it.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[]</pre>
+<pre>[&#39;r&#39;,
+ &#39;)&#39;,
+ &#39;coming&#39;,
+ &#39;from&#39;,
+ &#39;r&#39;,
+ &#39;:&#39;,
+ &#39;python&#39;,
+ &#39;is&#39;,
+ &#39;a&#39;,
+ &#39;general&#39;,
+ &#39;purpose&#39;,
+ &#39;language&#39;,
+ &#39;-&#39;,
+ &#39;&gt;&#39;,
+ &#39;maybe&#39;]</pre>
 </div>
 
 </div>
@@ -1719,7 +1761,7 @@ and thus get the number of tokens using the <code>len()</code> function.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>0</pre>
+<pre>3919</pre>
 </div>
 
 </div>
@@ -1768,7 +1810,21 @@ notebook format.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[]</pre>
+<pre>[&#39;started&#39;,
+ &#39;programming&#39;,
+ &#39;at&#39;,
+ &#39;uni&#39;,
+ &#39;,&#39;,
+ &#39;so&#39;,
+ &#39;it&#39;,
+ &#34;&#39;s&#34;,
+ &#39;never&#39;,
+ &#39;too&#39;,
+ &#39;late&#39;,
+ &#39;:&#39;,
+ &#39;)&#39;,
+ &#39;probably&#39;,
+ &#39;the&#39;]</pre>
 </div>
 
 </div>
@@ -1898,7 +1954,7 @@ parts depending on whether a condition <strong>evaluates</strong> to true or fal
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>0</pre>
+<pre>1672</pre>
 </div>
 
 </div>
@@ -1990,7 +2046,7 @@ user-defined types.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>FreqDist({})</pre>
+<pre>FreqDist({&#39;python&#39;: 32, &#39;code&#39;: 21, &#39;like&#39;: 21, &#39;using&#39;: 18, &#39;page&#39;: 16, &#39;text&#39;: 16, &#39;get&#39;: 15, &#39;book&#39;: 12, &#39;jupyterlab&#39;: 12, &#39;function&#39;: 12, ...})</pre>
 </div>
 
 </div>
@@ -2036,7 +2092,7 @@ requesting them using the corresponding <strong>key</strong>.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>0</pre>
+<pre>32</pre>
 </div>
 
 </div>
@@ -2081,7 +2137,16 @@ requesting them using the corresponding <strong>key</strong>.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[]</pre>
+<pre>[(&#39;python&#39;, 32),
+ (&#39;code&#39;, 21),
+ (&#39;like&#39;, 21),
+ (&#39;using&#39;, 18),
+ (&#39;page&#39;, 16),
+ (&#39;text&#39;, 16),
+ (&#39;get&#39;, 15),
+ (&#39;book&#39;, 12),
+ (&#39;jupyterlab&#39;, 12),
+ (&#39;function&#39;, 12)]</pre>
 </div>
 
 </div>
@@ -2128,31 +2193,24 @@ and intuitive overview of these important words.</p>
 <div class="jb_output_wrapper }}">
 <div class="output_area">
 
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-22-2bdf67dedee2&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">from</span> corpy<span class="ansi-blue-fg">.</span>vis <span class="ansi-green-fg">import</span> wordcloud
-<span class="ansi-green-intense-fg ansi-bold">      2</span> 
-<span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg"> </span>wordcloud<span class="ansi-blue-fg">(</span>freq_dist<span class="ansi-blue-fg">,</span> size<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">800</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">400</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> rounded<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span>
 
-<span class="ansi-green-fg">~/Library/Caches/pypoetry/virtualenvs/e-v4py-AkGCGnKO-py3.7/lib/python3.7/site-packages/corpy/vis.py</span> in <span class="ansi-cyan-fg">wordcloud</span><span class="ansi-blue-fg">(data, size, rounded, fast, fast_limit, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">    116</span>     <span class="ansi-red-fg"># frequency counts</span>
-<span class="ansi-green-intense-fg ansi-bold">    117</span>     <span class="ansi-green-fg">elif</span> isinstance<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">,</span> Mapping<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 118</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> wcloud<span class="ansi-blue-fg">.</span>generate_from_frequencies<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    119</span>     <span class="ansi-red-fg"># tokenized text</span>
-<span class="ansi-green-intense-fg ansi-bold">    120</span>     <span class="ansi-red-fg"># NOTE: the second condition is there because of nltk.text, which</span>
 
-<span class="ansi-green-fg">~/Library/Caches/pypoetry/virtualenvs/e-v4py-AkGCGnKO-py3.7/lib/python3.7/site-packages/wordcloud/wordcloud.py</span> in <span class="ansi-cyan-fg">generate_from_frequencies</span><span class="ansi-blue-fg">(self, frequencies, max_font_size)</span>
-<span class="ansi-green-intense-fg ansi-bold">    389</span>         <span class="ansi-green-fg">if</span> len<span class="ansi-blue-fg">(</span>frequencies<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">&lt;=</span> <span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    390</span>             raise ValueError(&#34;We need at least 1 word to plot a word cloud, &#34;
-<span class="ansi-green-fg">--&gt; 391</span><span class="ansi-red-fg">                              &#34;got %d.&#34; % len(frequencies))
-</span><span class="ansi-green-intense-fg ansi-bold">    392</span>         frequencies <span class="ansi-blue-fg">=</span> frequencies<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">:</span>self<span class="ansi-blue-fg">.</span>max_words<span class="ansi-blue-fg">]</span>
-<span class="ansi-green-intense-fg ansi-bold">    393</span> 
-
-<span class="ansi-red-fg">ValueError</span>: We need at least 1 word to plot a word cloud, got 0.</pre>
+<div class="output_png output_subarea ">
+<img src="images/intro_47_0.png"
+>
 </div>
+
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;wordcloud.wordcloud.WordCloud at 0x10b46d710&gt;</pre>
+</div>
+
 </div>
 </div>
 </div>
@@ -2245,34 +2303,24 @@ book, for comparison.</p>
 <div class="jb_output_wrapper }}">
 <div class="output_area">
 
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-24-2018d75494e8&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>chapter_wordcloud<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;https://v4py.github.io/outro.html&#34;</span><span class="ansi-blue-fg">)</span>
 
-<span class="ansi-green-fg">&lt;ipython-input-23-d13d7b7f48c4&gt;</span> in <span class="ansi-cyan-fg">chapter_wordcloud</span><span class="ansi-blue-fg">(link, size, rounded)</span>
-<span class="ansi-green-intense-fg ansi-bold">     12</span>     <span class="ansi-red-fg"># if we want just the wordcloud, we can also directly create it from</span>
-<span class="ansi-green-intense-fg ansi-bold">     13</span>     <span class="ansi-red-fg"># a list of tokens, without making an intermediate nltk.FreqDist</span>
-<span class="ansi-green-fg">---&gt; 14</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">return</span> wordcloud<span class="ansi-blue-fg">(</span>cleaned<span class="ansi-blue-fg">,</span> size<span class="ansi-blue-fg">=</span>size<span class="ansi-blue-fg">,</span> rounded<span class="ansi-blue-fg">=</span>rounded<span class="ansi-blue-fg">)</span>
 
-<span class="ansi-green-fg">~/Library/Caches/pypoetry/virtualenvs/e-v4py-AkGCGnKO-py3.7/lib/python3.7/site-packages/corpy/vis.py</span> in <span class="ansi-cyan-fg">wordcloud</span><span class="ansi-blue-fg">(data, size, rounded, fast, fast_limit, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">    124</span>     <span class="ansi-red-fg"># __getitem__ magic method?)</span>
-<span class="ansi-green-intense-fg ansi-bold">    125</span>     <span class="ansi-green-fg">elif</span> isinstance<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">,</span> Iterable<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">or</span> hasattr<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;__getitem__&#34;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 126</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> wcloud<span class="ansi-blue-fg">.</span>generate_from_frequencies<span class="ansi-blue-fg">(</span>Counter<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    127</span>     <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    128</span>         raise ValueError(
-
-<span class="ansi-green-fg">~/Library/Caches/pypoetry/virtualenvs/e-v4py-AkGCGnKO-py3.7/lib/python3.7/site-packages/wordcloud/wordcloud.py</span> in <span class="ansi-cyan-fg">generate_from_frequencies</span><span class="ansi-blue-fg">(self, frequencies, max_font_size)</span>
-<span class="ansi-green-intense-fg ansi-bold">    389</span>         <span class="ansi-green-fg">if</span> len<span class="ansi-blue-fg">(</span>frequencies<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">&lt;=</span> <span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    390</span>             raise ValueError(&#34;We need at least 1 word to plot a word cloud, &#34;
-<span class="ansi-green-fg">--&gt; 391</span><span class="ansi-red-fg">                              &#34;got %d.&#34; % len(frequencies))
-</span><span class="ansi-green-intense-fg ansi-bold">    392</span>         frequencies <span class="ansi-blue-fg">=</span> frequencies<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">:</span>self<span class="ansi-blue-fg">.</span>max_words<span class="ansi-blue-fg">]</span>
-<span class="ansi-green-intense-fg ansi-bold">    393</span> 
-
-<span class="ansi-red-fg">ValueError</span>: We need at least 1 word to plot a word cloud, got 0.</pre>
+<div class="output_png output_subarea ">
+<img src="images/intro_51_0.png"
+>
 </div>
+
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;wordcloud.wordcloud.WordCloud at 0x10b681810&gt;</pre>
+</div>
+
 </div>
 </div>
 </div>
@@ -2333,7 +2381,7 @@ Science</em></a>.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;wordcloud.wordcloud.WordCloud at 0x115bfe990&gt;</pre>
+<pre>&lt;wordcloud.wordcloud.WordCloud at 0x10c2a8710&gt;</pre>
 </div>
 
 </div>
