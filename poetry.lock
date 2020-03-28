@@ -119,6 +119,14 @@ version = "0.4.3"
 
 [[package]]
 category = "main"
+description = "CoNLL-U Parser parses a CoNLL-U formatted string into a nested python dictionary"
+name = "conllu"
+optional = false
+python-versions = "*"
+version = "2.3.2"
+
+[[package]]
+category = "main"
 description = "Tools for processing language data."
 name = "corpy"
 optional = false
@@ -1140,7 +1148,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "69a420bcd8fe9226063014a27bb6dbff6784ea37de088d3ddbe9f7f6f8a12d33"
+content-hash = "20d8e7ac3b2bdc7cef80fbb2c170ebbcf7cd8e181052eeaea1ef43e2d61d2d73"
 python-versions = "3.7.*"
 
 [metadata.files]
@@ -1191,6 +1199,10 @@ click = [
 colorama = [
     {file = "colorama-0.4.3-py2.py3-none-any.whl", hash = "sha256:7d73d2a99753107a36ac6b455ee49046802e59d9d076ef8e47b61499fa29afff"},
     {file = "colorama-0.4.3.tar.gz", hash = "sha256:e96da0d330793e2cb9485e9ddfd918d456036c7149416295932478192f4436a1"},
+]
+conllu = [
+    {file = "conllu-2.3.2-py2.py3-none-any.whl", hash = "sha256:7b3d433d06e50e3814be7af50d26e43151d8e134d7b84f5389d2ecafa2b65ab2"},
+    {file = "conllu-2.3.2.tar.gz", hash = "sha256:73721d17e3346d8423704fe75bfe296f0c4a693489e0c650b71f504c2a300dda"},
 ]
 corpy = [
     {file = "corpy-0.2.3-py3-none-any.whl", hash = "sha256:40548db9ed0f6857222a6a55d21cecb002a5944832e4c687469d76d4ae5f1e21"},
