@@ -155,7 +155,7 @@ for data science applications of course.
 
 <!-- #md -->
 <iframe width="560" height="315"
-  src="https://www.youtube-nocookie.com/embed/Iq9DzN6mvYA" frameborder="0"
+  src="https://www.youtube-nocookie.com/embed/DifMYH3iuFw" frameborder="0"
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen>
 </iframe>
@@ -170,7 +170,10 @@ particular talk may be titled *Statistics for Hackers*, but in reality
 it's geared towards anyone with a keen mind who's interested in
 statistics but hasn't had extensive formal training in math, which means
 they sometimes struggle with a formula-heavy approach. Which often
-applies to linguists, including myself.
+applies to linguists, including myself. This may also be a good place to
+point out that ['hacker'](https://en.wikipedia.org/wiki/Hacker) doesn't
+always (and certainly not here) refer to someone who breaks into other
+people's computers.
 
 <!-- #endmd -->
 
