@@ -34,4 +34,4 @@ site: build
 	poetry export --format requirements.txt --without-hashes --output _site/requirements.txt
 
 publish: site
-	ghp-import -b master -n -p -f _site
+	ghp-import -b master -m Publish -n -p -f _site
