@@ -18,7 +18,11 @@ cd content
 find -iname \*.md -not -name LICENSE.md | while read in_path; do
   out_path=$( echo "$in_path" | sed 's/.md$/.ipynb/' )
   if [ ! -f "$out_path" ] || [ $( mtime "$in_path" ) -gt $( mtime "$out_path" ) ]; then
-    jupytext --execute "$in_path" --output "$out_path"
+    if [ "$( basename "$in_path" )" == rest.md ]; then
+      jupytext --execute "$in_path" --output "$out_path" --update-metadata '{"author": "Rudolf Rosa"}'
+    else
+      jupytext --execute "$in_path" --output "$out_path"
+    fi
   fi
   rm -f "$in_path"
 done

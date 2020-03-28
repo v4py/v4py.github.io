@@ -1,4 +1,5 @@
 ---
+author: Rudolf Rosa
 jupyter:
   jupytext:
     text_representation:
@@ -10,7 +11,6 @@ jupyter:
     display_name: Python 3
     language: python
     name: python3
-author: Rudolf Rosa
 ---
 
 # Working with online resources
