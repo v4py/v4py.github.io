@@ -93,7 +93,7 @@ my_response.encoding = 'utf8'
 print(my_response.text)
 ```
 
-### Additional exercises
+### Additional exercises 1
 * count the number of characters in the text, i.e. the `len`gth of the
   text
 * split the text into lines (at each newline character `\n`)
@@ -319,7 +319,7 @@ print(lines[-1])
 print(translate(lines[-1]))
 ```
 
-### Additional exercises
+### Additional exercises 2
 
 * Try to make it work correctly with input text consisting of multiple
   sentences.
@@ -435,7 +435,7 @@ print(joke('Rudolf', 'Rosa'))
 print(joke('yo', 'mama'))
 ```
 
-### Additional exercises
+### Additional exercises 3
 
 * Try to connect the joke API with the translation API
   * Get a random joke
@@ -471,7 +471,7 @@ r = requests.get(url)
 Image(r.content)
 ```
 
-### Additional exercises
+### Additional exercises 4
 
 * Try to run the code above repeatedly to get a different cat each time.
 * Try to put it into a function.
@@ -540,7 +540,7 @@ for line in result.split('\n'):
         print(fields[1])
 ```
 
-### Additional exercises
+### Additional exercises 5
 
 * Try to wrap it into a function
 * Try to parametrize it for the language (but only English and Czech are
@@ -711,7 +711,7 @@ nouns("My hovercraft is full of eels.")
 nouns("Moje vznášedlo je plné úhořů.", 'czech')
 ```
 
-### Additional exercises
+### Additional exercises 6
 
 * Try to join multiple REST APIs together, e.g.
   * Get a joke in English
