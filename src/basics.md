@@ -86,10 +86,55 @@ fractional part of a number.
 
 But enough about numbers! ... strings
 
-
-At this point, probably sick and tired of reaching for your mouse to
-press ▶ all the time. Keyboard shortcuts:
+At this point, if you're following along interactively in JupyterLab,
+you're probably sick and tired of reaching for your mouse to press ▶ all
+the time. JupyterLab has many handy keyboard shortcuts which I'll let
+you discover on your own at your leisure, but the following three are
+such a huge quality of life improvement that I feel compelled to point
+them out:
 
 - `Alt+Enter`: evaluate, insert new cell and switch to it
 - `Shift+Enter`: evaluate and switch to next (existing) cell
 - `Ctrl+Enter`: evaluate and stay at current cell
+
+# Importing
+
+```python
+import json
+```
+
+```python
+json
+```
+
+```python
+json.loads
+```
+
+```python
+from json import loads
+```
+
+```python
+loads
+```
+
+```python
+from builtins import set
+```
+
+```python
+from json import *
+```
+
+```python
+import json
+```
+
+```python
+import json as js
+```
+
+```python
+js.loads
+```

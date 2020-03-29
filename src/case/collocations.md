@@ -13,3 +13,9 @@ jupyter:
 ---
 
 # Determining collocation strength
+
+Collocation strength between two words, *x* and *y*, can be quantified
+in various ways using so-called **association measures**. One which
+gives fairly useful and intuitive results is the **Dice score**:
+
+$\Huge{Dice = \frac{f(xy)}{\frac{f(x) + f(y)}{2}} = \frac{2 f(xy)}{f(x) + f(y)}}$

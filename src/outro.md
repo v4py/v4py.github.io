@@ -143,7 +143,7 @@ confidence.
 
 <!-- =============================================================== -->
 <!-- #md tags=["full_width"] -->
----
+<hr style="margin-top: 4rem;">
 <!-- #endmd -->
 
 ## Data analysis and NLP
@@ -260,7 +260,7 @@ process typically looks like and what are the pitfalls to look out for.
 
 <!-- =============================================================== -->
 <!-- #md tags=["full_width"] -->
----
+<hr style="margin-top: 4rem;">
 <!-- #endmd -->
 
 ## War stories
@@ -288,7 +288,7 @@ with Python starring as agent Ethan Hunt!
 
 <!-- =============================================================== -->
 <!-- #md tags=["full_width"] -->
----
+<hr style="margin-top: 4rem;">
 <!-- #endmd -->
 
 ## Nuts and bolts (advanced)
@@ -355,6 +355,11 @@ the buzzwords `async` and `await`, they feature prominently.
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen>
 </iframe>
+<!-- #endmd -->
+
+<!-- =============================================================== -->
+<!-- #md tags=["full_width"] -->
+<hr style="margin-top: 4rem;">
 <!-- #endmd -->
 
 # Libraries

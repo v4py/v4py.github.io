@@ -13,6 +13,10 @@ requests = "^2.23.0"
 requests-html = "^0.10.0"
 pandas = "^1.0.3"
 conllu = "^2.3.2"
+ipywidgets = "^7.5.1"
+xlrd = "^1.2.0"
+dill = "^0.3.1"
+scipy = "^1.4.1"
 
 [tool.poetry.dev-dependencies]
 jupyterlab = "^2.0.1"

@@ -27,14 +27,15 @@
 # heading in each file. Note that this requires hash-prefix header
 # syntax and doesn't work with underline syntax. There are other
 # options, including a title: field in each file's YAML config block,
-# but I've only had mixed success with that (it seemed to work for the
-# sidebar but not for the main text). Cf.
+# but make sure it's all under the jupyter: entry. Cf.
 # <https://jupyterbook.org/features/titles.html>
 - url: /intro
 - url: /basics
 - url: /unicode
 - url: /data
 - url: /rest
+- url: /regex
+- url: /gotchas
 - url: /case
   expand_sections: true
   sections:

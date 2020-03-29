@@ -1,5 +1,6 @@
 ---
 jupyter:
+  author: David Lukeš, Rudolf Rosa
   jupytext:
     text_representation:
       extension: .md
@@ -128,7 +129,8 @@ code in each chapter of the book yourself and tinkering with it. There
 are several options for that. The easiest one is to use either the **▶
 mybinder.org** or **▶ jupyter.korpus.cz** buttons at the top of the
 page, which will take care of everything for you and open an interactive
-version of this text in your browser.
+version of this text in your browser, without you needing to install
+anything on your computer.
 
 Note that the second button requires that you have an account at
 <https://jupyter.korpus.cz> (attendees of the V4Py summer school do),
@@ -149,7 +151,10 @@ analysis. In that case, you'll be opening JupyterLab via the [Anaconda
 Navigator](https://docs.anaconda.com/anaconda/navigator/), and you'll
 need to [download the notebooks
 manually](https://github.com/v4py/v4py.github.io/archive/master.zip)
-(after unzipping, the notebooks are in the `content/` subdirectory).
+(after unzipping, the notebooks are in the `content/` subdirectory). If
+you don't mind downloading the notebooks individually, you can also use
+the download button at the top of the page, but that won't get you any
+of the additional files that some of the notebooks rely on.
 
 If you want to learn more about using notebooks, [here's a gallery of
 interesting notebooks to help you get acquainted with the
@@ -572,77 +577,40 @@ I encourage you to revisit this extended worked example once you're done
 reading the book, as a way to reflect on what you've learned and bring
 it all together.
 
-# NLTK Book
+<!-- TODO: remove or develop -->
 
-A great, longer free resource. <http://www.nltk.org/book/>
+<!-- # NLTK Book -->
 
-![NLTK Book](./nltk_book.jpg)
+<!-- A great, longer free resource. <http://www.nltk.org/book/> -->
 
-Credit: ???
+<!-- ![NLTK Book](./nltk_book.jpg) -->
 
-# The NLP pipeline
+<!-- Credit: ??? -->
 
-NOTE: maybe leave this out? Not strictly necessary, this is probably
-better to discuss in class, plus I shouldn't rely too much on NLTK Book
-materials for licensing reasons.
+<!-- # The NLP pipeline -->
 
-![NLP](./dialogue.png)
+<!-- NOTE: maybe leave this out? Not strictly necessary, this is probably -->
+<!-- better to discuss in class, plus I shouldn't rely too much on NLTK Book -->
+<!-- materials for licensing reasons. -->
 
-Credit: ???
+<!-- ![NLP](./dialogue.png) -->
 
-# Overview
+<!-- Credit: ??? -->
 
-- Python basics (functions, control flow, collections)
-- The NLTK [package](http://www.nltk.org/) &
-  [book](http://www.nltk.org/book) as a good starting point for people
-  interested in language data
-- [How text is represented inside
-  computers](https://dlukes.github.io/unicode.html)
-- Regular expressions in Python
-- Accessing web services ("REST APIs") from Python & Automatic
-  annotation of language data (tagging, parsing) -- both courtesy of
-  [Rudolf Rosa](https://ufal.mff.cuni.cz/rudolf-rosa)
-- Getting data into Python (raw text & tabular data)
-- Some visualizations (dispersion plots, wordclouds)
-- Case studies: collocation strength, keyword analysis
+<!-- # Overview -->
 
-<!-- - Hackathon on Friday! -->
-
-# Info about Jupyter Notebook / JupyterLab
-
-This course consists of Python notebooks which you can open and interact
-with using either the new
-[JupyterLab](https://jupyterlab.readthedocs.io) environment or the
-legacy [Jupyter Notebook](https://jupyter-notebook.readthedocs.io)
-interface. For more information on both of these, including tutorials on
-how to use them, check out the [Project Jupyter
-website](https://jupyter.org). Some usage tips are also provided here as
-[Appendix TODO](TODO/Make the most of Jupyter notebooks).
-
-The easiest way to run JupyterLab or Jupyter Notebook is by using a
-cloud service like [Binder](https://mybinder.org). With Binder, you
-don't have to worry about installing anything on your computer, you just
-open a link in your browser and start playing around with the target
-notebook right away. At the beginning of each chapter, we'll therefore
-provide Binder links to the corresponding notebooks for your
-convenience. They look like this:
-
-[Binder link](TODO)
-
-Click on it to try it out!
-
-The second most convenient way is to install the [Anaconda Python
-distribution](https://www.anaconda.com/distribution/), because both
-JupyterLab and Jupyter Notebook come bundled with it. After
-installation, run the *Anaconda Navigator* program, which provides
-buttons to launch them. You'll also have to manually download the
-course's notebooks to your computer, so that you can work with them. All
-of the course's notebooks are available in its [GitHub
-repository](TODO).
-
-More advanced users will probably be aware that both can also be
-installed using standard command line Python package managers like
-`conda` or `pip`. If the previous sentence sounds like gibberish to you,
-don't worry, you can safely ignore it :)
+<!-- - Python basics (functions, control flow, collections) -->
+<!-- - The NLTK [package](http://www.nltk.org/) & -->
+<!--   [book](http://www.nltk.org/book) as a good starting point for people -->
+<!--   interested in language data -->
+<!-- - [How text is represented inside -->
+<!--   computers](https://dlukes.github.io/unicode.html) -->
+<!-- - Regular expressions in Python -->
+<!-- - Accessing web services ("REST APIs") from Python & Automatic -->
+<!--   annotation of language data (tagging, parsing) - both courtesy of -->
+<!--   [Rudolf Rosa](https://ufal.mff.cuni.cz/rudolf-rosa) -->
+<!-- - Getting data into Python (raw text & tabular data) -->
+<!-- - Some visualizations (dispersion plots, wordclouds) -->
+<!-- - Case studies: collocation strength, keyword analysis -->
 
 <!-- vim: set spell spelllang=en: -->
