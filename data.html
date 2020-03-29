@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
   <title>Getting your data into Python</title>
-  <meta name="description" content="        Getting your data into Python             ">
+  <meta name="description" content="        Getting your data into Python    This chapter is about interacting with data on your computer's disk --mostly loading it into Python, but also writin...">
 
   <link rel="canonical" href="https://v4py.github.io//data.html">
   <link rel="alternate" type="application/rss+xml" title="An Introduction to Python for Linguists" href="https://v4py.github.io//feed.xml">
@@ -14,7 +14,7 @@
   <meta property="og:url"         content="https://v4py.github.io//data.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Getting your data into Python" />
-<meta property="og:description" content="        Getting your data into Python             " />
+<meta property="og:description" content="        Getting your data into Python    This chapter is about interacting with data on your computer's disk --mostly loading it into Python, but also writin..." />
 <meta property="og:image"       content="https://v4py.github.io/images/v4py_logo_wide.svg" />
 
 <meta name="twitter:card" content="summary">
@@ -26,9 +26,9 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://v4py.github.io//data.html",
   "headline": "Getting your data into Python",
-  "datePublished": "2020-03-29T00:12:24+01:00",
-  "dateModified": "2020-03-29T00:12:24+01:00",
-  "description": "        Getting your data into Python             ",
+  "datePublished": "2020-03-30T00:16:58+02:00",
+  "dateModified": "2020-03-30T00:16:58+02:00",
+  "description": "        Getting your data into Python    This chapter is about interacting with data on your computer's disk --mostly loading it into Python, but also writin...",
   "author": {
     "@type": "Person",
     "name": "David Lukeš, Rudolf Rosa"
@@ -617,12 +617,78 @@ initFunction(initPrint)
 
       
       
+      <li class="c-sidebar__chapter" data-url="/regex">
+        <a class="c-sidebar__entry"
+          href="/regex.html"
+        >
+          
+            6.
+          
+          Regular expressions
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/gotchas">
+        <a class="c-sidebar__entry"
+          href="/gotchas.html"
+        >
+          
+            7.
+          
+          Python gotchas
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
       <li class="c-sidebar__chapter" data-url="/case">
         <a class="c-sidebar__entry"
           href="/case.html"
         >
           
-            6.
+            8.
           
           Case studies
         </a>
@@ -656,7 +722,7 @@ initFunction(initPrint)
                 href="/case/collocations.html"
               >
                 
-                  6.1
+                  8.1
                 
                 Determining collocation strength
               </a>
@@ -677,7 +743,7 @@ initFunction(initPrint)
                 href="/case/keywords.html"
               >
                 
-                  6.2
+                  8.2
                 
                 Keyword analysis: Donald Trump's speeches
               </a>
@@ -705,7 +771,7 @@ initFunction(initPrint)
           href="/outro.html"
         >
           
-            7.
+            9.
           
           Parting words
         </a>
@@ -862,7 +928,4625 @@ initFunction(initPrint)
                   <main class="jupyter-page">
     <div id="page-info"><div id="page-title">Getting your data into Python</div>
 </div>
-     
+    <div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This chapter is about interacting with data on your computer's disk --
+mostly loading it into Python, but also writing it back, and storing it
+for quick reloading later.</p>
+<h1 id="Plain-text-files">Plain text files<a class="anchor-link" href="#Plain-text-files"> </a></h1><p>A <strong>plain text</strong> file is a file where every single bit contributes
+towards representing plain text content. What fits into the concept of
+'plain text' is actually surprisingly fuzzy -- it depends on which
+characters are available in the character set you're using, and
+character sets are just arbitrary human conventions. Historically,
+there were computer systems that didn't make case distinctions, so upper
+vs. lower case was not something you could express using just plain
+text.</p>
+<p>Nowadays, Unicode is making inroads into text properties which were
+previously the domain of <strong>rich text</strong>, assigning dedicated codepoints
+to 𝘪𝘵𝘢𝘭𝘪𝘤𝘴 or ˢᵘᵖᵉʳˢᶜʳᶦᵖᵗ, which allow you, among other things, to work
+around the lack of rich text capabilities in Twitter or Facebook posts
+(although that's obviously not what they were originally intended for).
+But the further you go along the axis of content vs. appearance, the
+more you encounter properties which are unlikely to ever make it into
+plain text, like the ability to specify which particular font the text
+should be displayed with.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_output_scroll">
+
+<div class="cell border-box-sizing code_cell rendered tag_output_scroll">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">unicodedata</span> <span class="kn">import</span> <span class="n">name</span>
+
+<span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="s2">&quot;𝘪𝘵𝘢𝘭𝘪𝘤𝘴ˢᵘᵖᵉʳˢᶜʳᶦᵖᵗ&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="n">name</span><span class="p">(</span><span class="n">char</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>𝘪	MATHEMATICAL SANS-SERIF ITALIC SMALL I
+𝘵	MATHEMATICAL SANS-SERIF ITALIC SMALL T
+𝘢	MATHEMATICAL SANS-SERIF ITALIC SMALL A
+𝘭	MATHEMATICAL SANS-SERIF ITALIC SMALL L
+𝘪	MATHEMATICAL SANS-SERIF ITALIC SMALL I
+𝘤	MATHEMATICAL SANS-SERIF ITALIC SMALL C
+𝘴	MATHEMATICAL SANS-SERIF ITALIC SMALL S
+ˢ	MODIFIER LETTER SMALL S
+ᵘ	MODIFIER LETTER SMALL U
+ᵖ	MODIFIER LETTER SMALL P
+ᵉ	MODIFIER LETTER SMALL E
+ʳ	MODIFIER LETTER SMALL R
+ˢ	MODIFIER LETTER SMALL S
+ᶜ	MODIFIER LETTER SMALL C
+ʳ	MODIFIER LETTER SMALL R
+ᶦ	MODIFIER LETTER SMALL CAPITAL I
+ᵖ	MODIFIER LETTER SMALL P
+ᵗ	MODIFIER LETTER SMALL T
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Plain text files can be opened with the built-in <code>open()</code> function. As
+we've seen in our discussion of <a href="unicode">Unicode</a>, your safest bet with
+a plain text file in an unknown encoding is to start by trying to open
+it as <code>UTF-8</code> -- not because that will always work, but precisely
+because it won't: if it's not actually <code>UTF-8</code>, you're likely to get an
+error, which will tell you there's something fishy and prevent you from
+corrupting your data. Also, <code>UTF-8</code> is becoming more and more prevalent,
+so chances are good that file actually <em>is</em> <code>UTF-8</code>, in which case
+you're golden. The <code>text.txt</code> file below, though, isn't.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_raises-exception tag_full_width tag_output_scroll">
+
+<div class="cell border-box-sizing code_cell rendered tag_raises-exception tag_full_width tag_output_scroll">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/text.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">UnicodeDecodeError</span>                        Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-2-69fb790be22b&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">with</span> open<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;data/text.txt&#34;</span><span class="ansi-blue-fg">,</span> encoding<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#34;utf-8&#34;</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">as</span> file<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg">     </span>print<span class="ansi-blue-fg">(</span>file<span class="ansi-blue-fg">.</span>read<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">~/.local/pyenv/versions/3.7.6/lib/python3.7/codecs.py</span> in <span class="ansi-cyan-fg">decode</span><span class="ansi-blue-fg">(self, input, final)</span>
+<span class="ansi-green-intense-fg ansi-bold">    320</span>         <span class="ansi-red-fg"># decode input (taking the buffer into account)</span>
+<span class="ansi-green-intense-fg ansi-bold">    321</span>         data <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>buffer <span class="ansi-blue-fg">+</span> input
+<span class="ansi-green-fg">--&gt; 322</span><span class="ansi-red-fg">         </span><span class="ansi-blue-fg">(</span>result<span class="ansi-blue-fg">,</span> consumed<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_buffer_decode<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>errors<span class="ansi-blue-fg">,</span> final<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    323</span>         <span class="ansi-red-fg"># keep undecoded input until the next call</span>
+<span class="ansi-green-intense-fg ansi-bold">    324</span>         self<span class="ansi-blue-fg">.</span>buffer <span class="ansi-blue-fg">=</span> data<span class="ansi-blue-fg">[</span>consumed<span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">]</span>
+
+<span class="ansi-red-fg">UnicodeDecodeError</span>: &#39;utf-8&#39; codec can&#39;t decode bytes in position 1-2: invalid continuation byte</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>OK, that didn't work. Now you can start thinking about alternatives. Do
+you know anything about the language the text in the file is supposed to
+be in? If it's a Western European language, then the encoding might be
+<a href="https://en.wikipedia.org/wiki/ISO/IEC_8859-1"><code>latin1</code></a> or
+<a href="https://en.wikipedia.org/wiki/Windows-1252"><code>cp1252</code></a>; if it's Central
+European, then perhaps
+<a href="https://en.wikipedia.org/wiki/ISO/IEC_8859-2"><code>latin2</code></a> or
+<a href="https://en.wikipedia.org/wiki/Windows-1250"><code>cp1250</code></a> (beyond those
+two regions, I'm afraid I can't give any tips, you'll have to rely on
+web search engines).</p>
+<p>Let's say we know <code>text.txt</code> is in Czech, a Central European
+language. We might want to try <code>cp1250</code>, because that's <em>still</em> (ugh)
+the default encoding for text files created under the Czech version of
+Windows, and that's where the file might have come from.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/text.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;cp1250&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Běľela Magda kaňonem, sráľela banány rádiem.
+Helenka líbala na kolínko robustního cestáře France.
+Pan čáp ztratil čepičku, měla barvu barvičku...?
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The tricky thing here is that everything went seemingly fine, no error
+occurred. That's because <code>cp1250</code> is an 8-bit fixed-width encoding, and
+any sequence of bytes can be interpreted as a <code>cp1250</code>-encoded file --
+even if it was originally intended to be something else. If a Czech
+speaker tries to read this output, some words will be off. It may be
+hard to spot them, because many 8-bit encodings share a lot of the
+byte--character mappings, at least in the ASCII range [0; 128), but to a
+smaller extent even beyond. This makes it easier to still read at least
+parts of the file if you've guessed the encoding wrong, but it also
+makes it harder to realize that.</p>
+<p>The 1990s were the age of many different 8-bit encodings for different
+groups of languages. It sucked. Be glad you live in the age of <code>UTF-8</code>.</p>
+<p>Finally, if we try <code>latin2</code>, that Czech person helpfully standing behind
+you can tell you that now, the result looks alright. If you compare with
+the previous attempt, you may see that there are indeed minute
+differences.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/text.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;latin2&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Běžela Magda kaňonem, srážela banány rádiem.
+Helenka líbala na kolínko robustního cestáře France.
+Pan čáp ztratil čepičku, měla barvu barvičku...?
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Sometimes, you may encounter a plain text file that you know should be
+in <code>UTF-8</code>, but it has become corrupted for some reason -- maybe it was
+spliced together with another file in a different encoding, or maybe
+some evil spirit flipped a few bits here and there. In that case, the
+contents won't look right in any one encoding, but you might still want
+to at least have a glimpse at what it contains. To make Python soldier
+through in spite of encountering invalid byte sequences (i.e. encoding
+errors), you can specify an error handler. A preview of a few of the
+more common options is given below; for a full list, refer
+<a href="https://docs.python.org/3/library/codecs.html#error-handlers">here</a>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/text.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;replace&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>B�ela Magda ka�onem, sr�ela ban�ny r�diem.
+Helenka l�bala na kol�nko robustn�ho cest��e France.
+Pan ��p ztratil �epi�ku, m�la barvu barvi�ku...?
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/text.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Bela Magda kaonem, srela banny rdiem.
+Helenka lbala na kolnko robustnho ceste France.
+Pan p ztratil epiku, mla barvu barviku...?
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/text.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;backslashreplace&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>B\xec\xbeela Magda ka\xf2onem, sr\xe1\xbeela ban\xe1ny r\xe1diem.
+Helenka l\xedbala na kol\xednko robustn\xedho cest\xe1\xf8e France.
+Pan \xe8\xe1p ztratil \xe8epi\xe8ku, m\xecla barvu barvi\xe8ku...?
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Incidentally, this allows us to take a peek at what a rich text file
+looks like under the hood. If you open <code>text.doc</code> in a word processor,
+you'll see that it has the same textual content as <code>text.txt</code>. But
+opening it as plain text, we see that the file definitely contains some
+more stuff besides that, and most of it can't be interpreted as text --
+there's a lot of those question mark replacement characters, and even
+more null bytes (<code>\x00</code>, i.e. a byte consisting of all 0's). Some of it
+is metadata, e.g. who wrote the text and when, or possibly encoding
+information, so that the word processor doesn't have to take blind
+guesses at which encoding the text is stored in like we just had to.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/text.doc&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;replace&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">txt</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">txt</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;��\x11\u0871\x1a�\x00\x00\x00\x00&#39;</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># this is probably author metadata?</span>
+<span class="n">index</span> <span class="o">=</span> <span class="n">txt</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;Lukeš&quot;</span><span class="p">)</span>
+<span class="n">txt</span><span class="p">[</span><span class="n">index</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="n">index</span><span class="o">+</span><span class="mi">15</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;\x00\x00Lukeš, David\x00\x00\x00&#39;</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># and this is probably the part which corresponds to &quot;Magda kaňonem&quot; in</span>
+<span class="c1"># our plain text file</span>
+<span class="n">index</span> <span class="o">=</span> <span class="n">txt</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;M&quot;</span><span class="p">)</span>
+<span class="n">txt</span><span class="p">[</span><span class="n">index</span><span class="p">:</span><span class="n">index</span><span class="o">+</span><span class="mi">25</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;M\x00a\x00g\x00d\x00a\x00 \x00k\x00a\x00H\x01o\x00n\x00e\x00m&#39;</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Manipulating-tabular-data">Manipulating tabular data<a class="anchor-link" href="#Manipulating-tabular-data"> </a></h1>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_popout">
+
+<div class="cell border-box-sizing text_cell rendered tag_popout"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>CSVs are actually plain text files -- in their simplest form, each row
+of the table is just a line of text, with columns separated by commas.
+However, in order to allow the individual fields to contain commas or
+newlines (which normally act as column and row separators), the CSV
+standard defines fairly complicated escaping mechanisms which you don't
+want to implement yourself. So it's generally better to rely on a
+library to parse CSVs and not do it manually, unless you know for a fact
+that the CSV contains none of these gotchas.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Data often comes in tabular format -- Excel files, CSV files and the
+like. The easiest and most convenient way to load this type of data into
+Python and manipulate it is using the
+<a href="https://pandas.pydata.org/"><code>pandas</code></a> library. While manual
+modifications of individual cells will probably always be more ergonomic
+in a spreadsheet editor like Excel, any kind of mass data manipulation
+is what <code>pandas</code>... excels at, if you'll pardon the pun. It does so in a
+clean and efficient way, mostly without even breaking a sweat, and best
+of all, you can always retrace your steps and check whether you've made
+a mistake at some point because you're writing them down as Python
+commands instead of clicking around in a graphical user interface. Not
+to mention that this makes it trivial to apply the same series of
+processing steps to similarly shaped data, once you've figured them out.</p>
+<h2 id="The-pandas-library">The <code>pandas</code> library<a class="anchor-link" href="#The-pandas-library"> </a></h2><p>Let's fire up <code>pandas</code> and take a look at how it can help you to slice
+and dice tables in Python. Or should I say <code>DataFrame</code>s, because that's
+what <code>pandas</code> calls them, acknowledging inspiration from R's trademark
+data structure.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;data/concordance_corpus.xlsx&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>pandas.core.frame.DataFrame</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>newadvent.org</th>
+      <th>by Theodor Mommsen , undertook its monumental publication , the</th>
+      <th>Corpus/Corpus/NP</th>
+      <th>Inscriptionum Latinarum " , it sent a flattering letter to</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>newadvent.org</td>
+      <td>Mommsen . The latter 's numerous collaborators...</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>" , among them Edwin Bormann , the noted autho...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>newadvent.org</td>
+      <td>) , concerning the preparatory work for the ab...</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>Inscriptionum " , which appeared in the monthl...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>freerepublic.com</td>
+      <td>, or arrest the MD assembly , or suspend habeus</td>
+      <td>corpus/corpus/NN</td>
+      <td>, or invade sovereign states . ​He​ ​did​ ​n't...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>hinduism.co.za</td>
+      <td>corporeal being in the fullness of time , assu...</td>
+      <td>corpus/corpus/NN</td>
+      <td>. It arises and perishes in due order . And</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>lg-legal.com</td>
+      <td>relation to the takeover offer announced today...</td>
+      <td>Corpora/corpus/NNS</td>
+      <td>valuing Archipelago at £ 340 m. 27 Sep 2013 MORE</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>848</th>
+      <td>blogs.ulster.ac.uk</td>
+      <td>University . For example , Corpus Christi Coll...</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>Irish Missal , 12 th century ( MS 282 )</td>
+    </tr>
+    <tr>
+      <th>849</th>
+      <td>ginnysaustin.com</td>
+      <td>set by a youth cutting my teeth on tacos in</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>Christi ( RIP Elva ’s ) . Now , I</td>
+    </tr>
+    <tr>
+      <th>850</th>
+      <td>patriotsquestion911.com</td>
+      <td>of the Geneva Conventions , and the repeal of ...</td>
+      <td>corpus/corpus/NN</td>
+      <td>( a fundamental point of law that has been with</td>
+    </tr>
+    <tr>
+      <th>851</th>
+      <td>biblicalarchaeology.org</td>
+      <td>Keel recently pointed out , even in the highly...</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>of West Semitic Stamp Seals published by Nahma...</td>
+    </tr>
+    <tr>
+      <th>852</th>
+      <td>rrojasdatabank.info</td>
+      <td>developing ones , were interpreted through the...</td>
+      <td>corpus/corpus/NN</td>
+      <td>of knowledge recognized as Keynesian economics...</td>
+    </tr>
+  </tbody>
+</table>
+<p>853 rows × 4 columns</p>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<!-- TODO: Whew, preview long and unwieldy, let's use the `.head()` method -->
+<!-- from now on to condense it a little bit. -->
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span>
+    <span class="s2">&quot;data/concordance_corpus.xlsx&quot;</span><span class="p">,</span>
+    <span class="n">header</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>newadvent.org</td>
+      <td>by Theodor Mommsen , undertook its monumental ...</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>Inscriptionum Latinarum " , it sent a flatteri...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>newadvent.org</td>
+      <td>Mommsen . The latter 's numerous collaborators...</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>" , among them Edwin Bormann , the noted autho...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>newadvent.org</td>
+      <td>) , concerning the preparatory work for the ab...</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>Inscriptionum " , which appeared in the monthl...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>freerepublic.com</td>
+      <td>, or arrest the MD assembly , or suspend habeus</td>
+      <td>corpus/corpus/NN</td>
+      <td>, or invade sovereign states . ​He​ ​did​ ​n't...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>hinduism.co.za</td>
+      <td>corporeal being in the fullness of time , assu...</td>
+      <td>corpus/corpus/NN</td>
+      <td>. It arises and perishes in due order . And</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>849</th>
+      <td>blogs.ulster.ac.uk</td>
+      <td>University . For example , Corpus Christi Coll...</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>Irish Missal , 12 th century ( MS 282 )</td>
+    </tr>
+    <tr>
+      <th>850</th>
+      <td>ginnysaustin.com</td>
+      <td>set by a youth cutting my teeth on tacos in</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>Christi ( RIP Elva ’s ) . Now , I</td>
+    </tr>
+    <tr>
+      <th>851</th>
+      <td>patriotsquestion911.com</td>
+      <td>of the Geneva Conventions , and the repeal of ...</td>
+      <td>corpus/corpus/NN</td>
+      <td>( a fundamental point of law that has been with</td>
+    </tr>
+    <tr>
+      <th>852</th>
+      <td>biblicalarchaeology.org</td>
+      <td>Keel recently pointed out , even in the highly...</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>of West Semitic Stamp Seals published by Nahma...</td>
+    </tr>
+    <tr>
+      <th>853</th>
+      <td>rrojasdatabank.info</td>
+      <td>developing ones , were interpreted through the...</td>
+      <td>corpus/corpus/NN</td>
+      <td>of knowledge recognized as Keynesian economics...</td>
+    </tr>
+  </tbody>
+</table>
+<p>854 rows × 4 columns</p>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span>pd.read_excel<span class="o">?</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span>
+    <span class="s2">&quot;data/concordance_corpus.xlsx&quot;</span><span class="p">,</span>
+    <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;domain&quot;</span><span class="p">,</span> <span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="s2">&quot;kwic&quot;</span><span class="p">,</span> <span class="s2">&quot;right&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>domain</th>
+      <th>left</th>
+      <th>kwic</th>
+      <th>right</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>newadvent.org</td>
+      <td>by Theodor Mommsen , undertook its monumental ...</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>Inscriptionum Latinarum " , it sent a flatteri...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>newadvent.org</td>
+      <td>Mommsen . The latter 's numerous collaborators...</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>" , among them Edwin Bormann , the noted autho...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>newadvent.org</td>
+      <td>) , concerning the preparatory work for the ab...</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>Inscriptionum " , which appeared in the monthl...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>freerepublic.com</td>
+      <td>, or arrest the MD assembly , or suspend habeus</td>
+      <td>corpus/corpus/NN</td>
+      <td>, or invade sovereign states . ​He​ ​did​ ​n't...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>hinduism.co.za</td>
+      <td>corporeal being in the fullness of time , assu...</td>
+      <td>corpus/corpus/NN</td>
+      <td>. It arises and perishes in due order . And</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>849</th>
+      <td>blogs.ulster.ac.uk</td>
+      <td>University . For example , Corpus Christi Coll...</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>Irish Missal , 12 th century ( MS 282 )</td>
+    </tr>
+    <tr>
+      <th>850</th>
+      <td>ginnysaustin.com</td>
+      <td>set by a youth cutting my teeth on tacos in</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>Christi ( RIP Elva ’s ) . Now , I</td>
+    </tr>
+    <tr>
+      <th>851</th>
+      <td>patriotsquestion911.com</td>
+      <td>of the Geneva Conventions , and the repeal of ...</td>
+      <td>corpus/corpus/NN</td>
+      <td>( a fundamental point of law that has been with</td>
+    </tr>
+    <tr>
+      <th>852</th>
+      <td>biblicalarchaeology.org</td>
+      <td>Keel recently pointed out , even in the highly...</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>of West Semitic Stamp Seals published by Nahma...</td>
+    </tr>
+    <tr>
+      <th>853</th>
+      <td>rrojasdatabank.info</td>
+      <td>developing ones , were interpreted through the...</td>
+      <td>corpus/corpus/NN</td>
+      <td>of knowledge recognized as Keynesian economics...</td>
+    </tr>
+  </tbody>
+</table>
+<p>854 rows × 4 columns</p>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;domain&quot;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0                newadvent.org
+1                newadvent.org
+2                newadvent.org
+3             freerepublic.com
+4               hinduism.co.za
+                ...           
+849         blogs.ulster.ac.uk
+850           ginnysaustin.com
+851    patriotsquestion911.com
+852    biblicalarchaeology.org
+853        rrojasdatabank.info
+Name: domain, Length: 854, dtype: object</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;domain&quot;</span><span class="p">]))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>234</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;domain&quot;</span><span class="p">,</span> <span class="s2">&quot;kwic&quot;</span><span class="p">]]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>domain</th>
+      <th>kwic</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>newadvent.org</td>
+      <td>Corpus/Corpus/NP</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>newadvent.org</td>
+      <td>Corpus/Corpus/NP</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>newadvent.org</td>
+      <td>Corpus/Corpus/NP</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>freerepublic.com</td>
+      <td>corpus/corpus/NN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>hinduism.co.za</td>
+      <td>corpus/corpus/NN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>849</th>
+      <td>blogs.ulster.ac.uk</td>
+      <td>Corpus/Corpus/NP</td>
+    </tr>
+    <tr>
+      <th>850</th>
+      <td>ginnysaustin.com</td>
+      <td>Corpus/Corpus/NP</td>
+    </tr>
+    <tr>
+      <th>851</th>
+      <td>patriotsquestion911.com</td>
+      <td>corpus/corpus/NN</td>
+    </tr>
+    <tr>
+      <th>852</th>
+      <td>biblicalarchaeology.org</td>
+      <td>Corpus/Corpus/NP</td>
+    </tr>
+    <tr>
+      <th>853</th>
+      <td>rrojasdatabank.info</td>
+      <td>corpus/corpus/NN</td>
+    </tr>
+  </tbody>
+</table>
+<p>854 rows × 2 columns</p>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;domain&quot;</span><span class="p">:</span><span class="s2">&quot;kwic&quot;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>domain</th>
+      <th>left</th>
+      <th>kwic</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>newadvent.org</td>
+      <td>Mommsen . The latter 's numerous collaborators...</td>
+      <td>Corpus/Corpus/NP</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>newadvent.org</td>
+      <td>) , concerning the preparatory work for the ab...</td>
+      <td>Corpus/Corpus/NP</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>freerepublic.com</td>
+      <td>, or arrest the MD assembly , or suspend habeus</td>
+      <td>corpus/corpus/NN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;domain&quot;</span><span class="p">,</span> <span class="s2">&quot;kwic&quot;</span><span class="p">]]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>domain</th>
+      <th>kwic</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>newadvent.org</td>
+      <td>Corpus/Corpus/NP</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>newadvent.org</td>
+      <td>Corpus/Corpus/NP</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>freerepublic.com</td>
+      <td>corpus/corpus/NN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">kwic</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0      Corpus/Corpus/NP
+1      Corpus/Corpus/NP
+2      Corpus/Corpus/NP
+3      corpus/corpus/NN
+4      corpus/corpus/NN
+             ...       
+849    Corpus/Corpus/NP
+850    Corpus/Corpus/NP
+851    corpus/corpus/NN
+852    Corpus/Corpus/NP
+853    corpus/corpus/NN
+Name: kwic, Length: 854, dtype: object</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">domain</span> <span class="o">==</span> <span class="s2">&quot;newadvent.org&quot;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0       True
+1       True
+2       True
+3      False
+4      False
+       ...  
+849    False
+850    False
+851    False
+852    False
+853    False
+Name: domain, Length: 854, dtype: bool</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>domain</th>
+      <th>left</th>
+      <th>kwic</th>
+      <th>right</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>newadvent.org</td>
+      <td>Mommsen . The latter 's numerous collaborators...</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>" , among them Edwin Bormann , the noted autho...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>newadvent.org</td>
+      <td>) , concerning the preparatory work for the ab...</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>Inscriptionum " , which appeared in the monthl...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>freerepublic.com</td>
+      <td>, or arrest the MD assembly , or suspend habeus</td>
+      <td>corpus/corpus/NN</td>
+      <td>, or invade sovereign states . ​He​ ​did​ ​n't...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">domain</span> <span class="o">==</span> <span class="s2">&quot;newadvent.org&quot;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>domain</th>
+      <th>left</th>
+      <th>kwic</th>
+      <th>right</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>newadvent.org</td>
+      <td>by Theodor Mommsen , undertook its monumental ...</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>Inscriptionum Latinarum " , it sent a flatteri...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>newadvent.org</td>
+      <td>Mommsen . The latter 's numerous collaborators...</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>" , among them Edwin Bormann , the noted autho...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>newadvent.org</td>
+      <td>) , concerning the preparatory work for the ab...</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>Inscriptionum " , which appeared in the monthl...</td>
+    </tr>
+    <tr>
+      <th>155</th>
+      <td>newadvent.org</td>
+      <td>made their way into the earlier editions of the "</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>Juris Civilis " , the " Corpus Juris Canonici "</td>
+    </tr>
+    <tr>
+      <th>156</th>
+      <td>newadvent.org</td>
+      <td>of the " Corpus Juris Civilis " , the "</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>Juris Canonici " , and the large collections o...</td>
+    </tr>
+    <tr>
+      <th>308</th>
+      <td>newadvent.org</td>
+      <td>deceased : e.g. QUI LEGIS , ORA PRO EO (</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>Inscript . Lat . , X , n. 3312 )</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;pandas.core.indexing._LocIndexer at 0x112166170&gt;</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;domain == &#39;newadvent.org&#39;&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>domain</th>
+      <th>left</th>
+      <th>kwic</th>
+      <th>right</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>newadvent.org</td>
+      <td>by Theodor Mommsen , undertook its monumental ...</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>Inscriptionum Latinarum " , it sent a flatteri...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>newadvent.org</td>
+      <td>Mommsen . The latter 's numerous collaborators...</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>" , among them Edwin Bormann , the noted autho...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>newadvent.org</td>
+      <td>) , concerning the preparatory work for the ab...</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>Inscriptionum " , which appeared in the monthl...</td>
+    </tr>
+    <tr>
+      <th>155</th>
+      <td>newadvent.org</td>
+      <td>made their way into the earlier editions of the "</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>Juris Civilis " , the " Corpus Juris Canonici "</td>
+    </tr>
+    <tr>
+      <th>156</th>
+      <td>newadvent.org</td>
+      <td>of the " Corpus Juris Civilis " , the "</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>Juris Canonici " , and the large collections o...</td>
+    </tr>
+    <tr>
+      <th>308</th>
+      <td>newadvent.org</td>
+      <td>deceased : e.g. QUI LEGIS , ORA PRO EO (</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>Inscript . Lat . , X , n. 3312 )</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">domain</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.org&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0       True
+1       True
+2       True
+3      False
+4      False
+       ...  
+849    False
+850    False
+851    False
+852     True
+853    False
+Name: domain, Length: 854, dtype: bool</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">domain</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.org&quot;</span><span class="p">)]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>domain</th>
+      <th>left</th>
+      <th>kwic</th>
+      <th>right</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>newadvent.org</td>
+      <td>by Theodor Mommsen , undertook its monumental ...</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>Inscriptionum Latinarum " , it sent a flatteri...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>newadvent.org</td>
+      <td>Mommsen . The latter 's numerous collaborators...</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>" , among them Edwin Bormann , the noted autho...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>newadvent.org</td>
+      <td>) , concerning the preparatory work for the ab...</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>Inscriptionum " , which appeared in the monthl...</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>thefullwiki.org</td>
+      <td>the fundamental rule from which can be deduced...</td>
+      <td>corpus/corpus/NN</td>
+      <td>of libertarian theory . [ 13 ] ” W. D.</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>schools-wikipedia.org</td>
+      <td>of the thousands of extant inscriptions are pu...</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>of Indus Seals and Inscriptions ( 1987 , 1991 ,</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>835</th>
+      <td>obdurodon.org</td>
+      <td>goal is to provide scholars with a large but m...</td>
+      <td>corpus/corpus/NN</td>
+      <td>of data for comparative study of calendar trad...</td>
+    </tr>
+    <tr>
+      <th>838</th>
+      <td>realizingrights.org</td>
+      <td>adopt the principles and rights outlined in th...</td>
+      <td>corpus/corpus/NN</td>
+      <td>as a set of public health ethics then we are</td>
+    </tr>
+    <tr>
+      <th>843</th>
+      <td>unispal.un.org</td>
+      <td>, venerated by Christians , Jews and Moslems , a</td>
+      <td>corpus/corpus/NN</td>
+      <td>separatum , which should be under internationa...</td>
+    </tr>
+    <tr>
+      <th>844</th>
+      <td>home.igc.org</td>
+      <td>heads of state Blocking the small arms treaty ...</td>
+      <td>corpus/corpus/NN</td>
+      <td>to prisoners on Guantanamo and other secret pr...</td>
+    </tr>
+    <tr>
+      <th>852</th>
+      <td>biblicalarchaeology.org</td>
+      <td>Keel recently pointed out , even in the highly...</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>of West Semitic Stamp Seals published by Nahma...</td>
+    </tr>
+  </tbody>
+</table>
+<p>161 rows × 4 columns</p>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">kwic</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0      [Corpus, Corpus, NP]
+1      [Corpus, Corpus, NP]
+2      [Corpus, Corpus, NP]
+3      [corpus, corpus, NN]
+4      [corpus, corpus, NN]
+               ...         
+849    [Corpus, Corpus, NP]
+850    [Corpus, Corpus, NP]
+851    [corpus, corpus, NN]
+852    [Corpus, Corpus, NP]
+853    [corpus, corpus, NN]
+Name: kwic, Length: 854, dtype: object</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">kwic</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+    <span class="k">break</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;Corpus&#39;, &#39;Corpus&#39;, &#39;NP&#39;]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">kwic</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Corpus</td>
+      <td>Corpus</td>
+      <td>NP</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Corpus</td>
+      <td>Corpus</td>
+      <td>NP</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Corpus</td>
+      <td>Corpus</td>
+      <td>NP</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>corpus</td>
+      <td>corpus</td>
+      <td>NN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>corpus</td>
+      <td>corpus</td>
+      <td>NN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>849</th>
+      <td>Corpus</td>
+      <td>Corpus</td>
+      <td>NP</td>
+    </tr>
+    <tr>
+      <th>850</th>
+      <td>Corpus</td>
+      <td>Corpus</td>
+      <td>NP</td>
+    </tr>
+    <tr>
+      <th>851</th>
+      <td>corpus</td>
+      <td>corpus</td>
+      <td>NN</td>
+    </tr>
+    <tr>
+      <th>852</th>
+      <td>Corpus</td>
+      <td>Corpus</td>
+      <td>NP</td>
+    </tr>
+    <tr>
+      <th>853</th>
+      <td>corpus</td>
+      <td>corpus</td>
+      <td>NN</td>
+    </tr>
+  </tbody>
+</table>
+<p>854 rows × 3 columns</p>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;kwic&quot;</span><span class="p">,</span> <span class="s2">&quot;domain&quot;</span><span class="p">]]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>kwic</th>
+      <th>domain</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Corpus/Corpus/NP</td>
+      <td>newadvent.org</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Corpus/Corpus/NP</td>
+      <td>newadvent.org</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Corpus/Corpus/NP</td>
+      <td>newadvent.org</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>corpus/corpus/NN</td>
+      <td>freerepublic.com</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>corpus/corpus/NN</td>
+      <td>hinduism.co.za</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>849</th>
+      <td>Corpus/Corpus/NP</td>
+      <td>blogs.ulster.ac.uk</td>
+    </tr>
+    <tr>
+      <th>850</th>
+      <td>Corpus/Corpus/NP</td>
+      <td>ginnysaustin.com</td>
+    </tr>
+    <tr>
+      <th>851</th>
+      <td>corpus/corpus/NN</td>
+      <td>patriotsquestion911.com</td>
+    </tr>
+    <tr>
+      <th>852</th>
+      <td>Corpus/Corpus/NP</td>
+      <td>biblicalarchaeology.org</td>
+    </tr>
+    <tr>
+      <th>853</th>
+      <td>corpus/corpus/NN</td>
+      <td>rrojasdatabank.info</td>
+    </tr>
+  </tbody>
+</table>
+<p>854 rows × 2 columns</p>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell tag_raises-exception tag_full_width tag_output_scroll">
+
+<div class="cell border-box-sizing code_cell rendered tag_raises-exception tag_full_width tag_output_scroll">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;word&quot;</span><span class="p">,</span> <span class="s2">&quot;lemma&quot;</span><span class="p">,</span> <span class="s2">&quot;tag&quot;</span><span class="p">]]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-35-118d975e2131&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>df<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#34;word&#34;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;lemma&#34;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;tag&#34;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">]</span>
+
+<span class="ansi-green-fg">~/Library/Caches/pypoetry/virtualenvs/e-v4py-AkGCGnKO-py3.7/lib/python3.7/site-packages/pandas/core/frame.py</span> in <span class="ansi-cyan-fg">__getitem__</span><span class="ansi-blue-fg">(self, key)</span>
+<span class="ansi-green-intense-fg ansi-bold">   2804</span>             <span class="ansi-green-fg">if</span> is_iterator<span class="ansi-blue-fg">(</span>key<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">   2805</span>                 key <span class="ansi-blue-fg">=</span> list<span class="ansi-blue-fg">(</span>key<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">-&gt; 2806</span><span class="ansi-red-fg">             </span>indexer <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>loc<span class="ansi-blue-fg">.</span>_get_listlike_indexer<span class="ansi-blue-fg">(</span>key<span class="ansi-blue-fg">,</span> axis<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span> raise_missing<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span>
+<span class="ansi-green-intense-fg ansi-bold">   2807</span> 
+<span class="ansi-green-intense-fg ansi-bold">   2808</span>         <span class="ansi-red-fg"># take() does not accept boolean indexers</span>
+
+<span class="ansi-green-fg">~/Library/Caches/pypoetry/virtualenvs/e-v4py-AkGCGnKO-py3.7/lib/python3.7/site-packages/pandas/core/indexing.py</span> in <span class="ansi-cyan-fg">_get_listlike_indexer</span><span class="ansi-blue-fg">(self, key, axis, raise_missing)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1551</span> 
+<span class="ansi-green-intense-fg ansi-bold">   1552</span>         self._validate_read_indexer(
+<span class="ansi-green-fg">-&gt; 1553</span><span class="ansi-red-fg">             </span>keyarr<span class="ansi-blue-fg">,</span> indexer<span class="ansi-blue-fg">,</span> o<span class="ansi-blue-fg">.</span>_get_axis_number<span class="ansi-blue-fg">(</span>axis<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> raise_missing<span class="ansi-blue-fg">=</span>raise_missing
+<span class="ansi-green-intense-fg ansi-bold">   1554</span>         )
+<span class="ansi-green-intense-fg ansi-bold">   1555</span>         <span class="ansi-green-fg">return</span> keyarr<span class="ansi-blue-fg">,</span> indexer
+
+<span class="ansi-green-fg">~/Library/Caches/pypoetry/virtualenvs/e-v4py-AkGCGnKO-py3.7/lib/python3.7/site-packages/pandas/core/indexing.py</span> in <span class="ansi-cyan-fg">_validate_read_indexer</span><span class="ansi-blue-fg">(self, key, indexer, axis, raise_missing)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1638</span>             <span class="ansi-green-fg">if</span> missing <span class="ansi-blue-fg">==</span> len<span class="ansi-blue-fg">(</span>indexer<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">   1639</span>                 axis_name <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>obj<span class="ansi-blue-fg">.</span>_get_axis_name<span class="ansi-blue-fg">(</span>axis<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">-&gt; 1640</span><span class="ansi-red-fg">                 </span><span class="ansi-green-fg">raise</span> KeyError<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">f&#34;None of [{key}] are in the [{axis_name}]&#34;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1641</span> 
+<span class="ansi-green-intense-fg ansi-bold">   1642</span>             <span class="ansi-red-fg"># We (temporarily) allow for some missing keys with .loc, except in</span>
+
+<span class="ansi-red-fg">KeyError</span>: &#34;None of [Index([&#39;word&#39;, &#39;lemma&#39;, &#39;tag&#39;], dtype=&#39;object&#39;)] are in the [columns]&#34;</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;word&quot;</span><span class="p">,</span> <span class="s2">&quot;lemma&quot;</span><span class="p">,</span> <span class="s2">&quot;tag&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">kwic</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>domain</th>
+      <th>left</th>
+      <th>kwic</th>
+      <th>right</th>
+      <th>word</th>
+      <th>lemma</th>
+      <th>tag</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>newadvent.org</td>
+      <td>by Theodor Mommsen , undertook its monumental ...</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>Inscriptionum Latinarum " , it sent a flatteri...</td>
+      <td>Corpus</td>
+      <td>Corpus</td>
+      <td>NP</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>newadvent.org</td>
+      <td>Mommsen . The latter 's numerous collaborators...</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>" , among them Edwin Bormann , the noted autho...</td>
+      <td>Corpus</td>
+      <td>Corpus</td>
+      <td>NP</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>newadvent.org</td>
+      <td>) , concerning the preparatory work for the ab...</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>Inscriptionum " , which appeared in the monthl...</td>
+      <td>Corpus</td>
+      <td>Corpus</td>
+      <td>NP</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>freerepublic.com</td>
+      <td>, or arrest the MD assembly , or suspend habeus</td>
+      <td>corpus/corpus/NN</td>
+      <td>, or invade sovereign states . ​He​ ​did​ ​n't...</td>
+      <td>corpus</td>
+      <td>corpus</td>
+      <td>NN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>hinduism.co.za</td>
+      <td>corporeal being in the fullness of time , assu...</td>
+      <td>corpus/corpus/NN</td>
+      <td>. It arises and perishes in due order . And</td>
+      <td>corpus</td>
+      <td>corpus</td>
+      <td>NN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>849</th>
+      <td>blogs.ulster.ac.uk</td>
+      <td>University . For example , Corpus Christi Coll...</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>Irish Missal , 12 th century ( MS 282 )</td>
+      <td>Corpus</td>
+      <td>Corpus</td>
+      <td>NP</td>
+    </tr>
+    <tr>
+      <th>850</th>
+      <td>ginnysaustin.com</td>
+      <td>set by a youth cutting my teeth on tacos in</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>Christi ( RIP Elva ’s ) . Now , I</td>
+      <td>Corpus</td>
+      <td>Corpus</td>
+      <td>NP</td>
+    </tr>
+    <tr>
+      <th>851</th>
+      <td>patriotsquestion911.com</td>
+      <td>of the Geneva Conventions , and the repeal of ...</td>
+      <td>corpus/corpus/NN</td>
+      <td>( a fundamental point of law that has been with</td>
+      <td>corpus</td>
+      <td>corpus</td>
+      <td>NN</td>
+    </tr>
+    <tr>
+      <th>852</th>
+      <td>biblicalarchaeology.org</td>
+      <td>Keel recently pointed out , even in the highly...</td>
+      <td>Corpus/Corpus/NP</td>
+      <td>of West Semitic Stamp Seals published by Nahma...</td>
+      <td>Corpus</td>
+      <td>Corpus</td>
+      <td>NP</td>
+    </tr>
+    <tr>
+      <th>853</th>
+      <td>rrojasdatabank.info</td>
+      <td>developing ones , were interpreted through the...</td>
+      <td>corpus/corpus/NN</td>
+      <td>of knowledge recognized as Keynesian economics...</td>
+      <td>corpus</td>
+      <td>corpus</td>
+      <td>NN</td>
+    </tr>
+  </tbody>
+</table>
+<p>854 rows × 7 columns</p>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s2">&quot;domain&quot;</span><span class="p">,</span> <span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="s2">&quot;word&quot;</span><span class="p">,</span> <span class="s2">&quot;lemma&quot;</span><span class="p">,</span> <span class="s2">&quot;tag&quot;</span><span class="p">,</span> <span class="s2">&quot;right&quot;</span><span class="p">]]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>domain</th>
+      <th>left</th>
+      <th>word</th>
+      <th>lemma</th>
+      <th>tag</th>
+      <th>right</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>newadvent.org</td>
+      <td>by Theodor Mommsen , undertook its monumental ...</td>
+      <td>Corpus</td>
+      <td>Corpus</td>
+      <td>NP</td>
+      <td>Inscriptionum Latinarum " , it sent a flatteri...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>newadvent.org</td>
+      <td>Mommsen . The latter 's numerous collaborators...</td>
+      <td>Corpus</td>
+      <td>Corpus</td>
+      <td>NP</td>
+      <td>" , among them Edwin Bormann , the noted autho...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>newadvent.org</td>
+      <td>) , concerning the preparatory work for the ab...</td>
+      <td>Corpus</td>
+      <td>Corpus</td>
+      <td>NP</td>
+      <td>Inscriptionum " , which appeared in the monthl...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>freerepublic.com</td>
+      <td>, or arrest the MD assembly , or suspend habeus</td>
+      <td>corpus</td>
+      <td>corpus</td>
+      <td>NN</td>
+      <td>, or invade sovereign states . ​He​ ​did​ ​n't...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>hinduism.co.za</td>
+      <td>corporeal being in the fullness of time , assu...</td>
+      <td>corpus</td>
+      <td>corpus</td>
+      <td>NN</td>
+      <td>. It arises and perishes in due order . And</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>849</th>
+      <td>blogs.ulster.ac.uk</td>
+      <td>University . For example , Corpus Christi Coll...</td>
+      <td>Corpus</td>
+      <td>Corpus</td>
+      <td>NP</td>
+      <td>Irish Missal , 12 th century ( MS 282 )</td>
+    </tr>
+    <tr>
+      <th>850</th>
+      <td>ginnysaustin.com</td>
+      <td>set by a youth cutting my teeth on tacos in</td>
+      <td>Corpus</td>
+      <td>Corpus</td>
+      <td>NP</td>
+      <td>Christi ( RIP Elva ’s ) . Now , I</td>
+    </tr>
+    <tr>
+      <th>851</th>
+      <td>patriotsquestion911.com</td>
+      <td>of the Geneva Conventions , and the repeal of ...</td>
+      <td>corpus</td>
+      <td>corpus</td>
+      <td>NN</td>
+      <td>( a fundamental point of law that has been with</td>
+    </tr>
+    <tr>
+      <th>852</th>
+      <td>biblicalarchaeology.org</td>
+      <td>Keel recently pointed out , even in the highly...</td>
+      <td>Corpus</td>
+      <td>Corpus</td>
+      <td>NP</td>
+      <td>of West Semitic Stamp Seals published by Nahma...</td>
+    </tr>
+    <tr>
+      <th>853</th>
+      <td>rrojasdatabank.info</td>
+      <td>developing ones , were interpreted through the...</td>
+      <td>corpus</td>
+      <td>corpus</td>
+      <td>NN</td>
+      <td>of knowledge recognized as Keynesian economics...</td>
+    </tr>
+  </tbody>
+</table>
+<p>854 rows × 6 columns</p>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span>df.plot<span class="o">?</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;domain&quot;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0                newadvent.org
+1                newadvent.org
+2                newadvent.org
+3             freerepublic.com
+4               hinduism.co.za
+                ...           
+849         blogs.ulster.ac.uk
+850           ginnysaustin.com
+851    patriotsquestion911.com
+852    biblicalarchaeology.org
+853        rrojasdatabank.info
+Name: domain, Length: 854, dtype: object</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;domain&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>ucrel.lancs.ac.uk                 123
+nltk.googlecode.com                90
+quinndombrowski.com                65
+medicolegal.tripod.com             28
+cass.lancs.ac.uk                   21
+                                 ... 
+digplanet.com                       1
+wisdompubs.org                      1
+porganized.com                      1
+intranslation.brooklynrail.org      1
+blog.logos.com                      1
+Name: domain, Length: 234, dtype: int64</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;domain&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x112219590&gt;</pre>
+</div>
+
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="images/data_52_1.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;domain&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x112363c90&gt;</pre>
+</div>
+
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="images/data_53_1.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/frequencies_intensifiers.csv&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>1;"completely  different";"672";""</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2;"entirely  different";"386";""</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3;"entirely  new";"334";""</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4;"totally  different";"282";""</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5;"completely  new";"261";""</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>6;"completely  free";"147";""</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2844</th>
+      <td>2846;"entirely  relative";"1";""</td>
+    </tr>
+    <tr>
+      <th>2845</th>
+      <td>2847;"completely  brown";"1";""</td>
+    </tr>
+    <tr>
+      <th>2846</th>
+      <td>2848;"completely  literate";"1";""</td>
+    </tr>
+    <tr>
+      <th>2847</th>
+      <td>2849;"totally  boneheaded";"1";""</td>
+    </tr>
+    <tr>
+      <th>2848</th>
+      <td>2850;"totally  housebound";"1";""</td>
+    </tr>
+  </tbody>
+</table>
+<p>2849 rows × 1 columns</p>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span>pd.read_csv<span class="o">?</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="s2">&quot;data/frequencies_intensifiers.csv&quot;</span><span class="p">,</span>
+    <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">,</span>
+    <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;rank&quot;</span><span class="p">,</span> <span class="s2">&quot;collocation&quot;</span><span class="p">,</span> <span class="s2">&quot;freq&quot;</span><span class="p">,</span> <span class="s2">&quot;empty&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rank</th>
+      <th>collocation</th>
+      <th>freq</th>
+      <th>empty</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>completely  different</td>
+      <td>672</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>entirely  different</td>
+      <td>386</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>entirely  new</td>
+      <td>334</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>totally  different</td>
+      <td>282</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>completely  new</td>
+      <td>261</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2845</th>
+      <td>2846</td>
+      <td>entirely  relative</td>
+      <td>1</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2846</th>
+      <td>2847</td>
+      <td>completely  brown</td>
+      <td>1</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2847</th>
+      <td>2848</td>
+      <td>completely  literate</td>
+      <td>1</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2848</th>
+      <td>2849</td>
+      <td>totally  boneheaded</td>
+      <td>1</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2849</th>
+      <td>2850</td>
+      <td>totally  housebound</td>
+      <td>1</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>2850 rows × 4 columns</p>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If you want to go in the other direction and store <code>DataFrame</code>s on disk
+as Excel spreadsheets, CSV files or many other formats, check out the
+methods starting with <code>to_*</code> on <code>DataFrame</code> objects (remember you can
+use <code>Tab</code> in JupyterLab to bring up a completion menu if you start
+typing just <code>to_</code>).</p>
+<p><code>pandas</code> is an impressively featureful library and we've barely
+scratched the surface of what you can do with it. It has also only
+fairly recently hit 1.0 status, which means a lot of polish has been
+applied to its website and documentation. Previously, the documentation,
+though extensive and complete, was somewhat hard to navigate; this has
+gotten much better. For more information, I suggest reviewing the
+library's <a href="https://pandas.pydata.org/docs/getting_started/index.html"><em>Getting
+started</em></a>,
+which contains a <a href="https://pandas.pydata.org/docs/getting_started/index.html#intro-to-pandas">list of practical
+tasks</a>
+you might want to use <code>pandas</code> for along with recipes telling you how to
+achieve that.</p>
+<h2 id="The-csv-module-in-the-standard-library">The <code>csv</code> module in the standard library<a class="anchor-link" href="#The-csv-module-in-the-standard-library"> </a></h2><p>The Python standard library also comes with a <a href="https://docs.python.org/3/library/csv.html"><code>csv</code>
+module</a>. This is useful when
+you don't have the option to install <code>pandas</code>, or when you don't really
+need to work with the CSV file as a table, you just need to pull out
+some values and put them in a dictionary for instance. In that case,
+<code>pandas</code> may be an unnecessarily heavy dependency (as a Swiss Army knife
+for data manipulation, it's pretty hefty), not to mention that loading
+the entire table into memory at once might be wasteful, especially if
+it's large and you just want one or two columns.</p>
+<p>Let's first take a peek at the contents of a CSV file. As mentioned,
+it's basically just a plain text file. This particular CSV file contains
+a frequency distribution of <em>intensifier + adverb</em> combinations.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/frequencies_intensifiers.csv&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        <span class="k">break</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&#34;1&#34;;&#34;completely  different&#34;;&#34;672&#34;;&#34;&#34;
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">csv</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/frequencies_intensifiers.csv&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+        <span class="k">break</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;1;&#34;completely  different&#34;;&#34;672&#34;;&#34;&#34;&#39;]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">row</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;1;&#34;completely  different&#34;;&#34;672&#34;;&#34;&#34;&#39;]</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>1</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span>csv.reader<span class="o">?</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/frequencies_intensifiers.csv&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+        <span class="k">break</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;1&#39;, &#39;completely  different&#39;, &#39;672&#39;, &#39;&#39;]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>4</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="s2">&quot;4&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>4</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">float</span><span class="p">(</span><span class="s2">&quot;4.5&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>4.5</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;completely  different&#39;</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;completely&#39;, &#39;different&#39;]</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">adv</span><span class="p">,</span> <span class="n">adj</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's divide up the adjectives into sets based on which intensifiers
+they co-occur.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">completely</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="n">totally</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="n">entirely</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="n">utterly</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/frequencies_intensifiers.csv&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="n">adv</span><span class="p">,</span> <span class="n">adj</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">adv</span> <span class="o">==</span> <span class="s2">&quot;completely&quot;</span><span class="p">:</span>
+            <span class="n">completely</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">adj</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">adv</span> <span class="o">==</span> <span class="s2">&quot;totally&quot;</span><span class="p">:</span>
+            <span class="n">totally</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">adj</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">adv</span> <span class="o">==</span> <span class="s2">&quot;entirely&quot;</span><span class="p">:</span>
+            <span class="n">entirely</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">adj</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">adv</span> <span class="o">==</span> <span class="s2">&quot;utterly&quot;</span><span class="p">:</span>
+            <span class="n">utterly</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">adj</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;unexpected adverb:&quot;</span><span class="p">,</span> <span class="n">adv</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>By using set operations, we can now figure out which intensifiers tend
+(not) to co-occur with which adjectives.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">not_utterly</span> <span class="o">=</span> <span class="n">completely</span> <span class="o">|</span> <span class="n">totally</span> <span class="o">|</span> <span class="n">entirely</span>
+<span class="c1"># or: not_utterly = completely.union(totally).union(entirely)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell tag_output_scroll">
+
+<div class="cell border-box-sizing code_cell rendered tag_output_scroll">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">utterly</span> <span class="o">-</span> <span class="n">not_utterly</span>
+<span class="c1"># or: utterly.difference(not_utterly)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;appalling&#39;,
+ &#39;arresting&#39;,
+ &#39;bigoted&#39;,
+ &#39;blasphemous&#39;,
+ &#39;blasphomous&#39;,
+ &#39;cack-handed&#39;,
+ &#39;childish&#39;,
+ &#39;clever&#39;,
+ &#39;conditional&#39;,
+ &#39;contemptible&#39;,
+ &#39;crippling&#39;,
+ &#39;damnable&#39;,
+ &#39;defective&#39;,
+ &#39;degrading&#39;,
+ &#39;depraved&#39;,
+ &#39;despicable&#39;,
+ &#39;detestable&#39;,
+ &#39;devoted&#39;,
+ &#39;digestible&#39;,
+ &#39;disappointing&#39;,
+ &#39;disconsolate&#39;,
+ &#39;disgraceful&#39;,
+ &#39;dismal&#39;,
+ &#39;disposable&#39;,
+ &#39;distasteful&#39;,
+ &#39;distinguished&#39;,
+ &#39;disturbing&#39;,
+ &#39;downcast&#39;,
+ &#39;dreadful&#39;,
+ &#39;earthy&#39;,
+ &#39;effeminate&#39;,
+ &#39;endless&#39;,
+ &#39;energetic&#39;,
+ &#39;enraged&#39;,
+ &#39;exquisite&#39;,
+ &#39;extraordinary&#39;,
+ &#39;fatuous&#39;,
+ &#39;fluid&#39;,
+ &#39;forgettable&#39;,
+ &#39;fragile&#39;,
+ &#39;geeky&#39;,
+ &#39;graceful&#39;,
+ &#39;gracious&#39;,
+ &#39;guileless&#39;,
+ &#39;heartbreaking&#39;,
+ &#39;hopeful&#39;,
+ &#39;hysterical&#39;,
+ &#39;impassioned&#39;,
+ &#39;important&#39;,
+ &#39;impoverished&#39;,
+ &#39;indistinguishable&#39;,
+ &#39;indivisible&#39;,
+ &#39;infrequent&#39;,
+ &#39;lawless&#39;,
+ &#39;materialistic&#39;,
+ &#39;minuscule&#39;,
+ &#39;non-essential&#39;,
+ &#39;nugatory&#39;,
+ &#39;obscene&#39;,
+ &#39;obtuse&#39;,
+ &#39;one-of-a-kind&#39;,
+ &#39;orthodox&#39;,
+ &#39;paltry&#39;,
+ &#39;partisan&#39;,
+ &#39;passé&#39;,
+ &#39;pathological&#39;,
+ &#39;perverse&#39;,
+ &#39;phenomenal&#39;,
+ &#39;praiseworthy&#39;,
+ &#39;prepared&#39;,
+ &#39;preposterous&#39;,
+ &#39;profound&#39;,
+ &#39;reductionistic&#39;,
+ &#39;remarkable&#39;,
+ &#39;remiss&#39;,
+ &#39;riveting&#39;,
+ &#39;ruthless&#39;,
+ &#39;self-destructive&#39;,
+ &#39;shambolic&#39;,
+ &#39;shameful&#39;,
+ &#39;similar&#39;,
+ &#39;simple&#39;,
+ &#39;simplistic&#39;,
+ &#39;situational&#39;,
+ &#39;smug&#39;,
+ &#39;spectacular&#39;,
+ &#39;splendid&#39;,
+ &#39;squalid&#39;,
+ &#39;stifling&#39;,
+ &#39;stirring&#39;,
+ &#39;stubborn&#39;,
+ &#39;stunning&#39;,
+ &#39;subdued&#39;,
+ &#39;therapeutic&#39;,
+ &#39;thoughtless&#39;,
+ &#39;totalitarian&#39;,
+ &#39;un-australian&#39;,
+ &#39;uncared&#39;,
+ &#39;uncollectable&#39;,
+ &#39;undesirable&#39;,
+ &#39;unexceptional&#39;,
+ &#39;unfathomable&#39;,
+ &#39;ungodly&#39;,
+ &#39;uninteresting&#39;,
+ &#39;unprovable&#39;,
+ &#39;unreconcilable&#39;,
+ &#39;unscientific&#39;,
+ &#39;unscrupulous&#39;,
+ &#39;unspooky&#39;,
+ &#39;unsuspecting&#39;,
+ &#39;unwinnable&#39;,
+ &#39;vain&#39;,
+ &#39;vastated&#39;,
+ &#39;vulgar&#39;}</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Storing-objects-on-disk-and-reloading-them">Storing objects on disk and reloading them<a class="anchor-link" href="#Storing-objects-on-disk-and-reloading-them"> </a></h1><p>Some values take a long time to compute, so you don't want to have to
+compute them again and again each time you close and reopen JupyterLab.
+Instead, you'd like to compute them once, store them somewhere, and
+reload them (almost) instantaneously whenever you need.</p>
+<h2 id="The-%store-magic-function">The <code>%store</code> magic function<a class="anchor-link" href="#The-%store-magic-function"> </a></h2><p>The <code>%store</code> magic function can store individual variables; it's perhaps
+the simplest option, but you don't really control where the object gets
+stored.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">store</span> a
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Stored &#39;a&#39; (int)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">a</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>3</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Reload the stored value of the <code>a</code> variable:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">store</span> -r a
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For more information, consult <code>%store</code>'s docstring.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">?</span>%store
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="The-json-standard-library-module">The <code>json</code> standard library module<a class="anchor-link" href="#The-json-standard-library-module"> </a></h2><p>The standard library <a href="https://docs.python.org/3/library/json.html"><code>json</code>
+module</a> can also be used
+for this purpose.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>JSON <a href="https://en.wikipedia.org/wiki/Serialization">serialization</a>
+actually results in plain text, which is nice and mostly human readable,
+if it's pretty-printed. It looks close to how the same data structure
+is written down in Python (can you spot the differences?).</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">person</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;John Doe&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span>
+    <span class="s2">&quot;interests&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Python&quot;</span><span class="p">,</span> <span class="s2">&quot;linguistics&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;single&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="s2">&quot;pet&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">person</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{
+  &#34;name&#34;: &#34;John Doe&#34;,
+  &#34;age&#34;: 31,
+  &#34;interests&#34;: [
+    &#34;Python&#34;,
+    &#34;linguistics&#34;
+  ],
+  &#34;single&#34;: false,
+  &#34;pet&#34;: null
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When writing to disk, you get to pick where the object is stored, at the
+expense of having to type more than with <code>%store</code>. The <code>"w"</code> argument
+sets the mode of the open file to <em>write</em> (the <code>"r"</code> mode for <em>reading</em>
+is the default, so we didn't need to set it explicitly before when
+reading files).</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;person.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">person</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">cat</span> person.json
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{
+  &#34;name&#34;: &#34;John Doe&#34;,
+  &#34;age&#34;: 31,
+  &#34;interests&#34;: [
+    &#34;Python&#34;,
+    &#34;linguistics&#34;
+  ],
+  &#34;single&#34;: false,
+  &#34;pet&#34;: null
+}</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;person.json&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+<span class="n">data</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;name&#39;: &#39;John Doe&#39;,
+ &#39;age&#39;: 31,
+ &#39;interests&#39;: [&#39;Python&#39;, &#39;linguistics&#39;],
+ &#39;single&#39;: False,
+ &#39;pet&#39;: None}</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># cleanup</span>
+<span class="o">%</span><span class="k">rm</span> person.json
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If you want to store multiple objects like this, just put them in a
+dictionary and <code>json.dump</code> the whole thing.</p>
+<p>JSON was created as an interchange format, which comes both with
+advantages and a drawbacks. The advantage is it can be easily loaded
+into different languages / tools, almost every programming language now
+has an easily accessible JSON library. The main drawback is that it only
+works for storing a limited range of types: dicts, lists, strings,
+numbers, Boolean values (<code>True</code> and <code>False</code>) and <code>None</code>. As an
+interchange format, it makes sense that it has to stick to the lowest
+common denominator of what's available in some form in almost every
+programming language, otherwise there couldn't be much interchange.
+Some additional types can be stored as JSON, but only by being converted
+to one of the above -- e.g. if you store a tuple in JSON and load it
+back, it will become a list.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[1, 2, 3]</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="The-pickle-standard-library-module">The <code>pickle</code> standard library module<a class="anchor-link" href="#The-pickle-standard-library-module"> </a></h2><p><a href="https://docs.python.org/3/library/pickle.html">Pickling objects</a> works
+in a very similar way to dumping them as JSON, just make sure to open
+the file for writing <strong>in binary mode</strong> (<code>"wb"</code>):</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pickle</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;person.pickle&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">person</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>... and for reading as well (<code>"rb"</code>):</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;person.pickle&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+<span class="n">data</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;name&#39;: &#39;John Doe&#39;,
+ &#39;age&#39;: 31,
+ &#39;interests&#39;: [&#39;Python&#39;, &#39;linguistics&#39;],
+ &#39;single&#39;: False,
+ &#39;pet&#39;: None}</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This is because pickling doesn't use a plain text format, but a custom
+binary format.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_output_scroll">
+
+<div class="cell border-box-sizing code_cell rendered tag_output_scroll">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">cat</span> person.pickle
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>�}q (X   nameqX   John DoeqX   ageqKX	   interestsq]q(X   PythonqX   linguisticsqeX   singleq�X   petq	Nu.</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># cleanup</span>
+<span class="o">%</span><span class="k">rm</span> person.pickle
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The advantage of <code>pickle</code> is that unlike JSON, it can faithfully
+preserve a much wider spectrum of Python objects (most things you're
+likely to need in normal practice). This flexibility is partially
+achieved by allowing arbitrary code to run during unpickling, based on
+what's stored in the pickle, which is a security flaw -- someone could
+in theory send you a maliciously crafted pickle which deletes your home
+directory upon unpickling. <strong>So only unpickle data from sources you
+trust.</strong></p>
+<p>Another disadvantage is that the format is specific to Python, and it
+can even change between versions of the language: there are <a href="https://docs.python.org/3/library/pickle.html#data-stream-format">several
+versions of the pickle
+protocol</a>,
+as it gets improved over time. This means that if you want to share
+pickled objects across Python versions, you need to be careful about
+which protocol version you use in order to retain backwards
+compatibility.</p>
+<p>Like with JSON, if you want to pickle multiple objects, you still have
+to store them separately, or put them all in a dict manually and store
+the dict.</p>
+<h2 id="The-dill-library">The <code>dill</code> library<a class="anchor-link" href="#The-dill-library"> </a></h2><p><a href="https://dill.readthedocs.io"><code>dill</code></a> is <code>pickle</code> on steroids. For any
+less proficient English speakers reading and/or those without a
+background in English literature, the name is a pun on <a href="https://www.google.com/search?client=q=dill+pickle">dill
+pickle</a>, or maybe
+even <a href="https://en.wikipedia.org/wiki/A_Dill_Pickle"><em>A Dill Pickle</em></a>.
+Its biggest advantage is that it can pickle entire sessions (kind of
+like R does, if you're familiar with R), you don't have to specify
+objects one by one. Before we demonstrate this though, we'll need to get
+rid of our CSV <code>reader</code> object from before, because it turns out that's
+one of the objects which can't be even dill-pickled. (You don't have to
+remember this by heart, I certainly don't -- Python will complain loudly
+if you try to pickle something that can't be pickled.)</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">dill</span>
+
+<span class="k">del</span> <span class="n">reader</span>
+<span class="n">dill</span><span class="o">.</span><span class="n">dump_session</span><span class="p">(</span><span class="s2">&quot;session.pickle&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dill</span><span class="o">.</span><span class="n">load_session</span><span class="p">(</span><span class="s2">&quot;session.pickle&quot;</span><span class="p">)</span>
+<span class="c1"># cleanup</span>
+<span class="o">%</span><span class="k">rm</span> session.pickle
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Apart from the advantages of being able to pickle entire sessions,
+<code>dill</code> also extends pickling support to more types of objects. You can
+just switch your code to using <code>dill.dump()</code> / <code>dill.load()</code> instead of
+<code>pickle.dump()</code> / <code>pickle.load()</code> and you get this extended support for
+free.</p>
+<p>The disadvantages are the same as for <code>pickle</code>, plus it's not bundled
+with Python, so it's another dependency you have to <a href="https://pypi.org/project/dill/">install it
+separately</a>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
 
 
     </main>

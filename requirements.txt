@@ -1,39 +1,86 @@
 appdirs==1.4.3
+appnope==0.1.0; sys_platform == "darwin" or platform_system == "Darwin" or python_version >= "3.3" and sys_platform == "darwin"
+attrs==19.3.0
+backcall==0.1.0
 beautifulsoup4==4.8.2
+bleach==3.1.4
 bs4==0.0.1
 certifi==2019.11.28
 chardet==3.0.4
 click==7.1.1
+colorama==0.4.3; python_version >= "3.3" and sys_platform == "win32" or sys_platform == "win32"
 conllu==2.3.2
 corpy==0.2.3
 cssselect==1.1.0
 cycler==0.10.0
+decorator==4.4.2
+defusedxml==0.6.0
+dill==0.3.1.1
+entrypoints==0.3
 fake-useragent==0.1.11
 idna==2.9
+importlib-metadata==1.6.0; python_version < "3.8"
+ipykernel==5.2.0
+ipython==7.13.0
+ipython-genutils==0.2.0
+ipywidgets==7.5.1
+jedi==0.16.0
+jinja2==2.11.1
+jsonschema==3.2.0
+jupyter-client==6.1.2
+jupyter-core==4.6.3
 kiwisolver==1.1.0
 lazy==1.4
 lxml==4.5.0
+markupsafe==1.1.1
 matplotlib==3.2.1
+mistune==0.8.4
+nbconvert==5.6.1
+nbformat==5.0.4
 nltk==3.4.5
+notebook==6.0.3
 numpy==1.18.2
 pandas==1.0.3
+pandocfilters==1.4.2
 parse==1.15.0
+parso==0.6.2
+pexpect==4.8.0; python_version >= "3.3" and sys_platform != "win32" or sys_platform != "win32"
+pickleshare==0.7.5
 pillow==7.0.0
+prometheus-client==0.7.1
+prompt-toolkit==3.0.5
+ptyprocess==0.6.0; python_version >= "3.3" and sys_platform != "win32" or sys_platform != "win32" or os_name != "nt" or python_version >= "3.3" and sys_platform != "win32" and (python_version >= "3.3" and sys_platform != "win32" or sys_platform != "win32")
 pyee==7.0.1
+pygments==2.6.1
 pyparsing==2.4.6
 pyppeteer==0.0.25
 pyquery==1.4.1
+pyrsistent==0.16.0
 python-dateutil==2.8.1
 pytz==2019.3
+pywin32==227; sys_platform == "win32"
+pywinpty==0.5.7; os_name == "nt"
+pyzmq==19.0.0
 regex==2019.12.20
 requests==2.23.0
 requests-html==0.10.0
+scipy==1.4.1
+send2trash==1.5.0
 six==1.14.0
 soupsieve==2.0
+terminado==0.8.3
+testpath==0.4.4
+tornado==6.0.4
 tqdm==4.43.0
+traitlets==4.3.3
 ufal.morphodita==1.9.2.3
 ufal.udpipe==1.2.0.3
 urllib3==1.25.8
 w3lib==1.21.0
+wcwidth==0.1.9
+webencodings==0.5.1
 websockets==8.1
+widgetsnbextension==3.5.1
 wordcloud==1.6.0
+xlrd==1.2.0
+zipp==3.1.0; python_version < "3.8"

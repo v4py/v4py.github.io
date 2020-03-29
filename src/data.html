@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
   <title>Getting your data into Python</title>
-  <meta name="description" content="# Getting your data into Python">
+  <meta name="description" content="# Getting your data into PythonThis chapter is about interacting with data on your computer's disk --mostly loading it into Python, but also writing it back,...">
 
   <link rel="canonical" href="https://v4py.github.io//src/data.html">
   <link rel="alternate" type="application/rss+xml" title="An Introduction to Python for Linguists" href="https://v4py.github.io//feed.xml">
@@ -14,7 +14,7 @@
   <meta property="og:url"         content="https://v4py.github.io//src/data.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Getting your data into Python" />
-<meta property="og:description" content="# Getting your data into Python" />
+<meta property="og:description" content="# Getting your data into PythonThis chapter is about interacting with data on your computer's disk --mostly loading it into Python, but also writing it back,..." />
 <meta property="og:image"       content="https://v4py.github.io/images/v4py_logo_wide.svg" />
 
 <meta name="twitter:card" content="summary">
@@ -26,9 +26,9 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://v4py.github.io//src/data.html",
   "headline": "Getting your data into Python",
-  "datePublished": "2020-03-29T00:12:24+01:00",
-  "dateModified": "2020-03-29T00:12:24+01:00",
-  "description": "# Getting your data into Python",
+  "datePublished": "2020-03-30T00:16:58+02:00",
+  "dateModified": "2020-03-30T00:16:58+02:00",
+  "description": "# Getting your data into PythonThis chapter is about interacting with data on your computer's disk --mostly loading it into Python, but also writing it back,...",
   "author": {
     "@type": "Person",
     "name": "David Lukeš, Rudolf Rosa"
@@ -617,12 +617,78 @@ initFunction(initPrint)
 
       
       
+      <li class="c-sidebar__chapter" data-url="/regex">
+        <a class="c-sidebar__entry"
+          href="/regex.html"
+        >
+          
+            6.
+          
+          Regular expressions
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/gotchas">
+        <a class="c-sidebar__entry"
+          href="/gotchas.html"
+        >
+          
+            7.
+          
+          Python gotchas
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
       <li class="c-sidebar__chapter" data-url="/case">
         <a class="c-sidebar__entry"
           href="/case.html"
         >
           
-            6.
+            8.
           
           Case studies
         </a>
@@ -656,7 +722,7 @@ initFunction(initPrint)
                 href="/case/collocations.html"
               >
                 
-                  6.1
+                  8.1
                 
                 Determining collocation strength
               </a>
@@ -677,7 +743,7 @@ initFunction(initPrint)
                 href="/case/keywords.html"
               >
                 
-                  6.2
+                  8.2
                 
                 Keyword analysis: Donald Trump's speeches
               </a>
@@ -705,7 +771,7 @@ initFunction(initPrint)
           href="/outro.html"
         >
           
-            7.
+            9.
           
           Parting words
         </a>
@@ -836,6 +902,621 @@ initFunction(initPrint)
       <main class="c-textbook__page" tabindex="-1">
             <div class="c-textbook__content" id="textbook_content">
               <h1 id="getting-your-data-into-python">Getting your data into Python</h1>
+
+<p>This chapter is about interacting with data on your computer’s disk –
+mostly loading it into Python, but also writing it back, and storing it
+for quick reloading later.</p>
+
+<h1 id="plain-text-files">Plain text files</h1>
+
+<p>A <strong>plain text</strong> file is a file where every single bit contributes
+towards representing plain text content. What fits into the concept of
+‘plain text’ is actually surprisingly fuzzy – it depends on which
+characters are available in the character set you’re using, and
+character sets are just arbitrary human conventions. Historically,
+there were computer systems that didn’t make case distinctions, so upper
+vs. lower case was not something you could express using just plain
+text.</p>
+
+<p>Nowadays, Unicode is making inroads into text properties which were
+previously the domain of <strong>rich text</strong>, assigning dedicated codepoints
+to 𝘪𝘵𝘢𝘭𝘪𝘤𝘴 or ˢᵘᵖᵉʳˢᶜʳᶦᵖᵗ, which allow you, among other things, to work
+around the lack of rich text capabilities in Twitter or Facebook posts
+(although that’s obviously not what they were originally intended for).
+But the further you go along the axis of content vs. appearance, the
+more you encounter properties which are unlikely to ever make it into
+plain text, like the ability to specify which particular font the text
+should be displayed with.</p>
+
+<p>```python tags=[“output_scroll”]
+from unicodedata import name</p>
+
+<p>for char in “𝘪𝘵𝘢𝘭𝘪𝘤𝘴ˢᵘᵖᵉʳˢᶜʳᶦᵖᵗ”:
+    print(char, name(char), sep=”\t”)</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+Plain text files can be opened with the built-in `open()` function. As
+we've seen in our discussion of [Unicode](unicode), your safest bet with
+a plain text file in an unknown encoding is to start by trying to open
+it as `UTF-8` -- not because that will always work, but precisely
+because it won't: if it's not actually `UTF-8`, you're likely to get an
+error, which will tell you there's something fishy and prevent you from
+corrupting your data. Also, `UTF-8` is becoming more and more prevalent,
+so chances are good that file actually *is* `UTF-8`, in which case
+you're golden. The `text.txt` file below, though, isn't.
+
+```python tags=["raises-exception", "full_width", "output_scroll"]
+with open("data/text.txt", encoding="utf-8") as file:
+    print(file.read())
+</code></pre></div></div>
+
+<p>OK, that didn’t work. Now you can start thinking about alternatives. Do
+you know anything about the language the text in the file is supposed to
+be in? If it’s a Western European language, then the encoding might be
+<a href="https://en.wikipedia.org/wiki/ISO/IEC_8859-1"><code class="language-plaintext highlighter-rouge">latin1</code></a> or
+<a href="https://en.wikipedia.org/wiki/Windows-1252"><code class="language-plaintext highlighter-rouge">cp1252</code></a>; if it’s Central
+European, then perhaps
+<a href="https://en.wikipedia.org/wiki/ISO/IEC_8859-2"><code class="language-plaintext highlighter-rouge">latin2</code></a> or
+<a href="https://en.wikipedia.org/wiki/Windows-1250"><code class="language-plaintext highlighter-rouge">cp1250</code></a> (beyond those
+two regions, I’m afraid I can’t give any tips, you’ll have to rely on
+web search engines).</p>
+
+<p>Let’s say we know <code class="language-plaintext highlighter-rouge">text.txt</code> is in Czech, a Central European
+language. We might want to try <code class="language-plaintext highlighter-rouge">cp1250</code>, because that’s <em>still</em> (ugh)
+the default encoding for text files created under the Czech version of
+Windows, and that’s where the file might have come from.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"data/text.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"cp1250"</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</code></pre></div></div>
+
+<p>The tricky thing here is that everything went seemingly fine, no error
+occurred. That’s because <code class="language-plaintext highlighter-rouge">cp1250</code> is an 8-bit fixed-width encoding, and
+any sequence of bytes can be interpreted as a <code class="language-plaintext highlighter-rouge">cp1250</code>-encoded file –
+even if it was originally intended to be something else. If a Czech
+speaker tries to read this output, some words will be off. It may be
+hard to spot them, because many 8-bit encodings share a lot of the
+byte–character mappings, at least in the ASCII range [0; 128), but to a
+smaller extent even beyond. This makes it easier to still read at least
+parts of the file if you’ve guessed the encoding wrong, but it also
+makes it harder to realize that.</p>
+
+<p>The 1990s were the age of many different 8-bit encodings for different
+groups of languages. It sucked. Be glad you live in the age of <code class="language-plaintext highlighter-rouge">UTF-8</code>.</p>
+
+<p>Finally, if we try <code class="language-plaintext highlighter-rouge">latin2</code>, that Czech person helpfully standing behind
+you can tell you that now, the result looks alright. If you compare with
+the previous attempt, you may see that there are indeed minute
+differences.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"data/text.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"latin2"</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</code></pre></div></div>
+
+<p>Sometimes, you may encounter a plain text file that you know should be
+in <code class="language-plaintext highlighter-rouge">UTF-8</code>, but it has become corrupted for some reason – maybe it was
+spliced together with another file in a different encoding, or maybe
+some evil spirit flipped a few bits here and there. In that case, the
+contents won’t look right in any one encoding, but you might still want
+to at least have a glimpse at what it contains. To make Python soldier
+through in spite of encountering invalid byte sequences (i.e. encoding
+errors), you can specify an error handler. A preview of a few of the
+more common options is given below; for a full list, refer
+<a href="https://docs.python.org/3/library/codecs.html#error-handlers">here</a>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"data/text.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s">"replace"</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"data/text.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s">"ignore"</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"data/text.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s">"backslashreplace"</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</code></pre></div></div>
+
+<p>Incidentally, this allows us to take a peek at what a rich text file
+looks like under the hood. If you open <code class="language-plaintext highlighter-rouge">text.doc</code> in a word processor,
+you’ll see that it has the same textual content as <code class="language-plaintext highlighter-rouge">text.txt</code>. But
+opening it as plain text, we see that the file definitely contains some
+more stuff besides that, and most of it can’t be interpreted as text –
+there’s a lot of those question mark replacement characters, and even
+more null bytes (<code class="language-plaintext highlighter-rouge">\x00</code>, i.e. a byte consisting of all 0’s). Some of it
+is metadata, e.g. who wrote the text and when, or possibly encoding
+information, so that the word processor doesn’t have to take blind
+guesses at which encoding the text is stored in like we just had to.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"data/text.doc"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s">"replace"</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="n">txt</span> <span class="o">=</span> <span class="nb">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">txt</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># this is probably author metadata?
+</span><span class="n">index</span> <span class="o">=</span> <span class="n">txt</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">"Lukeš"</span><span class="p">)</span>
+<span class="n">txt</span><span class="p">[</span><span class="n">index</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="n">index</span><span class="o">+</span><span class="mi">15</span><span class="p">]</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># and this is probably the part which corresponds to "Magda kaňonem" in
+# our plain text file
+</span><span class="n">index</span> <span class="o">=</span> <span class="n">txt</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">"M"</span><span class="p">)</span>
+<span class="n">txt</span><span class="p">[</span><span class="n">index</span><span class="p">:</span><span class="n">index</span><span class="o">+</span><span class="mi">25</span><span class="p">]</span>
+</code></pre></div></div>
+
+<h1 id="manipulating-tabular-data">Manipulating tabular data</h1>
+
+<!-- #md tags=["popout"] -->
+
+<p>CSVs are actually plain text files – in their simplest form, each row
+of the table is just a line of text, with columns separated by commas.
+However, in order to allow the individual fields to contain commas or
+newlines (which normally act as column and row separators), the CSV
+standard defines fairly complicated escaping mechanisms which you don’t
+want to implement yourself. So it’s generally better to rely on a
+library to parse CSVs and not do it manually, unless you know for a fact
+that the CSV contains none of these gotchas.</p>
+
+<!-- #endmd -->
+
+<p>Data often comes in tabular format – Excel files, CSV files and the
+like. The easiest and most convenient way to load this type of data into
+Python and manipulate it is using the
+<a href="https://pandas.pydata.org/"><code class="language-plaintext highlighter-rouge">pandas</code></a> library. While manual
+modifications of individual cells will probably always be more ergonomic
+in a spreadsheet editor like Excel, any kind of mass data manipulation
+is what <code class="language-plaintext highlighter-rouge">pandas</code>… excels at, if you’ll pardon the pun. It does so in a
+clean and efficient way, mostly without even breaking a sweat, and best
+of all, you can always retrace your steps and check whether you’ve made
+a mistake at some point because you’re writing them down as Python
+commands instead of clicking around in a graphical user interface. Not
+to mention that this makes it trivial to apply the same series of
+processing steps to similarly shaped data, once you’ve figured them out.</p>
+
+<h2 id="the-pandas-library">The <code class="language-plaintext highlighter-rouge">pandas</code> library</h2>
+
+<p>Let’s fire up <code class="language-plaintext highlighter-rouge">pandas</code> and take a look at how it can help you to slice
+and dice tables in Python. Or should I say <code class="language-plaintext highlighter-rouge">DataFrame</code>s, because that’s
+what <code class="language-plaintext highlighter-rouge">pandas</code> calls them, acknowledging inspiration from R’s trademark
+data structure.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s">"data/concordance_corpus.xlsx"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span>
+</code></pre></div></div>
+
+<!-- TODO: Whew, preview long and unwieldy, let's use the `.head()` method -->
+<!-- from now on to condense it a little bit. -->
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span>
+    <span class="s">"data/concordance_corpus.xlsx"</span><span class="p">,</span>
+    <span class="n">header</span><span class="o">=</span><span class="bp">None</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="err">?</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span>
+    <span class="s">"data/concordance_corpus.xlsx"</span><span class="p">,</span>
+    <span class="n">header</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+    <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s">"domain"</span><span class="p">,</span> <span class="s">"left"</span><span class="p">,</span> <span class="s">"kwic"</span><span class="p">,</span> <span class="s">"right"</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="n">df</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="p">[</span><span class="s">"domain"</span><span class="p">]</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">"domain"</span><span class="p">]))</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="p">[[</span><span class="s">"domain"</span><span class="p">,</span> <span class="s">"kwic"</span><span class="p">]]</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s">"domain"</span><span class="p">:</span><span class="s">"kwic"</span><span class="p">]</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="s">"domain"</span><span class="p">,</span> <span class="s">"kwic"</span><span class="p">]]</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="o">.</span><span class="n">kwic</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="o">.</span><span class="n">domain</span> <span class="o">==</span> <span class="s">"newadvent.org"</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">domain</span> <span class="o">==</span> <span class="s">"newadvent.org"</span><span class="p">]</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="o">.</span><span class="n">loc</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s">"domain == 'newadvent.org'"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="o">.</span><span class="n">domain</span><span class="o">.</span><span class="nb">str</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">".org"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">domain</span><span class="o">.</span><span class="nb">str</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">".org"</span><span class="p">)]</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="o">.</span><span class="n">kwic</span><span class="o">.</span><span class="nb">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">"/"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">kwic</span><span class="o">.</span><span class="nb">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">"/"</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+    <span class="k">break</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="o">.</span><span class="n">kwic</span><span class="o">.</span><span class="nb">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">"/"</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="p">[[</span><span class="s">"kwic"</span><span class="p">,</span> <span class="s">"domain"</span><span class="p">]]</span>
+</code></pre></div></div>
+
+<p>```python tags=[“raises-exception”, “full_width”, “output_scroll”]
+df[[“word”, “lemma”, “tag”]]</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+```python
+df[["word", "lemma", "tag"]] = df.kwic.str.split("/", expand=True)
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s">"domain"</span><span class="p">,</span> <span class="s">"left"</span><span class="p">,</span> <span class="s">"word"</span><span class="p">,</span> <span class="s">"lemma"</span><span class="p">,</span> <span class="s">"tag"</span><span class="p">,</span> <span class="s">"right"</span><span class="p">]]</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df2</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="err">?</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="p">[</span><span class="s">"domain"</span><span class="p">]</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="p">[</span><span class="s">"domain"</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="p">[</span><span class="s">"domain"</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s">"bar"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span><span class="p">[</span><span class="s">"domain"</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s">"bar"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">"data/frequencies_intensifiers.csv"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="err">?</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="s">"data/frequencies_intensifiers.csv"</span><span class="p">,</span>
+    <span class="n">sep</span><span class="o">=</span><span class="s">";"</span><span class="p">,</span>
+    <span class="n">header</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+    <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s">"rank"</span><span class="p">,</span> <span class="s">"collocation"</span><span class="p">,</span> <span class="s">"freq"</span><span class="p">,</span> <span class="s">"empty"</span><span class="p">]</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>If you want to go in the other direction and store <code class="language-plaintext highlighter-rouge">DataFrame</code>s on disk
+as Excel spreadsheets, CSV files or many other formats, check out the
+methods starting with <code class="language-plaintext highlighter-rouge">to_*</code> on <code class="language-plaintext highlighter-rouge">DataFrame</code> objects (remember you can
+use <code class="language-plaintext highlighter-rouge">Tab</code> in JupyterLab to bring up a completion menu if you start
+typing just <code class="language-plaintext highlighter-rouge">to_</code>).</p>
+
+<p><code class="language-plaintext highlighter-rouge">pandas</code> is an impressively featureful library and we’ve barely
+scratched the surface of what you can do with it. It has also only
+fairly recently hit 1.0 status, which means a lot of polish has been
+applied to its website and documentation. Previously, the documentation,
+though extensive and complete, was somewhat hard to navigate; this has
+gotten much better. For more information, I suggest reviewing the
+library’s <a href="https://pandas.pydata.org/docs/getting_started/index.html"><em>Getting
+started</em></a>,
+which contains a <a href="https://pandas.pydata.org/docs/getting_started/index.html#intro-to-pandas">list of practical
+tasks</a>
+you might want to use <code class="language-plaintext highlighter-rouge">pandas</code> for along with recipes telling you how to
+achieve that.</p>
+
+<h2 id="the-csv-module-in-the-standard-library">The <code class="language-plaintext highlighter-rouge">csv</code> module in the standard library</h2>
+
+<p>The Python standard library also comes with a <a href="https://docs.python.org/3/library/csv.html"><code class="language-plaintext highlighter-rouge">csv</code>
+module</a>. This is useful when
+you don’t have the option to install <code class="language-plaintext highlighter-rouge">pandas</code>, or when you don’t really
+need to work with the CSV file as a table, you just need to pull out
+some values and put them in a dictionary for instance. In that case,
+<code class="language-plaintext highlighter-rouge">pandas</code> may be an unnecessarily heavy dependency (as a Swiss Army knife
+for data manipulation, it’s pretty hefty), not to mention that loading
+the entire table into memory at once might be wasteful, especially if
+it’s large and you just want one or two columns.</p>
+
+<p>Let’s first take a peek at the contents of a CSV file. As mentioned,
+it’s basically just a plain text file. This particular CSV file contains
+a frequency distribution of <em>intensifier + adverb</em> combinations.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"data/frequencies_intensifiers.csv"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">file</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        <span class="k">break</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">csv</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"data/frequencies_intensifiers.csv"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+        <span class="k">break</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">row</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">len</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="err">?</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"data/frequencies_intensifiers.csv"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s">";"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+        <span class="k">break</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">len</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">int</span><span class="p">(</span><span class="s">"4"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">float</span><span class="p">(</span><span class="s">"4.5"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">adv</span><span class="p">,</span> <span class="n">adj</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Let’s divide up the adjectives into sets based on which intensifiers
+they co-occur.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">completely</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="n">totally</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="n">entirely</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="n">utterly</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"data/frequencies_intensifiers.csv"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s">";"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="n">adv</span><span class="p">,</span> <span class="n">adj</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">adv</span> <span class="o">==</span> <span class="s">"completely"</span><span class="p">:</span>
+            <span class="n">completely</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">adj</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">adv</span> <span class="o">==</span> <span class="s">"totally"</span><span class="p">:</span>
+            <span class="n">totally</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">adj</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">adv</span> <span class="o">==</span> <span class="s">"entirely"</span><span class="p">:</span>
+            <span class="n">entirely</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">adj</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">adv</span> <span class="o">==</span> <span class="s">"utterly"</span><span class="p">:</span>
+            <span class="n">utterly</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">adj</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"unexpected adverb:"</span><span class="p">,</span> <span class="n">adv</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>By using set operations, we can now figure out which intensifiers tend
+(not) to co-occur with which adjectives.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">not_utterly</span> <span class="o">=</span> <span class="n">completely</span> <span class="o">|</span> <span class="n">totally</span> <span class="o">|</span> <span class="n">entirely</span>
+<span class="c1"># or: not_utterly = completely.union(totally).union(entirely)
+</span></code></pre></div></div>
+
+<p>```python tags=[“output_scroll”]
+utterly - not_utterly</p>
+<h1 id="or-utterlydifferencenot_utterly">or: utterly.difference(not_utterly)</h1>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+# Storing objects on disk and reloading them
+
+Some values take a long time to compute, so you don't want to have to
+compute them again and again each time you close and reopen JupyterLab.
+Instead, you'd like to compute them once, store them somewhere, and
+reload them (almost) instantaneously whenever you need.
+
+## The `%store` magic function
+
+The `%store` magic function can store individual variables; it's perhaps
+the simplest option, but you don't really control where the object gets
+stored.
+
+```python
+a = 2
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="n">store</span> <span class="n">a</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">a</span>
+</code></pre></div></div>
+
+<p>Reload the stored value of the <code class="language-plaintext highlighter-rouge">a</code> variable:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="n">store</span> <span class="o">-</span><span class="n">r</span> <span class="n">a</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span>
+</code></pre></div></div>
+
+<p>For more information, consult <code class="language-plaintext highlighter-rouge">%store</code>’s docstring.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">?</span><span class="o">%</span><span class="n">store</span>
+</code></pre></div></div>
+
+<h2 id="the-json-standard-library-module">The <code class="language-plaintext highlighter-rouge">json</code> standard library module</h2>
+
+<p>The standard library <a href="https://docs.python.org/3/library/json.html"><code class="language-plaintext highlighter-rouge">json</code>
+module</a> can also be used
+for this purpose.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">json</span>
+</code></pre></div></div>
+
+<p>JSON <a href="https://en.wikipedia.org/wiki/Serialization">serialization</a>
+actually results in plain text, which is nice and mostly human readable,
+if it’s pretty-printed. It looks close to how the same data structure
+is written down in Python (can you spot the differences?).</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">person</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"name"</span><span class="p">:</span> <span class="s">"John Doe"</span><span class="p">,</span>
+    <span class="s">"age"</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span>
+    <span class="s">"interests"</span><span class="p">:</span> <span class="p">[</span><span class="s">"Python"</span><span class="p">,</span> <span class="s">"linguistics"</span><span class="p">],</span>
+    <span class="s">"single"</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+    <span class="s">"pet"</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="k">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">person</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>When writing to disk, you get to pick where the object is stored, at the
+expense of having to type more than with <code class="language-plaintext highlighter-rouge">%store</code>. The <code class="language-plaintext highlighter-rouge">"w"</code> argument
+sets the mode of the open file to <em>write</em> (the <code class="language-plaintext highlighter-rouge">"r"</code> mode for <em>reading</em>
+is the default, so we didn’t need to set it explicitly before when
+reading files).</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"person.json"</span><span class="p">,</span> <span class="s">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">person</span><span class="p">,</span> <span class="nb">file</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="n">cat</span> <span class="n">person</span><span class="o">.</span><span class="n">json</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"person.json"</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
+<span class="n">data</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># cleanup
+</span><span class="o">%</span><span class="n">rm</span> <span class="n">person</span><span class="o">.</span><span class="n">json</span>
+</code></pre></div></div>
+
+<p>If you want to store multiple objects like this, just put them in a
+dictionary and <code class="language-plaintext highlighter-rouge">json.dump</code> the whole thing.</p>
+
+<p>JSON was created as an interchange format, which comes both with
+advantages and a drawbacks. The advantage is it can be easily loaded
+into different languages / tools, almost every programming language now
+has an easily accessible JSON library. The main drawback is that it only
+works for storing a limited range of types: dicts, lists, strings,
+numbers, Boolean values (<code class="language-plaintext highlighter-rouge">True</code> and <code class="language-plaintext highlighter-rouge">False</code>) and <code class="language-plaintext highlighter-rouge">None</code>. As an
+interchange format, it makes sense that it has to stick to the lowest
+common denominator of what’s available in some form in almost every
+programming language, otherwise there couldn’t be much interchange.
+Some additional types can be stored as JSON, but only by being converted
+to one of the above – e.g. if you store a tuple in JSON and load it
+back, it will become a list.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
+</code></pre></div></div>
+
+<h2 id="the-pickle-standard-library-module">The <code class="language-plaintext highlighter-rouge">pickle</code> standard library module</h2>
+
+<p><a href="https://docs.python.org/3/library/pickle.html">Pickling objects</a> works
+in a very similar way to dumping them as JSON, just make sure to open
+the file for writing <strong>in binary mode</strong> (<code class="language-plaintext highlighter-rouge">"wb"</code>):</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pickle</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"person.pickle"</span><span class="p">,</span> <span class="s">"wb"</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">person</span><span class="p">,</span> <span class="nb">file</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>… and for reading as well (<code class="language-plaintext highlighter-rouge">"rb"</code>):</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"person.pickle"</span><span class="p">,</span> <span class="s">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
+<span class="n">data</span>
+</code></pre></div></div>
+
+<p>This is because pickling doesn’t use a plain text format, but a custom
+binary format.</p>
+
+<p>```python tags=[“output_scroll”]
+%cat person.pickle</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+```python
+# cleanup
+%rm person.pickle
+</code></pre></div></div>
+
+<p>The advantage of <code class="language-plaintext highlighter-rouge">pickle</code> is that unlike JSON, it can faithfully
+preserve a much wider spectrum of Python objects (most things you’re
+likely to need in normal practice). This flexibility is partially
+achieved by allowing arbitrary code to run during unpickling, based on
+what’s stored in the pickle, which is a security flaw – someone could
+in theory send you a maliciously crafted pickle which deletes your home
+directory upon unpickling. <strong>So only unpickle data from sources you
+trust.</strong></p>
+
+<p>Another disadvantage is that the format is specific to Python, and it
+can even change between versions of the language: there are <a href="https://docs.python.org/3/library/pickle.html#data-stream-format">several
+versions of the pickle
+protocol</a>,
+as it gets improved over time. This means that if you want to share
+pickled objects across Python versions, you need to be careful about
+which protocol version you use in order to retain backwards
+compatibility.</p>
+
+<p>Like with JSON, if you want to pickle multiple objects, you still have
+to store them separately, or put them all in a dict manually and store
+the dict.</p>
+
+<h2 id="the-dill-library">The <code class="language-plaintext highlighter-rouge">dill</code> library</h2>
+
+<p><a href="https://dill.readthedocs.io"><code class="language-plaintext highlighter-rouge">dill</code></a> is <code class="language-plaintext highlighter-rouge">pickle</code> on steroids. For any
+less proficient English speakers reading and/or those without a
+background in English literature, the name is a pun on <a href="https://www.google.com/search?client=q=dill+pickle">dill
+pickle</a>, or maybe
+even <a href="https://en.wikipedia.org/wiki/A_Dill_Pickle"><em>A Dill Pickle</em></a>.
+Its biggest advantage is that it can pickle entire sessions (kind of
+like R does, if you’re familiar with R), you don’t have to specify
+objects one by one. Before we demonstrate this though, we’ll need to get
+rid of our CSV <code class="language-plaintext highlighter-rouge">reader</code> object from before, because it turns out that’s
+one of the objects which can’t be even dill-pickled. (You don’t have to
+remember this by heart, I certainly don’t – Python will complain loudly
+if you try to pickle something that can’t be pickled.)</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">dill</span>
+
+<span class="k">del</span> <span class="n">reader</span>
+<span class="n">dill</span><span class="o">.</span><span class="n">dump_session</span><span class="p">(</span><span class="s">"session.pickle"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dill</span><span class="o">.</span><span class="n">load_session</span><span class="p">(</span><span class="s">"session.pickle"</span><span class="p">)</span>
+<span class="c1"># cleanup
+</span><span class="o">%</span><span class="n">rm</span> <span class="n">session</span><span class="o">.</span><span class="n">pickle</span>
+</code></pre></div></div>
+
+<p>Apart from the advantages of being able to pickle entire sessions,
+<code class="language-plaintext highlighter-rouge">dill</code> also extends pickling support to more types of objects. You can
+just switch your code to using <code class="language-plaintext highlighter-rouge">dill.dump()</code> / <code class="language-plaintext highlighter-rouge">dill.load()</code> instead of
+<code class="language-plaintext highlighter-rouge">pickle.dump()</code> / <code class="language-plaintext highlighter-rouge">pickle.load()</code> and you get this extended support for
+free.</p>
+
+<p>The disadvantages are the same as for <code class="language-plaintext highlighter-rouge">pickle</code>, plus it’s not bundled
+with Python, so it’s another dependency you have to <a href="https://pypi.org/project/dill/">install it
+separately</a>.</p>
 
             </div>
             <div class="c-textbook__footer" id="textbook_footer">

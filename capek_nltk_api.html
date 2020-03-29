@@ -5,16 +5,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Parting words</title>
-  <meta name="description" content="# Parting wordsNow that you've made it to the end, perhaps you're wondering where to gofrom here. Programming is perhaps the easiest skill to learn using onl...">
+  <title>What we’re not going to do right now: the NLTK corpus API</title>
+  <meta name="description" content="# What we're *not* going to do right now: the NLTK corpus API[Chapter 2](https://www.nltk.org/book/ch02.html), [Chapter 3](https://www.nltk.org/book/ch03.htm...">
 
-  <link rel="canonical" href="https://v4py.github.io//src/outro.html">
+  <link rel="canonical" href="https://v4py.github.io//capek_nltk_api.html">
   <link rel="alternate" type="application/rss+xml" title="An Introduction to Python for Linguists" href="https://v4py.github.io//feed.xml">
 
-  <meta property="og:url"         content="https://v4py.github.io//src/outro.html" />
+  <meta property="og:url"         content="https://v4py.github.io//capek_nltk_api.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Parting words" />
-<meta property="og:description" content="# Parting wordsNow that you've made it to the end, perhaps you're wondering where to gofrom here. Programming is perhaps the easiest skill to learn using onl..." />
+<meta property="og:title"       content="What we’re not going to do right now: the NLTK corpus API" />
+<meta property="og:description" content="# What we're *not* going to do right now: the NLTK corpus API[Chapter 2](https://www.nltk.org/book/ch02.html), [Chapter 3](https://www.nltk.org/book/ch03.htm..." />
 <meta property="og:image"       content="https://v4py.github.io/images/v4py_logo_wide.svg" />
 
 <meta name="twitter:card" content="summary">
@@ -24,11 +24,11 @@
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage": "https://v4py.github.io//src/outro.html",
-  "headline": "Parting words",
+  "mainEntityOfPage": "https://v4py.github.io//capek_nltk_api.html",
+  "headline": "What we’re not going to do right now: the NLTK corpus API",
   "datePublished": "2020-03-30T00:16:58+02:00",
   "dateModified": "2020-03-30T00:16:58+02:00",
-  "description": "# Parting wordsNow that you've made it to the end, perhaps you're wondering where to gofrom here. Programming is perhaps the easiest skill to learn using onl...",
+  "description": "# What we're *not* going to do right now: the NLTK corpus API[Chapter 2](https://www.nltk.org/book/ch02.html), [Chapter 3](https://www.nltk.org/book/ch03.htm...",
   "author": {
     "@type": "Person",
     "name": "David Lukeš, Rudolf Rosa"
@@ -901,341 +901,60 @@ initFunction(initPrint)
 
       <main class="c-textbook__page" tabindex="-1">
             <div class="c-textbook__content" id="textbook_content">
-              <h1 id="parting-words">Parting words</h1>
-
-<p>Now that you’ve made it to the end, perhaps you’re wondering where to go
-from here. Programming is perhaps the easiest skill to learn using only
-the internet, so there are many options. There’s also always room for
-improvement and learning new things, it’s a lifelong journey. In lieu of
-parting words, here are some tips on where to get started, at least in
-the world of Python.</p>
-
-<p>Thank you for reading so far, and if you have any suggestions for
-improvement, additions, or just spotted a few typos, please <a href="https://github.com/v4py/v4py.github.io/issues">report them
-on GitHub</a>!</p>
-
-<h1 id="books">Books</h1>
-
-<!-- #md tags=["popout"]-->
-<p><a href="https://www.nltk.org/book/" target="_blank">
-<img src="images/outro/nltk_book.jpg" width="200" alt="Natural Language Processing with Python book cover" />
-</a>
-<!-- #endmd --></p>
-
-<p>As a general introduction to Python programming which focuses on
-linguistic applications, I’ve already recommended <a href="https://www.nltk.org/book/"><em>Natural Language
-Processing with Python: Analyzing Text with the Natural Language
-Toolkit</em></a> by Steven Bird, Ewan Klein and
-Edward Loper, and I’m going to recommend it again. It’s a great
-resource, all the more useful since it’s freely available online. It
-doesn’t provide just recipes on how to use the latest and greatest fancy
-stuff in NLP, treating the tools as black boxes, but rather focuses on
-understanding algorithms and concepts and improving your programming
-skills. This means that it often spends time on less cutting-edge
-methods, which are however conceptually simpler and thus have better
-teaching value. Depending on what your immediate needs are, this may be
-a strength or a weakness, but in the long run, I would argue that every
-programming linguist should spend some time honing their programming
-skills instead of always blindly following how-to style recipes, because
-even copy-pasting black box code can go seriously wrong if you don’t
-have a larger picture of what’s going on.</p>
-
-<!-- #md tags=["popout"]-->
-<p><a href="https://jakevdp.github.io/PythonDataScienceHandbook/" target="_blank">
-<img src="images/outro/python_data_science.png" width="200" alt="Python Data Science Handbook cover" />
-</a>
-<!-- #endmd --></p>
-
-<p>On perhaps a more practical note, I can definitely recommend Jake
-VanderPlas’s <a href="https://jakevdp.github.io/PythonDataScienceHandbook/"><em>Python Data Science
-Handbook</em></a>, an
-other great resource which is also freely available online. This book is
-not concerned with NLP per se but rather with data analysis, i.e. with
-what happens after you’ve processed your text data and want to do some
-statistical modeling or machine learning with it. This has traditionally
-been the domain of <a href="https://www.r-project.org/">R</a>, especially among
-linguists, but R is a very idiosyncratic language which encourages the
-copy-paste, black box approach: while it sometimes provides pleasant and
-easy-to-use abstractions (especially in the
-<a href="https://www.tidyverse.org/">tidyverse</a> third-party packages), building
-them yourself or wiring them together can be challenging because the
-underlying language is not really well-designed, edge cases and
-surprising behaviors abound. Python is much easier to wrap your head
-around, perhaps because it has always been intended as a more
-general-purpose programming language, but by the same token, it can be
-sometimes hard to know which libraries and techniques to use when
-getting started with data analysis in Python. The <em>Python Data Science
-Handbook</em> is there to help you with that.</p>
-
-<h1 id="videos">Videos</h1>
-
-<p>Unlike conferences in linguistics, programming conferences are often
-recorded and professionally produced videos (including presentation
-slides) are subsequently made available, most often for free. For
-tutorials and workshops, the materials often remain available long after
-the conference via sites like GitHub, so you can follow along at your
-leisure.</p>
-
-<p>Since conferences are popular, there’s potentially <em>a lot</em> of watching
-material, not all of it great. Some people are better programmers than
-speakers or teachers, some are good at neither, but there are so many
-conferences that they can accommodate all of them. Below is a collection
-of videos that I either consider rare gems of the Python conference
-circuit, or that are particularly relevant to the subject of analyzing
-language data, or both.</p>
-
-<p>If you end up searching yourself, I can recommend almost anything by
-either Raymond Hettinger, Ned Batchelder or David Beazley. Their
-contributions are consistently extremely informative, well-prepared and
-entertaining at the same time.</p>
-
-<h2 id="improving-your-python-chops">Improving your Python chops</h2>
-
-<!-- Beazley: builtins _____________________________________________ -->
-
-<!-- #md tags=["popout"] -->
-
-<p>A great tour of Python’s built-in functionality, i.e. stuff that’s
-always available, without having to load any libraries, and tips and
-tricks on how to use it. A great way to top off your Python initiation
-and graduate to a proficient beginner.</p>
-
-<!-- #endmd -->
-
-<!-- #md -->
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/lyDLAutA88s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
-</iframe>
-<!-- #endmd -->
+              <h1 id="what-were-not-going-to-do-right-now-the-nltk-corpus-api">What we’re <em>not</em> going to do right now: the NLTK corpus API</h1>
 
-<!-- Batchelder: variables _________________________________________ -->
+<p><a href="https://www.nltk.org/book/ch02.html">Chapter 2</a>, <a href="https://www.nltk.org/book/ch03.html">Chapter 3</a></p>
 
-<!-- #md tags=["popout"] -->
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="n">ll</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">lukes</span><span class="o">/</span><span class="n">edu</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">capek</span><span class="o">/</span>
+</code></pre></div></div>
 
-<p>This is perhaps the most useful intermediate Python talk ever. It’ll
-clear up any misconceptions about how variables work in Python that you
-might have accumulated on your programming journey so far, and enable
-you to work on more complicated and larger pieces of code with more
-confidence.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="n">cat</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">lukes</span><span class="o">/</span><span class="n">edu</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">capek</span><span class="o">/</span><span class="n">CATEGORIES</span>
+</code></pre></div></div>
 
-<!-- #endmd -->
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">CategorizedPlaintextCorpusReader</span>
+</code></pre></div></div>
 
-<!-- #md -->
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/_AEJHKGk9ns" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
-</iframe>
-<!-- #endmd -->
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">capek</span> <span class="o">=</span> <span class="n">CategorizedPlaintextCorpusReader</span><span class="p">(</span>
+    <span class="s">"/home/lukes/edu/python/capek"</span><span class="p">,</span>
+    <span class="s">r".*\.txt"</span><span class="p">,</span>
+    <span class="n">encoding</span><span class="o">=</span><span class="s">"cp1250"</span><span class="p">,</span>
+    <span class="n">cat_file</span><span class="o">=</span><span class="s">"CATEGORIES"</span>
+<span class="p">)</span>
+</code></pre></div></div>
 
-<!-- =============================================================== -->
-<!-- #md tags=["full_width"] -->
-<hr style="margin-top: 4rem;" />
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">capek</span>
+</code></pre></div></div>
 
-<!-- #endmd -->
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">capek</span><span class="o">.</span><span class="n">fileids</span><span class="p">()</span>
+</code></pre></div></div>
 
-<h2 id="data-analysis-and-nlp">Data analysis and NLP</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">capek</span><span class="o">.</span><span class="n">categories</span><span class="p">()</span>
+</code></pre></div></div>
 
-<!-- VanderPlas: PyData 101 ________________________________________ -->
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">capek</span><span class="o">.</span><span class="n">raw</span><span class="p">()[:</span><span class="mi">100</span><span class="p">]</span>
+</code></pre></div></div>
 
-<!-- #md tags=["popout"] -->
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">capek</span><span class="o">.</span><span class="n">sents</span><span class="p">()</span>
+</code></pre></div></div>
 
-<p>If you’re interested in using Python for data analysis, I can recommend
-anything by Jake VanderPlas (who wrote the <em>Python Data Science
-Handbook</em> mentioned earlier). This is an introductory talk which
-provides basic orientation in the Python data analysis landscape – what
-tools exist and when to use which. As a keynote, it’s somewhat longer
-and also provides a bit of historical background on Python, with a bias
-for data science applications of course.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">capek</span><span class="o">.</span><span class="n">paras</span><span class="p">()</span>
+</code></pre></div></div>
 
-<!-- #endmd -->
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">capek</span><span class="o">.</span><span class="n">words</span><span class="p">()</span>
+</code></pre></div></div>
 
-<!-- #md -->
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/DifMYH3iuFw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
-</iframe>
-<!-- #endmd -->
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">capek</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="n">fileids</span><span class="o">=</span><span class="s">'utopie:krakatit.txt'</span><span class="p">)</span>
+</code></pre></div></div>
 
-<!-- VanderPlas: statistics ________________________________________ -->
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">capek</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="n">fileids</span><span class="o">=</span><span class="p">[</span><span class="s">'drama:rur.txt'</span><span class="p">,</span> <span class="s">'utopie:krakatit.txt'</span><span class="p">])</span>
+</code></pre></div></div>
 
-<!-- #md tags=["popout"] -->
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">capek</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="n">categories</span><span class="o">=</span><span class="s">"drama"</span><span class="p">)</span>
+</code></pre></div></div>
 
-<p>A bit unsure how statistics works, or what it’s even good for? This
-particular talk may be titled <em>Statistics for Hackers</em>, but in reality
-it’s geared towards anyone with a keen mind who’s interested in
-statistics but hasn’t had extensive formal training in math, which means
-they sometimes struggle with a formula-heavy approach. Which often
-applies to linguists, including myself. This may also be a good place to
-point out that <a href="https://en.wikipedia.org/wiki/Hacker">‘hacker’</a> doesn’t
-always (and certainly not here) refer to someone who breaks into other
-people’s computers.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">PlaintextCorpusReader</span>
+</code></pre></div></div>
 
-<!-- #endmd -->
-
-<!-- #md -->
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Iq9DzN6mvYA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
-</iframe>
-<!-- #endmd -->
-
-<!-- VanderPlas: cutting-edge viz __________________________________ -->
-
-<!-- #md tags=["popout"] -->
-
-<p>Visualization is currently a rapidly evolving landscape in Python, and
-this talk is about new developments based on the <em>grammar of graphics</em>
-and <em>declarative visualization</em> approach, which was popularized by the R
-package <a href="https://ggplot2.tidyverse.org/">ggplot2</a>. The first part is a
-teaches you how to think about visualization in general, while the
-second introduces the <a href="https://altair-viz.github.io/">Altair</a> library.</p>
-
-<!-- #endmd -->
-
-<!-- #md -->
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/vTingdk_pVM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
-</iframe>
-<!-- #endmd -->
-
-<!-- VanderPlas: traditional viz ___________________________________ -->
-
-<!-- #md tags=["popout"] -->
-
-<p>By contrast, this older talk gives an overview of the Python
-visualization landscape including the more traditional and established
-Python visualization tools, which many people continue using and which
-aren’t going away anytime soon. Their advantage is that they’re mature,
-stable and widely known, so it can be much easier to get help on how to
-use them from random people on the internet. A good accompanying
-resource for this talk is <a href="https://jakevdp.github.io/PythonDataScienceHandbook/04.00-introduction-to-matplotlib.html">Part
-4</a>
-of the <em>Python Data Science Handbook</em>.</p>
-
-<!-- #endmd -->
-
-<!-- #md -->
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/FytuB8nFHPQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
-</iframe>
-<!-- #endmd -->
-
-<!-- Zhao: NLP tutorial ____________________________________________ -->
-
-<!-- #md tags=["popout"] -->
-
-<p>An NLP tutorial whose most valuable aspect is that if offers an extended
-worked example of data analysis, from collecting raw data to
-communicating insights. It gives a very good idea of what this entire
-process typically looks like and what are the pitfalls to look out for.</p>
-
-<!-- #endmd -->
-
-<!-- #md -->
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/xvqsFTUsOmc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
-</iframe>
-<!-- #endmd -->
-
-<!-- =============================================================== -->
-<!-- #md tags=["full_width"] -->
-<hr style="margin-top: 4rem;" />
-
-<!-- #endmd -->
-
-<h2 id="war-stories">War stories</h2>
-
-<!-- Beazley: mission impossible ___________________________________ -->
-
-<!-- #md tags=["popout"] -->
-
-<p>A real-life story on how Python helped David Beazley to make sense of
-large amounts of unknown data in order to prepare an expert testimony in
-a legal case. More on the entertaining side than the educational, but it
-<em>will</em> teach you that Python is a Swiss-army knife for slicing and
-dicing data. The <em>Mission: Impossible</em> of programming conference talks,
-with Python starring as agent Ethan Hunt!</p>
-
-<!-- #endmd -->
-
-<!-- #md -->
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/RZ4Sn-Y7AP8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
-</iframe>
-<!-- #endmd -->
-
-<!-- =============================================================== -->
-<!-- #md tags=["full_width"] -->
-<hr style="margin-top: 4rem;" />
-
-<!-- #endmd -->
-
-<h2 id="nuts-and-bolts-advanced">Nuts and bolts (advanced)</h2>
-
-<p>And finally, here are a few more advanced talks which I heartily
-recommend watching after you’ve spent a little more time with Python.</p>
-
-<!-- Hettinger: dictionaries _______________________________________ -->
-
-<!-- #md tags=["popout"] -->
-
-<p>Dictionaries are the bread and butter of the Python programmer, and
-they’re also at the core of how many of the features in the language
-work. As such, their implementation has evolved over the years to
-incorporate increasingly clever tricks. Learn what they are from the
-proverbial horse’s mouth, Python core developer Raymond Hettinger, who’s
-also one of the most consistently entertaining conference speakers I’ve
-seen!</p>
-
-<!-- #endmd -->
-
-<!-- #md -->
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/npw4s1QTmPg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
-</iframe>
-<!-- #endmd -->
-
-<!-- Hettinger: concurrency ________________________________________ -->
-
-<!-- #md tags=["popout"] -->
-
-<p>Another talk by Raymond Hettinger, this time about making the computer
-do multiple things at the same time. Spoiler: it’s hard to get this
-right, and you should probably think twice whether you really needed
-before you start tinkering with it.</p>
-
-<!-- #endmd -->
-
-<!-- #md -->
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/9zinZmE3Ogk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
-</iframe>
-<!-- #endmd -->
-
-<!-- NJ Smith: trio ________________________________________________ -->
-
-<!-- #md tags=["popout"] -->
-
-<p>On a similar topic as the previous one, a talk on how computers can
-<em>pretend</em> they’re doing several things at the same time by quickly
-switching between tasks, and on designing a Python library which makes
-such programming fairly intuitive and less error-prone. If you’ve heard
-the buzzwords <code class="language-plaintext highlighter-rouge">async</code> and <code class="language-plaintext highlighter-rouge">await</code>, they feature prominently.</p>
-
-<!-- #endmd -->
-
-<!-- #md -->
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/oLkfnc_UMcE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
-</iframe>
-<!-- #endmd -->
-
-<!-- =============================================================== -->
-<!-- #md tags=["full_width"] -->
-<hr style="margin-top: 4rem;" />
-
-<!-- #endmd -->
-
-<h1 id="libraries">Libraries</h1>
-
-<ul>
-  <li>nltk</li>
-  <li>corpy</li>
-  <li>lxml</li>
-  <li>trio</li>
-  <li>regex (use re docs)</li>
-  <li>matplotlib</li>
-  <li>seaborn</li>
-  <li>pandas</li>
-</ul>
-
-<!-- vim: set spell spelllang=en: -->
 
             </div>
             <div class="c-textbook__footer" id="textbook_footer">

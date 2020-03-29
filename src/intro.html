@@ -26,8 +26,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://v4py.github.io//src/intro.html",
   "headline": "Introduction",
-  "datePublished": "2020-03-29T00:12:24+01:00",
-  "dateModified": "2020-03-29T00:12:24+01:00",
+  "datePublished": "2020-03-30T00:16:58+02:00",
+  "dateModified": "2020-03-30T00:16:58+02:00",
   "description": "# Introduction```python tags=["remove_cell"]# Download NLTK resources. Remove code from START_NLTK_TMP to# END_NLTK_TMP to store them in a permanent location...",
   "author": {
     "@type": "Person",
@@ -617,12 +617,78 @@ initFunction(initPrint)
 
       
       
+      <li class="c-sidebar__chapter" data-url="/regex">
+        <a class="c-sidebar__entry"
+          href="/regex.html"
+        >
+          
+            6.
+          
+          Regular expressions
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/gotchas">
+        <a class="c-sidebar__entry"
+          href="/gotchas.html"
+        >
+          
+            7.
+          
+          Python gotchas
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
       <li class="c-sidebar__chapter" data-url="/case">
         <a class="c-sidebar__entry"
           href="/case.html"
         >
           
-            6.
+            8.
           
           Case studies
         </a>
@@ -656,7 +722,7 @@ initFunction(initPrint)
                 href="/case/collocations.html"
               >
                 
-                  6.1
+                  8.1
                 
                 Determining collocation strength
               </a>
@@ -677,7 +743,7 @@ initFunction(initPrint)
                 href="/case/keywords.html"
               >
                 
-                  6.2
+                  8.2
                 
                 Keyword analysis: Donald Trump's speeches
               </a>
@@ -705,7 +771,7 @@ initFunction(initPrint)
           href="/outro.html"
         >
           
-            7.
+            9.
           
           Parting words
         </a>
@@ -950,7 +1016,8 @@ code in each chapter of the book yourself and tinkering with it. There
 are several options for that. The easiest one is to use either the <strong>▶
 mybinder.org</strong> or <strong>▶ jupyter.korpus.cz</strong> buttons at the top of the
 page, which will take care of everything for you and open an interactive
-version of this text in your browser.</p>
+version of this text in your browser, without you needing to install
+anything on your computer.</p>
 
 <p>Note that the second button requires that you have an account at
 <a href="https://jupyter.korpus.cz">https://jupyter.korpus.cz</a> (attendees of the V4Py summer school do),
@@ -973,7 +1040,10 @@ analysis. In that case, you’ll be opening JupyterLab via the <a href="https://
 Navigator</a>, and you’ll
 need to <a href="https://github.com/v4py/v4py.github.io/archive/master.zip">download the notebooks
 manually</a>
-(after unzipping, the notebooks are in the <code class="language-plaintext highlighter-rouge">content/</code> subdirectory).</p>
+(after unzipping, the notebooks are in the <code class="language-plaintext highlighter-rouge">content/</code> subdirectory). If
+you don’t mind downloading the notebooks individually, you can also use
+the download button at the top of the page, but that won’t get you any
+of the additional files that some of the notebooks rely on.</p>
 
 <p>If you want to learn more about using notebooks, <a href="https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks">here’s a gallery of
 interesting notebooks to help you get acquainted with the
@@ -1377,80 +1447,41 @@ I encourage you to revisit this extended worked example once you’re done
 reading the book, as a way to reflect on what you’ve learned and bring
 it all together.</p>
 
-<h1 id="nltk-book">NLTK Book</h1>
+<!-- TODO: remove or develop -->
 
-<p>A great, longer free resource. <a href="http://www.nltk.org/book/">http://www.nltk.org/book/</a></p>
+<!-- # NLTK Book -->
 
-<p><img src="./nltk_book.jpg" alt="NLTK Book" /></p>
+<!-- A great, longer free resource. <http://www.nltk.org/book/> -->
 
-<p>Credit: ???</p>
+<!-- ![NLTK Book](./nltk_book.jpg) -->
 
-<h1 id="the-nlp-pipeline">The NLP pipeline</h1>
+<!-- Credit: ??? -->
 
-<p>NOTE: maybe leave this out? Not strictly necessary, this is probably
-better to discuss in class, plus I shouldn’t rely too much on NLTK Book
-materials for licensing reasons.</p>
+<!-- # The NLP pipeline -->
 
-<p><img src="./dialogue.png" alt="NLP" /></p>
+<!-- NOTE: maybe leave this out? Not strictly necessary, this is probably -->
+<!-- better to discuss in class, plus I shouldn't rely too much on NLTK Book -->
+<!-- materials for licensing reasons. -->
 
-<p>Credit: ???</p>
+<!-- ![NLP](./dialogue.png) -->
 
-<h1 id="overview">Overview</h1>
+<!-- Credit: ??? -->
 
-<ul>
-  <li>Python basics (functions, control flow, collections)</li>
-  <li>The NLTK <a href="http://www.nltk.org/">package</a> &amp;
-<a href="http://www.nltk.org/book">book</a> as a good starting point for people
-interested in language data</li>
-  <li><a href="https://dlukes.github.io/unicode.html">How text is represented inside
-computers</a></li>
-  <li>Regular expressions in Python</li>
-  <li>Accessing web services (“REST APIs”) from Python &amp; Automatic
-annotation of language data (tagging, parsing) – both courtesy of
-<a href="https://ufal.mff.cuni.cz/rudolf-rosa">Rudolf Rosa</a></li>
-  <li>Getting data into Python (raw text &amp; tabular data)</li>
-  <li>Some visualizations (dispersion plots, wordclouds)</li>
-  <li>Case studies: collocation strength, keyword analysis</li>
-</ul>
+<!-- # Overview -->
 
-<!-- - Hackathon on Friday! -->
-
-<h1 id="info-about-jupyter-notebook--jupyterlab">Info about Jupyter Notebook / JupyterLab</h1>
-
-<p>This course consists of Python notebooks which you can open and interact
-with using either the new
-<a href="https://jupyterlab.readthedocs.io">JupyterLab</a> environment or the
-legacy <a href="https://jupyter-notebook.readthedocs.io">Jupyter Notebook</a>
-interface. For more information on both of these, including tutorials on
-how to use them, check out the <a href="https://jupyter.org">Project Jupyter
-website</a>. Some usage tips are also provided here as
-<a href="TODO/Make the most of Jupyter notebooks">Appendix TODO</a>.</p>
-
-<p>The easiest way to run JupyterLab or Jupyter Notebook is by using a
-cloud service like <a href="https://mybinder.org">Binder</a>. With Binder, you
-don’t have to worry about installing anything on your computer, you just
-open a link in your browser and start playing around with the target
-notebook right away. At the beginning of each chapter, we’ll therefore
-provide Binder links to the corresponding notebooks for your
-convenience. They look like this:</p>
-
-<p><a href="TODO">Binder link</a></p>
-
-<p>Click on it to try it out!</p>
-
-<p>The second most convenient way is to install the <a href="https://www.anaconda.com/distribution/">Anaconda Python
-distribution</a>, because both
-JupyterLab and Jupyter Notebook come bundled with it. After
-installation, run the <em>Anaconda Navigator</em> program, which provides
-buttons to launch them. You’ll also have to manually download the
-course’s notebooks to your computer, so that you can work with them. All
-of the course’s notebooks are available in its <a href="TODO">GitHub
-repository</a>.</p>
-
-<p>More advanced users will probably be aware that both can also be
-installed using standard command line Python package managers like
-<code class="language-plaintext highlighter-rouge">conda</code> or <code class="language-plaintext highlighter-rouge">pip</code>. If the previous sentence sounds like gibberish to you,
-don’t worry, you can safely ignore it :)</p>
+<!-- - Python basics (functions, control flow, collections) -->
+<!-- - The NLTK [package](http://www.nltk.org/) & -->
+<!--   [book](http://www.nltk.org/book) as a good starting point for people -->
+<!--   interested in language data -->
+<!-- - [How text is represented inside -->
+<!--   computers](https://dlukes.github.io/unicode.html) -->
+<!-- - Regular expressions in Python -->
+<!-- - Accessing web services ("REST APIs") from Python & Automatic -->
+<!--   annotation of language data (tagging, parsing) - both courtesy of -->
+<!--   [Rudolf Rosa](https://ufal.mff.cuni.cz/rudolf-rosa) -->
+<!-- - Getting data into Python (raw text & tabular data) -->
+<!-- - Some visualizations (dispersion plots, wordclouds) -->
+<!-- - Case studies: collocation strength, keyword analysis -->
 
 <!-- vim: set spell spelllang=en: -->
 

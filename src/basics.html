@@ -26,8 +26,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://v4py.github.io//src/basics.html",
   "headline": "A tour of Python and NLTK",
-  "datePublished": "2020-03-29T00:12:24+01:00",
-  "dateModified": "2020-03-29T00:12:24+01:00",
+  "datePublished": "2020-03-30T00:16:58+02:00",
+  "dateModified": "2020-03-30T00:16:58+02:00",
   "description": "# A tour of Python and NLTK# Python notebooks: your fancy new calculatorPython notebooks are kind of like a calculator, just a lot more fancythan your typica...",
   "author": {
     "@type": "Person",
@@ -617,12 +617,78 @@ initFunction(initPrint)
 
       
       
+      <li class="c-sidebar__chapter" data-url="/regex">
+        <a class="c-sidebar__entry"
+          href="/regex.html"
+        >
+          
+            6.
+          
+          Regular expressions
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="/gotchas">
+        <a class="c-sidebar__entry"
+          href="/gotchas.html"
+        >
+          
+            7.
+          
+          Python gotchas
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
       <li class="c-sidebar__chapter" data-url="/case">
         <a class="c-sidebar__entry"
           href="/case.html"
         >
           
-            6.
+            8.
           
           Case studies
         </a>
@@ -656,7 +722,7 @@ initFunction(initPrint)
                 href="/case/collocations.html"
               >
                 
-                  6.1
+                  8.1
                 
                 Determining collocation strength
               </a>
@@ -677,7 +743,7 @@ initFunction(initPrint)
                 href="/case/keywords.html"
               >
                 
-                  6.2
+                  8.2
                 
                 Keyword analysis: Donald Trump's speeches
               </a>
@@ -705,7 +771,7 @@ initFunction(initPrint)
           href="/outro.html"
         >
           
-            7.
+            9.
           
           Parting words
         </a>
@@ -901,14 +967,50 @@ fractional part of a number.</p>
 
 <p>But enough about numbers! … strings</p>
 
-<p>At this point, probably sick and tired of reaching for your mouse to
-press ▶ all the time. Keyboard shortcuts:</p>
+<p>At this point, if you’re following along interactively in JupyterLab,
+you’re probably sick and tired of reaching for your mouse to press ▶ all
+the time. JupyterLab has many handy keyboard shortcuts which I’ll let
+you discover on your own at your leisure, but the following three are
+such a huge quality of life improvement that I feel compelled to point
+them out:</p>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">Alt+Enter</code>: evaluate, insert new cell and switch to it</li>
   <li><code class="language-plaintext highlighter-rouge">Shift+Enter</code>: evaluate and switch to next (existing) cell</li>
   <li><code class="language-plaintext highlighter-rouge">Ctrl+Enter</code>: evaluate and stay at current cell</li>
 </ul>
+
+<h1 id="importing">Importing</h1>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">json</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">json</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">json</span><span class="o">.</span><span class="n">loads</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">json</span> <span class="kn">import</span> <span class="n">loads</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">loads</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">builtins</span> <span class="kn">import</span> <span class="nb">set</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">json</span> <span class="kn">import</span> <span class="o">*</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">json</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">json</span> <span class="k">as</span> <span class="n">js</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">js</span><span class="o">.</span><span class="n">loads</span>
+</code></pre></div></div>
 
             </div>
             <div class="c-textbook__footer" id="textbook_footer">
