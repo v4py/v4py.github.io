@@ -1,4 +1,4 @@
-.PHONY: help install clean build serve site publish
+.PHONY: help install content clean build serve site publish
 
 export GEM_HOME := $(CURDIR)/.gems
 export PATH := $(GEM_HOME)/bin:$(PATH)
@@ -16,7 +16,7 @@ help:
 install:
 	scripts/install.sh
 
-content: src
+content:
 	scripts/src2content.sh
 
 clean:
