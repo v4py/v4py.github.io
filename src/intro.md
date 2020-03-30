@@ -256,8 +256,10 @@ own, which allow us to inspect it and manipulate it. For instance, it
 has in turn its own `.html` attribute, which contains the raw HTML code
 underlying the web page you're reading, stored as a **string** of
 **characters**. We can take a look at a **slice** of the first 50
-characters of the string, just to make sure we downloaded the right
-document.
+characters of the string using the `[:50]` syntax, just to make sure we
+downloaded the right document. If you're running this notebook inside
+JupyterLab, you can delete the square brackets and inspect the full
+HTML; I've not done that here to save some space.
 
 ```python
 response.html.html[:50]
@@ -292,12 +294,12 @@ which define the layout and other aesthetic aspects of the page
 Ideally, we'd like to get rid of all of this. How to achieve that? We
 first need to figure out which parts of the HTML enclose the content
 we're interested in. For that, we'll use our browser's inspector tools.
-If you right click anywhere on this page, you should get a menu where on
-of the items says something like *Inspect* or *Inspect Element*. Click
-on that and a pane will open beside the page which lets you peek under
-the hood of this page. If you right click on this paragraph specifically
-and select *Inspect Element*, the inspector will focus on where in the
-HTML hierarchy this particular paragraph is placed.
+If you right click anywhere on this page, you should get a menu where
+one of the items says something like *Inspect* or *Inspect Element*.
+Click on that and a pane will open beside the page which lets you peek
+under the hood of this page. If you right click on this paragraph
+specifically and select *Inspect Element*, the inspector will focus on
+where in the HTML hierarchy this particular paragraph is placed.
 
 ![Firefox inspector screenshot](images/intro/inspector.png)
 
@@ -313,7 +315,10 @@ find all HTML elements of a certain class is to prefix the class name
 with a period, so `.rendered_html` in our case. We get back a **list**
 of `divs`; the `clean=True` **keyword argument** makes sure that we
 throw away those pesky invisible `<script/>` and `<style/>` tags, if
-any.
+any. Again, I'm showing just a slice of the list to save space -- the
+first 5 divs using the `[:5]` syntax -- but you can delete those square
+brackets and re-evaluate the cell to see the full list should you wish
+so.
 
 ```python tags=["full_width"]
 divs = response.html.find(".rendered_html", clean=True)
