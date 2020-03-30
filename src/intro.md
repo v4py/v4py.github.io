@@ -1,6 +1,5 @@
 ---
 jupyter:
-  author: David Lukeš, Rudolf Rosa
   jupytext:
     text_representation:
       extension: .md
