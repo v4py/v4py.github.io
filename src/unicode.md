@@ -14,17 +14,22 @@ jupyter:
 
 # Text inside the computer
 
-TODO ... blah blah useful, prevents mistakes... even though as
-linguists, we think we know everything about text, this ain't Kansas
+Even though as linguists, we may think we know everything about text,
+definitely more than programmers, thank you very much, this ain't Kansas
 anymore as they say, this is Computerland, and the rules for how text
-works are strict and sometimes surprising.
+works are strict and sometimes surprising. If we're going to take
+advantage of computers to supercharge our linguistic analyses, we need
+to learn to play by their rules, otherwise we stand a big chance of
+shooting ourselves in the foot.
 
-This stuff might seem ridiculously low-level to a linguist, but if you
-get it wrong, anything that you build on top will crumble like a house
-of cards and your linguistic analyses will be likely to yield garbage.
-And just to be extra clear, *every single day*, there are professional
-programmers who get some of this wrong. When was the last time an e-shop
-maltreated the diacritics in your name, for instance?
+On occasion, this stuff might seem ridiculously low-level to a linguist
+-- you'll probably get that feeling more than once while perusing this
+chapter. But if you get it wrong, anything that you build on top will
+crumble like a house of cards and your linguistic analyses will be
+likely to yield garbage. And just to be extra clear, *every single day*,
+there are professional programmers who get some of this wrong. When was
+the last time an e-shop maltreated the diacritics in your name, for
+instance?
 
 # Binary and hexadeci-what-now?
 
