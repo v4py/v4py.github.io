@@ -32,7 +32,9 @@ url: https://v4py.github.io
 footer_text: >-
   Sponsored by <a href="https://www.visegradfund.org/">Visegrad Fund</a>
   grant nr. 21820079 "Training Digital Scholars: Knowledge Exchange
-  between V4 and Austria"
+  between V4 and Austria". Available under the terms of the <a
+  href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA
+  4.0</a> license.
 
 # Sidebar settings
 show_sidebar: true                # Show the sidebar. Only set to false if your only wish to host a single page.
@@ -43,7 +45,9 @@ textbook_logo_link: https://v4py.github.io                    # A link for the l
 sidebar_footer_text: >-
   Sponsored by <a href="https://www.visegradfund.org/">Visegrad Fund</a>
   grant nr. 21820079 "Training Digital Scholars: Knowledge Exchange
-  between V4 and Austria"
+  between V4 and Austria". Available under the terms of the <a
+  href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA
+  4.0</a> license.
 number_toc_chapters: true         # Whether to add numbers to chapterse in your Table of Contents. If true, you can control this at the Chapter level in _data/toc.yml
 
 # Search settings
