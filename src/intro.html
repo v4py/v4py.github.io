@@ -26,8 +26,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://v4py.github.io//src/intro.html",
   "headline": "Introduction",
-  "datePublished": "2020-03-30T00:16:58+02:00",
-  "dateModified": "2020-03-30T00:16:58+02:00",
+  "datePublished": "2020-03-30T17:57:31+02:00",
+  "dateModified": "2020-03-30T17:57:31+02:00",
   "description": "# Introduction```python tags=["remove_cell"]# Download NLTK resources. Remove code from START_NLTK_TMP to# END_NLTK_TMP to store them in a permanent location...",
   "author": {
     "@type": "Person",
@@ -440,6 +440,68 @@ initFunction(initPrint)
     
       
       
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="https://dlukes.github.io/">
+        <a class="c-sidebar__entry"
+          href="https://dlukes.github.io/"
+        >
+          
+          David Lukeš
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="https://ufal.mff.cuni.cz/rudolf-rosa">
+        <a class="c-sidebar__entry"
+          href="https://ufal.mff.cuni.cz/rudolf-rosa"
+        >
+          
+          Rudolf Rosa
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
         <li><h2 class="c-sidebar__title">Table of contents</li>
         
       
@@ -791,10 +853,6 @@ initFunction(initPrint)
     
       
       
-        <li class="c-sidebar__divider"></li>
-        
-      
-      
         <li><h2 class="c-sidebar__title">Links</li>
         
       
@@ -860,7 +918,7 @@ initFunction(initPrint)
       
     
   </ul>
-  <p class="sidebar_footer">Sponsored by <a href="https://www.visegradfund.org/">Visegrad Fund</a> grant nr. 21820079 "Training Digital Scholars: Knowledge Exchange between V4 and Austria"</p>
+  <p class="sidebar_footer">Sponsored by <a href="https://www.visegradfund.org/">Visegrad Fund</a> grant nr. 21820079 "Training Digital Scholars: Knowledge Exchange between V4 and Austria". Available under the terms of the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> license.</p>
 </nav>
 
       
@@ -929,52 +987,6 @@ sponsoring this project.
 
 &lt;!-- #endmd --&gt;
 
-- started programming at uni, so it's never too late :)
-- probably **the most useful skill** since learning to read
-
-The source code of this book lives in a [GitHub
-repository](https://github.com/v4py/v4py.github.io). Please open issues
-with requests for clarification, tips for improvement, or even just
-typos!
-
-# Python gives you wings!
-
-So what is this Python thing all about?
-
-![Python XKCD](https://imgs.xkcd.com/comics/python.png)
-
-Credit: Randall Munroe, XKCD, &lt;https://xkcd.com/353/&gt;
-
-GvR, The Making of Python: a teaching language, originally for small
-programs -&gt; teachability, understandability and readability matters
-(unlike R)
-
-Coming from R: Python is a general purpose language -&gt; maybe a bit
-harder to find one's way around the landscape for a particular purpose
-(e.g. statistics or data science), but it pays off in that you're not
-limited by the one intended use, which is a good thing whenever you
-embark on a bigger project. R starts to get really ugly really quickly
-when using it for anything that's not easily achieved by an existing
-library, and though it deserves an honorable mention for having a lot of
-libraries with useful functionality, some of them very well-designed
-(tidyverse), it's one of the laws of programming that there will always
-be at least this one thing in your project that there is no existing
-library for (or maybe there is, but you can't seem to find it).
-
-# Target audience
-
-NOTE: transform questions into statements about expected audience.
-
-- Who has programmed before? In what language(s)? Python?
-- What's your academic field? Linguistics, history, digital
-  humanities...?
-- Who is reasonably familiar with working with language data on a
-  computer (e.g. corpora etc.)?
-- Who knows what regular expressions are? Who uses them?
-- What are you hoping to learn this week?
-
-# About Python
-
 &lt;!-- #md tags=["epigraph"] --&gt;
 
 &gt; On second thought, let's not go to Camelot. 'Tis a silly place.
@@ -983,29 +995,213 @@ NOTE: transform questions into statements about expected audience.
 
 &lt;!-- #endmd --&gt;
 
-- a simple, fun and approachable programming language
-- FLOSS (Free, Libre, Open-Source Software) × e.g. Microsoft Word
-- created in 1991 by Guido van Rossum
-- why is it named Python?
+When I suggest to fellow linguists that they might want to take up
+programming as a way to supercharge their abilities to confront and
+extract meaning from language data, I get a variety of responses. Among
+the negative ones, two tend to dominate: a fear that it might be too
+late to start anyway, and a dismissive attitude in the vein of "why
+should I even care".
 
-Using Python:
+Let's examine these concerns in turn. Regarding the first one, it's
+never too late, trust me. I myself started programming at uni, and not
+even in my first year. Back then, I thought I was interested in literary
+studies, and it took me a while to realize that my interests lay
+elsewhere. Programming is perhaps the easiest skill to acquire from the
+comfort of your own home, without the need for formal training (though
+of course interacting with a live teacher can help jumpstart your
+learning). There's a wealth of resources available via the internet,
+this book being one example, and all you need to take full advantage of
+them is a computer and an internet connection.
 
-- Python 2 vs. **Python 3**
+Much like any other learning experience, it's also a journey that never
+really ends. There's always room for improvement and for learning more,
+so you might as well start now and get on with it. For my part, it's
+been almost ten years since I set out, and while I consider myself a
+fairly proficient programmer by this point, I learn new stuff all the
+time. If you're anything like me, that sense of curiosity that got you
+into linguistics, and perhaps even an academic career, is likely to be
+rewarded by pursuing programming as well.
 
-# How to use this book
+I would argue that this sense of curiosity is also what should prevent
+you from having that second kneejerk negative response, "why should I
+even care". For my part, I can tell you that **programming is very
+likely the most useful skill I acquired since learning to read**. It
+really expanded the range of what I'm able to achieve not just in
+linguistics, but in everyday life as well. Our society increasingly
+relies on software to go about its daily business, and being able to
+program puts me in much better control of the tools I must willy-nilly
+use to be a part of it.
 
-This book actually consists of a series of [Jupyter
-notebooks](https://jupyter.org/), which is a file format, recognizable
-by its `.ipynb` extension, which intermixes expository prose with
+One concrete example: have you ever had a month to provide feedback on a
+Microsoft Word document, only to find yourself pulling an all-nighter
+just before the deadline because there just wasn't time earlier, and
+feeling ashamed of the trail of 3AM timestamps you're leaving behind?
+Word offers the nuclear option of removing all metadata in tracked
+changes and comments across the board, but that includes author names,
+which is very conspicuous and feels like an even more flagrant admission
+of guilt, plus if there are multiple authors, you might need to keep
+them anyway. Luckily, it turns out you can tease the document apart
+using a [Python
+script](https://gist.github.com/dlukes/2b5c2a163cd8adba420aaae0c8ea2c00)
+and selectively target those pesky timestamps associated with your
+username. (If this doesn't sound familiar at all, then congratulations,
+you don't have OCD!)
+
+But admittedly, these are just words, to see for yourself, you're going
+to have to get your hands dirty and spend some time learning what
+programming feels like, and what it empowers you to do, what new,
+unsuspected perspectives it opens. This book is an attempt to help you
+get started on that path. And if it doesn't strike a chord with you, it
+might at least point you to [other related resources](outro), some of
+which will hopefully be a better fit.
+
+If on the other hand, it turns out this book *is* a good fit for you,
+then great! And if you end up on the fence, then please consider
+helping us improve it for future readers like you. The source code of
+this book lives in a [GitHub
+repository](https://github.com/v4py/v4py.github.io). Please open issues
+with requests for clarification, tips for improvement, or even just
+typos!
+
+# Target audience
+
+This book is intended as an introduction to programming using the
+[Python](https://python.org) programming language. No previous
+programming experience is required, though a basic amount of [technical
+sophistication](https://www.learnenough.com/command-line-tutorial/basics#aside-technical_sophistication)
+is needed; you will hopefully acquire a lot more by the time you're done
+reading it.
+
+If you've programmed before, but not in Python, or even in Python, but
+not with a focus on language data, you might still glean useful
+information from this book, though the pace might feel sluggish at
+times. And even if you feel at home in both these areas, there might be
+tricks or gotchas addressed herein that will help you further refine
+your skills, though of course your mileage may vary.
+
+Finally, if you've never programmed, have no background in linguistics
+and are not particularly computer-literate, reading this book might
+prove somewhat challenging, though not impossible with the right amount
+of dedication. If you make it through, or at least part-way, your
+feedback on how to make the parts you struggled with more accessible
+would be absolutely invaluable!
+
+# Python gives you wings!
+
+&lt;!-- #md tags=["popout"] --&gt;
+![Python logo](https://www.python.org/static/community_logos/python-logo-generic.svg)
+&lt;!-- #endmd --&gt;
+
+So what is this [Python](https://python.org/) business all about? I've
+said before that learning programming was to me the most transformative
+new skill since learning to read, but it can also prove an uphill
+struggle. Python is a good entrypoint because it strikes a good balance
+between simplicity and flexibility, making the learning experience fun
+and rewarding and just enough challenging. The comic below might poke
+fun at this claim to get overzealous Python advocates off their soapbox,
+but by the same token, it shows that Python indeed has this sort of
+general reputation, otherwise the joke wouldn't work.
+
+![Python XKCD](https://imgs.xkcd.com/comics/python.png)
+
+Credit: Randall Munroe, XKCD, &lt;https://xkcd.com/353/&gt;
+
+Jokes aside though (which is sort of hard to do in a language named
+after [Monty Python's Flying
+Circus](https://en.wikipedia.org/wiki/Monty_Python)), the key reason why
+Python exhibits these desirable properties is that it was designed with
+teachability to [curious
+amateurs](https://blog.dropbox.com/topics/work-culture/-the-mind-at-work--guido-van-rossum-on-how-python-makes-thinking)
+as a primary goal, and it has stayed an important concern during the
+thirty odd years that Python has evolved and matured since its first
+public release in 1990. The result is an approachable programming
+language which emphasizes readable and easily understandable code --
+properties which are crucial for beginners, but which also appeal to
+many seasoned programmers. After all, the computer doesn't care, so we
+might as well make the language as easy as possible for humans to wrap
+their head around -- is the general idea.
+
+&gt; I don't know how well people know ABC's influence on Python. [...]
+&gt; ABC's design had a very clear, sharp focus. ABC was intended to be a
+&gt; programming language that could be taught to intelligent computer
+&gt; users who were not computer programmers or software developers in any
+&gt; sense.
+&gt;
+&gt; -- Guido van Rossum, creator of Python, in [*The Making of
+&gt; Python*](https://www.artima.com/intv/python.html)
+
+Python was also designed as a **general purpose language**, i.e. it is
+intended to enable its users to build all kinds of programs in a variety
+of different domains (though as every programming language, it
+particularly shines in some and is less well-suited for others). A
+possible disadvantage of this inclusive approach is that it may be a bit
+harder to find one's way around the ecosystem of tools and libraries for
+a particular purpose (e.g. statistics or data science), but it pays off
+in that you're not limited by the one intended use, which is a good
+thing whenever you embark on a bigger project. And Python encourages you
+to do that, making it relatively easy to split your code into reusable
+modules and manage the complexity inherent in that.
+
+Contrast this with another high-level programming language that
+non-programmers often tend to run into -- as a linguist, you might be
+familiar with [R](https://www.r-project.org/). R is very specifically
+focused on data analysis, the use case it optimizes for is calling
+existing statistical functions in an interactive session, and for that,
+it works admirably well. For anything else though, it can get really
+ugly. Since "regular" users are mostly meant to consume functions rather
+than write their own, there is a big gap between the elegant way in
+which these functions are called, and the messy code with which they're
+implemented. To be clear, I don't mean to say that the code is messy
+because the people who wrote it are bad programmers; it's messy because
+R deliberately made some tradeoffs which make it a complicated language
+to write larger, reusable pieces of code in, while at the same time
+making these functions somewhat easier to use.
+
+As a consequence, with R, beginners tend to run up against a wall when
+trying to use it for anything that's not easily achieved by an existing
+library, and though it deserves an honorable mention for having a lot of
+libraries with useful functionality, some of them very well-designed
+(I'm looking at you, [`tidyverse`](https://tidyverse.org/)), it's one of
+the laws of programming that there will always be at least this one
+thing in your project that there is no existing library for (or maybe
+there is, but you can't seem to find it). Not to mention that if you
+ever get interested in other areas of programming, R's laser-sharp focus
+on data analysis can become a drawback, as it makes R programming skills
+less transferrable.
+
+This is not to say that Python is a panacea to all, or that it doesn't
+have drawbacks of its own. It definitely does. My point is simply that
+it has a much more consistent and gradual learning curve, which makes it
+less likely you'll quit in frustration, and helps you graduate from
+beginner to intermediate to advanced over time. Perhaps you like R --
+and that's totally fine -- but you never got over that hump which
+separates people who use R packages from people who write them. Learning
+Python might actually be a good way to get there, by improving your
+general programming skills to a point where you'll feel confident to
+tackle that uglier side of R.
+
+Python's philosophy can be summed up by the guiding principles contained
+in *The Zen of Python*, which you can print out in a Python session by
+importing the `this` module. Especially the first four entries are key
+to the argument that I'm trying to make here:
+
+```python
+import this
+</code></pre></div></div>
+
+<h1 id="how-to-use-this-book">How to use this book</h1>
+
+<p>This book actually consists of a series of <a href="https://jupyter.org/">Jupyter
+notebooks</a>, which is a file format, recognizable
+by its <code class="language-plaintext highlighter-rouge">.ipynb</code> extension, which intermixes expository prose with
 programming code. It can be opened using the
-[JupyterLab](https://jupyterlab.readthedocs.io/) application, which runs
+<a href="https://jupyterlab.readthedocs.io/">JupyterLab</a> application, which runs
 in your browser. In the notebooks, code is stored inside code cells
 which can be modified and run at will, which encourages interactive
 exploration and makes learning easier. This is what a code cell looks
-like:
+like:</p>
 
-```python
-1 + 1
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
 </code></pre></div></div>
 
 <p>You can see the code cell’s output right below it – in this case, it’s
@@ -1032,6 +1228,18 @@ automatically open the appropriate notebook.</li>
   <li>If that doesn’t happen, try reloading the page.</li>
 </ol>
 
+<!-- #md tags=["popout"] -->
+
+<p>If you do end up installing Python yourself, make sure you install
+<strong>Python 3</strong>. The previous major version, Python 2, has reached
+end-of-life at the end of 2019 and is no longer in active development.
+For a beginning programmer with an interest in linguistics, Python 3 is
+an improvement in every way, because it is much stricter about how it
+handles text data, making data corruption or silent processing errors
+which yield spurious results much less likely.</p>
+
+<!-- #endmd -->
+
 <p>If you want to install Python on your own computer and run JupyterLab
 locally, I would suggest using <a href="https://www.anaconda.com/distribution/">the Anaconda
 Distribution</a>, which installs
@@ -1052,7 +1260,7 @@ including some introductory tutorials on how to use it right. The
 JupyterLab notebook user interface is described in more detail in <a href="https://jupyterlab.readthedocs.io/en/latest/user/notebook.html">their
 docs</a>.
 Finally, some usage tips which I personally find useful can be found in
-the <a href="https://dlukes.github.io/jupyter-magic.html">this blog post</a></p>
+the <a href="https://dlukes.github.io/jupyter-magic.html">this blog post</a>.</p>
 
 <h1 id="diving-right-in-a-frequency-analysis-of-this-text">Diving right in: a frequency analysis of this text</h1>
 
@@ -1140,8 +1348,10 @@ own, which allow us to inspect it and manipulate it. For instance, it
 has in turn its own <code class="language-plaintext highlighter-rouge">.html</code> attribute, which contains the raw HTML code
 underlying the web page you’re reading, stored as a <strong>string</strong> of
 <strong>characters</strong>. We can take a look at a <strong>slice</strong> of the first 50
-characters of the string, just to make sure we downloaded the right
-document.</p>
+characters of the string using the <code class="language-plaintext highlighter-rouge">[:50]</code> syntax, just to make sure we
+downloaded the right document. If you’re running this notebook inside
+JupyterLab, you can delete the square brackets and inspect the full
+HTML; I’ve not done that here to save some space.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">response</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">html</span><span class="p">[:</span><span class="mi">50</span><span class="p">]</span>
 </code></pre></div></div>
@@ -1173,12 +1383,12 @@ which define the layout and other aesthetic aspects of the page
 <p>Ideally, we’d like to get rid of all of this. How to achieve that? We
 first need to figure out which parts of the HTML enclose the content
 we’re interested in. For that, we’ll use our browser’s inspector tools.
-If you right click anywhere on this page, you should get a menu where on
-of the items says something like <em>Inspect</em> or <em>Inspect Element</em>. Click
-on that and a pane will open beside the page which lets you peek under
-the hood of this page. If you right click on this paragraph specifically
-and select <em>Inspect Element</em>, the inspector will focus on where in the
-HTML hierarchy this particular paragraph is placed.</p>
+If you right click anywhere on this page, you should get a menu where
+one of the items says something like <em>Inspect</em> or <em>Inspect Element</em>.
+Click on that and a pane will open beside the page which lets you peek
+under the hood of this page. If you right click on this paragraph
+specifically and select <em>Inspect Element</em>, the inspector will focus on
+where in the HTML hierarchy this particular paragraph is placed.</p>
 
 <p><img src="/src/images/intro/inspector.png" alt="Firefox inspector screenshot" /></p>
 
@@ -1194,7 +1404,10 @@ find all HTML elements of a certain class is to prefix the class name
 with a period, so <code class="language-plaintext highlighter-rouge">.rendered_html</code> in our case. We get back a <strong>list</strong>
 of <code class="language-plaintext highlighter-rouge">divs</code>; the <code class="language-plaintext highlighter-rouge">clean=True</code> <strong>keyword argument</strong> makes sure that we
 throw away those pesky invisible <code class="language-plaintext highlighter-rouge">&lt;script/&gt;</code> and <code class="language-plaintext highlighter-rouge">&lt;style/&gt;</code> tags, if
-any.</p>
+any. Again, I’m showing just a slice of the list to save space – the
+first 5 divs using the <code class="language-plaintext highlighter-rouge">[:5]</code> syntax – but you can delete those square
+brackets and re-evaluate the cell to see the full list should you wish
+so.</p>
 
 <p>```python tags=[“full_width”]
 divs = response.html.find(“.rendered_html”, clean=True)
@@ -1495,7 +1708,7 @@ it all together.</p>
 </nav>
 
               <footer>
-  <p class="footer">Sponsored by <a href="https://www.visegradfund.org/">Visegrad Fund</a> grant nr. 21820079 "Training Digital Scholars: Knowledge Exchange between V4 and Austria"</p>
+  <p class="footer">Sponsored by <a href="https://www.visegradfund.org/">Visegrad Fund</a> grant nr. 21820079 "Training Digital Scholars: Knowledge Exchange between V4 and Austria". Available under the terms of the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> license.</p>
 </footer>
 
             </div>

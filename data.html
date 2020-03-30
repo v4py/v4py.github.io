@@ -26,8 +26,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://v4py.github.io//data.html",
   "headline": "Getting your data into Python",
-  "datePublished": "2020-03-30T00:16:58+02:00",
-  "dateModified": "2020-03-30T00:16:58+02:00",
+  "datePublished": "2020-03-30T17:57:31+02:00",
+  "dateModified": "2020-03-30T17:57:31+02:00",
   "description": "        Getting your data into Python    This chapter is about interacting with data on your computer's disk --mostly loading it into Python, but also writin...",
   "author": {
     "@type": "Person",
@@ -440,6 +440,68 @@ initFunction(initPrint)
     
       
       
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="https://dlukes.github.io/">
+        <a class="c-sidebar__entry"
+          href="https://dlukes.github.io/"
+        >
+          
+          David Lukeš
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
+
+      
+      
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter" data-url="https://ufal.mff.cuni.cz/rudolf-rosa">
+        <a class="c-sidebar__entry"
+          href="https://ufal.mff.cuni.cz/rudolf-rosa"
+        >
+          
+          Rudolf Rosa
+        </a>
+      </li>
+
+      
+      
+
+      
+
+      
+      
+
+      
+
+      
+    
+      
+      
         <li><h2 class="c-sidebar__title">Table of contents</li>
         
       
@@ -791,10 +853,6 @@ initFunction(initPrint)
     
       
       
-        <li class="c-sidebar__divider"></li>
-        
-      
-      
         <li><h2 class="c-sidebar__title">Links</li>
         
       
@@ -860,7 +918,7 @@ initFunction(initPrint)
       
     
   </ul>
-  <p class="sidebar_footer">Sponsored by <a href="https://www.visegradfund.org/">Visegrad Fund</a> grant nr. 21820079 "Training Digital Scholars: Knowledge Exchange between V4 and Austria"</p>
+  <p class="sidebar_footer">Sponsored by <a href="https://www.visegradfund.org/">Visegrad Fund</a> grant nr. 21820079 "Training Digital Scholars: Knowledge Exchange between V4 and Austria". Available under the terms of the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> license.</p>
 </nav>
 
       
@@ -1058,7 +1116,7 @@ you're golden. The <code>text.txt</code> file below, though, isn't.</p>
 <span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">with</span> open<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;data/text.txt&#34;</span><span class="ansi-blue-fg">,</span> encoding<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#34;utf-8&#34;</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">as</span> file<span class="ansi-blue-fg">:</span>
 <span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg">     </span>print<span class="ansi-blue-fg">(</span>file<span class="ansi-blue-fg">.</span>read<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 
-<span class="ansi-green-fg">~/.local/pyenv/versions/3.7.6/lib/python3.7/codecs.py</span> in <span class="ansi-cyan-fg">decode</span><span class="ansi-blue-fg">(self, input, final)</span>
+<span class="ansi-green-fg">~/.local/pyenv/versions/3.7.7/lib/python3.7/codecs.py</span> in <span class="ansi-cyan-fg">decode</span><span class="ansi-blue-fg">(self, input, final)</span>
 <span class="ansi-green-intense-fg ansi-bold">    320</span>         <span class="ansi-red-fg"># decode input (taking the buffer into account)</span>
 <span class="ansi-green-intense-fg ansi-bold">    321</span>         data <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>buffer <span class="ansi-blue-fg">+</span> input
 <span class="ansi-green-fg">--&gt; 322</span><span class="ansi-red-fg">         </span><span class="ansi-blue-fg">(</span>result<span class="ansi-blue-fg">,</span> consumed<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_buffer_decode<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>errors<span class="ansi-blue-fg">,</span> final<span class="ansi-blue-fg">)</span>
@@ -2666,7 +2724,7 @@ Name: domain, Length: 854, dtype: bool</pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;pandas.core.indexing._LocIndexer at 0x112166170&gt;</pre>
+<pre>&lt;pandas.core.indexing._LocIndexer at 0x7f204640e2f0&gt;</pre>
 </div>
 
 </div>
@@ -3308,21 +3366,21 @@ Name: kwic, Length: 854, dtype: object</pre>
 <span class="ansi-green-fg">&lt;ipython-input-35-118d975e2131&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>df<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#34;word&#34;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;lemma&#34;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;tag&#34;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">]</span>
 
-<span class="ansi-green-fg">~/Library/Caches/pypoetry/virtualenvs/e-v4py-AkGCGnKO-py3.7/lib/python3.7/site-packages/pandas/core/frame.py</span> in <span class="ansi-cyan-fg">__getitem__</span><span class="ansi-blue-fg">(self, key)</span>
+<span class="ansi-green-fg">~/.cache/pypoetry/virtualenvs/e-v4py-VgictJZ4-py3.7/lib/python3.7/site-packages/pandas/core/frame.py</span> in <span class="ansi-cyan-fg">__getitem__</span><span class="ansi-blue-fg">(self, key)</span>
 <span class="ansi-green-intense-fg ansi-bold">   2804</span>             <span class="ansi-green-fg">if</span> is_iterator<span class="ansi-blue-fg">(</span>key<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-intense-fg ansi-bold">   2805</span>                 key <span class="ansi-blue-fg">=</span> list<span class="ansi-blue-fg">(</span>key<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">-&gt; 2806</span><span class="ansi-red-fg">             </span>indexer <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>loc<span class="ansi-blue-fg">.</span>_get_listlike_indexer<span class="ansi-blue-fg">(</span>key<span class="ansi-blue-fg">,</span> axis<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span> raise_missing<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span>
 <span class="ansi-green-intense-fg ansi-bold">   2807</span> 
 <span class="ansi-green-intense-fg ansi-bold">   2808</span>         <span class="ansi-red-fg"># take() does not accept boolean indexers</span>
 
-<span class="ansi-green-fg">~/Library/Caches/pypoetry/virtualenvs/e-v4py-AkGCGnKO-py3.7/lib/python3.7/site-packages/pandas/core/indexing.py</span> in <span class="ansi-cyan-fg">_get_listlike_indexer</span><span class="ansi-blue-fg">(self, key, axis, raise_missing)</span>
+<span class="ansi-green-fg">~/.cache/pypoetry/virtualenvs/e-v4py-VgictJZ4-py3.7/lib/python3.7/site-packages/pandas/core/indexing.py</span> in <span class="ansi-cyan-fg">_get_listlike_indexer</span><span class="ansi-blue-fg">(self, key, axis, raise_missing)</span>
 <span class="ansi-green-intense-fg ansi-bold">   1551</span> 
 <span class="ansi-green-intense-fg ansi-bold">   1552</span>         self._validate_read_indexer(
 <span class="ansi-green-fg">-&gt; 1553</span><span class="ansi-red-fg">             </span>keyarr<span class="ansi-blue-fg">,</span> indexer<span class="ansi-blue-fg">,</span> o<span class="ansi-blue-fg">.</span>_get_axis_number<span class="ansi-blue-fg">(</span>axis<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> raise_missing<span class="ansi-blue-fg">=</span>raise_missing
 <span class="ansi-green-intense-fg ansi-bold">   1554</span>         )
 <span class="ansi-green-intense-fg ansi-bold">   1555</span>         <span class="ansi-green-fg">return</span> keyarr<span class="ansi-blue-fg">,</span> indexer
 
-<span class="ansi-green-fg">~/Library/Caches/pypoetry/virtualenvs/e-v4py-AkGCGnKO-py3.7/lib/python3.7/site-packages/pandas/core/indexing.py</span> in <span class="ansi-cyan-fg">_validate_read_indexer</span><span class="ansi-blue-fg">(self, key, indexer, axis, raise_missing)</span>
+<span class="ansi-green-fg">~/.cache/pypoetry/virtualenvs/e-v4py-VgictJZ4-py3.7/lib/python3.7/site-packages/pandas/core/indexing.py</span> in <span class="ansi-cyan-fg">_validate_read_indexer</span><span class="ansi-blue-fg">(self, key, indexer, axis, raise_missing)</span>
 <span class="ansi-green-intense-fg ansi-bold">   1638</span>             <span class="ansi-green-fg">if</span> missing <span class="ansi-blue-fg">==</span> len<span class="ansi-blue-fg">(</span>indexer<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-intense-fg ansi-bold">   1639</span>                 axis_name <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>obj<span class="ansi-blue-fg">.</span>_get_axis_name<span class="ansi-blue-fg">(</span>axis<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">-&gt; 1640</span><span class="ansi-red-fg">                 </span><span class="ansi-green-fg">raise</span> KeyError<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">f&#34;None of [{key}] are in the [{axis_name}]&#34;</span><span class="ansi-blue-fg">)</span>
@@ -3794,17 +3852,17 @@ Name: domain, Length: 854, dtype: object</pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>ucrel.lancs.ac.uk                 123
-nltk.googlecode.com                90
-quinndombrowski.com                65
-medicolegal.tripod.com             28
-cass.lancs.ac.uk                   21
-                                 ... 
-digplanet.com                       1
-wisdompubs.org                      1
-porganized.com                      1
-intranslation.brooklynrail.org      1
-blog.logos.com                      1
+<pre>ucrel.lancs.ac.uk          123
+nltk.googlecode.com         90
+quinndombrowski.com         65
+medicolegal.tripod.com      28
+cass.lancs.ac.uk            21
+                          ... 
+google.ca                    1
+stevens_mom.tripod.com       1
+aclu-co.org                  1
+digplanet.com                1
+biblicalarchaeology.org      1
 Name: domain, Length: 234, dtype: int64</pre>
 </div>
 
@@ -3839,7 +3897,7 @@ Name: domain, Length: 234, dtype: int64</pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x112219590&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f20462a9dd0&gt;</pre>
 </div>
 
 </div>
@@ -3885,7 +3943,7 @@ Name: domain, Length: 234, dtype: int64</pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x112363c90&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f20410cfb90&gt;</pre>
 </div>
 
 </div>
@@ -5575,7 +5633,7 @@ separately</a>.</p>
 </nav>
 
               <footer>
-  <p class="footer">Sponsored by <a href="https://www.visegradfund.org/">Visegrad Fund</a> grant nr. 21820079 "Training Digital Scholars: Knowledge Exchange between V4 and Austria"</p>
+  <p class="footer">Sponsored by <a href="https://www.visegradfund.org/">Visegrad Fund</a> grant nr. 21820079 "Training Digital Scholars: Knowledge Exchange between V4 and Austria". Available under the terms of the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> license.</p>
 </footer>
 
             </div>
