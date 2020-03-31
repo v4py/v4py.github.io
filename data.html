@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
   <title>Getting your data into Python</title>
-  <meta name="description" content="        Getting your data into Python    This chapter is about interacting with data on your computer's disk --mostly loading it into Python, but also writin...">
+  <meta name="description" content="        Getting your data into Python    Overview This chapter is about interacting with data on your computer's disk --mostly loading it into Python, but al...">
 
   <link rel="canonical" href="https://v4py.github.io//data.html">
   <link rel="alternate" type="application/rss+xml" title="An Introduction to Python for Linguists" href="https://v4py.github.io//feed.xml">
@@ -14,7 +14,7 @@
   <meta property="og:url"         content="https://v4py.github.io//data.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Getting your data into Python" />
-<meta property="og:description" content="        Getting your data into Python    This chapter is about interacting with data on your computer's disk --mostly loading it into Python, but also writin..." />
+<meta property="og:description" content="        Getting your data into Python    Overview This chapter is about interacting with data on your computer's disk --mostly loading it into Python, but al..." />
 <meta property="og:image"       content="https://v4py.github.io/images/v4py_logo_wide.svg" />
 
 <meta name="twitter:card" content="summary">
@@ -26,9 +26,9 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://v4py.github.io//data.html",
   "headline": "Getting your data into Python",
-  "datePublished": "2020-03-31T09:25:11+02:00",
-  "dateModified": "2020-03-31T09:25:11+02:00",
-  "description": "        Getting your data into Python    This chapter is about interacting with data on your computer's disk --mostly loading it into Python, but also writin...",
+  "datePublished": "2020-03-31T10:56:01+02:00",
+  "dateModified": "2020-03-31T10:56:01+02:00",
+  "description": "        Getting your data into Python    Overview This chapter is about interacting with data on your computer's disk --mostly loading it into Python, but al...",
   "author": {
     "@type": "Person",
     "name": "David Lukeš, Rudolf Rosa"
@@ -712,128 +712,12 @@ initFunction(initPrint)
 
       
       
-      <li class="c-sidebar__chapter" data-url="/gotchas">
-        <a class="c-sidebar__entry"
-          href="/gotchas.html"
-        >
-          
-            7.
-          
-          Python gotchas
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-
-      
-    
-      
-      
-
-      
-      
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter" data-url="/case">
-        <a class="c-sidebar__entry"
-          href="/case.html"
-        >
-          
-            8.
-          
-          Case studies
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-        
-
-        
-
-        <ul class="c-sidebar__sections">
-          
-            
-            
-
-            
-            
-            
-            
-
-            <li class="c-sidebar__section" data-url="/case/collocations">
-              <a class="c-sidebar__entry"
-                href="/case/collocations.html"
-              >
-                
-                  8.1
-                
-                Determining collocation strength
-              </a>
-            </li>
-            
-            
-          
-            
-            
-
-            
-            
-            
-            
-
-            <li class="c-sidebar__section" data-url="/case/keywords">
-              <a class="c-sidebar__entry"
-                href="/case/keywords.html"
-              >
-                
-                  8.2
-                
-                Keyword analysis: Donald Trump's speeches
-              </a>
-            </li>
-            
-            
-          
-        </ul>
-      
-
-      
-    
-      
-      
-
-      
-      
-      
-      
-
-      
-      
       <li class="c-sidebar__chapter" data-url="/outro">
         <a class="c-sidebar__entry"
           href="/outro.html"
         >
           
-            9.
+            7.
           
           Parting words
         </a>
@@ -990,7 +874,7 @@ initFunction(initPrint)
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This chapter is about interacting with data on your computer's disk --
+<h1 id="Overview">Overview<a class="anchor-link" href="#Overview"> </a></h1><p>This chapter is about interacting with data on your computer's disk --
 mostly loading it into Python, but also writing it back, and storing it
 for quick reloading later.</p>
 <h1 id="Plain-text-files">Plain text files<a class="anchor-link" href="#Plain-text-files"> </a></h1><p>A <strong>plain text</strong> file is a file where every single bit contributes
@@ -2724,7 +2608,7 @@ Name: domain, Length: 854, dtype: bool</pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;pandas.core.indexing._LocIndexer at 0x112166170&gt;</pre>
+<pre>&lt;pandas.core.indexing._LocIndexer at 0x111a34950&gt;</pre>
 </div>
 
 </div>
@@ -3852,17 +3736,17 @@ Name: domain, Length: 854, dtype: object</pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>ucrel.lancs.ac.uk                 123
-nltk.googlecode.com                90
-quinndombrowski.com                65
-medicolegal.tripod.com             28
-cass.lancs.ac.uk                   21
-                                 ... 
-digplanet.com                       1
-wisdompubs.org                      1
-porganized.com                      1
-intranslation.brooklynrail.org      1
-blog.logos.com                      1
+<pre>ucrel.lancs.ac.uk         123
+nltk.googlecode.com        90
+quinndombrowski.com        65
+medicolegal.tripod.com     28
+cass.lancs.ac.uk           21
+                         ... 
+hispanicbusiness.com        1
+blog.mashape.com            1
+allenandunwin.com           1
+viu.ca                      1
+minemen.org                 1
 Name: domain, Length: 234, dtype: int64</pre>
 </div>
 
@@ -3897,7 +3781,7 @@ Name: domain, Length: 234, dtype: int64</pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x112219590&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x112767c10&gt;</pre>
 </div>
 
 </div>
@@ -3943,7 +3827,7 @@ Name: domain, Length: 234, dtype: int64</pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x112363c90&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x115368350&gt;</pre>
 </div>
 
 </div>

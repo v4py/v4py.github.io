@@ -5,16 +5,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Search the site</title>
-  <meta name="description" content="        ">
+  <title>Topic modelling</title>
+  <meta name="description" content="# Topic modelling">
 
-  <link rel="canonical" href="https://v4py.github.io//search">
+  <link rel="canonical" href="https://v4py.github.io//src/case/topic.html">
   <link rel="alternate" type="application/rss+xml" title="An Introduction to Python for Linguists" href="https://v4py.github.io//feed.xml">
 
-  <meta property="og:url"         content="https://v4py.github.io//search" />
+  <meta property="og:url"         content="https://v4py.github.io//src/case/topic.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Search the site" />
-<meta property="og:description" content="        " />
+<meta property="og:title"       content="Topic modelling" />
+<meta property="og:description" content="# Topic modelling" />
 <meta property="og:image"       content="https://v4py.github.io/images/v4py_logo_wide.svg" />
 
 <meta name="twitter:card" content="summary">
@@ -24,11 +24,11 @@
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage": "https://v4py.github.io//search",
-  "headline": "Search the site",
+  "mainEntityOfPage": "https://v4py.github.io//src/case/topic.html",
+  "headline": "Topic modelling",
   "datePublished": "2020-03-31T10:56:01+02:00",
   "dateModified": "2020-03-31T10:56:01+02:00",
-  "description": "        ",
+  "description": "# Topic modelling",
   "author": {
     "@type": "Person",
     "name": "David Lukeš, Rudolf Rosa"
@@ -843,92 +843,8 @@ initFunction(initPrint)
 
       <main class="c-textbook__page" tabindex="-1">
             <div class="c-textbook__content" id="textbook_content">
-              <div class="search-content__inner-wrap">
-    <input type="text" id="lunr_search" class="search-input" tabindex="-1" placeholder="'Enter your search term...''" />
-    <div id="results" class="results"></div>
-</div>
+              <h1 id="topic-modelling">Topic modelling</h1>
 
-<script>
-    // Add the lunr store since we will now search it
-    var store = [{
-        "title": "A tour of Python and NLTK",
-        
-        "excerpt": "python cell evaluate calculator new button answer code cells comments switch point notebooks fancy just feel type stuff press back program consist evaluates multiple lets comment syntax used division part youre following jupyterlab tour nltk kind lot typical otherwise should pretty familiar thinks while spits place where called running play makes typed e very simple pythons unsuprisingly same calculators expression well unlike though notebook jump forth between edit re old ones etc create plus try slightly complicated expressions lines demonstrate pieces programs completely ignored computer theyre included solely benefit humans reading hash mark everything follows after often signaled distinctive highlighting",
-        "categories": [],
-        "tags": [],
-        "url": "https://v4py.github.io/basics.html",
-        "teaser":null},{
-        "title": "Case studies",
-        
-        "excerpt": "case studies weve got programming under our belt lets work through few extended examples focus linguistic things might also good revisit study shown part introductory chapter intro",
-        "categories": [],
-        "tags": [],
-        "url": "https://v4py.github.io/case.html",
-        "teaser":null},{
-        "title": "Determining collocation strength",
-        
-        "excerpt": "f x y frac collocation strength dice xy determining between words quantified various ways using called association measures gives fairly useful intuitive results score huge",
-        "categories": [],
-        "tags": [],
-        "url": "https://v4py.github.io/case/collocations.html",
-        "teaser":null},{
-        "title": "Keyword analysis: Donald Trump's speeches",
-        
-        "excerpt": "corpus keyword analysis donald trumps speeches reference frequency distribution text ref bigly words din difference index kwords korpus cz",
-        "categories": [],
-        "tags": [],
-        "url": "https://v4py.github.io/case/keywords.html",
-        "teaser":null},{
-        "title": "Getting your data into Python",
-        
-        "excerpt": "text file python pickle library org plain data its pandas json just csv store encoding want objects dill into not because files dont also even docs html format need youre thats utf language might en wikipedia wiki stored standard bit actually using case open cp any lets s contains take module disk writing where something work get error cant czech still makes different e same load only reading mostly storing every content character set sets didnt unicode rich specify should function start always txt though european latin windows those youll try here lot byte least youve looks maybe another list",
-        "categories": [],
-        "tags": [],
-        "url": "https://v4py.github.io/data.html",
-        "teaser":null},{
-        "title": "Python gotchas",
-        
-        "excerpt": "python return gotchas dangerous also yourself none copies enough unfortunately means occasionally tries hard consistent language prevents accidentally shooting foot still programming languages heres selection favorites start building larger complicated programs variable scope listing global variables vs print automatically returns whenever reaches end function without encountering statement explicitly difference between shallow deep",
-        "categories": [],
-        "tags": [],
-        "url": "https://v4py.github.io/gotchas.html",
-        "teaser":null},{
-        "title": "Introduction",
-        
-        "excerpt": "python its code programming not get org book html text language using page might data dont our www just analysis function well into com nltk want learning much also youre jupyterlab even though those words right jupyter web list any part because github doesnt r notebooks need computer point good lot reading en tokens lets take should own response before same token run looks notebook frequency second me since very end us io wiki makes case chapter everything object method attribute inspect string between care never while anything likely useful better only least vpy intended youve parts making general work",
-        "categories": [],
-        "tags": [],
-        "url": "https://v4py.github.io/intro.html",
-        "teaser":null},{
-        "title": "Parting words",
-        
-        "excerpt": "python picture iframe data www src width com height youtube nocookie embed frameborder allow accelerometer autoplay encrypted media gyroscope allowfullscreen programming github language talk its also org science analysis here perhaps always io recommend great available nlp often style handbook good hettinger top vanderplas visualization youve book not r same conferences conference beazley hr margin rem statistics where using things get any nltk natural general going resource tools black edge because jakevdp pythondatasciencehandbook after approach sometimes provides tidyverse libraries videos including raymond entertaining work landscape viz theyre parting words made end youre learn internet theres improvement learning new journey tips",
-        "categories": [],
-        "tags": [],
-        "url": "https://v4py.github.io/outro.html",
-        "teaser":null},{
-        "title": "Regular expressions",
-        
-        "excerpt": "regular expressions python matches regex string match re expression same not its character org unicode n html module library using abc inside syntax any non flag strings youre e function pattern widgets writing graphemes g dont docs need b api where groups interactive flags etc doesnt trying chapter howto both feature book different s p characters z greedy repeats via backslashes raw works objects argument bitwise numbers text also language own help programs well involves already idea possible good information standard available install because code documentation overview nltk extended property set previous item following around jupyter jupyterlab something literals those",
-        "categories": [],
-        "tags": [],
-        "url": "https://v4py.github.io/regex.html",
-        "teaser":null},{
-        "title": "Working with online resources",
-        
-        "excerpt": "try text lets rest api parameters function just get code url e g into response model result not python its apis method only json print output format also using translation tool need joke additional exercises com input documentation translate cat always jokes post lindat data random nametag does different thats good encoding services instead put english languages actually again work run sometimes any fine internet webpage requests split lines tools available morphological set mff cuni cz target very list french language getting results named sentence conll u working resources change better break things something here document copy module parameter field",
-        "categories": [],
-        "tags": [],
-        "url": "https://v4py.github.io/rest.html",
-        "teaser":null},{
-        "title": "Text inside the computer",
-        
-        "excerpt": "encoding character characters bits utf different s numbers its unicode ascii e just width using text memory byte our set binary because decimal times computer same g only python not weve into encodings codepoints get well string bytes even much between wikipedia org fixed works digits c en wiki called codepoint latin file take computers hexadecimal system sequence bit lets encoded always represented ways represent function sequences html why should though very need might probably instance read regular used slots per useful representation encode those something boundaries theres both variable good standard representing written also systems uses youre individual makes",
-        "categories": [],
-        "tags": [],
-        "url": "https://v4py.github.io/unicode.html",
-        "teaser":null},]
-</script>
             </div>
             <div class="c-textbook__footer" id="textbook_footer">
               
