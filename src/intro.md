@@ -45,9 +45,11 @@ sponsoring this project.
 
 > On second thought, let's not go to Camelot. 'Tis a silly place.
 >
-> -- King Arthur, Monty Python and the Holy Grail
+> -- King Arthur, Monty [Python](https://python.org) and the Holy Grail
 
 <!-- #endmd -->
+
+# Why programming?
 
 When I suggest to fellow linguists that they might want to take up
 programming as a way to supercharge their abilities to confront and

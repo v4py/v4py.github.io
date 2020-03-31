@@ -14,6 +14,8 @@ jupyter:
 
 # Getting your data into Python
 
+# Overview
+
 This chapter is about interacting with data on your computer's disk --
 mostly loading it into Python, but also writing it back, and storing it
 for quick reloading later.

@@ -38,12 +38,13 @@
 - url: /data
 - url: /rest
 - url: /regex
-- url: /gotchas
-- url: /case
-  expand_sections: true
-  sections:
-    - url: /case/collocations
-    - url: /case/keywords
+# - url: /gotchas
+# - url: /case
+#   expand_sections: true
+#   sections:
+#     - url: /case/collocations
+#     - url: /case/keywords
+#     - url: /case/topic
 - url: /outro
 
 - header: Links

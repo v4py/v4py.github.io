@@ -14,6 +14,8 @@ jupyter:
 
 # Text inside the computer
 
+# Why should I care?
+
 Even though as linguists, we may think we know everything about text,
 definitely more than programmers, thank you very much, this ain't Kansas
 anymore as they say, this is Computerland, and the rules for how text

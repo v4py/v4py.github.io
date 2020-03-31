@@ -14,6 +14,8 @@ jupyter:
 
 # Python gotchas
 
+# With great power comes great responsibility
+
 You now know enough Python to be dangerous! Unfortunately, that also
 means you can occasionally be dangerous to yourself. Python tries hard
 to be a consistent language that prevents you from accidentally shooting

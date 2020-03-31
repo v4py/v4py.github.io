@@ -19,6 +19,8 @@ jupyter:
 >
 > -- http://regex.info/blog/2006-09-15/247
 
+# Basic orientation
+
 Regular expressions are a powerful tool to slice and dice text, extract
 parts of it, replace them etc. They're also another language of their
 own, completely separate from Python and fairly terse, which comes with
@@ -83,7 +85,7 @@ at the [documentation of the `regex`
 module](https://pypi.org/project/regex/) when you need to learn about
 the specifics of some additional feature.
 
-# Quick overview
+# Quick overview of regex syntax
 
 A quick overview of regular expression syntax accepted by the `regex`
 library, borrowed from [chapter 3 of the NLTK

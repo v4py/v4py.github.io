@@ -12,6 +12,8 @@ jupyter:
     name: python3
 ---
 
+# Collocations
+
 # Determining collocation strength
 
 Collocation strength between two words, *x* and *y*, can be quantified

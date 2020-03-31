@@ -14,6 +14,8 @@ jupyter:
 
 # Parting words
 
+# Where to go from here
+
 Now that you've made it to the end, perhaps you're wondering where to go
 from here. Programming is perhaps the easiest skill to learn using only
 the internet, so there are many options. There's also always room for
