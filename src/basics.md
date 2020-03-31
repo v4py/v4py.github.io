@@ -936,7 +936,7 @@ del num
 num
 ```
 
-## Functions for converting between collections
+## Converting between collections
 
 If you want to convert between the different types of collections, you
 can mostly use built-in functions named after the target collection. For
@@ -1058,6 +1058,10 @@ The delimiter can consist of multiple characters.
 ```python
 "the cat sat on the mat".split("at")
 ```
+
+## Combining collections
+
+<!-- TODO: + on sequences, update on dicts, set methods and operators -->
 
 ## Further exploration
 
