@@ -548,6 +548,20 @@ and there's room to accommodate many more.
 2**16
 ```
 
+Here's just a small sample of the treasure trove of codepoints that is
+Unicode.
+
+```python tags=["output_scroll"]
+from unicodedata import name
+
+print("\N{HORIZONTAL ELLIPSIS}")
+for sample in (range(0x16a0, 0x16f1), range(0x1f600, 0x1f645)):
+    for cp in sample:
+        char = chr(cp)
+        print(f"U+{cp:x}\t{char}\t{name(char)}")
+    print("\N{HORIZONTAL ELLIPSIS}")
+```
+
 Now, the most straightforward representation for $2^{16}$ codepoints is
 what? Well, it's simply using 16 bits per character, i.e. 2 bytes. That
 encoding exists, it's called `UTF-16` ("UTF" stands for "Unicode
