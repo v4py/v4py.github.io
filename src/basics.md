@@ -14,6 +14,24 @@ jupyter:
 
 # A tour of Python and NLTK
 
+```python tags=["remove_cell"]
+# Download NLTK resources. Remove code from START_NLTK_TMP to
+# END_NLTK_TMP to store them in a permanent location instead of a
+# temporary directory.
+# --------------------------- START_NLTK_TMP ---------------------------
+import os
+import tempfile
+
+nltk_data = os.path.join(tempfile.gettempdir(), "v4py", "nltk_data")
+os.makedirs(nltk_data, exist_ok=True)
+os.environ["NLTK_DATA"] = nltk_data
+# ---------------------------- END_NLTK_TMP ----------------------------
+
+import nltk
+
+nltk.download("punkt")
+```
+
 # The most important piece of programming advice you'll ever get™
 
 Over the course of this book, you'll be presented with a lot of
@@ -54,6 +72,18 @@ to get, here's an overview of the domains that frequently appear in there:
   behavior might be a known
   [bug](https://en.wikipedia.org/wiki/Software_bug), and if not,
   consider reporting it yourself.
+
+# How to use this chapter
+
+Don't try to memorize all the information contained in here by heart
+before moving on to the rest of the book. The purpose of this chapter is
+to familiarize you with basic words and concepts used throughout the
+book, so that when you run across them, you know where to look them up.
+That's why they're all in one place. There's also quite a lot of them,
+and truly mastering them will get you quite far along your Python
+programming career, so that's not the goal right now. The goal is to get
+acquainted, possibly skip ahead if you get bored, and definitely skip
+back for a refresher whenever things stop making sense.
 
 # Python notebooks: your fancy new calculator
 
@@ -634,59 +664,571 @@ for later (or never).
 
 # Collections
 
-go back to strings, split, indexing, plus, in, len
+**Collections** or **containers** are objects intended to contain other
+objects, so that you can conveniently manipulate them together. We saw
+above that almost all Python objects in some sense "contain" other
+objects via their attributes, but those attributes are somehow
+intimately tied to how any given object works. The whole point of
+collections is that they (mostly) don't care what you put into them or
+what you take out; they'll just happily keep an eye on it for you and
+allow you to juggle and re-arrange the items in clever and succinct
+ways.
 
-collections -> len -> also works on strings ~ collections of characters,
-or more precisely, of strings of length 1
-
-functions at the end, showing that any code can be wrapped for reuse
-
-built-in functions (type, str, int, float, ...)
-[List of built-in functions](https://docs.python.org/3/library/functions.html)
-
-
-# Importing
-
-also installing with pip? `!pip install ... `
+To motivate the need for collections, imagine that you want to store the
+individual tokens in a sentence, "Let it be.". Without collections, you
+would have to use separate variables:
 
 ```python
-import json
+string1 = "Let"
+string2 = "it"
+string3 = "be"
+string4 = "."
+```
+
+This gets really tedious really quickly. Instead, you can use a Python
+list:
+
+```python
+strings = ["Let", "it", "be", "."]
+```
+
+Much better!
+
+## Collection literals
+
+We'll start getting acquainted with Python's builtin collections by
+learning about their literals, i.e. the special syntax used to create
+them. We'll cover lists, tuples, dictionaries and sets. We've previously
+covered strings, which can also be seen as collections. The string
+`"abc"` is a collection of characters, or more accurately, a collection
+of three strings of length 1: `"a"`, `"b"` and `"c"`.
+
+We've already met **lists**. In general, Python really doesn't care what
+kinds of objects you store in your collections, it's entirely up to you,
+so you can mix and match at will.
+
+```python
+[1, "two", print]
+```
+
+Lists are great for storing tokenized text:
+
+```python
+["Help", "!", "I", "need", "somebody", ",", "help", "!"]
+```
+
+This is how you create an empty list:
+
+```python
+[]
+```
+
+Closely related to lists are **tuples** (we'll discuss the differences
+below).
+
+```python
+(1, "two", print)
+```
+
+In many cases, the parentheses are actually optional. You'll probably
+see me using tuples when I want to output multiple objects from a code
+cell, because Python only uses the last expression in the cell as its
+output value.
+
+```python
+1
+"two"
+print
 ```
 
 ```python
-json
+1, "two", print
+```
+
+Whenever you see commas without any parentheses around them, it's a
+tuple. You'll learn over time when it's safe to omit them, but until
+then, it might be a good idea to play it safe and always use them. This
+means "take the number 1, the result of the comparison 2 < 3, and the
+number 4, and create a 3-tuple out of them":
+
+```python
+1, 2 < 3, 4
+```
+
+Whereas this says, "create a 2-tuple `(1, 2)` and a 2-tuple `(3, 4)` and
+*only then* do a comparison of the resulting tuples":
+
+```python
+(1, 2) < (3, 4)
+```
+
+As you can see, the parentheses work in the same way as in math, as a
+precedence operator: they say "first create the tuples and then do the
+rest", much as $(4 + 3) * 2$ says "first do the addition, then the
+multiplication", overriding the default $4 + 3 * 2$ which goes the other
+way round. One place they're never optional though is when creating an
+empty tuple.
+
+```python
+()
+```
+
+Moving on, we have **dictionaries**. Dictionaries are different in that
+their purpose is not to store only values, but **key--value pairs**. We
+say that they **map** keys to values, kind of like real-world
+dictionaries map words in one language to another.
+
+```python
+{"cat": "chat", "dog": "chien"}
+```
+
+A constraint on dictionaries is that the **keys must be unique**. If you
+provide multiple values per key, only the last one will be retained.
+
+```python
+{"odd": 1, "even": 2, "odd": 3, "even": 4, "odd": 5}
+```
+
+If you need multiple values per key, well... Just store a collection as
+the value instead!
+
+```python
+{"odd": [1, 3, 5], "even": [2, 4]}
+```
+
+And this is how you create an empty dictionary:
+
+```python
+{}
+```
+
+It may not seem like it at first glance, but dictionaries are an
+extremely powerful and versatile data structure, and they're the
+backbone upon which Python is built -- they're used everywhere.
+
+**Sets** have a literal syntax which somewhat resembles that of
+dictionaries: it also uses curly braces `{}`, but no colons `:`, because
+sets again store just values, not key--value pairs. But they do require
+that their values be unique and throw away any duplicates, so there is a
+conceptual similarity with dictionaries which motivates that syntactic
+similarity.
+
+```python
+{1, 2, 3, 1, 2, 3}
+```
+
+This deduplication behavior makes sets great for deriving vocabularies
+of unique words.
+
+```python
+{"the", "cat", "sat", "on", "the", "mat"}
+```
+
+Since `{}` is already taken to mean empty dictionary, empty set literals
+actually look like a function call:
+
+```python
+set()
+```
+
+This is a somewhat ugly inconsistency in a language that otherwise tries
+hard to be consistent, but oh well, what can you do.
+
+## `len()`: number of items in collection
+
+The `len()` function works on **all** collections. It tells you how many
+elements a collection has.
+
+```python
+len([1, 2, 3])
 ```
 
 ```python
-json.loads
+len("Norwegian Wood")
+```
+
+In the case of dictionaries, it counts the number of key--value pairs.
+
+```python
+len({"cat": "chat", "dog": "chien"})
+```
+
+## `in`: checking collection membership
+
+The `in` operator also works on **all** collections. It tells you
+whether the collection contains a given element.
+
+```python
+1 in [1, 2, 3]
 ```
 
 ```python
-from json import loads
+"one" in {1, 2, 3}
+```
+
+For dictionaries, it tests against keys, not values.
+
+```python
+"cat" in {"cat": "chat", "dog": "chien"}
 ```
 
 ```python
-loads
+"chat" in {"cat": "chat", "dog": "chien"}
+```
+
+<!-- TODO: in set vs in list -->
+
+## `[...]`: retrieving and modifying collection elements
+
+```python
+lst = [1, 2, 3]
+lst[0]
 ```
 
 ```python
-from builtins import set
+lst[0] = 100
+lst
+```
+
+<!-- TODO: zero-indexed -->
+<!-- TODO: nesting and retrieving nested values -->
+<!-- TODO: immutable? -->
+<!-- TODO: more on slices -->
+
+For sequences, i.e. collections which naturally preserve order -- lists,
+tuples and strings -- you can also extract slices.
+
+```python
+string = "Can't buy me love"
+string[13:]
+```
+
+## `del`: removing collection elements
+
+<!-- TODO: immutable? -->
+
+The `del` operator can remove elements from collections that you point
+at with the `[...]` operator.
+
+```python
+lst = [1, 2, 3]
+del lst[1]
+lst
 ```
 
 ```python
-from json import *
+dct = {"one": 1, "two": 2}
+del dct["one"]
+dct
+```
+
+It also works for variables.
+
+```python
+# create a variable
+num = 1
+num
+```
+
+```python tags=["raises-exception"]
+# poof! it's gone
+del num
+num
+```
+
+## Functions for converting between collections
+
+If you want to convert between the different types of collections, you
+can mostly use built-in functions named after the target collection. For
+instance, if you want to turn a set into a list:
+
+```python
+list({1, 2, 3, 1, 2, 3})
+```
+
+Or a list into a tuple:
+
+```python
+tuple([1, 2, 3])
+```
+
+Or a tuple into a set:
+
+```python
+set((1, 2, 3, 1))
+```
+
+With dictionaries, it's slightly more complicated, as they don't contain
+only values, but key--value pairs. When converting from a dictionary,
+you thus have to decide whether you want just the keys (the default, but
+you can also request it explicitly with the `.keys()` method), just the
+values, or key--value pairs -- so-called `.items()`.
+
+```python
+en2fr = {"cat": "chat", "dog": "chien"}
+list(en2fr)
 ```
 
 ```python
-import json
+list(en2fr.keys())
 ```
 
 ```python
-import json as js
+tuple(en2fr.values())
 ```
 
 ```python
-js.loads
+set(en2fr.items())
 ```
+
+Conversely, when converting *to* a dictionary, you have to provide a
+collection which can be interpreted as containing *both* keys and
+values, otherwise you can't really build a dictionary out of it. One
+possible option is a list of 2-tuples.
+
+```python
+dict([("a", "b"), ("c", "d")])
+```
+
+But it's definitely not the only one. Try to understand and describe
+what's going on in the next cell!
+
+```python
+dict(["ab", "cd"])
+```
+
+The `dict` function also allows you to create a fresh dictionary in a
+way that may be slightly easier to type, with fewer curly braces and
+quotes, if your keys are strings which also happen to be valid
+**identifiers** (i.e., they could be used as variable names).
+
+```python
+dict(cat="chat", dog="chien")
+```
+
+Strings are kind of the odd one out in this company because the `str`
+function doesn't convert another collection to a string, at least not in
+the same sense the other functions we've seen work. It returns a
+**string representation** of the collection, intended to suggest how you
+could create such a collection using literal syntax.
+
+```python
+str([1, 2, 3])
+```
+
+```python
+str(en2fr)
+```
+
+In the other direction, the other collection functions split strings at
+character boundaries.
+
+```python
+list("abracadabra")
+```
+
+```python
+set("abracadabra")
+```
+
+If you want to split anywhere else, you'll have to use the `.split()`
+method on strings. By default, it splits on whitespace, any amount and
+any kind of it.
+
+```python
+"  foo\nbar  \n baz   qux  ".split()
+```
+
+But you can also tell it explicitly what string to use as a delimiter,
+and in that case, it'll follow your orders to the letter.
+
+```python
+"  foo\nbar  \n baz   qux  ".split("\n")
+```
+
+Even creating empty strings if two designated delimiters immediately
+adjoin each other.
+
+```python
+"  foo\nbar  \n baz   qux  ".split(" ")
+```
+
+The delimiter can consist of multiple characters.
+
+```python
+"the cat sat on the mat".split("at")
+```
+
+## Further exploration
+
+The character, specificities and possible use cases of each collection
+type are further revealed by the methods they expose. We'll point them
+out as we encounter them in practice throughout the rest of the book,
+but if you're curious, I encourage you to play around with the
+individual collections and explore their abilities via the previously
+described tab completion + interactive help approach.
+
+# Importing additional libraries
+
+We're about to dive into the magical world of conditionals and
+for-loops, but to make it more interesting, I thought we'd throw in some
+data and tools provided by the [NLTK](https://www.nltk.org/) (which
+stands for *Natural Language Toolkit*) library. In order to do that
+however, we need to know how to import it, so bear with me for this
+short interlude.
+
+In every Python session, some core functions and data types are
+available by default -- everything we've seen so far is part of these
+so-called built-ins. In and of themselves, they're already amazingly
+useful and allow you to do lots of stuff, but if everyone always had to
+start from these basic building blocks, programming would be repetitive
+and tedious. That's why people build reusable pieces of code that can be
+**imported** into Python to extend its functionality. These are called
+libraries or packages or modules. Strictly speaking, each of these terms
+means slightly different things, but informally, they can be used
+interchangeably.
+
+Import syntax in Python is simple and intuitive; it has a few basic
+variations which we'll presently go through.
+
+```python
+import nltk
+```
+
+This imports the `nltk` module and creates an `nltk` variable which you
+can use to access the objects inside the module via attribute syntax.
+For instance, the `word_tokenize()` function splits text into words, or
+technically, tokens.
+
+```python
+nltk.word_tokenize("Let it be.")
+```
+
+Notice how by default, Python tries to keep your objects and imported
+objects in separate **namespaces**, so that they don't collide. If you
+happen to have previously defined a `word_tokenize()` function of your
+own, importing the `nltk` module won't clobber it, because `nltk`'s
+`word_tokenize()` function is kept tucked away in the `nltk` namespace.
+
+Of course, it may be the case that you actually have a previously
+created object named `nltk` that you don't want to clobber. If so, then
+you can use renaming imports to pick the namespace yourself.
+
+```python
+import nltk as ling
+```
+
+This imports the `nltk` module, but stores it in the variable /
+namespace `ling` instead of `nltk`.
+
+```python
+ling.word_tokenize("Dig a pony.")
+```
+
+If you know you're going to be using a specific object a lot and you
+don't want to go to the trouble of typing the namespace prefix `nltk.`
+over and over again, then you can specifically request that it be
+added to your own namespace with the following syntax (notice that it's
+customary to separate imports from regular code by at least one empty
+line):
+
+```python
+from nltk import word_tokenize
+
+word_tokenize("Two of us wearing raincoats.")
+```
+
+And of course, you can combine this with renaming if necessary.
+
+```python
+from nltk import word_tokenize as tokenize
+
+tokenize("I, me, mine.")
+```
+
+By the way, if you ever accidentally overwrite a built-in function with
+another object, this is how you can restore it, by importing it from the
+`builtins` module.
+
+```python tags=["raises-exception", "scroll_output"]
+# oops
+len = 5
+len("five")
+```
+
+```python
+# problem solved
+from builtins import len
+
+len("five")
+```
+
+You can perform multiple imports per line by separating the different
+things to import with a comma.
+
+```python
+import nltk, builtins
+from builtins import len, set
+```
+
+If you want to import all objects defined in a module under the names
+given to them in that module, you can use star import syntax.
+
+```python
+from builtins import *
+```
+
+At first, this might seem convenient and appealing. Those of you who
+know R might be intuitively drawn to this form because this is R's
+default. Resist the urge. This variant makes it hard to track where
+objects came from, because a lot of names can hide under that `*`, not
+to mention if you do this with multiple modules. In time, you'll grow to
+appreciate Python's more verbose but cleaner approach to namespaces,
+which makes it much easier to see at a glance where your variables came
+from.
+
+Finally, the Python standard library contains many useful modules (the
+saying goes that Python comes with batteries included), but for many
+tasks, you're likely to want to install additional packages. This can be
+done in a variety of different of ways, including a [GUI
+manager](https://docs.anaconda.com/anaconda/navigator/tutorials/manage-packages/)
+if you're using the Anaconda Python distribution, but the official
+Python package manager that should always be available is a command-line
+tool called `pip`.
+
+This chapter is not about learning to use the command line, so just a
+quick crash course on `pip`. First, you need to figure out the name of
+the package you need. That can be done by searching the internet for
+keywords related to the functionality you want + Python, or by directly
+searching the [Python Package Index](https://pypi.org/).
+
+When you have have the name, you need to run the `pip install` command
+at the command line. Conveniently, you can do so directly from
+JupyterLab by prefixing it with `!` (this is another one of those
+special JupyterLab features which isn't actually part of Python itself).
+For instance, to instal the `nltk` library, you would run the following
+command:
+
+```python
+!pip install nltk
+```
+
+If you get some sort of permission denied error, it's because `pip` is
+trying to write into a system-wide library for all users which you don't
+have write access to. In that case, try running `pip install --user
+nltk` instead.
+
+That's enough about libraries right now. On to control flow!
+
+<!-- # Control flow -->
+
+<!-- # Functions: writing our own -->
+
+<!-- functions at the end, showing that any code can be wrapped for reuse -->
+
+<!-- ## A few useful built-in functions we haven't met yet -->
+
+<!-- built-in functions (type, str, int, float, ...) -->
+<!-- [List of built-in functions](https://docs.python.org/3/library/functions.html) -->
 
 <!-- vim: set spell spelllang=en: -->
