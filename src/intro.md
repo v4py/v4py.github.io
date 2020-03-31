@@ -143,7 +143,8 @@ would be absolutely invaluable!
 # Python gives you wings!
 
 <!-- #md tags=["popout"] -->
-![Python logo](https://www.python.org/static/community_logos/python-logo-generic.svg)
+<img alt="Python logo" style="width: 100%;"
+  src="https://www.python.org/static/community_logos/python-logo-generic.svg">
 <!-- #endmd -->
 
 So what is this [Python](https://python.org/) business all about? I've
