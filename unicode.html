@@ -26,8 +26,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://v4py.github.io//unicode.html",
   "headline": "Text inside the computer",
-  "datePublished": "2020-03-31T10:56:50+02:00",
-  "dateModified": "2020-03-31T10:56:50+02:00",
+  "datePublished": "2020-03-31T17:44:37+02:00",
+  "dateModified": "2020-03-31T17:44:37+02:00",
   "description": "        Text inside the computer    Why should I care? Even though as linguists, we may think we know everything about text,definitely more than programmers,...",
   "author": {
     "@type": "Person",
@@ -2611,6 +2611,209 @@ and there's room to accommodate many more.</p>
 <pre>65536</pre>
 </div>
 
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here's just a small sample of the treasure trove of codepoints that is
+Unicode.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_output_scroll">
+
+<div class="cell border-box-sizing code_cell rendered tag_output_scroll">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">unicodedata</span> <span class="kn">import</span> <span class="n">name</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\N{HORIZONTAL ELLIPSIS}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">sample</span> <span class="ow">in</span> <span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mh">0x16a0</span><span class="p">,</span> <span class="mh">0x16f1</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="mh">0x1f600</span><span class="p">,</span> <span class="mh">0x1f645</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">cp</span> <span class="ow">in</span> <span class="n">sample</span><span class="p">:</span>
+        <span class="n">char</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="n">cp</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;U+</span><span class="si">{</span><span class="n">cp</span><span class="si">:</span><span class="s2">x</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">char</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">name</span><span class="p">(</span><span class="n">char</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\N{HORIZONTAL ELLIPSIS}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>…
+U+16a0	ᚠ	RUNIC LETTER FEHU FEOH FE F
+U+16a1	ᚡ	RUNIC LETTER V
+U+16a2	ᚢ	RUNIC LETTER URUZ UR U
+U+16a3	ᚣ	RUNIC LETTER YR
+U+16a4	ᚤ	RUNIC LETTER Y
+U+16a5	ᚥ	RUNIC LETTER W
+U+16a6	ᚦ	RUNIC LETTER THURISAZ THURS THORN
+U+16a7	ᚧ	RUNIC LETTER ETH
+U+16a8	ᚨ	RUNIC LETTER ANSUZ A
+U+16a9	ᚩ	RUNIC LETTER OS O
+U+16aa	ᚪ	RUNIC LETTER AC A
+U+16ab	ᚫ	RUNIC LETTER AESC
+U+16ac	ᚬ	RUNIC LETTER LONG-BRANCH-OSS O
+U+16ad	ᚭ	RUNIC LETTER SHORT-TWIG-OSS O
+U+16ae	ᚮ	RUNIC LETTER O
+U+16af	ᚯ	RUNIC LETTER OE
+U+16b0	ᚰ	RUNIC LETTER ON
+U+16b1	ᚱ	RUNIC LETTER RAIDO RAD REID R
+U+16b2	ᚲ	RUNIC LETTER KAUNA
+U+16b3	ᚳ	RUNIC LETTER CEN
+U+16b4	ᚴ	RUNIC LETTER KAUN K
+U+16b5	ᚵ	RUNIC LETTER G
+U+16b6	ᚶ	RUNIC LETTER ENG
+U+16b7	ᚷ	RUNIC LETTER GEBO GYFU G
+U+16b8	ᚸ	RUNIC LETTER GAR
+U+16b9	ᚹ	RUNIC LETTER WUNJO WYNN W
+U+16ba	ᚺ	RUNIC LETTER HAGLAZ H
+U+16bb	ᚻ	RUNIC LETTER HAEGL H
+U+16bc	ᚼ	RUNIC LETTER LONG-BRANCH-HAGALL H
+U+16bd	ᚽ	RUNIC LETTER SHORT-TWIG-HAGALL H
+U+16be	ᚾ	RUNIC LETTER NAUDIZ NYD NAUD N
+U+16bf	ᚿ	RUNIC LETTER SHORT-TWIG-NAUD N
+U+16c0	ᛀ	RUNIC LETTER DOTTED-N
+U+16c1	ᛁ	RUNIC LETTER ISAZ IS ISS I
+U+16c2	ᛂ	RUNIC LETTER E
+U+16c3	ᛃ	RUNIC LETTER JERAN J
+U+16c4	ᛄ	RUNIC LETTER GER
+U+16c5	ᛅ	RUNIC LETTER LONG-BRANCH-AR AE
+U+16c6	ᛆ	RUNIC LETTER SHORT-TWIG-AR A
+U+16c7	ᛇ	RUNIC LETTER IWAZ EOH
+U+16c8	ᛈ	RUNIC LETTER PERTHO PEORTH P
+U+16c9	ᛉ	RUNIC LETTER ALGIZ EOLHX
+U+16ca	ᛊ	RUNIC LETTER SOWILO S
+U+16cb	ᛋ	RUNIC LETTER SIGEL LONG-BRANCH-SOL S
+U+16cc	ᛌ	RUNIC LETTER SHORT-TWIG-SOL S
+U+16cd	ᛍ	RUNIC LETTER C
+U+16ce	ᛎ	RUNIC LETTER Z
+U+16cf	ᛏ	RUNIC LETTER TIWAZ TIR TYR T
+U+16d0	ᛐ	RUNIC LETTER SHORT-TWIG-TYR T
+U+16d1	ᛑ	RUNIC LETTER D
+U+16d2	ᛒ	RUNIC LETTER BERKANAN BEORC BJARKAN B
+U+16d3	ᛓ	RUNIC LETTER SHORT-TWIG-BJARKAN B
+U+16d4	ᛔ	RUNIC LETTER DOTTED-P
+U+16d5	ᛕ	RUNIC LETTER OPEN-P
+U+16d6	ᛖ	RUNIC LETTER EHWAZ EH E
+U+16d7	ᛗ	RUNIC LETTER MANNAZ MAN M
+U+16d8	ᛘ	RUNIC LETTER LONG-BRANCH-MADR M
+U+16d9	ᛙ	RUNIC LETTER SHORT-TWIG-MADR M
+U+16da	ᛚ	RUNIC LETTER LAUKAZ LAGU LOGR L
+U+16db	ᛛ	RUNIC LETTER DOTTED-L
+U+16dc	ᛜ	RUNIC LETTER INGWAZ
+U+16dd	ᛝ	RUNIC LETTER ING
+U+16de	ᛞ	RUNIC LETTER DAGAZ DAEG D
+U+16df	ᛟ	RUNIC LETTER OTHALAN ETHEL O
+U+16e0	ᛠ	RUNIC LETTER EAR
+U+16e1	ᛡ	RUNIC LETTER IOR
+U+16e2	ᛢ	RUNIC LETTER CWEORTH
+U+16e3	ᛣ	RUNIC LETTER CALC
+U+16e4	ᛤ	RUNIC LETTER CEALC
+U+16e5	ᛥ	RUNIC LETTER STAN
+U+16e6	ᛦ	RUNIC LETTER LONG-BRANCH-YR
+U+16e7	ᛧ	RUNIC LETTER SHORT-TWIG-YR
+U+16e8	ᛨ	RUNIC LETTER ICELANDIC-YR
+U+16e9	ᛩ	RUNIC LETTER Q
+U+16ea	ᛪ	RUNIC LETTER X
+U+16eb	᛫	RUNIC SINGLE PUNCTUATION
+U+16ec	᛬	RUNIC MULTIPLE PUNCTUATION
+U+16ed	᛭	RUNIC CROSS PUNCTUATION
+U+16ee	ᛮ	RUNIC ARLAUG SYMBOL
+U+16ef	ᛯ	RUNIC TVIMADUR SYMBOL
+U+16f0	ᛰ	RUNIC BELGTHOR SYMBOL
+…
+U+1f600	😀	GRINNING FACE
+U+1f601	😁	GRINNING FACE WITH SMILING EYES
+U+1f602	😂	FACE WITH TEARS OF JOY
+U+1f603	😃	SMILING FACE WITH OPEN MOUTH
+U+1f604	😄	SMILING FACE WITH OPEN MOUTH AND SMILING EYES
+U+1f605	😅	SMILING FACE WITH OPEN MOUTH AND COLD SWEAT
+U+1f606	😆	SMILING FACE WITH OPEN MOUTH AND TIGHTLY-CLOSED EYES
+U+1f607	😇	SMILING FACE WITH HALO
+U+1f608	😈	SMILING FACE WITH HORNS
+U+1f609	😉	WINKING FACE
+U+1f60a	😊	SMILING FACE WITH SMILING EYES
+U+1f60b	😋	FACE SAVOURING DELICIOUS FOOD
+U+1f60c	😌	RELIEVED FACE
+U+1f60d	😍	SMILING FACE WITH HEART-SHAPED EYES
+U+1f60e	😎	SMILING FACE WITH SUNGLASSES
+U+1f60f	😏	SMIRKING FACE
+U+1f610	😐	NEUTRAL FACE
+U+1f611	😑	EXPRESSIONLESS FACE
+U+1f612	😒	UNAMUSED FACE
+U+1f613	😓	FACE WITH COLD SWEAT
+U+1f614	😔	PENSIVE FACE
+U+1f615	😕	CONFUSED FACE
+U+1f616	😖	CONFOUNDED FACE
+U+1f617	😗	KISSING FACE
+U+1f618	😘	FACE THROWING A KISS
+U+1f619	😙	KISSING FACE WITH SMILING EYES
+U+1f61a	😚	KISSING FACE WITH CLOSED EYES
+U+1f61b	😛	FACE WITH STUCK-OUT TONGUE
+U+1f61c	😜	FACE WITH STUCK-OUT TONGUE AND WINKING EYE
+U+1f61d	😝	FACE WITH STUCK-OUT TONGUE AND TIGHTLY-CLOSED EYES
+U+1f61e	😞	DISAPPOINTED FACE
+U+1f61f	😟	WORRIED FACE
+U+1f620	😠	ANGRY FACE
+U+1f621	😡	POUTING FACE
+U+1f622	😢	CRYING FACE
+U+1f623	😣	PERSEVERING FACE
+U+1f624	😤	FACE WITH LOOK OF TRIUMPH
+U+1f625	😥	DISAPPOINTED BUT RELIEVED FACE
+U+1f626	😦	FROWNING FACE WITH OPEN MOUTH
+U+1f627	😧	ANGUISHED FACE
+U+1f628	😨	FEARFUL FACE
+U+1f629	😩	WEARY FACE
+U+1f62a	😪	SLEEPY FACE
+U+1f62b	😫	TIRED FACE
+U+1f62c	😬	GRIMACING FACE
+U+1f62d	😭	LOUDLY CRYING FACE
+U+1f62e	😮	FACE WITH OPEN MOUTH
+U+1f62f	😯	HUSHED FACE
+U+1f630	😰	FACE WITH OPEN MOUTH AND COLD SWEAT
+U+1f631	😱	FACE SCREAMING IN FEAR
+U+1f632	😲	ASTONISHED FACE
+U+1f633	😳	FLUSHED FACE
+U+1f634	😴	SLEEPING FACE
+U+1f635	😵	DIZZY FACE
+U+1f636	😶	FACE WITHOUT MOUTH
+U+1f637	😷	FACE WITH MEDICAL MASK
+U+1f638	😸	GRINNING CAT FACE WITH SMILING EYES
+U+1f639	😹	CAT FACE WITH TEARS OF JOY
+U+1f63a	😺	SMILING CAT FACE WITH OPEN MOUTH
+U+1f63b	😻	SMILING CAT FACE WITH HEART-SHAPED EYES
+U+1f63c	😼	CAT FACE WITH WRY SMILE
+U+1f63d	😽	KISSING CAT FACE WITH CLOSED EYES
+U+1f63e	😾	POUTING CAT FACE
+U+1f63f	😿	CRYING CAT FACE
+U+1f640	🙀	WEARY CAT FACE
+U+1f641	🙁	SLIGHTLY FROWNING FACE
+U+1f642	🙂	SLIGHTLY SMILING FACE
+U+1f643	🙃	UPSIDE-DOWN FACE
+U+1f644	🙄	FACE WITH ROLLING EYES
+…
+</pre>
+</div>
 </div>
 </div>
 </div>

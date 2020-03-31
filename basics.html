@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
   <title>A tour of Python and NLTK</title>
-  <meta name="description" content="        A tour of Python and NLTK    Python notebooks: your fancy new calculator Python notebooks are kind of like a calculator, just a lot more fancythan yo...">
+  <meta name="description" content="        A tour of Python and NLTK    The most important piece of programming advice you'll ever get&#8482; Over the course of this book, you'll be presented ...">
 
   <link rel="canonical" href="https://v4py.github.io//basics.html">
   <link rel="alternate" type="application/rss+xml" title="An Introduction to Python for Linguists" href="https://v4py.github.io//feed.xml">
@@ -14,7 +14,7 @@
   <meta property="og:url"         content="https://v4py.github.io//basics.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="A tour of Python and NLTK" />
-<meta property="og:description" content="        A tour of Python and NLTK    Python notebooks: your fancy new calculator Python notebooks are kind of like a calculator, just a lot more fancythan yo..." />
+<meta property="og:description" content="        A tour of Python and NLTK    The most important piece of programming advice you'll ever get&#8482; Over the course of this book, you'll be presented ..." />
 <meta property="og:image"       content="https://v4py.github.io/images/v4py_logo_wide.svg" />
 
 <meta name="twitter:card" content="summary">
@@ -26,9 +26,9 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://v4py.github.io//basics.html",
   "headline": "A tour of Python and NLTK",
-  "datePublished": "2020-03-31T10:56:50+02:00",
-  "dateModified": "2020-03-31T10:56:50+02:00",
-  "description": "        A tour of Python and NLTK    Python notebooks: your fancy new calculator Python notebooks are kind of like a calculator, just a lot more fancythan yo...",
+  "datePublished": "2020-03-31T17:44:37+02:00",
+  "dateModified": "2020-03-31T17:44:37+02:00",
+  "description": "        A tour of Python and NLTK    The most important piece of programming advice you'll ever get&#8482; Over the course of this book, you'll be presented ...",
   "author": {
     "@type": "Person",
     "name": "David Lukeš, Rudolf Rosa"
@@ -874,6 +874,44 @@ initFunction(initPrint)
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="The-most-important-piece-of-programming-advice-you'll-ever-get&#8482;">The most important piece of programming advice you'll ever get&#8482;<a class="anchor-link" href="#The-most-important-piece-of-programming-advice-you'll-ever-get&#8482;"> </a></h1><p>Over the course of this book, you'll be presented with a lot of
+information. Like, <em>a lot</em>. It makes no sense trying to memorize all of
+it on your first pass. No one expects you to. With programming as with
+anything else, practice makes perfect -- as you keep using Python, the
+parts you use often enough will gradually enter your muscle memory. The
+parts that you don't, you'll have to look up as needed. I do that
+constantly when I write code that uses other people's libraries that I
+don't use every day.</p>
+<p>Luckily, there's this thing called the internet, where you can search
+for information using this thing called search engines, and these search
+engines are pretty smart nowadays, so you can basically ask them "how do
+I do X in Python" and they'll probably come up with links to reasonable
+answers, because until you reach an intermediate to advanced level, you
+can be pretty sure you're not the first person on the internet to have
+that question. To help you make sense of the results that you're likely
+to get, here's an overview of the domains that frequently appear in there:</p>
+<ul>
+<li><a href="https://stackoverflow.com/">https://stackoverflow.com/</a>, and subdomains of
+<a href="https://stackexchange.com/">https://stackexchange.com/</a>: in the programming community, these are
+leading sites offering information in a user-generated question/answer
+format. If you have a question, it's probably already been asked and
+answered there, maybe even multiple times. If it hasn't, go ask it!</li>
+<li><a href="https://docs.python.org/">https://docs.python.org/</a>: Python's official documentation, including
+the many modules included in the standard library</li>
+<li>subdomains of <a href="https://readthedocs.io/">https://readthedocs.io/</a>: documentation for additional
+packages, created by people all over the world; however, larger
+projects often host documentation on their own domain, e.g.
+<a href="https://pandas.pydata.org/">https://pandas.pydata.org/</a></li>
+<li><a href="https://github.com">https://github.com</a>: this is a site many people use to collaborate on
+developing software projects in the open (cf. <a href="https://en.wikipedia.org/wiki/Open_source">open
+source</a>). If you encounter
+weird behavior in a library, and that library's community uses GitHub
+for development, it's a good idea to check that library's <a href="https://github.com/nltk/nltk/issues">issue
+tracker</a> to see whether that
+behavior might be a known
+<a href="https://en.wikipedia.org/wiki/Software_bug">bug</a>, and if not,
+consider reporting it yourself.</li>
+</ul>
 <h1 id="Python-notebooks:-your-fancy-new-calculator">Python notebooks: your fancy new calculator<a class="anchor-link" href="#Python-notebooks:-your-fancy-new-calculator"> </a></h1><p>Python notebooks are kind of like a calculator, just a lot more fancy
 than your typical calculator. But otherwise, they should feel pretty
 familiar -- you type some stuff in, press a button, Python thinks for a
@@ -1029,10 +1067,20 @@ which is often signaled by distinctive <strong>syntax highlighting</strong>.</p>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>(TODO: if more extensive comments → dedicated Markdown cells, use menu
-above to switch Cell from Code)</p>
+<p>If you'd like to write more extensive prose commentary, consider using
+<strong>Markdown</strong> cells. In JupyterLab, use the notebook's top toolbar to
+switch the cell type from <em>Code</em> to <em>Markdown</em>. Markdown is a
+lightweight markup language which allows you to add formatting such as
+<em>italics</em> and <strong>bold</strong>, <a href="https://www.markdowntutorial.com/">hyperlinks</a>
+and other features, but you don't have to worry about that, you can
+mostly just write regular text and it'll probably render just fine. If
+you'd like to learn more about Markdown features, you can always
+double-click on cells like this one in JupyterLab to see their source
+code, because they're written in Markdown, or try <a href="https://www.markdowntutorial.com/">this interactive
+tutorial</a>. But let's focus on Python
+right now.</p>
 <p>The <code>*</code> operator is used for multiplication, <code>/</code> for division, <code>//</code> for
-truncating division and <code>**</code> for exponentiation.</p>
+truncating division, <code>%</code> for modulo and <code>**</code> for exponentiation.</p>
 
 </div>
 </div>
@@ -1114,7 +1162,9 @@ truncating division and <code>**</code> for exponentiation.</p>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="mi">4</span> <span class="o">//</span> <span class="mi">3</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># &quot;truncating&quot; division means it&#39;ll chop off the part of the number</span>
+<span class="c1"># after the decimal point</span>
+<span class="mi">4</span> <span class="o">//</span> <span class="mi">3</span>
 </pre></div>
 
     </div>
@@ -1177,6 +1227,42 @@ truncating division and <code>**</code> for exponentiation.</p>
 
 <div class="jb_cell">
 
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># modulo wraps counting around a certain number, so you can use it e.g.</span>
+<span class="c1"># for converting 24h clock hours to 12h clock hours</span>
+<span class="mi">16</span> <span class="o">%</span> <span class="mi">12</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>4</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>A decimal point, <code>.</code>, is used to separate the whole number part from the
@@ -1225,7 +1311,6 @@ fractional part of a number.</p>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>But enough about numbers! ... strings</p>
 <p>At this point, if you're following along interactively in JupyterLab,
 you're probably sick and tired of reaching for your mouse to press ▶ all
 the time. JupyterLab has many handy keyboard shortcuts which I'll let
@@ -1237,26 +1322,13 @@ them out:</p>
 <li><code>Shift+Enter</code>: evaluate and switch to next (existing) cell</li>
 <li><code>Ctrl+Enter</code>: evaluate and stay at current cell</li>
 </ul>
-<h1 id="Importing">Importing<a class="anchor-link" href="#Importing"> </a></h1>
-</div>
-</div>
-</div>
-</div>
+<h1 id="Text-as-strings-of-characters">Text as strings of characters<a class="anchor-link" href="#Text-as-strings-of-characters"> </a></h1><p>But enough about numbers! We're linguist, so let's look at how we can
+represent text. The most basic way of representing text in Python is as
+one long <strong>string</strong> of characters. Strings can be created using quotes,
+both single and double work fine.</p>
 
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
-</pre></div>
-
-    </div>
 </div>
 </div>
-
 </div>
 </div>
 
@@ -1267,7 +1339,7 @@ them out:</p>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">json</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">&quot;Hello, world!&quot;</span>
 </pre></div>
 
     </div>
@@ -1283,7 +1355,7 @@ them out:</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;module &#39;json&#39; from &#39;/Users/david/.local/pyenv/versions/3.7.6/lib/python3.7/json/__init__.py&#39;&gt;</pre>
+<pre>&#39;Hello, world!&#39;</pre>
 </div>
 
 </div>
@@ -1301,7 +1373,7 @@ them out:</p>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">json</span><span class="o">.</span><span class="n">loads</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="s1">&#39;Hello, world!&#39;</span>
 </pre></div>
 
     </div>
@@ -1317,7 +1389,7 @@ them out:</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;function json.loads(s, *, encoding=None, cls=None, object_hook=None, parse_float=None, parse_int=None, parse_constant=None, object_pairs_hook=None, **kw)&gt;</pre>
+<pre>&#39;Hello, world!&#39;</pre>
 </div>
 
 </div>
@@ -1335,24 +1407,7 @@ them out:</p>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">json</span> <span class="kn">import</span> <span class="n">loads</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">loads</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">&quot;It&#39;s me, world!&quot;</span>
 </pre></div>
 
     </div>
@@ -1368,7 +1423,7 @@ them out:</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;function json.loads(s, *, encoding=None, cls=None, object_hook=None, parse_float=None, parse_int=None, parse_constant=None, object_pairs_hook=None, **kw)&gt;</pre>
+<pre>&#34;It&#39;s me, world!&#34;</pre>
 </div>
 
 </div>
@@ -1381,18 +1436,75 @@ them out:</p>
 
 <div class="jb_cell">
 
-<div class="cell border-box-sizing code_cell rendered">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Though you can't just put a single quote inside a single-quote-delimited
+string because, well, Python would think that's where the string ends.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_raises-exception">
+
+<div class="cell border-box-sizing code_cell rendered tag_raises-exception">
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">builtins</span> <span class="kn">import</span> <span class="nb">set</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="s1">&#39;It&#39;</span><span class="n">s</span> <span class="n">me</span><span class="p">,</span> <span class="n">world</span><span class="o">!</span><span class="err">&#39;</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-13-35a5e408130e&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-red-fg">    &#39;It&#39;s me, world!&#39;</span>
+        ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What Python spits out in this case is an <strong>error traceback</strong>, telling
+you that something went wrong. Python usually gives extremely helpful
+error messages that help you diagnose what went wrong, where the error
+occurred and how you got there, so it's well worth spending time reading
+them and learning to decipher them (it's not that hard, it just takes
+practice). The one exception to this is when Python can't even parse
+your program as valid Python code. In that case, the best it can do is
+tell you where it got stuck, <strong>raise</strong> a <code>SyntaxError</code>, and leave you to
+figure out what the problem is and how to fix it on your own. Which is
+what happened here.</p>
+<p>The easiest workaround when you want your string to contain one kind of
+quote is to use the other kind of quote to delimit it, like we did in
+the second-to-last code cell. Sometimes however, you want <em>both</em> kinds
+of quotes. In that case, you can use the backslash character <code>\</code> to
+<strong>escape</strong> the special, string-terminating meaning of a quote, and make
+it into a regular character which is part of the string.</p>
+
+</div>
+</div>
 </div>
 </div>
 
@@ -1403,58 +1515,7 @@ them out:</p>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">json</span> <span class="kn">import</span> <span class="o">*</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">json</span> <span class="k">as</span> <span class="nn">js</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">js</span><span class="o">.</span><span class="n">loads</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">It&#39;s me, world!</span><span class="se">\&quot;</span><span class="s2"> she said.&quot;</span>
 </pre></div>
 
     </div>
@@ -1470,7 +1531,7 @@ them out:</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;function json.loads(s, *, encoding=None, cls=None, object_hook=None, parse_float=None, parse_int=None, parse_constant=None, object_pairs_hook=None, **kw)&gt;</pre>
+<pre>&#39;&#34;It\&#39;s me, world!&#34; she said.&#39;</pre>
 </div>
 
 </div>
@@ -1478,6 +1539,2037 @@ them out:</p>
 </div>
 </div>
 
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Escaping means canceling the default meaning of a character or character
+sequence and using an alternative one. In a double-quoted string, <code>"</code>
+normally means "end the string here", but a preceding <code>\</code> changes that
+to "just insert a double quote at this point in the string". <strong>Escape
+sequences</strong> exist to help you put characters in your strings which you
+just can't put there literally, or which are hard to type on your
+keyboard. For instance, you can't just put a <strong>newline</strong> character
+inside a string:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_raises-exception">
+
+<div class="cell border-box-sizing code_cell rendered tag_raises-exception">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">&quot;one line</span>
+<span class="n">another</span> <span class="n">line</span><span class="s2">&quot;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-15-e510aeeec6dd&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
+<span class="ansi-red-fg">    &#34;one line</span>
+             ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> EOL while scanning string literal
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Grr, another <code>SyntaxError</code>. What you <em>can</em> do is use the <code>\n</code> escape
+sequence to represent that newline, without having an actual newline in
+your source code and triggering that <code>SyntaxError</code>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">&quot;one line</span><span class="se">\n</span><span class="s2">another line&quot;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;one line\nanother line&#39;</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>How do you know that <code>\n</code> is really a newline if the string still just
+shows <code>\n</code>? When you evaluate a string, Python shows you its canonical
+representation which you could put back in your code. This means you get
+a good idea of what the string contains -- the newline is otherwise a sort
+of phantom character, as is most <strong>whitespace</strong>, but you can actually
+<em>see</em> it here -- but it's not very pretty nor readable. If you want to
+get a rendered version of your string, as it would appear in a text
+file, you need to use the <code>print()</code> function.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;one line</span><span class="se">\n</span><span class="s2">another line&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>one line
+another line
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Ah, much better. At least for reading. For inspecting the contents of
+strings, the default behavior is in fact very useful.</p>
+<p>There are various other <a href="https://docs.python.org/3/reference/lexical_analysis.html#string-and-bytes-literals">escape
+sequences</a>
+you can use in Python strings, another handy and commonly encountered
+one is <code>\t</code> for the tab character:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;one</span><span class="se">\t</span><span class="s2">two</span><span class="se">\n</span><span class="s2">three</span><span class="se">\t</span><span class="s2">four&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>one	two
+three	four
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And less commonly seen but pretty neat as well is <code>\N{...}</code>, for
+inserting characters based on their <a href="unicode">Unicode</a> names:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">&quot;</span><span class="se">\N{see-no-evil monkey}</span><span class="s2">&quot;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;🙈&#39;</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If you want to type a longer piece of text into a Python string though,
+that newline escape thing can become really annoying -- who wants to
+type several paragraphs as one long line interspersed with <code>\n</code>s?
+Fear not, <strong>triple-quoted</strong> strings to the rescue:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;one line</span>
+<span class="sd">another line&quot;&quot;&quot;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;one line\nanother line&#39;</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;one line</span>
+<span class="s1">another line&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>one line
+another line
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Inside a triple-quoted or <strong>multiline</strong> string, you can put anything you
+like, including actual newlines... except of course a sequence of three
+quotes of the same type that you're using to delimit the string. In that
+case, you need to escape at least some of them with that backslash
+again.</p>
+<p>All these various ways of creating strings are called string
+<strong>literals</strong>. A literal is a dedicated syntax for creating one type of
+data. In the previous section, we saw how to write down number literals
+in Python -- the representation was so straightforward that we didn't
+even think it needed a special term like 'literal' to describe it.
+Python has a few more core, built-in data structures which have
+dedicated literal syntax; we'll encounter them below.</p>
+<h1 id="Objects-and-variables">Objects and variables<a class="anchor-link" href="#Objects-and-variables"> </a></h1><p>Writing Python code consists of interacting with and manipulating
+various <strong>objects</strong>. Object is a generic term for anything you can
+inspect by putting it inside a code cell and evaluating that cell. So
+far, we've seen numbers, strings and one <strong>function</strong> (that's right,
+functions are objects too).</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;function print&gt;</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If you know you'll be using an object repeatedly, it's a good idea to
+store it in a <strong>variable</strong> using the <strong>assignment operator</strong>, <code>=</code>. That
+way, you don't have to keep writing its literal over and over. The
+variable name is entirely up to you, though there are some
+<a href="https://docs.python.org/3/reference/lexical_analysis.html#identifiers">rules</a>
+you must abide by; for instance, you can't use spaces, so these are
+often replaced with <strong>underscores</strong> <code>_</code>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;one</span><span class="se">\t</span><span class="s2">two</span><span class="se">\n</span><span class="s2">three</span><span class="se">\t</span><span class="s2">four&quot;</span>
+<span class="n">string</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;one\ttwo\nthree\tfour&#39;</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Anywhere you want to use that object, you can then refer to it using the
+name of the variable that points to it.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>one	two
+three	four
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Multiple names can refer to the same object.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">another_name</span> <span class="o">=</span> <span class="n">string</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">another_name</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>one	two
+three	four
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Whether two names refer to the same object or not can be checked using
+the <code>is</code> operator.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">string</span> <span class="ow">is</span> <span class="n">another_name</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>True</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">string</span> <span class="ow">is</span> <span class="nb">print</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>False</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">string2</span> <span class="o">=</span> <span class="s2">&quot;one</span><span class="se">\t</span><span class="s2">two</span><span class="se">\n</span><span class="s2">three</span><span class="se">\t</span><span class="s2">four&quot;</span>
+<span class="c1"># NOTE: when not in the notebook environment, Python will usually be</span>
+<span class="c1"># smart enough to figure out that string and string2 contain the same</span>
+<span class="c1"># characters, it will store just one copy of the string to save</span>
+<span class="c1"># memory and point both variables at it; in that case, the expression</span>
+<span class="c1"># below will evaluate to True</span>
+<span class="n">string</span> <span class="ow">is</span> <span class="n">string2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>False</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When two objects are not the same, they might still be <strong>equal</strong>, in
+that they <em>look</em> the same, they have the same contents. You can check
+for that using the <strong>equality operator</strong>, <code>==</code>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">string</span> <span class="o">==</span> <span class="n">string2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>True</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A quick way to remember that using a real-world analogy: for twins, <code>is</code>
+would be false, since they're two different people, but <code>==</code> would be
+true, since they look the same.</p>
+<p>The <code>==</code> is also a good opportunity to check that numbers and strings
+really are two completely different things in Python:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="mi">42</span> <span class="o">==</span> <span class="s2">&quot;42&quot;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>False</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Attributes:-objects-on-objects-(on-objects...)">Attributes: objects on objects (on objects...)<a class="anchor-link" href="#Attributes:-objects-on-objects-(on-objects...)"> </a></h1><p>Only rarely is an object <a href="https://web.cs.dal.ca/~johnston/poetry/island.html">an island entire of
+itself</a>, most
+objects have other objects attached to them as <strong>attributes</strong>, and these
+in turn have attributes of their own, etc. We saw that the period
+character <code>.</code> is used as the decimal separator in number literals. The
+other, probably more important use of <code>.</code> in Python is for accessing
+those attributes.</p>
+<p>Say for instance that we have a <a href="https://en.wikipedia.org/wiki/Complex_number">complex
+number</a>, which consists of
+two parts, a <em>real</em> and an <em>imaginary</em> one. This is the literal syntax
+for complex numbers in Python:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="n">j</span>
+<span class="n">c</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(1+2j)</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's not worry about what complex numbers are good for right now, we're
+interested in attributes. Complex numbers store their real and imaginary
+parts as <code>.real</code> and <code>.imag</code> attributes, respectively.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">real</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>1.0</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">imag</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2.0</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Methods">Methods<a class="anchor-link" href="#Methods"> </a></h2><p>Functions are regular objects and as such, they can also be attached to
+other objects as attributes, as little snippets of dynamic behavior
+which do something interesting with the parent object, instead of just
+storing static data. Functions attached to an object as attributes are
+more commonly referred to as that object's <strong>methods</strong>, but they're
+basically just functions. For instance, inspect the the <code>print()</code>
+function we already saw above, and compare it with the <code>.conjugate()</code>
+method.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;function print&gt;</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">conjugate</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;function complex.conjugate&gt;</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Unlike regular data though, functions are generally not meant to be
+inspected, they're meant to be <strong>called</strong> using function call syntax,
+i.e. by appending <code>()</code> to the function name. Calling a function triggers
+its behavior, it runs the piece of code that's associated with it. For
+instance, the <code>print()</code> function prints objects to the screen, as we saw
+previously. The <code>.conjugate()</code> method computes the complex number's
+<a href="https://en.wikipedia.org/wiki/Complex_number#Conjugate">conjugate</a>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">conjugate</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(1-2j)</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell tag_popout">
+
+<div class="cell border-box-sizing text_cell rendered tag_popout"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Tab completion can actually complete more than just attributes, it also
+covers variable names (just start typing the beginning and press <code>Tab</code>),
+and filesystem paths inside strings.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's drop complex numbers as the running example and come back to
+strings -- they have a much greater variety of interesting methods we
+can explore. If you're running this notebook interactively inside
+JupyterLab, a great feature which helps you do so is <strong>tab completion</strong>.
+If you type a variable name + <code>.</code> and hit the <code>Tab</code> key, a menu should
+come up with all the attributes available on the object. Try it!</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># type string. and press Tab on your keyboard</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell tag_hide_input tag_output_scroll">
+
+<div class="cell border-box-sizing code_cell rendered tag_hide_input tag_output_scroll">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># NOTE: this is a hack to show the tab completion list in the static</span>
+<span class="c1"># version of the book</span>
+<span class="p">[</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">string</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">a</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;capitalize&#39;,
+ &#39;casefold&#39;,
+ &#39;center&#39;,
+ &#39;count&#39;,
+ &#39;encode&#39;,
+ &#39;endswith&#39;,
+ &#39;expandtabs&#39;,
+ &#39;find&#39;,
+ &#39;format&#39;,
+ &#39;format_map&#39;,
+ &#39;index&#39;,
+ &#39;isalnum&#39;,
+ &#39;isalpha&#39;,
+ &#39;isascii&#39;,
+ &#39;isdecimal&#39;,
+ &#39;isdigit&#39;,
+ &#39;isidentifier&#39;,
+ &#39;islower&#39;,
+ &#39;isnumeric&#39;,
+ &#39;isprintable&#39;,
+ &#39;isspace&#39;,
+ &#39;istitle&#39;,
+ &#39;isupper&#39;,
+ &#39;join&#39;,
+ &#39;ljust&#39;,
+ &#39;lower&#39;,
+ &#39;lstrip&#39;,
+ &#39;maketrans&#39;,
+ &#39;partition&#39;,
+ &#39;replace&#39;,
+ &#39;rfind&#39;,
+ &#39;rindex&#39;,
+ &#39;rjust&#39;,
+ &#39;rpartition&#39;,
+ &#39;rsplit&#39;,
+ &#39;rstrip&#39;,
+ &#39;split&#39;,
+ &#39;splitlines&#39;,
+ &#39;startswith&#39;,
+ &#39;strip&#39;,
+ &#39;swapcase&#39;,
+ &#39;title&#39;,
+ &#39;translate&#39;,
+ &#39;upper&#39;,
+ &#39;zfill&#39;]</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can see there's quite a lot going on in there. There's a whole lot
+of methods starting with the prefix <code>is*</code>, which are there to answer
+some questions you might have about the contents of your strings.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">&quot;cat&quot;</span><span class="o">.</span><span class="n">islower</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>True</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">&quot;DOG&quot;</span><span class="o">.</span><span class="n">isupper</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>True</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">&quot;Frank&quot;</span><span class="o">.</span><span class="n">istitle</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>True</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">&quot;42&quot;</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>True</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If you'd like to learn more about an object, you can use JupyterLab's
+<strong>interactive help feature</strong>. Type a question mark <code>?</code> before the name
+of the object you're interested in, evaluate the cell, and detailed
+information about that object will be shown. For instance, if we're
+interested in what the <code>.isprintable()</code> method does:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">?</span>string.isprintable
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell tag_hide_input tag_output_scroll">
+
+<div class="cell border-box-sizing code_cell rendered tag_hide_input tag_output_scroll">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># NOTE: and this is a hack to show interactive help outputs in the</span>
+<span class="c1"># static version of the book</span>
+<span class="k">def</span> <span class="nf">print_help</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">inspector</span><span class="o">.</span><span class="n">_get_info</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)[</span><span class="s2">&quot;text/plain&quot;</span><span class="p">])</span>
+
+<span class="n">print_help</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">isprintable</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-red-fg">Signature:</span> <span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-red-fg">Docstring:</span>
+Return True if the string is printable, False otherwise.
+
+A string is printable if all of its characters are considered printable in
+repr() or if it is empty.
+<span class="ansi-red-fg">Type:</span>      builtin_function_or_method
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell tag_popout">
+
+<div class="cell border-box-sizing text_cell rendered tag_popout"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To be completely accurate, the question mark interactive help feature,
+as well as some other extensions to Python syntax we'll come across, are
+implemented by the <a href="https://ipython.org/">IPython</a> library, which
+JupyterLab notebooks use to communicate with Python. If you ever end up
+using Python at the <a href="https://en.wikipedia.org/wiki/Command-line_interface">command
+line</a>, then these
+features are also available inside the IPython
+<a href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">REPL</a>,
+which you can start with the <code>ipython</code> command (if installed).</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>The question mark is not regular Python syntax</strong>, it only works inside
+notebooks and is intended to make interactive exploration easier. Stock
+Python also has a built-in <code>help()</code> function which does something
+similar, but it displays less information. If you want even more
+details, you can insist by typing two question marks <code>??</code> instead of
+one:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">??</span>string.isprintable
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell tag_hide_input tag_output_scroll">
+
+<div class="cell border-box-sizing code_cell rendered tag_hide_input tag_output_scroll">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">print_help</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">isprintable</span><span class="p">,</span> <span class="n">detail_level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-red-fg">Signature:</span> <span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-red-fg">Docstring:</span>
+Return True if the string is printable, False otherwise.
+
+A string is printable if all of its characters are considered printable in
+repr() or if it is empty.
+<span class="ansi-red-fg">Type:</span>      builtin_function_or_method
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For convenience, the question mark(s) can also go behind the object
+you're taking a peek at.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span>string.isprintable<span class="o">?</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And another way to trigger interactive help is by pressing <code>Shift-Tab</code>
+while your typing cursor is inside an object's name. A floating window
+will pop up with the help contents inside. This is useful for quick
+checks, because you don't even have to evaluate the cell.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_hide_input tag_output_scroll">
+
+<div class="cell border-box-sizing code_cell rendered tag_hide_input tag_output_scroll">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">print_help</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">isprintable</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-red-fg">Signature:</span> <span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-red-fg">Docstring:</span>
+Return True if the string is printable, False otherwise.
+
+A string is printable if all of its characters are considered printable in
+repr() or if it is empty.
+<span class="ansi-red-fg">Type:</span>      builtin_function_or_method
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There are also several methods which allow you to create new strings
+with some of the characters changed.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># convert to upper case</span>
+<span class="s2">&quot;klein&quot;</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;KLEIN&#39;</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># convert to lower case</span>
+<span class="s2">&quot;GROß&quot;</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;groß&#39;</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># convert to lower case in an even more aggressive way, which is usually</span>
+<span class="c1"># the safer option if you really want to make sure all case distinctions</span>
+<span class="c1"># are ignored</span>
+<span class="s2">&quot;GROß&quot;</span><span class="o">.</span><span class="n">casefold</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;gross&#39;</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">&quot;pride and prejudice&quot;</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;Pride and prejudice&#39;</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">&quot;pride and prejudice&quot;</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;Pride And Prejudice&#39;</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># remove leading and trailing whitespace</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">                       floating in space</span>
+
+<span class="sd">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;floating in space&#39;</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Some of these methods even require additional arguments to do their
+work. For instance, if you want to <code>.replace()</code> part(s) of the string
+with something else, you need to tell Python what to replace with what.
+Arguments are written out between the parentheses doing the function
+call, and if you can't remember what they are or what order they come
+in, that's precisely what interactive help is there for!</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">&quot;I love cats and categories.&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;dog&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;I love dogs and dogegories.&#39;</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Note that <strong>none of these methods modify the original string</strong>, they
+just use it to derive what the new string should look like.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">animal</span> <span class="o">=</span> <span class="s2">&quot;cat&quot;</span>
+<span class="n">animal</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;CAT&#39;</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">animal</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;cat&#39;</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This is because strings (and numbers) in Python are <strong>immutable</strong> -- you
+can't change them in place. You can create new strings and re-assign
+them to old variable names, but the old strings will always stay the way
+they were at the beginning.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create a string and give it two names</span>
+<span class="n">name1</span> <span class="o">=</span> <span class="s2">&quot;string&quot;</span>
+<span class="n">name2</span> <span class="o">=</span> <span class="n">name1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create a new string which is an uppercase version of the original</span>
+<span class="c1"># string, and re-assign it to the name2 variable</span>
+<span class="n">name2</span> <span class="o">=</span> <span class="n">name2</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="n">name2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;STRING&#39;</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># but the old string is still there, undisturbed</span>
+<span class="n">name1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;string&#39;</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We'll talk more about immutability in the next section about
+<strong>collections</strong>, because unlike strings and numbers, some Python objects
+<em>can</em> actually be modified in place.</p>
+<p>Using tab completion and interactive help (<code>?</code> or <code>Shift-Tab</code>), I
+encourage you to familiarize yourself with the methods on string
+objects, or indeed on any new object type that you come across and
+intend to use, so that you know what's available and get a picture of
+what you can use the object for. No need to go through them
+exhaustively, just skim the list, read the descriptions of some of the
+methods that sound particularly useful, leave those that sound confusing
+for later (or never).</p>
+<!-- vim: set spell spelllang=en: -->
+</div>
+</div>
 </div>
 </div>
 

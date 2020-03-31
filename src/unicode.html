@@ -26,8 +26,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://v4py.github.io//src/unicode.html",
   "headline": "Text inside the computer",
-  "datePublished": "2020-03-31T10:56:50+02:00",
-  "dateModified": "2020-03-31T10:56:50+02:00",
+  "datePublished": "2020-03-31T17:44:37+02:00",
+  "dateModified": "2020-03-31T17:44:37+02:00",
   "description": "# Text inside the computer# Why should I care?Even though as linguists, we may think we know everything about text,definitely more than programmers, thank yo...",
   "author": {
     "@type": "Person",
@@ -1379,61 +1379,73 @@ and there's room to accommodate many more.
 2**16
 </code></pre></div></div>
 
-<p>Now, the most straightforward representation for $2^{16}$ codepoints is
-what? Well, it’s simply using 16 bits per character, i.e. 2 bytes. That
-encoding exists, it’s called <code class="language-plaintext highlighter-rouge">UTF-16</code> (“UTF” stands for “Unicode
-Transformation Format”), but consider the drawbacks:</p>
+<p>Here’s just a small sample of the treasure trove of codepoints that is
+Unicode.</p>
 
-<ul>
-  <li>we’ve lost <code class="language-plaintext highlighter-rouge">ASCII</code> compatibility by the simple fact of using 2 bytes
-per character instead of 1 (encoding “a” as <code class="language-plaintext highlighter-rouge">01100001</code> or
-<code class="language-plaintext highlighter-rouge">00000000|01100001</code>, with the <code class="language-plaintext highlighter-rouge">|</code> indicating an imaginary boundary
-between bytes, is not the same thing)</li>
-  <li>encoding a string in a language which is mostly written down using
-basic letters of the Latin alphabet now takes up twice as much space
-(which is probably not a good idea, given the general dominance of
-English in electronic communication)</li>
-</ul>
+<p>```python tags=[“output_scroll”]
+from unicodedata import name</p>
 
-<p>Looks like we’ll have to think outside the box. The box in question here
-is fixed-width encodings – all of the real-world encoding schemes we’ve
+<p>print(“\N{HORIZONTAL ELLIPSIS}”)
+for sample in (range(0x16a0, 0x16f1), range(0x1f600, 0x1f645)):
+    for cp in sample:
+        char = chr(cp)
+        print(f”U+{cp:x}\t{char}\t{name(char)}”)
+    print(“\N{HORIZONTAL ELLIPSIS}”)</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+Now, the most straightforward representation for $2^{16}$ codepoints is
+what? Well, it's simply using 16 bits per character, i.e. 2 bytes. That
+encoding exists, it's called `UTF-16` ("UTF" stands for "Unicode
+Transformation Format"), but consider the drawbacks:
+
+- we've lost `ASCII` compatibility by the simple fact of using 2 bytes
+  per character instead of 1 (encoding "a" as `01100001` or
+  `00000000|01100001`, with the `|` indicating an imaginary boundary
+  between bytes, is not the same thing)
+- encoding a string in a language which is mostly written down using
+  basic letters of the Latin alphabet now takes up twice as much space
+  (which is probably not a good idea, given the general dominance of
+  English in electronic communication)
+
+Looks like we'll have to think outside the box. The box in question here
+is fixed-width encodings -- all of the real-world encoding schemes we've
 encountered so far were fixed-width, meaning that each character was
 represented by either 7, 8 or 16 bits. In other words, you could jump
 around the string in multiples of 7, 8 or 16 and always land at the
-beginning of a character. (Not exactly true for <code class="language-plaintext highlighter-rouge">UTF-16</code>, because it is
-something more than just a “16-bit <code class="language-plaintext highlighter-rouge">ASCII</code>”: it has ways of handling
-characters beyond $2^{16}$ using so-called <a href="https://en.wikipedia.org/wiki/UTF-16#U.2B10000_to_U.2B10FFFF">surrogate
-sequences</a>
-– but you get the gist.)</p>
+beginning of a character. (Not exactly true for `UTF-16`, because it is
+something more than just a "16-bit `ASCII`": it has ways of handling
+characters beyond $2^{16}$ using so-called [surrogate
+sequences](https://en.wikipedia.org/wiki/UTF-16#U.2B10000_to_U.2B10FFFF)
+-- but you get the gist.)
 
-<p>The smart idea that some bright people have come up with was to use a
-variable-width encoding, specifically one that doesn’t suck, unlike our
-<code class="language-plaintext highlighter-rouge">encoding2</code>. The most ubiquitous one currently is <strong><code class="language-plaintext highlighter-rouge">UTF-8</code></strong>, which
-we’ve already met in the HTML example above. <code class="language-plaintext highlighter-rouge">UTF-8</code> <em>is</em>
-<code class="language-plaintext highlighter-rouge">ASCII</code>-compatible, i.e. the 1’s and 0’s used to encode text containing
-only <code class="language-plaintext highlighter-rouge">ASCII</code> characters are the same regardless of whether you use
-<code class="language-plaintext highlighter-rouge">ASCII</code> or <code class="language-plaintext highlighter-rouge">UTF-8</code>: it’s a sequence of 8-bit bytes. But <code class="language-plaintext highlighter-rouge">UTF-8</code> can also
+The smart idea that some bright people have come up with was to use a
+variable-width encoding, specifically one that doesn't suck, unlike our
+`encoding2`. The most ubiquitous one currently is **`UTF-8`**, which
+we've already met in the HTML example above. `UTF-8` *is*
+`ASCII`-compatible, i.e. the 1's and 0's used to encode text containing
+only `ASCII` characters are the same regardless of whether you use
+`ASCII` or `UTF-8`: it's a sequence of 8-bit bytes. But `UTF-8` can also
 handle many more additional characters, as defined by the Unicode
-standard, by using progressively longer and longer sequences of bits.</p>
+standard, by using progressively longer and longer sequences of bits.
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">print_utf8_bytes</span><span class="p">(</span><span class="n">char</span><span class="p">):</span>
-    <span class="s">"""Prints binary representation of character as encoded by UTF-8.
+```python
+def print_utf8_bytes(char):
+    """Prints binary representation of character as encoded by UTF-8.
 
-    """</span>
-    <span class="c1"># encode the string as UTF-8 and iterate over the bytes;
-</span>    <span class="c1"># iterating over a sequence of bytes yields integers in the
-</span>    <span class="c1"># range [0; 256); the formatting directive "{:08b}" does two
-</span>    <span class="c1"># things:
-</span>    <span class="c1">#   - "b" prints the integer in its binary representation
-</span>    <span class="c1">#   - "08" left-pads the binary representation with 0's to a total
-</span>    <span class="c1">#     width of 8, which is the width of a byte
-</span>    <span class="n">binary_bytes</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="s">"{byte:08b}"</span> <span class="k">for</span> <span class="n">byte</span> <span class="ow">in</span> <span class="n">char</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">"utf8"</span><span class="p">)]</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">"{char!r} encoded in UTF-8 is: {binary_bytes}"</span><span class="p">)</span>
+    """
+    # encode the string as UTF-8 and iterate over the bytes;
+    # iterating over a sequence of bytes yields integers in the
+    # range [0; 256); the formatting directive "{:08b}" does two
+    # things:
+    #   - "b" prints the integer in its binary representation
+    #   - "08" left-pads the binary representation with 0's to a total
+    #     width of 8, which is the width of a byte
+    binary_bytes = [f"{byte:08b}" for byte in char.encode("utf8")]
+    print(f"{char!r} encoded in UTF-8 is: {binary_bytes}")
 
-<span class="n">print_utf8_bytes</span><span class="p">(</span><span class="s">"A"</span><span class="p">)</span>   <span class="c1"># the representations...
-</span><span class="n">print_utf8_bytes</span><span class="p">(</span><span class="s">"č"</span><span class="p">)</span>   <span class="c1"># ... keep...
-</span><span class="n">print_utf8_bytes</span><span class="p">(</span><span class="s">"字"</span><span class="p">)</span>  <span class="c1"># ... getting longer.
-</span></code></pre></div></div>
+print_utf8_bytes("A")   # the representations...
+print_utf8_bytes("č")   # ... keep...
+print_utf8_bytes("字")  # ... getting longer.
+</code></pre></div></div>
 
 <p>How does that even work? The obvious problem here is that with a
 fixed-width encoding, you just chop up the string at regular intervals
