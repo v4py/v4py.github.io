@@ -26,8 +26,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://v4py.github.io//intro.html",
   "headline": "Introduction",
-  "datePublished": "2020-03-30T17:57:31+02:00",
-  "dateModified": "2020-03-30T17:57:31+02:00",
+  "datePublished": "2020-03-31T09:25:11+02:00",
+  "dateModified": "2020-03-31T09:25:11+02:00",
   "description": "        Introduction    Acknowledgments: The authors are grateful to VisegradFund grant nr. 21820079 "TrainingDigital Scholars: Knowledge Exchange between V4...",
   "author": {
     "@type": "Person",
@@ -1106,7 +1106,8 @@ would be absolutely invaluable!</p>
 
 <div class="cell border-box-sizing text_cell rendered tag_popout"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="https://www.python.org/static/community_logos/python-logo-generic.svg" alt="Python logo"></p>
+<p><img alt="Python logo" style="width: 100%;"
+  src="https://www.python.org/static/community_logos/python-logo-generic.svg"></p>
 
 </div>
 </div>
@@ -1769,7 +1770,7 @@ attribute, which extracts only the text parts of a web page.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#39;holars: Knowledge Exchange between V4 and Austria&#34;&#39;</pre>
+<pre>&#39;le under the terms of the CC BY-NC-SA 4.0 license.&#39;</pre>
 </div>
 
 </div>
@@ -1959,7 +1960,7 @@ the number of characters using the <code>len()</code> <strong>function</strong>.
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(34056, 30727, 17700)</pre>
+<pre>(43952, 40513, 26507)</pre>
 </div>
 
 </div>
@@ -2027,21 +2028,21 @@ do a sanity check by inspecting a slice of it.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&#39;,&#39;,
- &#39;xkcd&#39;,
- &#39;,&#39;,
- &#39;https&#39;,
- &#39;:&#39;,
- &#39;//xkcd.com/353/&#39;,
- &#39;gvr&#39;,
- &#39;,&#39;,
- &#39;the&#39;,
- &#39;making&#39;,
- &#39;of&#39;,
- &#39;python&#39;,
+<pre>[&#39;two&#39;,
+ &#39;tend&#39;,
+ &#39;to&#39;,
+ &#39;dominate&#39;,
  &#39;:&#39;,
  &#39;a&#39;,
- &#39;teaching&#39;]</pre>
+ &#39;fear&#39;,
+ &#39;that&#39;,
+ &#39;it&#39;,
+ &#39;might&#39;,
+ &#39;be&#39;,
+ &#39;too&#39;,
+ &#39;late&#39;,
+ &#39;to&#39;,
+ &#39;start&#39;]</pre>
 </div>
 
 </div>
@@ -2094,7 +2095,7 @@ and thus get the number of tokens using the <code>len()</code> function.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>3574</pre>
+<pre>5296</pre>
 </div>
 
 </div>
@@ -2287,7 +2288,7 @@ parts depending on whether a condition <strong>evaluates</strong> to true or fal
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>1495</pre>
+<pre>2244</pre>
 </div>
 
 </div>
@@ -2379,7 +2380,7 @@ user-defined types.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>FreqDist({&#39;python&#39;: 25, &#39;code&#39;: 21, &#39;like&#39;: 17, &#39;page&#39;: 17, &#39;get&#39;: 16, &#39;using&#39;: 15, &#39;text&#39;: 14, &#39;function&#39;: 12, &#39;one&#39;: 11, &#39;html&#39;: 11, ...})</pre>
+<pre>FreqDist({&#39;python&#39;: 41, &#39;code&#39;: 26, &#39;programming&#39;: 23, &#39;get&#39;: 23, &#39;like&#39;: 23, &#39;using&#39;: 17, &#39;page&#39;: 17, &#39;might&#39;: 16, &#39;language&#39;: 15, &#39;one&#39;: 15, ...})</pre>
 </div>
 
 </div>
@@ -2425,7 +2426,7 @@ requesting them using the corresponding <strong>key</strong>.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>25</pre>
+<pre>41</pre>
 </div>
 
 </div>
@@ -2470,16 +2471,16 @@ requesting them using the corresponding <strong>key</strong>.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[(&#39;python&#39;, 25),
- (&#39;code&#39;, 21),
- (&#39;like&#39;, 17),
+<pre>[(&#39;python&#39;, 41),
+ (&#39;code&#39;, 26),
+ (&#39;programming&#39;, 23),
+ (&#39;get&#39;, 23),
+ (&#39;like&#39;, 23),
+ (&#39;using&#39;, 17),
  (&#39;page&#39;, 17),
- (&#39;get&#39;, 16),
- (&#39;using&#39;, 15),
- (&#39;text&#39;, 14),
- (&#39;function&#39;, 12),
- (&#39;one&#39;, 11),
- (&#39;html&#39;, 11)]</pre>
+ (&#39;might&#39;, 16),
+ (&#39;language&#39;, 15),
+ (&#39;one&#39;, 15)]</pre>
 </div>
 
 </div>
@@ -2541,7 +2542,7 @@ and intuitive overview of these important words.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;wordcloud.wordcloud.WordCloud at 0x7f0d846d3d50&gt;</pre>
+<pre>&lt;wordcloud.wordcloud.WordCloud at 0x11de69c10&gt;</pre>
 </div>
 
 </div>
@@ -2651,7 +2652,7 @@ book, for comparison.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;wordcloud.wordcloud.WordCloud at 0x7f0d81880d10&gt;</pre>
+<pre>&lt;wordcloud.wordcloud.WordCloud at 0x11edc0850&gt;</pre>
 </div>
 
 </div>
@@ -2714,7 +2715,7 @@ Science</em></a>.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;wordcloud.wordcloud.WordCloud at 0x7f0d8152d290&gt;</pre>
+<pre>&lt;wordcloud.wordcloud.WordCloud at 0x11f41c210&gt;</pre>
 </div>
 
 </div>
