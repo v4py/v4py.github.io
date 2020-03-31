@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
   <title>A tour of Python and NLTK</title>
-  <meta name="description" content="# A tour of Python and NLTK# The most important piece of programming advice you'll ever get™Over the course of this book, you'll be presented with a lot ofin...">
+  <meta name="description" content="# A tour of Python and NLTK```python tags=["remove_cell"]# Download NLTK resources. Remove code from START_NLTK_TMP to# END_NLTK_TMP to store them in a perma...">
 
   <link rel="canonical" href="https://v4py.github.io//src/basics.html">
   <link rel="alternate" type="application/rss+xml" title="An Introduction to Python for Linguists" href="https://v4py.github.io//feed.xml">
@@ -14,7 +14,7 @@
   <meta property="og:url"         content="https://v4py.github.io//src/basics.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="A tour of Python and NLTK" />
-<meta property="og:description" content="# A tour of Python and NLTK# The most important piece of programming advice you'll ever get™Over the course of this book, you'll be presented with a lot ofin..." />
+<meta property="og:description" content="# A tour of Python and NLTK```python tags=["remove_cell"]# Download NLTK resources. Remove code from START_NLTK_TMP to# END_NLTK_TMP to store them in a perma..." />
 <meta property="og:image"       content="https://v4py.github.io/images/v4py_logo_wide.svg" />
 
 <meta name="twitter:card" content="summary">
@@ -26,9 +26,9 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://v4py.github.io//src/basics.html",
   "headline": "A tour of Python and NLTK",
-  "datePublished": "2020-03-31T17:44:37+02:00",
-  "dateModified": "2020-03-31T17:44:37+02:00",
-  "description": "# A tour of Python and NLTK# The most important piece of programming advice you'll ever get™Over the course of this book, you'll be presented with a lot ofin...",
+  "datePublished": "2020-04-01T00:51:03+02:00",
+  "dateModified": "2020-04-01T00:51:03+02:00",
+  "description": "# A tour of Python and NLTK```python tags=["remove_cell"]# Download NLTK resources. Remove code from START_NLTK_TMP to# END_NLTK_TMP to store them in a perma...",
   "author": {
     "@type": "Person",
     "name": "David Lukeš, Rudolf Rosa"
@@ -845,62 +845,90 @@ initFunction(initPrint)
             <div class="c-textbook__content" id="textbook_content">
               <h1 id="a-tour-of-python-and-nltk">A tour of Python and NLTK</h1>
 
-<h1 id="the-most-important-piece-of-programming-advice-youll-ever-get">The most important piece of programming advice you’ll ever get™</h1>
+<p>```python tags=[“remove_cell”]</p>
+<h1 id="download-nltk-resources-remove-code-from-start_nltk_tmp-to">Download NLTK resources. Remove code from START_NLTK_TMP to</h1>
+<h1 id="end_nltk_tmp-to-store-them-in-a-permanent-location-instead-of-a">END_NLTK_TMP to store them in a permanent location instead of a</h1>
+<h1 id="temporary-directory">temporary directory.</h1>
+<h1 id="-start_nltk_tmp-">————————— START_NLTK_TMP —————————</h1>
+<p>import os
+import tempfile</p>
 
-<p>Over the course of this book, you’ll be presented with a lot of
-information. Like, <em>a lot</em>. It makes no sense trying to memorize all of
+<p>nltk_data = os.path.join(tempfile.gettempdir(), “v4py”, “nltk_data”)
+os.makedirs(nltk_data, exist_ok=True)
+os.environ[“NLTK_DATA”] = nltk_data</p>
+<h1 id="--end_nltk_tmp--">—————————- END_NLTK_TMP —————————-</h1>
+
+<p>import nltk</p>
+
+<p>nltk.download(“punkt”)</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+# The most important piece of programming advice you'll ever get™
+
+Over the course of this book, you'll be presented with a lot of
+information. Like, *a lot*. It makes no sense trying to memorize all of
 it on your first pass. No one expects you to. With programming as with
-anything else, practice makes perfect – as you keep using Python, the
+anything else, practice makes perfect -- as you keep using Python, the
 parts you use often enough will gradually enter your muscle memory. The
-parts that you don’t, you’ll have to look up as needed. I do that
-constantly when I write code that uses other people’s libraries that I
-don’t use every day.</p>
+parts that you don't, you'll have to look up as needed. I do that
+constantly when I write code that uses other people's libraries that I
+don't use every day.
 
-<p>Luckily, there’s this thing called the internet, where you can search
+Luckily, there's this thing called the internet, where you can search
 for information using this thing called search engines, and these search
-engines are pretty smart nowadays, so you can basically ask them “how do
-I do X in Python” and they’ll probably come up with links to reasonable
+engines are pretty smart nowadays, so you can basically ask them "how do
+I do X in Python" and they'll probably come up with links to reasonable
 answers, because until you reach an intermediate to advanced level, you
-can be pretty sure you’re not the first person on the internet to have
-that question. To help you make sense of the results that you’re likely
-to get, here’s an overview of the domains that frequently appear in there:</p>
+can be pretty sure you're not the first person on the internet to have
+that question. To help you make sense of the results that you're likely
+to get, here's an overview of the domains that frequently appear in there:
 
-<ul>
-  <li><a href="https://stackoverflow.com/">https://stackoverflow.com/</a>, and subdomains of
-<a href="https://stackexchange.com/">https://stackexchange.com/</a>: in the programming community, these are
-leading sites offering information in a user-generated question/answer
-format. If you have a question, it’s probably already been asked and
-answered there, maybe even multiple times. If it hasn’t, go ask it!</li>
-  <li><a href="https://docs.python.org/">https://docs.python.org/</a>: Python’s official documentation, including
-the many modules included in the standard library</li>
-  <li>subdomains of <a href="https://readthedocs.io/">https://readthedocs.io/</a>: documentation for additional
-packages, created by people all over the world; however, larger
-projects often host documentation on their own domain, e.g.
-<a href="https://pandas.pydata.org/">https://pandas.pydata.org/</a></li>
-  <li><a href="https://github.com">https://github.com</a>: this is a site many people use to collaborate on
-developing software projects in the open (cf. <a href="https://en.wikipedia.org/wiki/Open_source">open
-source</a>). If you encounter
-weird behavior in a library, and that library’s community uses GitHub
-for development, it’s a good idea to check that library’s <a href="https://github.com/nltk/nltk/issues">issue
-tracker</a> to see whether that
-behavior might be a known
-<a href="https://en.wikipedia.org/wiki/Software_bug">bug</a>, and if not,
-consider reporting it yourself.</li>
-</ul>
+- &lt;https://stackoverflow.com/&gt;, and subdomains of
+  &lt;https://stackexchange.com/&gt;: in the programming community, these are
+  leading sites offering information in a user-generated question/answer
+  format. If you have a question, it's probably already been asked and
+  answered there, maybe even multiple times. If it hasn't, go ask it!
+- &lt;https://docs.python.org/&gt;: Python's official documentation, including
+  the many modules included in the standard library
+- subdomains of &lt;https://readthedocs.io/&gt;: documentation for additional
+  packages, created by people all over the world; however, larger
+  projects often host documentation on their own domain, e.g.
+  &lt;https://pandas.pydata.org/&gt;
+- &lt;https://github.com&gt;: this is a site many people use to collaborate on
+  developing software projects in the open (cf. [open
+  source](https://en.wikipedia.org/wiki/Open_source)). If you encounter
+  weird behavior in a library, and that library's community uses GitHub
+  for development, it's a good idea to check that library's [issue
+  tracker](https://github.com/nltk/nltk/issues) to see whether that
+  behavior might be a known
+  [bug](https://en.wikipedia.org/wiki/Software_bug), and if not,
+  consider reporting it yourself.
 
-<h1 id="python-notebooks-your-fancy-new-calculator">Python notebooks: your fancy new calculator</h1>
+# How to use this chapter
 
-<p>Python notebooks are kind of like a calculator, just a lot more fancy
+Don't try to memorize all the information contained in here by heart
+before moving on to the rest of the book. The purpose of this chapter is
+to familiarize you with basic words and concepts used throughout the
+book, so that when you run across them, you know where to look them up.
+That's why they're all in one place. There's also quite a lot of them,
+and truly mastering them will get you quite far along your Python
+programming career, so that's not the goal right now. The goal is to get
+acquainted, possibly skip ahead if you get bored, and definitely skip
+back for a refresher whenever things stop making sense.
+
+# Python notebooks: your fancy new calculator
+
+Python notebooks are kind of like a calculator, just a lot more fancy
 than your typical calculator. But otherwise, they should feel pretty
-familiar – you type some stuff in, press a button, Python thinks for a
-while and spits back an answer.</p>
+familiar -- you type some stuff in, press a button, Python thinks for a
+while and spits back an answer.
 
-<p>The place where you type stuff is called a <strong>cell</strong>, and <strong>running</strong> a
-cell with the play button (▶) makes Python <strong>evaluate the code</strong> you
-typed in, i.e. your <strong>program</strong>. A very simple Python program could
-consist of just one number:</p>
+The place where you type stuff is called a **cell**, and **running** a
+cell with the play button (▶) makes Python **evaluate the code** you
+typed in, i.e. your **program**. A very simple Python program could
+consist of just one number:
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span>
+```python
+1
 </code></pre></div></div>
 
 <p>And Python’s answer is, unsuprisingly, the same as a calculator’s answer
@@ -1412,6 +1440,516 @@ what you can use the object for. No need to go through them
 exhaustively, just skim the list, read the descriptions of some of the
 methods that sound particularly useful, leave those that sound confusing
 for later (or never).</p>
+
+<h1 id="collections">Collections</h1>
+
+<p><strong>Collections</strong> or <strong>containers</strong> are objects intended to contain other
+objects, so that you can conveniently manipulate them together. We saw
+above that almost all Python objects in some sense “contain” other
+objects via their attributes, but those attributes are somehow
+intimately tied to how any given object works. The whole point of
+collections is that they (mostly) don’t care what you put into them or
+what you take out; they’ll just happily keep an eye on it for you and
+allow you to juggle and re-arrange the items in clever and succinct
+ways.</p>
+
+<p>To motivate the need for collections, imagine that you want to store the
+individual tokens in a sentence, “Let it be.”. Without collections, you
+would have to use separate variables:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">string1</span> <span class="o">=</span> <span class="s">"Let"</span>
+<span class="n">string2</span> <span class="o">=</span> <span class="s">"it"</span>
+<span class="n">string3</span> <span class="o">=</span> <span class="s">"be"</span>
+<span class="n">string4</span> <span class="o">=</span> <span class="s">"."</span>
+</code></pre></div></div>
+
+<p>This gets really tedious really quickly. Instead, you can use a Python
+list:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">strings</span> <span class="o">=</span> <span class="p">[</span><span class="s">"Let"</span><span class="p">,</span> <span class="s">"it"</span><span class="p">,</span> <span class="s">"be"</span><span class="p">,</span> <span class="s">"."</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>Much better!</p>
+
+<h2 id="collection-literals">Collection literals</h2>
+
+<p>We’ll start getting acquainted with Python’s builtin collections by
+learning about their literals, i.e. the special syntax used to create
+them. We’ll cover lists, tuples, dictionaries and sets. We’ve previously
+covered strings, which can also be seen as collections. The string
+<code class="language-plaintext highlighter-rouge">"abc"</code> is a collection of characters, or more accurately, a collection
+of three strings of length 1: <code class="language-plaintext highlighter-rouge">"a"</code>, <code class="language-plaintext highlighter-rouge">"b"</code> and <code class="language-plaintext highlighter-rouge">"c"</code>.</p>
+
+<p>We’ve already met <strong>lists</strong>. In general, Python really doesn’t care what
+kinds of objects you store in your collections, it’s entirely up to you,
+so you can mix and match at will.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s">"two"</span><span class="p">,</span> <span class="k">print</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>Lists are great for storing tokenized text:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="s">"Help"</span><span class="p">,</span> <span class="s">"!"</span><span class="p">,</span> <span class="s">"I"</span><span class="p">,</span> <span class="s">"need"</span><span class="p">,</span> <span class="s">"somebody"</span><span class="p">,</span> <span class="s">","</span><span class="p">,</span> <span class="s">"help"</span><span class="p">,</span> <span class="s">"!"</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>This is how you create an empty list:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[]</span>
+</code></pre></div></div>
+
+<p>Closely related to lists are <strong>tuples</strong> (we’ll discuss the differences
+below).</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">"two"</span><span class="p">,</span> <span class="k">print</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>In many cases, the parentheses are actually optional. You’ll probably
+see me using tuples when I want to output multiple objects from a code
+cell, because Python only uses the last expression in the cell as its
+output value.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span>
+<span class="s">"two"</span>
+<span class="k">print</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span><span class="p">,</span> <span class="s">"two"</span><span class="p">,</span> <span class="k">print</span>
+</code></pre></div></div>
+
+<p>Whenever you see commas without any parentheses around them, it’s a
+tuple. You’ll learn over time when it’s safe to omit them, but until
+then, it might be a good idea to play it safe and always use them. This
+means “take the number 1, the result of the comparison 2 &lt; 3, and the
+number 4, and create a 3-tuple out of them”:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span>
+</code></pre></div></div>
+
+<p>Whereas this says, “create a 2-tuple <code class="language-plaintext highlighter-rouge">(1, 2)</code> and a 2-tuple <code class="language-plaintext highlighter-rouge">(3, 4)</code> and
+<em>only then</em> do a comparison of the resulting tuples”:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>As you can see, the parentheses work in the same way as in math, as a
+precedence operator: they say “first create the tuples and then do the
+rest”, much as $(4 + 3) * 2$ says “first do the addition, then the
+multiplication”, overriding the default $4 + 3 * 2$ which goes the other
+way round. One place they’re never optional though is when creating an
+empty tuple.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Moving on, we have <strong>dictionaries</strong>. Dictionaries are different in that
+their purpose is not to store only values, but <strong>key–value pairs</strong>. We
+say that they <strong>map</strong> keys to values, kind of like real-world
+dictionaries map words in one language to another.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s">"cat"</span><span class="p">:</span> <span class="s">"chat"</span><span class="p">,</span> <span class="s">"dog"</span><span class="p">:</span> <span class="s">"chien"</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>A constraint on dictionaries is that the <strong>keys must be unique</strong>. If you
+provide multiple values per key, only the last one will be retained.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s">"odd"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">"even"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">"odd"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">"even"</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s">"odd"</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>If you need multiple values per key, well… Just store a collection as
+the value instead!</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s">"odd"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="s">"even"</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]}</span>
+</code></pre></div></div>
+
+<p>And this is how you create an empty dictionary:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{}</span>
+</code></pre></div></div>
+
+<p>It may not seem like it at first glance, but dictionaries are an
+extremely powerful and versatile data structure, and they’re the
+backbone upon which Python is built – they’re used everywhere.</p>
+
+<p><strong>Sets</strong> have a literal syntax which somewhat resembles that of
+dictionaries: it also uses curly braces <code class="language-plaintext highlighter-rouge">{}</code>, but no colons <code class="language-plaintext highlighter-rouge">:</code>, because
+sets again store just values, not key–value pairs. But they do require
+that their values be unique and throw away any duplicates, so there is a
+conceptual similarity with dictionaries which motivates that syntactic
+similarity.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>This deduplication behavior makes sets great for deriving vocabularies
+of unique words.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s">"the"</span><span class="p">,</span> <span class="s">"cat"</span><span class="p">,</span> <span class="s">"sat"</span><span class="p">,</span> <span class="s">"on"</span><span class="p">,</span> <span class="s">"the"</span><span class="p">,</span> <span class="s">"mat"</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>Since <code class="language-plaintext highlighter-rouge">{}</code> is already taken to mean empty dictionary, empty set literals
+actually look like a function call:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">set</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>This is a somewhat ugly inconsistency in a language that otherwise tries
+hard to be consistent, but oh well, what can you do.</p>
+
+<h2 id="len-number-of-items-in-collection"><code class="language-plaintext highlighter-rouge">len()</code>: number of items in collection</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">len()</code> function works on <strong>all</strong> collections. It tells you how many
+elements a collection has.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">len</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">len</span><span class="p">(</span><span class="s">"Norwegian Wood"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>In the case of dictionaries, it counts the number of key–value pairs.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">len</span><span class="p">({</span><span class="s">"cat"</span><span class="p">:</span> <span class="s">"chat"</span><span class="p">,</span> <span class="s">"dog"</span><span class="p">:</span> <span class="s">"chien"</span><span class="p">})</span>
+</code></pre></div></div>
+
+<h2 id="in-checking-collection-membership"><code class="language-plaintext highlighter-rouge">in</code>: checking collection membership</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">in</code> operator also works on <strong>all</strong> collections. It tells you
+whether the collection contains a given element.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"one"</span> <span class="ow">in</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>For dictionaries, it tests against keys, not values.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"cat"</span> <span class="ow">in</span> <span class="p">{</span><span class="s">"cat"</span><span class="p">:</span> <span class="s">"chat"</span><span class="p">,</span> <span class="s">"dog"</span><span class="p">:</span> <span class="s">"chien"</span><span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"chat"</span> <span class="ow">in</span> <span class="p">{</span><span class="s">"cat"</span><span class="p">:</span> <span class="s">"chat"</span><span class="p">,</span> <span class="s">"dog"</span><span class="p">:</span> <span class="s">"chien"</span><span class="p">}</span>
+</code></pre></div></div>
+
+<!-- TODO: in set vs in list -->
+
+<h2 id="-retrieving-and-modifying-collection-elements"><code class="language-plaintext highlighter-rouge">[...]</code>: retrieving and modifying collection elements</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">lst</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">lst</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">lst</span>
+</code></pre></div></div>
+
+<!-- TODO: zero-indexed -->
+<!-- TODO: nesting and retrieving nested values -->
+<!-- TODO: immutable? -->
+<!-- TODO: more on slices -->
+
+<p>For sequences, i.e. collections which naturally preserve order – lists,
+tuples and strings – you can also extract slices.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">string</span> <span class="o">=</span> <span class="s">"Can't buy me love"</span>
+<span class="n">string</span><span class="p">[</span><span class="mi">13</span><span class="p">:]</span>
+</code></pre></div></div>
+
+<h2 id="del-removing-collection-elements"><code class="language-plaintext highlighter-rouge">del</code>: removing collection elements</h2>
+
+<!-- TODO: immutable? -->
+
+<p>The <code class="language-plaintext highlighter-rouge">del</code> operator can remove elements from collections that you point
+at with the <code class="language-plaintext highlighter-rouge">[...]</code> operator.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="k">del</span> <span class="n">lst</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">lst</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dct</span> <span class="o">=</span> <span class="p">{</span><span class="s">"one"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">"two"</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="k">del</span> <span class="n">dct</span><span class="p">[</span><span class="s">"one"</span><span class="p">]</span>
+<span class="n">dct</span>
+</code></pre></div></div>
+
+<p>It also works for variables.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># create a variable
+</span><span class="n">num</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">num</span>
+</code></pre></div></div>
+
+<p>```python tags=[“raises-exception”]</p>
+<h1 id="poof-its-gone">poof! it’s gone</h1>
+<p>del num
+num</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+## Functions for converting between collections
+
+If you want to convert between the different types of collections, you
+can mostly use built-in functions named after the target collection. For
+instance, if you want to turn a set into a list:
+
+```python
+list({1, 2, 3, 1, 2, 3})
+</code></pre></div></div>
+
+<p>Or a list into a tuple:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tuple</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>Or a tuple into a set:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">set</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>With dictionaries, it’s slightly more complicated, as they don’t contain
+only values, but key–value pairs. When converting from a dictionary,
+you thus have to decide whether you want just the keys (the default, but
+you can also request it explicitly with the <code class="language-plaintext highlighter-rouge">.keys()</code> method), just the
+values, or key–value pairs – so-called <code class="language-plaintext highlighter-rouge">.items()</code>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">en2fr</span> <span class="o">=</span> <span class="p">{</span><span class="s">"cat"</span><span class="p">:</span> <span class="s">"chat"</span><span class="p">,</span> <span class="s">"dog"</span><span class="p">:</span> <span class="s">"chien"</span><span class="p">}</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">en2fr</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">list</span><span class="p">(</span><span class="n">en2fr</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tuple</span><span class="p">(</span><span class="n">en2fr</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">set</span><span class="p">(</span><span class="n">en2fr</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+</code></pre></div></div>
+
+<p>Conversely, when converting <em>to</em> a dictionary, you have to provide a
+collection which can be interpreted as containing <em>both</em> keys and
+values, otherwise you can’t really build a dictionary out of it. One
+possible option is a list of 2-tuples.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">dict</span><span class="p">([(</span><span class="s">"a"</span><span class="p">,</span> <span class="s">"b"</span><span class="p">),</span> <span class="p">(</span><span class="s">"c"</span><span class="p">,</span> <span class="s">"d"</span><span class="p">)])</span>
+</code></pre></div></div>
+
+<p>But it’s definitely not the only one. Try to understand and describe
+what’s going on in the next cell!</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">dict</span><span class="p">([</span><span class="s">"ab"</span><span class="p">,</span> <span class="s">"cd"</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">dict</code> function also allows you to create a fresh dictionary in a
+way that may be slightly easier to type, with fewer curly braces and
+quotes, if your keys are strings which also happen to be valid
+<strong>identifiers</strong> (i.e., they could be used as variable names).</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">dict</span><span class="p">(</span><span class="n">cat</span><span class="o">=</span><span class="s">"chat"</span><span class="p">,</span> <span class="n">dog</span><span class="o">=</span><span class="s">"chien"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Strings are kind of the odd one out in this company because the <code class="language-plaintext highlighter-rouge">str</code>
+function doesn’t convert another collection to a string, at least not in
+the same sense the other functions we’ve seen work. It returns a
+<strong>string representation</strong> of the collection, intended to suggest how you
+could create such a collection using literal syntax.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">str</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">str</span><span class="p">(</span><span class="n">en2fr</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>In the other direction, the other collection functions split strings at
+character boundaries.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">list</span><span class="p">(</span><span class="s">"abracadabra"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">set</span><span class="p">(</span><span class="s">"abracadabra"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>If you want to split anywhere else, you’ll have to use the <code class="language-plaintext highlighter-rouge">.split()</code>
+method on strings. By default, it splits on whitespace, any amount and
+any kind of it.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"  foo</span><span class="se">\n</span><span class="s">bar  </span><span class="se">\n</span><span class="s"> baz   qux  "</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>But you can also tell it explicitly what string to use as a delimiter,
+and in that case, it’ll follow your orders to the letter.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"  foo</span><span class="se">\n</span><span class="s">bar  </span><span class="se">\n</span><span class="s"> baz   qux  "</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Even creating empty strings if two designated delimiters immediately
+adjoin each other.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"  foo</span><span class="se">\n</span><span class="s">bar  </span><span class="se">\n</span><span class="s"> baz   qux  "</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>The delimiter can consist of multiple characters.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"the cat sat on the mat"</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">"at"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="further-exploration">Further exploration</h2>
+
+<p>The character, specificities and possible use cases of each collection
+type are further revealed by the methods they expose. We’ll point them
+out as we encounter them in practice throughout the rest of the book,
+but if you’re curious, I encourage you to play around with the
+individual collections and explore their abilities via the previously
+described tab completion + interactive help approach.</p>
+
+<h1 id="importing-additional-libraries">Importing additional libraries</h1>
+
+<p>We’re about to dive into the magical world of conditionals and
+for-loops, but to make it more interesting, I thought we’d throw in some
+data and tools provided by the <a href="https://www.nltk.org/">NLTK</a> (which
+stands for <em>Natural Language Toolkit</em>) library. In order to do that
+however, we need to know how to import it, so bear with me for this
+short interlude.</p>
+
+<p>In every Python session, some core functions and data types are
+available by default – everything we’ve seen so far is part of these
+so-called built-ins. In and of themselves, they’re already amazingly
+useful and allow you to do lots of stuff, but if everyone always had to
+start from these basic building blocks, programming would be repetitive
+and tedious. That’s why people build reusable pieces of code that can be
+<strong>imported</strong> into Python to extend its functionality. These are called
+libraries or packages or modules. Strictly speaking, each of these terms
+means slightly different things, but informally, they can be used
+interchangeably.</p>
+
+<p>Import syntax in Python is simple and intuitive; it has a few basic
+variations which we’ll presently go through.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">nltk</span>
+</code></pre></div></div>
+
+<p>This imports the <code class="language-plaintext highlighter-rouge">nltk</code> module and creates an <code class="language-plaintext highlighter-rouge">nltk</code> variable which you
+can use to access the objects inside the module via attribute syntax.
+For instance, the <code class="language-plaintext highlighter-rouge">word_tokenize()</code> function splits text into words, or
+technically, tokens.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="s">"Let it be."</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Notice how by default, Python tries to keep your objects and imported
+objects in separate <strong>namespaces</strong>, so that they don’t collide. If you
+happen to have previously defined a <code class="language-plaintext highlighter-rouge">word_tokenize()</code> function of your
+own, importing the <code class="language-plaintext highlighter-rouge">nltk</code> module won’t clobber it, because <code class="language-plaintext highlighter-rouge">nltk</code>’s
+<code class="language-plaintext highlighter-rouge">word_tokenize()</code> function is kept tucked away in the <code class="language-plaintext highlighter-rouge">nltk</code> namespace.</p>
+
+<p>Of course, it may be the case that you actually have a previously
+created object named <code class="language-plaintext highlighter-rouge">nltk</code> that you don’t want to clobber. If so, then
+you can use renaming imports to pick the namespace yourself.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">nltk</span> <span class="k">as</span> <span class="n">ling</span>
+</code></pre></div></div>
+
+<p>This imports the <code class="language-plaintext highlighter-rouge">nltk</code> module, but stores it in the variable /
+namespace <code class="language-plaintext highlighter-rouge">ling</code> instead of <code class="language-plaintext highlighter-rouge">nltk</code>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ling</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="s">"Dig a pony."</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>If you know you’re going to be using a specific object a lot and you
+don’t want to go to the trouble of typing the namespace prefix <code class="language-plaintext highlighter-rouge">nltk.</code>
+over and over again, then you can specifically request that it be
+added to your own namespace with the following syntax (notice that it’s
+customary to separate imports from regular code by at least one empty
+line):</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
+
+<span class="n">word_tokenize</span><span class="p">(</span><span class="s">"Two of us wearing raincoats."</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>And of course, you can combine this with renaming if necessary.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">word_tokenize</span> <span class="k">as</span> <span class="n">tokenize</span>
+
+<span class="n">tokenize</span><span class="p">(</span><span class="s">"I, me, mine."</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>By the way, if you ever accidentally overwrite a built-in function with
+another object, this is how you can restore it, by importing it from the
+<code class="language-plaintext highlighter-rouge">builtins</code> module.</p>
+
+<p>```python tags=[“raises-exception”, “scroll_output”]</p>
+<h1 id="oops">oops</h1>
+<p>len = 5
+len(“five”)</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+```python
+# problem solved
+from builtins import len
+
+len("five")
+</code></pre></div></div>
+
+<p>You can perform multiple imports per line by separating the different
+things to import with a comma.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">nltk</span><span class="p">,</span> <span class="n">builtins</span>
+<span class="kn">from</span> <span class="nn">builtins</span> <span class="kn">import</span> <span class="nb">len</span><span class="p">,</span> <span class="nb">set</span>
+</code></pre></div></div>
+
+<p>If you want to import all objects defined in a module under the names
+given to them in that module, you can use star import syntax.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">builtins</span> <span class="kn">import</span> <span class="o">*</span>
+</code></pre></div></div>
+
+<p>At first, this might seem convenient and appealing. Those of you who
+know R might be intuitively drawn to this form because this is R’s
+default. Resist the urge. This variant makes it hard to track where
+objects came from, because a lot of names can hide under that <code class="language-plaintext highlighter-rouge">*</code>, not
+to mention if you do this with multiple modules. In time, you’ll grow to
+appreciate Python’s more verbose but cleaner approach to namespaces,
+which makes it much easier to see at a glance where your variables came
+from.</p>
+
+<p>Finally, the Python standard library contains many useful modules (the
+saying goes that Python comes with batteries included), but for many
+tasks, you’re likely to want to install additional packages. This can be
+done in a variety of different of ways, including a <a href="https://docs.anaconda.com/anaconda/navigator/tutorials/manage-packages/">GUI
+manager</a>
+if you’re using the Anaconda Python distribution, but the official
+Python package manager that should always be available is a command-line
+tool called <code class="language-plaintext highlighter-rouge">pip</code>.</p>
+
+<p>This chapter is not about learning to use the command line, so just a
+quick crash course on <code class="language-plaintext highlighter-rouge">pip</code>. First, you need to figure out the name of
+the package you need. That can be done by searching the internet for
+keywords related to the functionality you want + Python, or by directly
+searching the <a href="https://pypi.org/">Python Package Index</a>.</p>
+
+<p>When you have have the name, you need to run the <code class="language-plaintext highlighter-rouge">pip install</code> command
+at the command line. Conveniently, you can do so directly from
+JupyterLab by prefixing it with <code class="language-plaintext highlighter-rouge">!</code> (this is another one of those
+special JupyterLab features which isn’t actually part of Python itself).
+For instance, to instal the <code class="language-plaintext highlighter-rouge">nltk</code> library, you would run the following
+command:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">nltk</span>
+</code></pre></div></div>
+
+<p>If you get some sort of permission denied error, it’s because <code class="language-plaintext highlighter-rouge">pip</code> is
+trying to write into a system-wide library for all users which you don’t
+have write access to. In that case, try running <code class="language-plaintext highlighter-rouge">pip install --user
+nltk</code> instead.</p>
+
+<p>That’s enough about libraries right now. On to control flow!</p>
+
+<!-- # Control flow -->
+
+<!-- # Functions: writing our own -->
+
+<!-- functions at the end, showing that any code can be wrapped for reuse -->
+
+<!-- ## A few useful built-in functions we haven't met yet -->
+
+<!-- built-in functions (type, str, int, float, ...) -->
+<!-- [List of built-in functions](https://docs.python.org/3/library/functions.html) -->
 
 <!-- vim: set spell spelllang=en: -->
 
