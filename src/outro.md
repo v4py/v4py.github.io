@@ -463,10 +463,12 @@ using every single one of those.
 ## Miscellaneous and advanced
 
 - [`pendulum`](https://pendulum.eustace.io/) for easier handling of
-  dates and times than with standard library `datetime` module. (Dates
-  and times across various locales and timezones are actually really
-  tricky to get right, if you ever need to do so, I strongly advise you
-  to use a library like this one to do the heavy lifting for you.)
+  dates and times than with standard library
+  [`datetime`](https://docs.python.org/3/library/datetime.html) module.
+  (Dates and times across various locales and timezones are actually
+  really tricky to get right, if you ever need to do so, I strongly
+  advise you to use a library like this one to do the heavy lifting for
+  you.)
 - if you use the terminal, then [rich](https://rich.readthedocs.io/) can
   help you generate rich terminal output, including colors, tables,
   progress bars, and more
