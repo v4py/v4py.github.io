@@ -26,8 +26,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://v4py.github.io//outro.html",
   "headline": "Parting words",
-  "datePublished": "2020-04-01T17:48:47+02:00",
-  "dateModified": "2020-04-01T17:48:47+02:00",
+  "datePublished": "2020-04-01T21:54:14+02:00",
+  "dateModified": "2020-04-01T21:54:14+02:00",
   "description": "        Parting words    Where to go from here Now that you've made it to the end, perhaps you're wondering where to gofrom here. Programming is perhaps the ...",
   "author": {
     "@type": "Person",
@@ -1620,7 +1620,7 @@ optimized for creating language corpora. Clever and sophisticated, but
 the documentation is on the lighter side, so getting it up and running
 might require some effort.</li>
 </ul>
-<h2 id="Statistics-and-machine-learning">Statistics and machine learning<a class="anchor-link" href="#Statistics-and-machine-learning"> </a></h2><ul>
+<h2 id="Data-analysis,-machine-learning-and-statistics">Data analysis, machine learning and statistics<a class="anchor-link" href="#Data-analysis,-machine-learning-and-statistics"> </a></h2><ul>
 <li><a href="https://pandas.pydata.org/"><code>pandas</code></a> as the workhorse library for
 manipulating tabular data, including some basic analyses and
 visualizations</li>
@@ -1632,8 +1632,26 @@ statistical tests and statistical data exploration. This package is
 still evolving and you're of course still much more likely to find an
 obscure statistical procedure implemented in R than here, but it shows
 great promise.</li>
+<li><a href="https://numpy.org/"><code>numpy</code></a> and
+<a href="https://docs.scipy.org/doc/scipy/reference/tutorial/index.html"><code>scipy</code></a>:
+the foundational libraries most of the Python scientific computing
+ecosystem is built on. Whenever large quantities of numbers are
+manipulated in Python, it tends to be done using <code>numpy</code> objects for
+efficiency, so that's where to look if you encounter such operations
+and find them confusing. <code>scipy</code> adds numerical routines in various
+domains on top of that for convenience, e.g. statistical functions in
+<a href="https://docs.scipy.org/doc/scipy/reference/tutorial/stats.html"><code>scipy.stats</code></a>.
+The documentation of these packages can be hard to navigate, a useful
+starting resource if you have time for a deep dive is
+<a href="https://scipy-lectures.org/">https://scipy-lectures.org/</a>.</li>
 </ul>
 <h2 id="Data-visualization">Data visualization<a class="anchor-link" href="#Data-visualization"> </a></h2><ul>
+<li><a href="https://altair-viz.github.io/"><code>altair</code></a> is a newer library which
+hopefully anticipates the future of data visualization in Python. It
+tries to provide an intuitive declarative API where you just tell
+Python what data you want to visualize, using which visual cues
+(points, lines, colors...), and Python figures out the how to make the
+plot informative and aesthetically pleasing.</li>
 <li><a href="https://matplotlib.org/"><code>matplotlib</code></a>, Python's traditional plotting
 library, battle-tested and versatile (lots of different output
 formats) but fairly low-level -- you often have to tweak plots
@@ -1641,12 +1659,6 @@ manually</li>
 <li><a href="https://seaborn.pydata.org/"><code>seaborn</code></a> builds on top of <code>matplotlib</code>
 by offering more appealing default visual styles and easy high-level
 functions for commonly used plot types</li>
-<li><a href="https://altair-viz.github.io/"><code>altair</code></a> is a newer library which
-hopefully anticipates the future of data visualization in Python. It
-tries to provide an intuitive declarative API where you just tell
-Python what data you want to visualize, using which visual cues
-(points, lines, colors...), and Python figures out the how to make the
-plot informative and aesthetically pleasing.</li>
 </ul>
 <h2 id="Miscellaneous-and-advanced">Miscellaneous and advanced<a class="anchor-link" href="#Miscellaneous-and-advanced"> </a></h2><ul>
 <li><a href="https://pendulum.eustace.io/"><code>pendulum</code></a> for easier handling of
@@ -1680,6 +1692,7 @@ non-trivial domain.</li>
 by <code>requests</code> but provides an asynchronous API using <code>trio</code>, which can
 make your program run faster if you're trying to fetch a lot of
 resources from various different servers</li>
+<li>[<code>poetry</code>]</li>
 </ul>
 <!-- vim: set spell spelllang=en: -->
 </div>
