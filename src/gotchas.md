@@ -356,3 +356,81 @@ sentences
 ```python
 copy
 ```
+
+# Unlike the postman, imports only ever run once
+
+```python
+%%writefile my_module.py
+def add_ten(num):
+    return num + 1
+```
+
+```python
+import my_module
+
+my_module.add_ten(3)
+```
+
+Now you realize you made a mistake and fix it.
+
+```python
+%%writefile my_module.py
+def add_ten(num):
+    return num + 10
+```
+
+```python
+import my_module
+
+my_module.add_ten(3)
+```
+
+Still wrong, modules are only loaded once (explain why).
+
+In JupyterLab (IPython), there's a workaround. Unfortunately, it won't
+work on previously imported modules, so we need to create a new one.
+
+```python
+# cleanup
+%rm my_module.py
+
+%load_ext autoreload
+%autoreload 1
+```
+
+```python
+%%writefile another_module.py
+def add_ten(num):
+    # d'oh, again!
+    return num + 1
+```
+
+```python
+# notice %aimport instead of regular import
+%aimport another_module
+
+another_module.add_ten(3)
+```
+
+```python
+%%writefile another_module.py
+def add_ten(num):
+    return num + 10
+```
+
+```python
+another_module.add_ten(3)
+```
+
+Check out the various usage options by invoking `?%autoreload`. But
+careful, such module reloading is not in general guaranteed to work,
+Python just really doesn't like it. If you run into weird behavior doing
+this, the safe bet is to just restart your Python session (what
+JupyterLab calls the **kernel**).
+
+```python
+# cleanup
+%rm another_module.py
+```
+
+<!-- vim: set spell spelllang=en: -->
