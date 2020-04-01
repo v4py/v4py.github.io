@@ -26,8 +26,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://v4py.github.io//src/outro.html",
   "headline": "Parting words",
-  "datePublished": "2020-04-01T00:51:03+02:00",
-  "dateModified": "2020-04-01T00:51:03+02:00",
+  "datePublished": "2020-04-01T12:32:01+02:00",
+  "dateModified": "2020-04-01T12:32:01+02:00",
   "description": "# Parting words# Where to go from hereNow that you've made it to the end, perhaps you're wondering where to gofrom here. Programming is perhaps the easiest s...",
   "author": {
     "@type": "Person",
@@ -873,16 +873,18 @@ Toolkit</em></a> by Steven Bird, Ewan Klein and
 Edward Loper, and I’m going to recommend it again. It’s a great
 resource, all the more useful since it’s freely available online. It
 doesn’t provide just recipes on how to use the latest and greatest fancy
-stuff in NLP, treating the tools as black boxes, but rather focuses on
-understanding algorithms and concepts and improving your programming
-skills. This means that it often spends time on less cutting-edge
-methods, which are however conceptually simpler and thus have better
-teaching value. Depending on what your immediate needs are, this may be
-a strength or a weakness, but in the long run, I would argue that every
-programming linguist should spend some time honing their programming
-skills instead of always blindly following how-to style recipes, because
-even copy-pasting black box code can go seriously wrong if you don’t
-have a larger picture of what’s going on.</p>
+stuff in
+<a href="https://en.wikipedia.org/wiki/Natural_language_processing">NLP</a>,
+treating the tools as black boxes, but rather focuses on understanding
+algorithms and concepts and improving your programming skills. This
+means that it often spends time on less cutting-edge methods, which are
+however conceptually simpler and thus have better teaching value.
+Depending on what your immediate needs are, this may be a strength or a
+weakness, but in the long run, I would argue that every programming
+linguist should spend some time honing their programming skills instead
+of always blindly following how-to style recipes, because even
+copy-pasting black box code can go seriously wrong if you don’t have a
+larger picture of what’s going on.</p>
 
 <!-- #md tags=["popout"]-->
 <p><a href="https://jakevdp.github.io/PythonDataScienceHandbook/" target="_blank">
@@ -1168,15 +1170,138 @@ the buzzwords <code class="language-plaintext highlighter-rouge">async</code> an
 
 <h1 id="libraries">Libraries</h1>
 
+<p>Finally, let’s take a look at some library recommendations. In Python,
+there are often multiple libraries available to help you do the same
+thing, or that at least partially overlap in the domain they’re trying
+to cover. For a newcomer, it may be sometimes hard to decide which to
+use when they’ve never heard about any of them. The purpose of this
+(admittedly non-exhaustive and biased) list is to familiarize yourself
+with some of the more popular and well-designed ones, so that when they
+come up in your searches, you can lean towards them as a first choice.</p>
+
+<p>Some of these have already come up over the course of the book, some
+haven’t, and some you probably won’t need until you’ve programmed in
+Python for a while, so don’t feel like you immediately need to start
+using every single one of those.</p>
+
+<h2 id="nlp">NLP</h2>
+
 <ul>
-  <li>nltk</li>
-  <li>corpy</li>
-  <li>lxml</li>
-  <li>trio</li>
-  <li>regex (use re docs)</li>
-  <li>matplotlib</li>
-  <li>seaborn</li>
-  <li>pandas</li>
+  <li><a href="https://nltk.org/"><code class="language-plaintext highlighter-rouge">nltk</code></a>: the Natural Language Toolkit offers great
+resources both for learning about NLP and doing it in practice</li>
+  <li><a href="https://spacy.io/"><code class="language-plaintext highlighter-rouge">spacy</code></a> focuses more on applied NLP and offers
+convenient black-box-type APIs for a variety of practical tasks</li>
+  <li><a href="https://pypi.org/project/ufal.morphodita/"><code class="language-plaintext highlighter-rouge">ufal.morphodita</code></a> and
+<a href="https://pypi.org/project/ufal.udpipe/"><code class="language-plaintext highlighter-rouge">ufal.udpipe</code></a> for
+morphological tagging and syntactic parsing. These are automatically
+generated wrappers for the C++ libraries <code class="language-plaintext highlighter-rouge">morphodita</code> and <code class="language-plaintext highlighter-rouge">udpipe</code> and
+as such, they might be somewhat hard to use for beginners, though
+examples are provided. For a more convenient API added on top of these
+more low-level libraries, see the
+<a href="https://corpy.readthedocs.io/"><code class="language-plaintext highlighter-rouge">corpy</code></a> library.</li>
+  <li><a href="https://pypi.org/project/regex/"><code class="language-plaintext highlighter-rouge">regex</code></a> is a regular expression
+library with enhanced Unicode support compared to the standard library
+<code class="language-plaintext highlighter-rouge">re</code> module. The API is the same though, so use <a href="https://docs.python.org/3/library/re.html"><code class="language-plaintext highlighter-rouge">re</code>’s
+documentation</a> to learn how
+to use <code class="language-plaintext highlighter-rouge">regex</code>, and only consult <code class="language-plaintext highlighter-rouge">regex</code>’s documentation to learn
+about additional features.</li>
+  <li>language data sometimes comes in
+<a href="https://en.wikipedia.org/wiki/XML">XML</a> format. Though Python does
+have facilities for <a href="https://docs.python.org/3.8/library/xml.etree.elementtree.html#tutorial">processing XML in the standard
+library</a>,
+the <a href="https://lxml.de/"><code class="language-plaintext highlighter-rouge">lxml</code></a> offers more functionality and
+robustness. The docs are somewhat old-fashioned but the tutorial parts
+(e.g. <a href="https://lxml.de/tutorial.html">here</a>) are well-written. What
+<em>can</em> sometimes be a somewhat painful experience is searching through
+the <a href="https://lxml.de/api/index.html">API reference</a> for specific
+functions or methods – even after years of intermitten use, it still
+feels a bit like a maze to me.</li>
+</ul>
+
+<h2 id="fetching-data-from-the-web">Fetching data from the web</h2>
+
+<ul>
+  <li><a href="https://requests.readthedocs.io/"><code class="language-plaintext highlighter-rouge">requests</code></a> for fetching individual
+web pages and interacting with <a href="rest">REST APIs</a></li>
+  <li><a href="https://requests.readthedocs.io/projects/requests-html/"><code class="language-plaintext highlighter-rouge">requests_html</code></a>
+for fetching individual web pages and slicing and dicing their HTML
+content</li>
+  <li><a href="https://scrapy.org/"><code class="language-plaintext highlighter-rouge">scrapy</code></a> is a flexible, configurable <a href="https://en.wikipedia.org/wiki/Web_crawler">web
+crawler</a>, i.e. a tool which
+can help you fetch large amounts of data from the web without having
+to specify each page manually as with <code class="language-plaintext highlighter-rouge">requests</code></li>
+  <li><a href="http://corpus.tools/wiki/SpiderLing"><code class="language-plaintext highlighter-rouge">spiderling</code></a>, a web crawler
+optimized for creating language corpora. Clever and sophisticated, but
+the documentation is on the lighter side, so getting it up and running
+might require some effort.</li>
+</ul>
+
+<h2 id="statistics-and-machine-learning">Statistics and machine learning</h2>
+
+<ul>
+  <li><a href="https://pandas.pydata.org/"><code class="language-plaintext highlighter-rouge">pandas</code></a> as the workhorse library for
+manipulating tabular data, including some basic analyses and
+visualizations</li>
+  <li><a href="https://scikit-learn.org/"><code class="language-plaintext highlighter-rouge">scikit-learn</code></a> for training and applying
+machine learning models through a beautiful, unified API, and also
+<a href="https://youtu.be/HC0J_SPm9co">learning about machine learning</a></li>
+  <li><a href="https://www.statsmodels.org/"><code class="language-plaintext highlighter-rouge">statsmodels</code></a> for conducting
+statistical tests and statistical data exploration. This package is
+still evolving and you’re of course still much more likely to find an
+obscure statistical procedure implemented in R than here, but it shows
+great promise.</li>
+</ul>
+
+<h2 id="data-visualization">Data visualization</h2>
+
+<ul>
+  <li><a href="https://matplotlib.org/"><code class="language-plaintext highlighter-rouge">matplotlib</code></a>, Python’s traditional plotting
+library, battle-tested and versatile (lots of different output
+formats) but fairly low-level – you often have to tweak plots
+manually</li>
+  <li><a href="https://seaborn.pydata.org/"><code class="language-plaintext highlighter-rouge">seaborn</code></a> builds on top of <code class="language-plaintext highlighter-rouge">matplotlib</code>
+by offering more appealing default visual styles and easy high-level
+functions for commonly used plot types</li>
+  <li><a href="https://altair-viz.github.io/"><code class="language-plaintext highlighter-rouge">altair</code></a> is a newer library which
+hopefully anticipates the future of data visualization in Python. It
+tries to provide an intuitive declarative API where you just tell
+Python what data you want to visualize, using which visual cues
+(points, lines, colors…), and Python figures out the how to make the
+plot informative and aesthetically pleasing.</li>
+</ul>
+
+<h2 id="miscellaneous-and-advanced">Miscellaneous and advanced</h2>
+
+<ul>
+  <li><a href="https://pendulum.eustace.io/"><code class="language-plaintext highlighter-rouge">pendulum</code></a> for easier handling of
+dates and times than with standard library <code class="language-plaintext highlighter-rouge">datetime</code> module. (Dates
+and times across various locales and timezones are actually really
+tricky to get right, if you ever need to do so, I strongly advise you
+to use a library like this one to do the heavy lifting for you.)</li>
+  <li>if you use the terminal, then <a href="https://rich.readthedocs.io/">rich</a> can
+help you generate rich terminal output, including colors, tables,
+progress bars, and more</li>
+  <li>larger projects often have a battery of
+<a href="https://en.wikipedia.org/wiki/Software_testing">tests</a> which are run
+automatically to make sure that changes don’t break the code. The
+easiest way to add tests to your code is via the standard library
+<a href="https://docs.python.org/3/library/doctest.html"><code class="language-plaintext highlighter-rouge">doctest</code></a> module,
+but if you find yourself needing a more featureful solution, I would
+suggest either <a href="https://docs.pytest.org/"><code class="language-plaintext highlighter-rouge">pytest</code></a>, the current
+incumbent go-to solution in this space, or
+<a href="https://wardpy.com/"><code class="language-plaintext highlighter-rouge">wardpy</code></a>, a challenger which appeared
+relatively recently but shows promise.</li>
+  <li><a href="https://trio.readthedocs.io/"><code class="language-plaintext highlighter-rouge">trio</code></a> for asynchronous programming.
+If you don’t know what that is and you don’t care, that’s perfectly
+fine. If you’re at least a tiny bit curious, the <code class="language-plaintext highlighter-rouge">trio</code> docs will do a
+great job at teaching you – seriously, they’re probably the best
+technical documentation I’ve ever read – and also show you how much
+thought and care goes into designing a polished library in a
+non-trivial domain.</li>
+  <li><a href="https://asks.readthedocs.io/"><code class="language-plaintext highlighter-rouge">asks</code></a> is a library which is inspired
+by <code class="language-plaintext highlighter-rouge">requests</code> but provides an asynchronous API using <code class="language-plaintext highlighter-rouge">trio</code>, which can
+make your program run faster if you’re trying to fetch a lot of
+resources from various different servers</li>
 </ul>
 
 <!-- vim: set spell spelllang=en: -->
