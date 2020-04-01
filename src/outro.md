@@ -382,6 +382,22 @@ haven't, and some you probably won't need until you've programmed in
 Python for a while, so don't feel like you immediately need to start
 using every single one of those.
 
+As a reminder, additional libraries are typically installed using the
+`pip` command line tool, and command line programs can be run from
+within JupyterLab by prefixing them with a `!`. For instance, to install
+the package [`pyrsistent`](https://pyrsistent.readthedocs.io/):
+
+```python tags=["output_scroll"]
+!pip install pyrsistent
+```
+
+Or `!pip install --user pyrsistent` if that fails with some kind of
+permission error. If you've installed Python on your own computer using
+the [Anaconda Distribution](https://www.anaconda.com/distribution/),
+then you can also use the [Anaconda
+Navigator](https://docs.anaconda.com/anaconda/navigator/) GUI or the
+[`conda`](https://docs.conda.io/) command line tool.
+
 ## NLP
 
 - [`nltk`](https://nltk.org/): the Natural Language Toolkit offers great
@@ -430,7 +446,7 @@ using every single one of those.
   the documentation is on the lighter side, so getting it up and running
   might require some effort.
 
-## Statistics and machine learning
+## Data analysis, machine learning and statistics
 
 - [`pandas`](https://pandas.pydata.org/) as the workhorse library for
   manipulating tabular data, including some basic analyses and
@@ -443,9 +459,27 @@ using every single one of those.
   still evolving and you're of course still much more likely to find an
   obscure statistical procedure implemented in R than here, but it shows
   great promise.
+- [`numpy`](https://numpy.org/) and
+  [`scipy`](https://docs.scipy.org/doc/scipy/reference/tutorial/index.html):
+  the foundational libraries most of the Python scientific computing
+  ecosystem is built on. Whenever large quantities of numbers are
+  manipulated in Python, it tends to be done using `numpy` objects for
+  efficiency, so that's where to look if you encounter such operations
+  and find them confusing. `scipy` adds numerical routines in various
+  domains on top of that for convenience, e.g. statistical functions in
+  [`scipy.stats`](https://docs.scipy.org/doc/scipy/reference/tutorial/stats.html).
+  The documentation of these packages can be hard to navigate, a useful
+  starting resource if you have time for a deep dive is
+  <https://scipy-lectures.org/>.
 
 ## Data visualization
 
+- [`altair`](https://altair-viz.github.io/) is a newer library which
+  hopefully anticipates the future of data visualization in Python. It
+  tries to provide an intuitive declarative API where you just tell
+  Python what data you want to visualize, using which visual cues
+  (points, lines, colors...), and Python figures out the how to make the
+  plot informative and aesthetically pleasing.
 - [`matplotlib`](https://matplotlib.org/), Python's traditional plotting
   library, battle-tested and versatile (lots of different output
   formats) but fairly low-level -- you often have to tweak plots
@@ -453,12 +487,6 @@ using every single one of those.
 - [`seaborn`](https://seaborn.pydata.org/) builds on top of `matplotlib`
   by offering more appealing default visual styles and easy high-level
   functions for commonly used plot types
-- [`altair`](https://altair-viz.github.io/) is a newer library which
-  hopefully anticipates the future of data visualization in Python. It
-  tries to provide an intuitive declarative API where you just tell
-  Python what data you want to visualize, using which visual cues
-  (points, lines, colors...), and Python figures out the how to make the
-  plot informative and aesthetically pleasing.
 
 ## Miscellaneous and advanced
 
@@ -493,5 +521,6 @@ using every single one of those.
   by `requests` but provides an asynchronous API using `trio`, which can
   make your program run faster if you're trying to fetch a lot of
   resources from various different servers
+- [`poetry`]
 
 <!-- vim: set spell spelllang=en: -->

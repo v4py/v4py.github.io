@@ -930,7 +930,7 @@ num = 1
 num
 ```
 
-```python tags=["raises-exception"]
+```python tags=["raises-exception", "output_scroll"]
 # poof! it's gone
 del num
 num
@@ -1154,7 +1154,7 @@ By the way, if you ever accidentally overwrite a built-in function with
 another object, this is how you can restore it, by importing it from the
 `builtins` module.
 
-```python tags=["raises-exception", "scroll_output"]
+```python tags=["raises-exception", "output_scroll"]
 # oops
 len = 5
 len("five")
@@ -1213,7 +1213,7 @@ special JupyterLab features which isn't actually part of Python itself).
 For instance, to instal the `nltk` library, you would run the following
 command:
 
-```python
+```python tags=["output_scroll"]
 !pip install nltk
 ```
 
