@@ -26,8 +26,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://v4py.github.io//src/outro.html",
   "headline": "Parting words",
-  "datePublished": "2020-04-01T12:32:01+02:00",
-  "dateModified": "2020-04-01T12:32:01+02:00",
+  "datePublished": "2020-04-01T17:48:47+02:00",
+  "dateModified": "2020-04-01T17:48:47+02:00",
   "description": "# Parting words# Where to go from hereNow that you've made it to the end, perhaps you're wondering where to gofrom here. Programming is perhaps the easiest s...",
   "author": {
     "@type": "Person",
@@ -1184,6 +1184,21 @@ haven’t, and some you probably won’t need until you’ve programmed in
 Python for a while, so don’t feel like you immediately need to start
 using every single one of those.</p>
 
+<p>As a reminder, additional libraries are typically installed using the
+<code class="language-plaintext highlighter-rouge">pip</code> command line tool, and command line programs can be run from
+within JupyterLab by prefixing them with a <code class="language-plaintext highlighter-rouge">!</code>. For instance, to install
+the package <a href="https://pyrsistent.readthedocs.io/"><code class="language-plaintext highlighter-rouge">pyrsistent</code></a>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">pyrsistent</span>
+</code></pre></div></div>
+
+<p>Or <code class="language-plaintext highlighter-rouge">!pip install --user pyrsistent</code> if that fails with some kind of
+permission error. If you’ve installed Python on your own computer using
+the <a href="https://www.anaconda.com/distribution/">Anaconda Distribution</a>,
+then you can also use the <a href="https://docs.anaconda.com/anaconda/navigator/">Anaconda
+Navigator</a> GUI or the
+<a href="https://docs.conda.io/"><code class="language-plaintext highlighter-rouge">conda</code></a> command line tool.</p>
+
 <h2 id="nlp">NLP</h2>
 
 <ul>
@@ -1274,10 +1289,12 @@ plot informative and aesthetically pleasing.</li>
 
 <ul>
   <li><a href="https://pendulum.eustace.io/"><code class="language-plaintext highlighter-rouge">pendulum</code></a> for easier handling of
-dates and times than with standard library <code class="language-plaintext highlighter-rouge">datetime</code> module. (Dates
-and times across various locales and timezones are actually really
-tricky to get right, if you ever need to do so, I strongly advise you
-to use a library like this one to do the heavy lifting for you.)</li>
+dates and times than with standard library
+<a href="https://docs.python.org/3/library/datetime.html"><code class="language-plaintext highlighter-rouge">datetime</code></a> module.
+(Dates and times across various locales and timezones are actually
+really tricky to get right, if you ever need to do so, I strongly
+advise you to use a library like this one to do the heavy lifting for
+you.)</li>
   <li>if you use the terminal, then <a href="https://rich.readthedocs.io/">rich</a> can
 help you generate rich terminal output, including colors, tables,
 progress bars, and more</li>

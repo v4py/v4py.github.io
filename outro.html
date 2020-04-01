@@ -26,8 +26,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://v4py.github.io//outro.html",
   "headline": "Parting words",
-  "datePublished": "2020-04-01T12:32:01+02:00",
-  "dateModified": "2020-04-01T12:32:01+02:00",
+  "datePublished": "2020-04-01T17:48:47+02:00",
+  "dateModified": "2020-04-01T17:48:47+02:00",
   "description": "        Parting words    Where to go from here Now that you've made it to the end, perhaps you're wondering where to gofrom here. Programming is perhaps the ...",
   "author": {
     "@type": "Person",
@@ -1519,6 +1519,61 @@ come up in your searches, you can lean towards them as a first choice.</p>
 haven't, and some you probably won't need until you've programmed in
 Python for a while, so don't feel like you immediately need to start
 using every single one of those.</p>
+<p>As a reminder, additional libraries are typically installed using the
+<code>pip</code> command line tool, and command line programs can be run from
+within JupyterLab by prefixing them with a <code>!</code>. For instance, to install
+the package <a href="https://pyrsistent.readthedocs.io/"><code>pyrsistent</code></a>:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pip install pyrsistent
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Requirement already satisfied: pyrsistent in /Users/david/Library/Caches/pypoetry/virtualenvs/e-v4py-AkGCGnKO-py3.7/lib/python3.7/site-packages (0.16.0)
+Requirement already satisfied: six in /Users/david/Library/Caches/pypoetry/virtualenvs/e-v4py-AkGCGnKO-py3.7/lib/python3.7/site-packages (from pyrsistent) (1.14.0)
+<span class="ansi-yellow-fg">WARNING: You are using pip version 19.2.3, however version 20.0.2 is available.
+You should consider upgrading via the &#39;pip install --upgrade pip&#39; command.</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Or <code>!pip install --user pyrsistent</code> if that fails with some kind of
+permission error. If you've installed Python on your own computer using
+the <a href="https://www.anaconda.com/distribution/">Anaconda Distribution</a>,
+then you can also use the <a href="https://docs.anaconda.com/anaconda/navigator/">Anaconda
+Navigator</a> GUI or the
+<a href="https://docs.conda.io/"><code>conda</code></a> command line tool.</p>
 <h2 id="NLP">NLP<a class="anchor-link" href="#NLP"> </a></h2><ul>
 <li><a href="https://nltk.org/"><code>nltk</code></a>: the Natural Language Toolkit offers great
 resources both for learning about NLP and doing it in practice</li>
@@ -1595,10 +1650,12 @@ plot informative and aesthetically pleasing.</li>
 </ul>
 <h2 id="Miscellaneous-and-advanced">Miscellaneous and advanced<a class="anchor-link" href="#Miscellaneous-and-advanced"> </a></h2><ul>
 <li><a href="https://pendulum.eustace.io/"><code>pendulum</code></a> for easier handling of
-dates and times than with standard library <code>datetime</code> module. (Dates
-and times across various locales and timezones are actually really
-tricky to get right, if you ever need to do so, I strongly advise you
-to use a library like this one to do the heavy lifting for you.)</li>
+dates and times than with standard library
+<a href="https://docs.python.org/3/library/datetime.html"><code>datetime</code></a> module.
+(Dates and times across various locales and timezones are actually
+really tricky to get right, if you ever need to do so, I strongly
+advise you to use a library like this one to do the heavy lifting for
+you.)</li>
 <li>if you use the terminal, then <a href="https://rich.readthedocs.io/">rich</a> can
 help you generate rich terminal output, including colors, tables,
 progress bars, and more</li>
