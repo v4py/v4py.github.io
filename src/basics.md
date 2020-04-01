@@ -1232,7 +1232,7 @@ That's enough about libraries right now. On to control flow!
 
 <!-- ## A few useful built-in functions we haven't met yet -->
 
-<!-- built-in functions (type, str, int, float, ...) -->
+<!-- built-in functions (type, isinstance (show just a glimpse of classes), str, int, float, ...) -->
 <!-- [List of built-in functions](https://docs.python.org/3/library/functions.html) -->
 
 <!-- vim: set spell spelllang=en: -->

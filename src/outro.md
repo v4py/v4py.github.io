@@ -42,16 +42,18 @@ Toolkit*](https://www.nltk.org/book/) by Steven Bird, Ewan Klein and
 Edward Loper, and I'm going to recommend it again. It's a great
 resource, all the more useful since it's freely available online. It
 doesn't provide just recipes on how to use the latest and greatest fancy
-stuff in NLP, treating the tools as black boxes, but rather focuses on
-understanding algorithms and concepts and improving your programming
-skills. This means that it often spends time on less cutting-edge
-methods, which are however conceptually simpler and thus have better
-teaching value. Depending on what your immediate needs are, this may be
-a strength or a weakness, but in the long run, I would argue that every
-programming linguist should spend some time honing their programming
-skills instead of always blindly following how-to style recipes, because
-even copy-pasting black box code can go seriously wrong if you don't
-have a larger picture of what's going on.
+stuff in
+[NLP](https://en.wikipedia.org/wiki/Natural_language_processing),
+treating the tools as black boxes, but rather focuses on understanding
+algorithms and concepts and improving your programming skills. This
+means that it often spends time on less cutting-edge methods, which are
+however conceptually simpler and thus have better teaching value.
+Depending on what your immediate needs are, this may be a strength or a
+weakness, but in the long run, I would argue that every programming
+linguist should spend some time honing their programming skills instead
+of always blindly following how-to style recipes, because even
+copy-pasting black box code can go seriously wrong if you don't have a
+larger picture of what's going on.
 
 <!-- #md tags=["popout"]-->
 <a href="https://jakevdp.github.io/PythonDataScienceHandbook/" target="_blank">
@@ -366,13 +368,128 @@ the buzzwords `async` and `await`, they feature prominently.
 
 # Libraries
 
-- nltk
-- corpy
-- lxml
-- trio
-- regex (use re docs)
-- matplotlib
-- seaborn
-- pandas
+Finally, let's take a look at some library recommendations. In Python,
+there are often multiple libraries available to help you do the same
+thing, or that at least partially overlap in the domain they're trying
+to cover. For a newcomer, it may be sometimes hard to decide which to
+use when they've never heard about any of them. The purpose of this
+(admittedly non-exhaustive and biased) list is to familiarize yourself
+with some of the more popular and well-designed ones, so that when they
+come up in your searches, you can lean towards them as a first choice.
+
+Some of these have already come up over the course of the book, some
+haven't, and some you probably won't need until you've programmed in
+Python for a while, so don't feel like you immediately need to start
+using every single one of those.
+
+## NLP
+
+- [`nltk`](https://nltk.org/): the Natural Language Toolkit offers great
+  resources both for learning about NLP and doing it in practice
+- [`spacy`](https://spacy.io/) focuses more on applied NLP and offers
+  convenient black-box-type APIs for a variety of practical tasks
+- [`ufal.morphodita`](https://pypi.org/project/ufal.morphodita/) and
+  [`ufal.udpipe`](https://pypi.org/project/ufal.udpipe/) for
+  morphological tagging and syntactic parsing. These are automatically
+  generated wrappers for the C++ libraries `morphodita` and `udpipe` and
+  as such, they might be somewhat hard to use for beginners, though
+  examples are provided. For a more convenient API added on top of these
+  more low-level libraries, see the
+  [`corpy`](https://corpy.readthedocs.io/) library.
+- [`regex`](https://pypi.org/project/regex/) is a regular expression
+  library with enhanced Unicode support compared to the standard library
+  `re` module. The API is the same though, so use [`re`'s
+  documentation](https://docs.python.org/3/library/re.html) to learn how
+  to use `regex`, and only consult `regex`'s documentation to learn
+  about additional features.
+- language data sometimes comes in
+  [XML](https://en.wikipedia.org/wiki/XML) format. Though Python does
+  have facilities for [processing XML in the standard
+  library](https://docs.python.org/3.8/library/xml.etree.elementtree.html#tutorial),
+  the [`lxml`](https://lxml.de/) offers more functionality and
+  robustness. The docs are somewhat old-fashioned but the tutorial parts
+  (e.g. [here](https://lxml.de/tutorial.html)) are well-written. What
+  *can* sometimes be a somewhat painful experience is searching through
+  the [API reference](https://lxml.de/api/index.html) for specific
+  functions or methods -- even after years of intermitten use, it still
+  feels a bit like a maze to me.
+
+## Fetching data from the web
+
+- [`requests`](https://requests.readthedocs.io/) for fetching individual
+  web pages and interacting with [REST APIs](rest)
+- [`requests_html`](https://requests.readthedocs.io/projects/requests-html/)
+  for fetching individual web pages and slicing and dicing their HTML
+  content
+- [`scrapy`](https://scrapy.org/) is a flexible, configurable [web
+  crawler](https://en.wikipedia.org/wiki/Web_crawler), i.e. a tool which
+  can help you fetch large amounts of data from the web without having
+  to specify each page manually as with `requests`
+- [`spiderling`](http://corpus.tools/wiki/SpiderLing), a web crawler
+  optimized for creating language corpora. Clever and sophisticated, but
+  the documentation is on the lighter side, so getting it up and running
+  might require some effort.
+
+## Statistics and machine learning
+
+- [`pandas`](https://pandas.pydata.org/) as the workhorse library for
+  manipulating tabular data, including some basic analyses and
+  visualizations
+- [`scikit-learn`](https://scikit-learn.org/) for training and applying
+  machine learning models through a beautiful, unified API, and also
+  [learning about machine learning](https://youtu.be/HC0J_SPm9co)
+- [`statsmodels`](https://www.statsmodels.org/) for conducting
+  statistical tests and statistical data exploration. This package is
+  still evolving and you're of course still much more likely to find an
+  obscure statistical procedure implemented in R than here, but it shows
+  great promise.
+
+## Data visualization
+
+- [`matplotlib`](https://matplotlib.org/), Python's traditional plotting
+  library, battle-tested and versatile (lots of different output
+  formats) but fairly low-level -- you often have to tweak plots
+  manually
+- [`seaborn`](https://seaborn.pydata.org/) builds on top of `matplotlib`
+  by offering more appealing default visual styles and easy high-level
+  functions for commonly used plot types
+- [`altair`](https://altair-viz.github.io/) is a newer library which
+  hopefully anticipates the future of data visualization in Python. It
+  tries to provide an intuitive declarative API where you just tell
+  Python what data you want to visualize, using which visual cues
+  (points, lines, colors...), and Python figures out the how to make the
+  plot informative and aesthetically pleasing.
+
+## Miscellaneous and advanced
+
+- [`pendulum`](https://pendulum.eustace.io/) for easier handling of
+  dates and times than with standard library `datetime` module. (Dates
+  and times across various locales and timezones are actually really
+  tricky to get right, if you ever need to do so, I strongly advise you
+  to use a library like this one to do the heavy lifting for you.)
+- if you use the terminal, then [rich](https://rich.readthedocs.io/) can
+  help you generate rich terminal output, including colors, tables,
+  progress bars, and more
+- larger projects often have a battery of
+  [tests](https://en.wikipedia.org/wiki/Software_testing) which are run
+  automatically to make sure that changes don't break the code. The
+  easiest way to add tests to your code is via the standard library
+  [`doctest`](https://docs.python.org/3/library/doctest.html) module,
+  but if you find yourself needing a more featureful solution, I would
+  suggest either [`pytest`](https://docs.pytest.org/), the current
+  incumbent go-to solution in this space, or
+  [`wardpy`](https://wardpy.com/), a challenger which appeared
+  relatively recently but shows promise.
+- [`trio`](https://trio.readthedocs.io/) for asynchronous programming.
+  If you don't know what that is and you don't care, that's perfectly
+  fine. If you're at least a tiny bit curious, the `trio` docs will do a
+  great job at teaching you -- seriously, they're probably the best
+  technical documentation I've ever read -- and also show you how much
+  thought and care goes into designing a polished library in a
+  non-trivial domain.
+- [`asks`](https://asks.readthedocs.io/) is a library which is inspired
+  by `requests` but provides an asynchronous API using `trio`, which can
+  make your program run faster if you're trying to fetch a lot of
+  resources from various different servers
 
 <!-- vim: set spell spelllang=en: -->
