@@ -510,6 +510,14 @@ Navigator](https://docs.anaconda.com/anaconda/navigator/) GUI or the
   incumbent go-to solution in this space, or
   [`wardpy`](https://wardpy.com/), a challenger which appeared
   relatively recently but shows promise.
+- [`poetry`](https://python-poetry.org/): larger projects also need to
+  keep track of which (versions of) other packages they depend on, so
+  that you can easily recreate the environment they need for running
+  correctly when moving between computers. The traditional and somewhat
+  barebones way of achieving this is via [`pip` and a `requirements.txt`
+  file](https://pip.pypa.io/en/stable/user_guide/#requirements-files).
+  `poetry` is a much more modern and convenient toolwhich will gently
+  nudge you to adopt current best practices in this area.
 - [`trio`](https://trio.readthedocs.io/) for asynchronous programming.
   If you don't know what that is and you don't care, that's perfectly
   fine. If you're at least a tiny bit curious, the `trio` docs will do a
@@ -521,6 +529,5 @@ Navigator](https://docs.anaconda.com/anaconda/navigator/) GUI or the
   by `requests` but provides an asynchronous API using `trio`, which can
   make your program run faster if you're trying to fetch a lot of
   resources from various different servers
-- [`poetry`]
 
 <!-- vim: set spell spelllang=en: -->
