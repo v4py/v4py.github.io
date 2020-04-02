@@ -26,8 +26,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://v4py.github.io//outro.html",
   "headline": "Parting words",
-  "datePublished": "2020-04-01T22:04:47+02:00",
-  "dateModified": "2020-04-01T22:04:47+02:00",
+  "datePublished": "2020-04-02T10:02:18+02:00",
+  "dateModified": "2020-04-02T10:02:18+02:00",
   "description": "        Parting words    Where to go from here Now that you've made it to the end, perhaps you're wondering where to gofrom here. Programming is perhaps the ...",
   "author": {
     "@type": "Person",
@@ -1550,8 +1550,8 @@ the package <a href="https://pyrsistent.readthedocs.io/"><code>pyrsistent</code>
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Requirement already satisfied: pyrsistent in /Users/david/Library/Caches/pypoetry/virtualenvs/e-v4py-AkGCGnKO-py3.7/lib/python3.7/site-packages (0.16.0)
-Requirement already satisfied: six in /Users/david/Library/Caches/pypoetry/virtualenvs/e-v4py-AkGCGnKO-py3.7/lib/python3.7/site-packages (from pyrsistent) (1.14.0)
+<pre>Requirement already satisfied: pyrsistent in /home/david/.cache/pypoetry/virtualenvs/e-v4py-VgictJZ4-py3.7/lib/python3.7/site-packages (0.16.0)
+Requirement already satisfied: six in /home/david/.cache/pypoetry/virtualenvs/e-v4py-VgictJZ4-py3.7/lib/python3.7/site-packages (from pyrsistent) (1.14.0)
 <span class="ansi-yellow-fg">WARNING: You are using pip version 19.2.3, however version 20.0.2 is available.
 You should consider upgrading via the &#39;pip install --upgrade pip&#39; command.</span>
 </pre>
@@ -1681,6 +1681,14 @@ suggest either <a href="https://docs.pytest.org/"><code>pytest</code></a>, the c
 incumbent go-to solution in this space, or
 <a href="https://wardpy.com/"><code>wardpy</code></a>, a challenger which appeared
 relatively recently but shows promise.</li>
+<li><a href="https://python-poetry.org/"><code>poetry</code></a>: larger projects also need to
+keep track of which (versions of) other packages they depend on, so
+that you can easily recreate the environment they need for running
+correctly when moving between computers. The traditional and somewhat
+barebones way of achieving this is via <a href="https://pip.pypa.io/en/stable/user_guide/#requirements-files"><code>pip</code> and a <code>requirements.txt</code>
+file</a>.
+<code>poetry</code> is a much more modern and convenient toolwhich will gently
+nudge you to adopt current best practices in this area.</li>
 <li><a href="https://trio.readthedocs.io/"><code>trio</code></a> for asynchronous programming.
 If you don't know what that is and you don't care, that's perfectly
 fine. If you're at least a tiny bit curious, the <code>trio</code> docs will do a
@@ -1692,7 +1700,6 @@ non-trivial domain.</li>
 by <code>requests</code> but provides an asynchronous API using <code>trio</code>, which can
 make your program run faster if you're trying to fetch a lot of
 resources from various different servers</li>
-<li>[<code>poetry</code>]</li>
 </ul>
 <!-- vim: set spell spelllang=en: -->
 </div>

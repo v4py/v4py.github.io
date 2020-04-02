@@ -26,8 +26,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://v4py.github.io//src/gotchas.html",
   "headline": "Python gotchas",
-  "datePublished": "2020-04-01T22:04:47+02:00",
-  "dateModified": "2020-04-01T22:04:47+02:00",
+  "datePublished": "2020-04-02T10:02:18+02:00",
+  "dateModified": "2020-04-02T10:02:18+02:00",
   "description": "# Python gotchas# With great power comes great responsibilityYou now know enough Python to be dangerous! Unfortunately, that alsomeans you can occasionally b...",
   "author": {
     "@type": "Person",
@@ -1113,6 +1113,74 @@ function without encountering a <code class="language-plaintext highlighter-roug
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">copy</span>
 </code></pre></div></div>
+
+<h1 id="unlike-the-postman-imports-only-ever-run-once">Unlike the postman, imports only ever run once</h1>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%%</span><span class="n">writefile</span> <span class="n">my_module</span><span class="o">.</span><span class="n">py</span>
+<span class="k">def</span> <span class="nf">add_ten</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">num</span> <span class="o">+</span> <span class="mi">1</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">my_module</span>
+
+<span class="n">my_module</span><span class="o">.</span><span class="n">add_ten</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Now you realize you made a mistake and fix it.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%%</span><span class="n">writefile</span> <span class="n">my_module</span><span class="o">.</span><span class="n">py</span>
+<span class="k">def</span> <span class="nf">add_ten</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">num</span> <span class="o">+</span> <span class="mi">10</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">my_module</span>
+
+<span class="n">my_module</span><span class="o">.</span><span class="n">add_ten</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Still wrong, modules are only loaded once (explain why).</p>
+
+<p>In JupyterLab (IPython), there’s a workaround. Unfortunately, it won’t
+work on previously imported modules, so we need to create a new one.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># cleanup
+</span><span class="o">%</span><span class="n">rm</span> <span class="n">my_module</span><span class="o">.</span><span class="n">py</span>
+
+<span class="o">%</span><span class="n">load_ext</span> <span class="n">autoreload</span>
+<span class="o">%</span><span class="n">autoreload</span> <span class="mi">1</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%%</span><span class="n">writefile</span> <span class="n">another_module</span><span class="o">.</span><span class="n">py</span>
+<span class="k">def</span> <span class="nf">add_ten</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="c1"># d'oh, again!
+</span>    <span class="k">return</span> <span class="n">num</span> <span class="o">+</span> <span class="mi">1</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># notice %aimport instead of regular import
+</span><span class="o">%</span><span class="n">aimport</span> <span class="n">another_module</span>
+
+<span class="n">another_module</span><span class="o">.</span><span class="n">add_ten</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%%</span><span class="n">writefile</span> <span class="n">another_module</span><span class="o">.</span><span class="n">py</span>
+<span class="k">def</span> <span class="nf">add_ten</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">num</span> <span class="o">+</span> <span class="mi">10</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">another_module</span><span class="o">.</span><span class="n">add_ten</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Check out the various usage options by invoking <code class="language-plaintext highlighter-rouge">?%autoreload</code>. But
+careful, such module reloading is not in general guaranteed to work,
+Python just really doesn’t like it. If you run into weird behavior doing
+this, the safe bet is to just restart your Python session (what
+JupyterLab calls the <strong>kernel</strong>).</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># cleanup
+</span><span class="o">%</span><span class="n">rm</span> <span class="n">another_module</span><span class="o">.</span><span class="n">py</span>
+</code></pre></div></div>
+
+<!-- vim: set spell spelllang=en: -->
 
             </div>
             <div class="c-textbook__footer" id="textbook_footer">

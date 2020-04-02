@@ -26,8 +26,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://v4py.github.io//src/outro.html",
   "headline": "Parting words",
-  "datePublished": "2020-04-01T22:04:47+02:00",
-  "dateModified": "2020-04-01T22:04:47+02:00",
+  "datePublished": "2020-04-02T10:02:18+02:00",
+  "dateModified": "2020-04-02T10:02:18+02:00",
   "description": "# Parting words# Where to go from hereNow that you've made it to the end, perhaps you're wondering where to gofrom here. Programming is perhaps the easiest s...",
   "author": {
     "@type": "Person",
@@ -1321,6 +1321,14 @@ suggest either <a href="https://docs.pytest.org/"><code class="language-plaintex
 incumbent go-to solution in this space, or
 <a href="https://wardpy.com/"><code class="language-plaintext highlighter-rouge">wardpy</code></a>, a challenger which appeared
 relatively recently but shows promise.</li>
+  <li><a href="https://python-poetry.org/"><code class="language-plaintext highlighter-rouge">poetry</code></a>: larger projects also need to
+keep track of which (versions of) other packages they depend on, so
+that you can easily recreate the environment they need for running
+correctly when moving between computers. The traditional and somewhat
+barebones way of achieving this is via <a href="https://pip.pypa.io/en/stable/user_guide/#requirements-files"><code class="language-plaintext highlighter-rouge">pip</code> and a <code class="language-plaintext highlighter-rouge">requirements.txt</code>
+file</a>.
+<code class="language-plaintext highlighter-rouge">poetry</code> is a much more modern and convenient toolwhich will gently
+nudge you to adopt current best practices in this area.</li>
   <li><a href="https://trio.readthedocs.io/"><code class="language-plaintext highlighter-rouge">trio</code></a> for asynchronous programming.
 If you don’t know what that is and you don’t care, that’s perfectly
 fine. If you’re at least a tiny bit curious, the <code class="language-plaintext highlighter-rouge">trio</code> docs will do a
@@ -1332,7 +1340,6 @@ non-trivial domain.</li>
 by <code class="language-plaintext highlighter-rouge">requests</code> but provides an asynchronous API using <code class="language-plaintext highlighter-rouge">trio</code>, which can
 make your program run faster if you’re trying to fetch a lot of
 resources from various different servers</li>
-  <li>[<code class="language-plaintext highlighter-rouge">poetry</code>]</li>
 </ul>
 
 <!-- vim: set spell spelllang=en: -->
