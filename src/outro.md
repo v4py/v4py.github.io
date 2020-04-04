@@ -82,6 +82,22 @@ sometimes hard to know which libraries and techniques to use when
 getting started with data analysis in Python. The *Python Data Science
 Handbook* is there to help you with that.
 
+<!-- #md tags=["popout"]-->
+<a href="https://jakevdp.github.io/WhirlwindTourOfPython/" target="_blank">
+<img src="images/outro/whirlwind_tour.gif" width="200" alt="A Whirlwind Tour of Python cover">
+</a>
+<!-- #endmd -->
+
+Finally, if you just want a fast-paced overview of Python syntax and
+features, another great free resource, also by Jake VanderPlas, is [*A
+Whirlwind Tour of
+Python*](https://jakevdp.github.io/WhirlwindTourOfPython/). It's pretty
+condensed and expects the reader to be reasonably familiar with
+programming concepts terminology, but in exchange, it offers a
+practical-minded and well-organized reference resource which you can use
+to quickly refresh your knowledge on specific areas of Python
+programming.
+
 # Videos
 
 Unlike conferences in linguistics, programming conferences are often
