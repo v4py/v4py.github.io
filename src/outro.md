@@ -532,7 +532,7 @@ Navigator](https://docs.anaconda.com/anaconda/navigator/) GUI or the
   correctly when moving between computers. The traditional and somewhat
   barebones way of achieving this is via [`pip` and a `requirements.txt`
   file](https://pip.pypa.io/en/stable/user_guide/#requirements-files).
-  `poetry` is a much more modern and convenient toolwhich will gently
+  `poetry` is a much more modern and convenient tool which will gently
   nudge you to adopt current best practices in this area.
 - [`trio`](https://trio.readthedocs.io/) for asynchronous programming.
   If you don't know what that is and you don't care, that's perfectly

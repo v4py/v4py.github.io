@@ -69,14 +69,16 @@ learning). There's a wealth of resources available via the internet,
 this book being one example, and all you need to take full advantage of
 them is a computer and an internet connection.
 
-Much like any other learning experience, it's also a journey that never
-really ends. There's always room for improvement and for learning more,
-so you might as well start now and get on with it. For my part, it's
-been almost ten years since I set out, and while I consider myself a
-fairly proficient programmer by this point, I learn new stuff all the
-time. If you're anything like me, that sense of curiosity that got you
-into linguistics, and perhaps even an academic career, is likely to be
-rewarded by pursuing programming as well.
+Much like any other learning experience, it's also a [journey that never
+really
+ends](https://nedbatchelder.com/blog/202003/how_long_did_it_take_you_to_learn_python.html).
+There's always room for improvement and for learning more, so you might
+as well start now and get on with it. For my part, it's been almost ten
+years since I set out, and while I consider myself a fairly proficient
+programmer by this point, I learn new stuff all the time. If you're
+anything like me, that sense of curiosity that got you into linguistics,
+and perhaps even an academic career, is likely to be rewarded by
+pursuing programming as well.
 
 I would argue that this sense of curiosity is also what should prevent
 you from having that second kneejerk negative response, "why should I
