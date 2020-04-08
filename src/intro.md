@@ -276,15 +276,11 @@ version of this text in your browser, without you needing to install
 anything on your computer.
 
 Note that the second button requires that you have an account at
-<https://jupyter.korpus.cz> (attendees of the V4Py summer school do),
-and due to some bugs in the software which makes this possible, it
-doesn't work as intended if you're not already logged in. In that case:
-
-1. Click on the button once and log into JupyterLab.
-2. Close the JupyterLab tab.
-3. Click on the button a second time. JupyterLab should now
-   automatically open the appropriate notebook.
-4. If that doesn't happen, try reloading the page.
+<https://jupyter.korpus.cz> (attendees of the V4Py summer school do).
+The notebook corresponding to the chapter you're reading should
+automatically open; if it doesn't, try reloading the page, or as a last
+resort, navigating to the `v4py.github.io` folder and opening the
+appropriate notebook manually.
 
 <!-- #md tags=["popout"] -->
 
