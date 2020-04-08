@@ -26,8 +26,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://v4py.github.io//intro.html",
   "headline": "Introduction",
-  "datePublished": "2020-04-04T13:19:55+02:00",
-  "dateModified": "2020-04-04T13:19:55+02:00",
+  "datePublished": "2020-04-08T21:14:37+02:00",
+  "dateModified": "2020-04-08T21:14:37+02:00",
   "description": "        Introduction    Acknowledgments: The authors are grateful to VisegradFund grant nr. 21820079 "TrainingDigital Scholars: Knowledge Exchange between V4...",
   "author": {
     "@type": "Person",
@@ -846,7 +846,7 @@ initFunction(initPrint)
 
 
 
-<a target="_blank" href="https://jupyter.korpus.cz/hub/user-redirect/git-pull?repo=https://github.com/v4py/v4py.github.io&amp;branch=master&amp;urlpath=lab%2Ftree%2Fv4py.github.io%2Fcontent%2Fintro.ipynb%3Fautodecode"><button class="interact-button" id="interact-button-jupyterhub"><img class="interact-button-logo" src="/assets/images/logo_jupyterhub.svg" alt="Interact" />▶ jupyter.korpus.cz</button></a>
+<a target="_blank" href="https://jupyter.korpus.cz/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fv4py%2Fv4py.github.io&amp;branch=master&amp;urlpath=lab%2Ftree%2Fv4py.github.io%2Fcontent%2Fintro.ipynb%3Fautodecode"><button class="interact-button" id="interact-button-jupyterhub"><img class="interact-button-logo" src="/assets/images/logo_jupyterhub.svg" alt="Interact" />▶ jupyter.korpus.cz</button></a>
 
 
 
@@ -917,14 +917,16 @@ of course interacting with a live teacher can help jumpstart your
 learning). There's a wealth of resources available via the internet,
 this book being one example, and all you need to take full advantage of
 them is a computer and an internet connection.</p>
-<p>Much like any other learning experience, it's also a journey that never
-really ends. There's always room for improvement and for learning more,
-so you might as well start now and get on with it. For my part, it's
-been almost ten years since I set out, and while I consider myself a
-fairly proficient programmer by this point, I learn new stuff all the
-time. If you're anything like me, that sense of curiosity that got you
-into linguistics, and perhaps even an academic career, is likely to be
-rewarded by pursuing programming as well.</p>
+<p>Much like any other learning experience, it's also a <a href="https://nedbatchelder.com/blog/202003/how_long_did_it_take_you_to_learn_python.html">journey that never
+really
+ends</a>.
+There's always room for improvement and for learning more, so you might
+as well start now and get on with it. For my part, it's been almost ten
+years since I set out, and while I consider myself a fairly proficient
+programmer by this point, I learn new stuff all the time. If you're
+anything like me, that sense of curiosity that got you into linguistics,
+and perhaps even an academic career, is likely to be rewarded by
+pursuing programming as well.</p>
 <p>I would argue that this sense of curiosity is also what should prevent
 you from having that second kneejerk negative response, "why should I
 even care". For my part, I can tell you that <strong>programming is very
@@ -1210,16 +1212,11 @@ page, which will take care of everything for you and open an interactive
 version of this text in your browser, without you needing to install
 anything on your computer.</p>
 <p>Note that the second button requires that you have an account at
-<a href="https://jupyter.korpus.cz">https://jupyter.korpus.cz</a> (attendees of the V4Py summer school do),
-and due to some bugs in the software which makes this possible, it
-doesn't work as intended if you're not already logged in. In that case:</p>
-<ol>
-<li>Click on the button once and log into JupyterLab.</li>
-<li>Close the JupyterLab tab.</li>
-<li>Click on the button a second time. JupyterLab should now
-automatically open the appropriate notebook.</li>
-<li>If that doesn't happen, try reloading the page.</li>
-</ol>
+<a href="https://jupyter.korpus.cz">https://jupyter.korpus.cz</a> (attendees of the V4Py summer school do).
+The notebook corresponding to the chapter you're reading should
+automatically open; if it doesn't, try reloading the page, or as a last
+resort, navigating to the <code>v4py.github.io</code> folder and opening the
+appropriate notebook manually.</p>
 
 </div>
 </div>
@@ -1844,7 +1841,7 @@ the number of characters using the <code>len()</code> <strong>function</strong>.
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(43951, 40512, 26507)</pre>
+<pre>(43565, 40412, 26524)</pre>
 </div>
 
 </div>
@@ -1912,7 +1909,10 @@ do a sanity check by inspecting a slice of it.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&#39;two&#39;,
+<pre>[&#39;negative&#39;,
+ &#39;ones&#39;,
+ &#39;,&#39;,
+ &#39;two&#39;,
  &#39;tend&#39;,
  &#39;to&#39;,
  &#39;dominate&#39;,
@@ -1923,10 +1923,7 @@ do a sanity check by inspecting a slice of it.</p>
  &#39;it&#39;,
  &#39;might&#39;,
  &#39;be&#39;,
- &#39;too&#39;,
- &#39;late&#39;,
- &#39;to&#39;,
- &#39;start&#39;]</pre>
+ &#39;too&#39;]</pre>
 </div>
 
 </div>
@@ -1979,7 +1976,7 @@ and thus get the number of tokens using the <code>len()</code> function.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>5296</pre>
+<pre>5299</pre>
 </div>
 
 </div>
@@ -2172,7 +2169,7 @@ parts depending on whether a condition <strong>evaluates</strong> to true or fal
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>2244</pre>
+<pre>2245</pre>
 </div>
 
 </div>
@@ -2264,7 +2261,7 @@ user-defined types.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>FreqDist({&#39;python&#39;: 41, &#39;code&#39;: 26, &#39;programming&#39;: 23, &#39;get&#39;: 23, &#39;like&#39;: 23, &#39;using&#39;: 17, &#39;page&#39;: 17, &#39;might&#39;: 16, &#39;language&#39;: 15, &#39;one&#39;: 15, ...})</pre>
+<pre>FreqDist({&#39;python&#39;: 41, &#39;code&#39;: 26, &#39;programming&#39;: 24, &#39;get&#39;: 23, &#39;like&#39;: 23, &#39;using&#39;: 17, &#39;page&#39;: 17, &#39;might&#39;: 16, &#39;language&#39;: 15, &#39;one&#39;: 15, ...})</pre>
 </div>
 
 </div>
@@ -2357,7 +2354,7 @@ requesting them using the corresponding <strong>key</strong>.</p>
 <div class="output_text output_subarea output_execute_result">
 <pre>[(&#39;python&#39;, 41),
  (&#39;code&#39;, 26),
- (&#39;programming&#39;, 23),
+ (&#39;programming&#39;, 24),
  (&#39;get&#39;, 23),
  (&#39;like&#39;, 23),
  (&#39;using&#39;, 17),
@@ -2426,7 +2423,7 @@ and intuitive overview of these important words.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;wordcloud.wordcloud.WordCloud at 0x120269cd0&gt;</pre>
+<pre>&lt;wordcloud.wordcloud.WordCloud at 0x7f7309133cd0&gt;</pre>
 </div>
 
 </div>
@@ -2536,7 +2533,7 @@ book, for comparison.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;wordcloud.wordcloud.WordCloud at 0x1216d0a50&gt;</pre>
+<pre>&lt;wordcloud.wordcloud.WordCloud at 0x7f73062a9510&gt;</pre>
 </div>
 
 </div>
@@ -2599,7 +2596,7 @@ Science</em></a>.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;wordcloud.wordcloud.WordCloud at 0x1219bdfd0&gt;</pre>
+<pre>&lt;wordcloud.wordcloud.WordCloud at 0x7f73046ad1d0&gt;</pre>
 </div>
 
 </div>

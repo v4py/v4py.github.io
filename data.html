@@ -26,8 +26,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://v4py.github.io//data.html",
   "headline": "Getting your data into Python",
-  "datePublished": "2020-04-04T13:19:55+02:00",
-  "dateModified": "2020-04-04T13:19:55+02:00",
+  "datePublished": "2020-04-08T21:14:37+02:00",
+  "dateModified": "2020-04-08T21:14:37+02:00",
   "description": "        Getting your data into Python    Overview This chapter is about interacting with data on your computer's disk --mostly loading it into Python, but al...",
   "author": {
     "@type": "Person",
@@ -846,7 +846,7 @@ initFunction(initPrint)
 
 
 
-<a target="_blank" href="https://jupyter.korpus.cz/hub/user-redirect/git-pull?repo=https://github.com/v4py/v4py.github.io&amp;branch=master&amp;urlpath=lab%2Ftree%2Fv4py.github.io%2Fcontent%2Fdata.ipynb%3Fautodecode"><button class="interact-button" id="interact-button-jupyterhub"><img class="interact-button-logo" src="/assets/images/logo_jupyterhub.svg" alt="Interact" />▶ jupyter.korpus.cz</button></a>
+<a target="_blank" href="https://jupyter.korpus.cz/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fv4py%2Fv4py.github.io&amp;branch=master&amp;urlpath=lab%2Ftree%2Fv4py.github.io%2Fcontent%2Fdata.ipynb%3Fautodecode"><button class="interact-button" id="interact-button-jupyterhub"><img class="interact-button-logo" src="/assets/images/logo_jupyterhub.svg" alt="Interact" />▶ jupyter.korpus.cz</button></a>
 
 
 
@@ -1000,7 +1000,7 @@ you're golden. The <code>text.txt</code> file below, though, isn't.</p>
 <span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">with</span> open<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;data/text.txt&#34;</span><span class="ansi-blue-fg">,</span> encoding<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#34;utf-8&#34;</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">as</span> file<span class="ansi-blue-fg">:</span>
 <span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg">     </span>print<span class="ansi-blue-fg">(</span>file<span class="ansi-blue-fg">.</span>read<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
 
-<span class="ansi-green-fg">~/.local/pyenv/versions/3.7.6/lib/python3.7/codecs.py</span> in <span class="ansi-cyan-fg">decode</span><span class="ansi-blue-fg">(self, input, final)</span>
+<span class="ansi-green-fg">~/.local/pyenv/versions/3.7.7/lib/python3.7/codecs.py</span> in <span class="ansi-cyan-fg">decode</span><span class="ansi-blue-fg">(self, input, final)</span>
 <span class="ansi-green-intense-fg ansi-bold">    320</span>         <span class="ansi-red-fg"># decode input (taking the buffer into account)</span>
 <span class="ansi-green-intense-fg ansi-bold">    321</span>         data <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>buffer <span class="ansi-blue-fg">+</span> input
 <span class="ansi-green-fg">--&gt; 322</span><span class="ansi-red-fg">         </span><span class="ansi-blue-fg">(</span>result<span class="ansi-blue-fg">,</span> consumed<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_buffer_decode<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>errors<span class="ansi-blue-fg">,</span> final<span class="ansi-blue-fg">)</span>
@@ -2608,7 +2608,7 @@ Name: domain, Length: 854, dtype: bool</pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;pandas.core.indexing._LocIndexer at 0x111a34950&gt;</pre>
+<pre>&lt;pandas.core.indexing._LocIndexer at 0x7fde188dfb30&gt;</pre>
 </div>
 
 </div>
@@ -3250,21 +3250,21 @@ Name: kwic, Length: 854, dtype: object</pre>
 <span class="ansi-green-fg">&lt;ipython-input-35-118d975e2131&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>df<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#34;word&#34;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;lemma&#34;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;tag&#34;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">]</span>
 
-<span class="ansi-green-fg">~/Library/Caches/pypoetry/virtualenvs/e-v4py-AkGCGnKO-py3.7/lib/python3.7/site-packages/pandas/core/frame.py</span> in <span class="ansi-cyan-fg">__getitem__</span><span class="ansi-blue-fg">(self, key)</span>
+<span class="ansi-green-fg">~/.cache/pypoetry/virtualenvs/e-v4py-VgictJZ4-py3.7/lib/python3.7/site-packages/pandas/core/frame.py</span> in <span class="ansi-cyan-fg">__getitem__</span><span class="ansi-blue-fg">(self, key)</span>
 <span class="ansi-green-intense-fg ansi-bold">   2804</span>             <span class="ansi-green-fg">if</span> is_iterator<span class="ansi-blue-fg">(</span>key<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-intense-fg ansi-bold">   2805</span>                 key <span class="ansi-blue-fg">=</span> list<span class="ansi-blue-fg">(</span>key<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">-&gt; 2806</span><span class="ansi-red-fg">             </span>indexer <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>loc<span class="ansi-blue-fg">.</span>_get_listlike_indexer<span class="ansi-blue-fg">(</span>key<span class="ansi-blue-fg">,</span> axis<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span> raise_missing<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span>
 <span class="ansi-green-intense-fg ansi-bold">   2807</span> 
 <span class="ansi-green-intense-fg ansi-bold">   2808</span>         <span class="ansi-red-fg"># take() does not accept boolean indexers</span>
 
-<span class="ansi-green-fg">~/Library/Caches/pypoetry/virtualenvs/e-v4py-AkGCGnKO-py3.7/lib/python3.7/site-packages/pandas/core/indexing.py</span> in <span class="ansi-cyan-fg">_get_listlike_indexer</span><span class="ansi-blue-fg">(self, key, axis, raise_missing)</span>
+<span class="ansi-green-fg">~/.cache/pypoetry/virtualenvs/e-v4py-VgictJZ4-py3.7/lib/python3.7/site-packages/pandas/core/indexing.py</span> in <span class="ansi-cyan-fg">_get_listlike_indexer</span><span class="ansi-blue-fg">(self, key, axis, raise_missing)</span>
 <span class="ansi-green-intense-fg ansi-bold">   1551</span> 
 <span class="ansi-green-intense-fg ansi-bold">   1552</span>         self._validate_read_indexer(
 <span class="ansi-green-fg">-&gt; 1553</span><span class="ansi-red-fg">             </span>keyarr<span class="ansi-blue-fg">,</span> indexer<span class="ansi-blue-fg">,</span> o<span class="ansi-blue-fg">.</span>_get_axis_number<span class="ansi-blue-fg">(</span>axis<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> raise_missing<span class="ansi-blue-fg">=</span>raise_missing
 <span class="ansi-green-intense-fg ansi-bold">   1554</span>         )
 <span class="ansi-green-intense-fg ansi-bold">   1555</span>         <span class="ansi-green-fg">return</span> keyarr<span class="ansi-blue-fg">,</span> indexer
 
-<span class="ansi-green-fg">~/Library/Caches/pypoetry/virtualenvs/e-v4py-AkGCGnKO-py3.7/lib/python3.7/site-packages/pandas/core/indexing.py</span> in <span class="ansi-cyan-fg">_validate_read_indexer</span><span class="ansi-blue-fg">(self, key, indexer, axis, raise_missing)</span>
+<span class="ansi-green-fg">~/.cache/pypoetry/virtualenvs/e-v4py-VgictJZ4-py3.7/lib/python3.7/site-packages/pandas/core/indexing.py</span> in <span class="ansi-cyan-fg">_validate_read_indexer</span><span class="ansi-blue-fg">(self, key, indexer, axis, raise_missing)</span>
 <span class="ansi-green-intense-fg ansi-bold">   1638</span>             <span class="ansi-green-fg">if</span> missing <span class="ansi-blue-fg">==</span> len<span class="ansi-blue-fg">(</span>indexer<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-intense-fg ansi-bold">   1639</span>                 axis_name <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>obj<span class="ansi-blue-fg">.</span>_get_axis_name<span class="ansi-blue-fg">(</span>axis<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">-&gt; 1640</span><span class="ansi-red-fg">                 </span><span class="ansi-green-fg">raise</span> KeyError<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">f&#34;None of [{key}] are in the [{axis_name}]&#34;</span><span class="ansi-blue-fg">)</span>
@@ -3736,17 +3736,17 @@ Name: domain, Length: 854, dtype: object</pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>ucrel.lancs.ac.uk         123
-nltk.googlecode.com        90
-quinndombrowski.com        65
-medicolegal.tripod.com     28
-cass.lancs.ac.uk           21
-                         ... 
-hispanicbusiness.com        1
-blog.mashape.com            1
-allenandunwin.com           1
-viu.ca                      1
-minemen.org                 1
+<pre>ucrel.lancs.ac.uk                             123
+nltk.googlecode.com                            90
+quinndombrowski.com                            65
+medicolegal.tripod.com                         28
+cass.lancs.ac.uk                               21
+                                             ... 
+rjionline.org                                   1
+fact-index.com                                  1
+spontaneousgenerations.library.utoronto.ca      1
+factbites.com                                   1
+coliccalm.com                                   1
 Name: domain, Length: 234, dtype: int64</pre>
 </div>
 
@@ -3781,7 +3781,7 @@ Name: domain, Length: 234, dtype: int64</pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x112767c10&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fde1705d490&gt;</pre>
 </div>
 
 </div>
@@ -3827,7 +3827,7 @@ Name: domain, Length: 234, dtype: int64</pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x115368350&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fde13ae5750&gt;</pre>
 </div>
 
 </div>
