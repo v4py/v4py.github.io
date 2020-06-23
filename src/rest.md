@@ -203,7 +203,12 @@ parameters = {"input_text": "All humans are born equal."}
 We now have the URL and parameters, we know which method to use, so shoot!
 
 ```{code-cell} ipython3
-translation_response = requests.post(url, parameters)
+# NOTE: previously, the API returned the output in a format called JSON
+# (see below) by default; currently, the JSON format has to be
+# explicitly requested by using a *header* (see e.g.
+# https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)
+headers = {"accept": "application/json"}
+translation_response = requests.post(url, parameters, headers=headers)
 print(translation_response.text)
 ```
 
@@ -242,7 +247,7 @@ parameters, so that we e.g.:
 #import requests
 url = "https://lindat.mff.cuni.cz/services/translation/api/v2/models/en-fr"
 parameters = {"input_text": "I like trains very much."}
-translation_response = requests.post(url, parameters)
+translation_response = requests.post(url, parameters, headers=headers)
 print(translation_response.json()[0])
 ```
 
@@ -257,7 +262,7 @@ print(translation_response.json()[0])
 def translate(text):
     url = "https://lindat.mff.cuni.cz/services/translation/api/v2/models/en-cs"
     parameters = {"input_text": text}
-    translation_response = requests.post(url, parameters)
+    translation_response = requests.post(url, parameters, headers=headers)
     translation_response.encoding = 'utf8'
     translation_response_parsed = translation_response.json()
     return translation_response_parsed[0]
@@ -297,7 +302,7 @@ function can also be called with only the text specified.
 def translate(text, target_language="cs", source_language="en"):
     url = f"https://lindat.mff.cuni.cz/services/translation/api/v2/models/{source_language}-{target_language}"
     parameters = {"input_text": text}
-    translation_response = requests.post(url, parameters)
+    translation_response = requests.post(url, parameters, headers={"accept": "application/json"})
     translation_response_parsed = translation_response.json()
     return translation_response_parsed[0]
 ```
