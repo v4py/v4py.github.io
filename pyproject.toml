@@ -3,7 +3,7 @@ name = "e-v4py"
 version = "0.1.0"
 description = "E-learning materials for Python under the V4Py project."
 authors = ["David Lukes <dafydd.lukes@gmail.com>", "Rudolf Rosa <rosa@ufal.mff.cuni.cz>"]
-license = "CC-BY-SA-4.0"
+license = "CC-BY-NC-SA-4.0"
 
 [tool.poetry.dependencies]
 python = "3.7.*"
