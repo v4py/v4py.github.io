@@ -26,8 +26,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://v4py.github.io//rest.html",
   "headline": "Working with online resources",
-  "datePublished": "2020-04-08T21:14:37+02:00",
-  "dateModified": "2020-04-08T21:14:37+02:00",
+  "datePublished": "2020-06-23T16:14:31+02:00",
+  "dateModified": "2020-06-23T16:14:31+02:00",
   "description": "        Working with online resourcesRudolf Rosa    How to work with this material There is always first a text telling you what to doSo first try to do it y...",
   "author": {
     "@type": "Person",
@@ -1375,7 +1375,12 @@ previous example, we will use <code>requests.post()</code></li>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">translation_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">parameters</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># NOTE: previously, the API returned the output in a format called JSON</span>
+<span class="c1"># (see below) by default; currently, the JSON format has to be</span>
+<span class="c1"># explicitly requested by using a *header* (see e.g.</span>
+<span class="c1"># https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;accept&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">}</span>
+<span class="n">translation_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">translation_response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
 
@@ -1524,7 +1529,7 @@ parameters, so that we e.g.:</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#import requests</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://lindat.mff.cuni.cz/services/translation/api/v2/models/en-fr&quot;</span>
 <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;input_text&quot;</span><span class="p">:</span> <span class="s2">&quot;I like trains very much.&quot;</span><span class="p">}</span>
-<span class="n">translation_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">parameters</span><span class="p">)</span>
+<span class="n">translation_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">translation_response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 
@@ -1579,7 +1584,7 @@ response encoding, and return the response text</li>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">translate</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://lindat.mff.cuni.cz/services/translation/api/v2/models/en-cs&quot;</span>
     <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;input_text&quot;</span><span class="p">:</span> <span class="n">text</span><span class="p">}</span>
-    <span class="n">translation_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">parameters</span><span class="p">)</span>
+    <span class="n">translation_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
     <span class="n">translation_response</span><span class="o">.</span><span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;utf8&#39;</span>
     <span class="n">translation_response_parsed</span> <span class="o">=</span> <span class="n">translation_response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">translation_response_parsed</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -1734,7 +1739,7 @@ function can also be called with only the text specified.</p>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">translate</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">target_language</span><span class="o">=</span><span class="s2">&quot;cs&quot;</span><span class="p">,</span> <span class="n">source_language</span><span class="o">=</span><span class="s2">&quot;en&quot;</span><span class="p">):</span>
     <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://lindat.mff.cuni.cz/services/translation/api/v2/models/</span><span class="si">{</span><span class="n">source_language</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">target_language</span><span class="si">}</span><span class="s2">&quot;</span>
     <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;input_text&quot;</span><span class="p">:</span> <span class="n">text</span><span class="p">}</span>
-    <span class="n">translation_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">parameters</span><span class="p">)</span>
+    <span class="n">translation_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;accept&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">})</span>
     <span class="n">translation_response_parsed</span> <span class="o">=</span> <span class="n">translation_response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">translation_response_parsed</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
@@ -2021,7 +2026,7 @@ getting the static webpage from the internet:</li>
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>{ &#34;type&#34;: &#34;success&#34;, &#34;value&#34;: { &#34;id&#34;: 153, &#34;joke&#34;: &#34;The movie &amp;quot;Delta Force&amp;quot; was extremely hard to make because Chuck had to downplay his abilities. The first few cuts were completely unbelievable.&#34;, &#34;categories&#34;: [] } }
+<pre>{ &#34;type&#34;: &#34;success&#34;, &#34;value&#34;: { &#34;id&#34;: 57, &#34;joke&#34;: &#34;Chuck Norris is ten feet tall, weighs two-tons, breathes fire, and could eat a hammer and take a shotgun blast standing.&#34;, &#34;categories&#34;: [] } }
 </pre>
 </div>
 </div>
@@ -2068,7 +2073,7 @@ the joke text from the response.</p>
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>The movie &amp;quot;Delta Force&amp;quot; was extremely hard to make because Chuck had to downplay his abilities. The first few cuts were completely unbelievable.
+<pre>Chuck Norris is ten feet tall, weighs two-tons, breathes fire, and could eat a hammer and take a shotgun blast standing.
 </pre>
 </div>
 </div>
@@ -2154,7 +2159,7 @@ outputs.</p>
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>One time, Chuck Norris accidentally stubbed his toe. It destroyed the entire state of Ohio.
+<pre>&amp;quot;It works on my machine&amp;quot; always holds true for Chuck Norris.
 </pre>
 </div>
 </div>
@@ -2186,7 +2191,7 @@ outputs.</p>
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Ninjas want to grow up to be just like Chuck Norris. But usually they grow up just to be killed by Chuck Norris.
+<pre>When Chuck Norris throws exceptions, it&#39;s across the room.
 </pre>
 </div>
 </div>
@@ -2218,7 +2223,7 @@ outputs.</p>
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Never look a gift Chuck Norris in the mouth, because he will bite your damn eyes off.
+<pre>What was going through the minds of all of Chuck Norris&#39; victims before they died? His shoe.
 </pre>
 </div>
 </div>
@@ -2269,7 +2274,7 @@ character in the jokes.</li>
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Count from one to ten. That&#39;s how long it would take David Lukes to kill you...Forty seven times.
+<pre>David Lukes was the orginal sculptor of Mount Rushmore. He completed the entire project using only a bottle opener and a drywall trowel.
 </pre>
 </div>
 </div>
@@ -2347,7 +2352,7 @@ parameters.</p>
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Dark spots on the Moon are the result of Chuck Norris&#39; shooting practice.
+<pre>According to the Encyclopedia Brittanica, the Native American &amp;quot;Trail of Tears&amp;quot; has been redefined as anywhere that Chuck Norris walks.
 </pre>
 </div>
 </div>
@@ -2379,7 +2384,7 @@ parameters.</p>
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Rudolf Rosa doesn&#39;t go on the internet, he has every internet site stored in his memory. He refreshes webpages by blinking.
+<pre>When Rudolf Rosa calls 1-900 numbers, he doesn&#39;t get charged. He holds up the phone and money falls out.
 </pre>
 </div>
 </div>
@@ -2411,7 +2416,7 @@ parameters.</p>
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>yo mama recently had the idea to sell his urine as a canned beverage. We know this beverage as Red Bull.
+<pre>If yo mama were a calendar, every month would be named yotober, and every day he&#39;d kick your ass.
 </pre>
 </div>
 </div>
@@ -2470,8 +2475,10 @@ getting <code>https://cataas.com/cat</code></li>
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>���� JFIF  H H  �� C 		
-2!!22222222222222222222222222222222222222222222222222��  X&#34; ��             �� ;  !1AQa&#34;q2��#��B��R��$3�%Cb����            �� $
+<pre>�PNG
+
+IHDR  X  X   �f��   bKGD � � �����  � IDATxڌ�Y�-I���}��f��3�ɧp���Ȍʬ�*6��F���A�G�$Я�W��	DwUg%��+3#c���g�{���
+D���������=�&gt;��TE�,Y�D���_�������B�R��o8=&lt;����۷o��Rs��B����� �PUJ-( &#34; �s�&#34;!P���E����J��i�&#39;&#34;�5P]^�}^ A�K��#��nJ	AU��jY^ J �@��w��_����߂J��W�T��]_����/�@
 </pre>
 </div>
 </div>

@@ -26,8 +26,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://v4py.github.io//src/rest.html",
   "headline": "Working with online resources",
-  "datePublished": "2020-04-08T21:14:37+02:00",
-  "dateModified": "2020-04-08T21:14:37+02:00",
+  "datePublished": "2020-06-23T16:14:31+02:00",
+  "dateModified": "2020-06-23T16:14:31+02:00",
   "description": "# Working with online resources# How to work with this material* There is always first a text telling you what to do  * So first try to do it yourself withou...",
   "author": {
     "@type": "Person",
@@ -1073,7 +1073,12 @@ previous example, we will use <code class="language-plaintext highlighter-rouge"
 
 <p>We now have the URL and parameters, we know which method to use, so shoot!</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">translation_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">parameters</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># NOTE: previously, the API returned the output in a format called JSON
+# (see below) by default; currently, the JSON format has to be
+# explicitly requested by using a *header* (see e.g.
+# https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)
+</span><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">"accept"</span><span class="p">:</span> <span class="s">"application/json"</span><span class="p">}</span>
+<span class="n">translation_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">translation_response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div></div>
 
@@ -1111,7 +1116,7 @@ parameters, so that we e.g.:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#import requests
 </span><span class="n">url</span> <span class="o">=</span> <span class="s">"https://lindat.mff.cuni.cz/services/translation/api/v2/models/en-fr"</span>
 <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s">"input_text"</span><span class="p">:</span> <span class="s">"I like trains very much."</span><span class="p">}</span>
-<span class="n">translation_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">parameters</span><span class="p">)</span>
+<span class="n">translation_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">translation_response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
 </code></pre></div></div>
 
@@ -1130,7 +1135,7 @@ response encoding, and return the response text</li>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">translate</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="n">url</span> <span class="o">=</span> <span class="s">"https://lindat.mff.cuni.cz/services/translation/api/v2/models/en-cs"</span>
     <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s">"input_text"</span><span class="p">:</span> <span class="n">text</span><span class="p">}</span>
-    <span class="n">translation_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">parameters</span><span class="p">)</span>
+    <span class="n">translation_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
     <span class="n">translation_response</span><span class="o">.</span><span class="n">encoding</span> <span class="o">=</span> <span class="s">'utf8'</span>
     <span class="n">translation_response_parsed</span> <span class="o">=</span> <span class="n">translation_response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">translation_response_parsed</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -1168,7 +1173,7 @@ function can also be called with only the text specified.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">translate</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">target_language</span><span class="o">=</span><span class="s">"cs"</span><span class="p">,</span> <span class="n">source_language</span><span class="o">=</span><span class="s">"en"</span><span class="p">):</span>
     <span class="n">url</span> <span class="o">=</span> <span class="n">f</span><span class="s">"https://lindat.mff.cuni.cz/services/translation/api/v2/models/{source_language}-{target_language}"</span>
     <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s">"input_text"</span><span class="p">:</span> <span class="n">text</span><span class="p">}</span>
-    <span class="n">translation_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">parameters</span><span class="p">)</span>
+    <span class="n">translation_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">"accept"</span><span class="p">:</span> <span class="s">"application/json"</span><span class="p">})</span>
     <span class="n">translation_response_parsed</span> <span class="o">=</span> <span class="n">translation_response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">translation_response_parsed</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </code></pre></div></div>
