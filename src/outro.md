@@ -344,8 +344,8 @@ seen!
 
 Another talk by Raymond Hettinger, this time about making the computer
 do multiple things at the same time. Spoiler: it's hard to get this
-right, and you should probably think twice whether you really needed
-before you start tinkering with it.
+right, and you should probably think twice whether you really need to do
+so before you start tinkering with it.
 
 <!-- #endmd -->
 
