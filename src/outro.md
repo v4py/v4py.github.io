@@ -438,7 +438,7 @@ Navigator](https://docs.anaconda.com/anaconda/navigator/) GUI or the
   [XML](https://en.wikipedia.org/wiki/XML) format. Though Python does
   have facilities for [processing XML in the standard
   library](https://docs.python.org/3.8/library/xml.etree.elementtree.html#tutorial),
-  the [`lxml`](https://lxml.de/) offers more functionality and
+  the [`lxml`](https://lxml.de/) package offers more functionality and
   robustness. The docs are somewhat old-fashioned but the tutorial parts
   (e.g. [here](https://lxml.de/tutorial.html)) are well-written. What
   *can* sometimes be a somewhat painful experience is searching through
