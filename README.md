@@ -18,6 +18,15 @@ the archive and look under the `content/` subdirectory.
 - [Rudolf Rosa](https://github.com/ptakopysk), [Institute of Formal and
   Applied Linguistics](https://ufal.mff.cuni.cz)
 
+# Writing tips
+
+For **writing code**, fire up JupyterLab with `poetry run jupyter lab`
+and open the `.md` files under `src/` as notebooks (right-click + *Open
+With* thanks to JupyText).
+
+For **writing prose**, edit those same files with whichever text editor
+you like.
+
 # License
 
 All content in this book (i.e., any files and content in the `src/`

@@ -1,20 +1,22 @@
 ---
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.4.1
-  kernelspec:
-    display_name: Python 3
-    language: python
-    name: python3
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.12
+    jupytext_version: 1.6.0
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
 ---
 
 # Keyword analysis: Donald Trump's speeches
 
-```python tags=["remove_cell"]
+```{code-cell} ipython3
+:tags: [remove-cell]
+
 # Download NLTK resources. Remove code from START_NLTK_TMP to
 # END_NLTK_TMP to store them in a permanent location instead of a
 # temporary directory.
@@ -32,61 +34,63 @@ import nltk
 nltk.download("inaugural")
 ```
 
-# Reference corpus & frequency distribution
+## Reference corpus & frequency distribution
 
-```python
+```{code-cell} ipython3
 from nltk.corpus import inaugural
 ```
 
-```python
+```{code-cell} ipython3
 inaugural.fileids()
 ```
 
-```python
+```{code-cell} ipython3
 inaugural.words()
 ```
 
-```python
+```{code-cell} ipython3
 from nltk import FreqDist
 ```
 
-```python
+```{code-cell} ipython3
 FreqDist(["one", "two", "three", "one"])
 ```
 
-```python
+```{code-cell} ipython3
 fd = FreqDist(["one", "two", "three", "one"])
 ```
 
-```python
+```{code-cell} ipython3
 fd["one"]
 ```
 
-```python
+```{code-cell} ipython3
 fd.N()
 ```
 
-```python
+```{code-cell} ipython3
 fd.freq("one")
 ```
 
-```python
+```{code-cell} ipython3
 fd.most_common()
 ```
 
-```python
+```{code-cell} ipython3
 fd.plot()
 ```
 
-```python
+```{code-cell} ipython3
 reference_fd = FreqDist(inaugural.words())
 ```
 
-```python tags=["raises-exception", "full_width", "output_scroll"]
+```{code-cell} ipython3
+:tags: [raises-exception, full-width, output_scroll]
+
 inaugural.words().lower()
 ```
 
-```python
+```{code-cell} ipython3
 reference_fd = FreqDist(
     word.casefold()
     for word in inaugural.words()
@@ -94,15 +98,15 @@ reference_fd = FreqDist(
 )
 ```
 
-```python
+```{code-cell} ipython3
 reference_fd.most_common(10)
 ```
 
-```python
+```{code-cell} ipython3
 reference_fd.plot(10)
 ```
 
-```python
+```{code-cell} ipython3
 trump = """
 Chief Justice Roberts, President Carter, President Clinton, President Bush, President Obama, fellow Americans, and people of the world: thank you.
 
@@ -256,59 +260,58 @@ And, Yes, Together, We Will Make America Great Again. Thank you, God Bless You, 
 """
 ```
 
-```python
+```{code-cell} ipython3
 %page -r trump
 ```
-
 
 | ❄             | text  | ref. corpus |
 |---------------|-------|-------------|
 | *bigly*       | 270   | 2615        |
 | other words | 19937 | 120 748 715 |
 
-```python
+```{code-cell} ipython3
 prop_text = 270 / (270 + 19_937)
 ```
 
-```python
+```{code-cell} ipython3
 prop_text
 ```
 
-```python
+```{code-cell} ipython3
 prop_ref = 2615 / (2615 + 120_748_715)
 ```
 
-```python
+```{code-cell} ipython3
 prop_ref
 ```
 
-```python
+```{code-cell} ipython3
 prop_text > prop_ref
 ```
 
-```python
+```{code-cell} ipython3
 from scipy.stats import chi2_contingency
 ```
 
-```python
+```{code-cell} ipython3
 chi2_contingency([[270, 19_937], [2615, 120_748_715]])
 ```
 
-```python
+```{code-cell} ipython3
 chi2_contingency([[270, 19_937], [2615, 120_748_715]])[1]
 ```
 
-```python
+```{code-cell} ipython3
 chi2_result = chi2_contingency([[270, 19_937], [2615, 120_748_715]])
 p = chi2_result[1]
 p < 0.05
 ```
 
-```python
+```{code-cell} ipython3
 from nltk import word_tokenize
 ```
 
-```python
+```{code-cell} ipython3
 trump_fd = FreqDist(
     word.casefold()
     for word in word_tokenize(trump)
@@ -316,11 +319,11 @@ trump_fd = FreqDist(
 )
 ```
 
-```python
+```{code-cell} ipython3
 trump_fd.most_common(10)
 ```
 
-```python
+```{code-cell} ipython3
 def is_keyword(word, target_fd, reference_fd):
     target_freq = target_fd[word]
     target_rest = target_fd.N() - target_freq
@@ -334,15 +337,15 @@ def is_keyword(word, target_fd, reference_fd):
     return target_fd.freq(word) > reference_fd.freq(word) and p < 0.05
 ```
 
-```python
+```{code-cell} ipython3
 trump_fd["and"]
 ```
 
-```python
+```{code-cell} ipython3
 trump_fd.N() - trump_fd["and"]
 ```
 
-```python
+```{code-cell} ipython3
 def din(word, target_fd, reference_fd):
     target_freq = target_fd.freq(word)
     reference_freq = reference_fd.freq(word)
@@ -351,13 +354,13 @@ def din(word, target_fd, reference_fd):
 
 For more on DIN (Difference INdex), see: <https://kwords.korpus.cz/>
 
-```python
+```{code-cell} ipython3
 for word in trump_fd.keys():
     print(word)
     break
 ```
 
-```python
+```{code-cell} ipython3
 keywords = []
 
 for word in trump_fd.keys():
@@ -366,18 +369,18 @@ for word in trump_fd.keys():
         keywords.append((word_din, word))
 ```
 
-```python
+```{code-cell} ipython3
 len(keywords)
 ```
 
-```python
+```{code-cell} ipython3
 keywords
 ```
 
-```python
+```{code-cell} ipython3
 sorted(keywords, reverse=True)
 ```
 
-```python
+```{code-cell} ipython3
 ?sorted
 ```

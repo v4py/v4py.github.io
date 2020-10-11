@@ -1,20 +1,22 @@
 ---
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.4.1
-  kernelspec:
-    display_name: Python 3
-    language: python
-    name: python3
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.12
+    jupytext_version: 1.6.0
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
 ---
 
 # A tour of Python and NLTK
 
-```python tags=["remove_cell"]
+```{code-cell} ipython3
+:tags: [remove-cell]
+
 # Download NLTK resources. Remove code from START_NLTK_TMP to
 # END_NLTK_TMP to store them in a permanent location instead of a
 # temporary directory.
@@ -32,7 +34,7 @@ import nltk
 nltk.download("punkt")
 ```
 
-# The most important piece of programming advice you'll ever get™
+## The most important piece of programming advice you'll ever get™
 
 Over the course of this book, you'll be presented with a lot of
 information. Like, *a lot*. It makes no sense trying to memorize all of
@@ -73,7 +75,7 @@ to get, here's an overview of the domains that frequently appear in there:
   [bug](https://en.wikipedia.org/wiki/Software_bug), and if not,
   consider reporting it yourself.
 
-# How to use this chapter
+## How to use this chapter
 
 Don't try to memorize all the information contained in here by heart
 before moving on to the rest of the book. The purpose of this chapter is
@@ -85,7 +87,7 @@ programming career, so that's not the goal right now. The goal is to get
 acquainted, possibly skip ahead if you get bored, and definitely skip
 back for a refresher whenever things stop making sense.
 
-# Python notebooks: your fancy new calculator
+## Python notebooks: your fancy new calculator
 
 Python notebooks are kind of like a calculator, just a lot more fancy
 than your typical calculator. But otherwise, they should feel pretty
@@ -97,7 +99,7 @@ cell with the play button (▶) makes Python **evaluate the code** you
 typed in, i.e. your **program**. A very simple Python program could
 consist of just one number:
 
-```python
+```{code-cell} ipython3
 1
 ```
 
@@ -108,7 +110,7 @@ notebook, jump back and forth between them, edit and re-evaluate old
 ones, etc. Let's create a new cell with the plus button (➕) and try
 some slightly more complicated expressions.
 
-```python
+```{code-cell} ipython3
 1 + 1
 ```
 
@@ -119,7 +121,7 @@ humans reading the code. In Python, the **syntax** for comments is to
 write a hash mark; everything that follows after that is a comment,
 which is often signaled by distinctive **syntax highlighting**.
 
-```python
+```{code-cell} ipython3
 # This is a comment.
 # Python will completely ignore this line, the one above and the one below.
 # They're here just for you, as the person who reads this code.
@@ -142,25 +144,25 @@ right now.
 The `*` operator is used for multiplication, `/` for division, `//` for
 truncating division, `%` for modulo and `**` for exponentiation.
 
-```python
+```{code-cell} ipython3
 2 * 3
 ```
 
-```python
+```{code-cell} ipython3
 4 / 3
 ```
 
-```python
+```{code-cell} ipython3
 # "truncating" division means it'll chop off the part of the number
 # after the decimal point
 4 // 3
 ```
 
-```python
+```{code-cell} ipython3
 2**3
 ```
 
-```python
+```{code-cell} ipython3
 # modulo wraps counting around a certain number, so you can use it e.g.
 # for converting 24h clock hours to 12h clock hours
 16 % 12
@@ -169,7 +171,7 @@ truncating division, `%` for modulo and `**` for exponentiation.
 A decimal point, `.`, is used to separate the whole number part from the
 fractional part of a number.
 
-```python
+```{code-cell} ipython3
 0.1 + 0.1
 ```
 
@@ -184,29 +186,31 @@ them out:
 - `Shift+Enter`: evaluate and switch to next (existing) cell
 - `Ctrl+Enter`: evaluate and stay at current cell
 
-# Text as strings of characters
+## Text as strings of characters
 
 But enough about numbers! We're linguist, so let's look at how we can
 represent text. The most basic way of representing text in Python is as
 one long **string** of characters. Strings can be created using quotes,
 both single and double work fine.
 
-```python
+```{code-cell} ipython3
 "Hello, world!"
 ```
 
-```python
+```{code-cell} ipython3
 'Hello, world!'
 ```
 
-```python
+```{code-cell} ipython3
 "It's me, world!"
 ```
 
 Though you can't just put a single quote inside a single-quote-delimited
 string because, well, Python would think that's where the string ends.
 
-```python tags=["raises-exception"]
+```{code-cell} ipython3
+:tags: [raises-exception]
+
 'It's me, world!'
 ```
 
@@ -228,7 +232,7 @@ of quotes. In that case, you can use the backslash character `\` to
 **escape** the special, string-terminating meaning of a quote, and make
 it into a regular character which is part of the string.
 
-```python
+```{code-cell} ipython3
 "\"It's me, world!\" she said."
 ```
 
@@ -241,7 +245,9 @@ just can't put there literally, or which are hard to type on your
 keyboard. For instance, you can't just put a **newline** character
 inside a string:
 
-```python tags=["raises-exception"]
+```{code-cell} ipython3
+:tags: [raises-exception]
+
 "one line
 another line"
 ```
@@ -250,7 +256,7 @@ Grr, another `SyntaxError`. What you *can* do is use the `\n` escape
 sequence to represent that newline, without having an actual newline in
 your source code and triggering that `SyntaxError`.
 
-```python
+```{code-cell} ipython3
 "one line\nanother line"
 ```
 
@@ -263,7 +269,7 @@ of phantom character, as is most **whitespace**, but you can actually
 get a rendered version of your string, as it would appear in a text
 file, you need to use the `print()` function.
 
-```python
+```{code-cell} ipython3
 print("one line\nanother line")
 ```
 
@@ -275,14 +281,14 @@ sequences](https://docs.python.org/3/reference/lexical_analysis.html#string-and-
 you can use in Python strings, another handy and commonly encountered
 one is `\t` for the tab character:
 
-```python
+```{code-cell} ipython3
 print("one\ttwo\nthree\tfour")
 ```
 
 And less commonly seen but pretty neat as well is `\N{...}`, for
 inserting characters based on their [Unicode](unicode) names:
 
-```python
+```{code-cell} ipython3
 "\N{see-no-evil monkey}"
 ```
 
@@ -291,12 +297,12 @@ that newline escape thing can become really annoying -- who wants to
 type several paragraphs as one long line interspersed with `\n`s?
 Fear not, **triple-quoted** strings to the rescue:
 
-```python
+```{code-cell} ipython3
 """one line
 another line"""
 ```
 
-```python
+```{code-cell} ipython3
 print('''one line
 another line''')
 ```
@@ -315,7 +321,7 @@ even think it needed a special term like 'literal' to describe it.
 Python has a few more core, built-in data structures which have
 dedicated literal syntax; we'll encounter them below.
 
-# Objects and variables
+## Objects and variables
 
 Writing Python code consists of interacting with and manipulating
 various **objects**. Object is a generic term for anything you can
@@ -323,7 +329,7 @@ inspect by putting it inside a code cell and evaluating that cell. So
 far, we've seen numbers, strings and one **function** (that's right,
 functions are objects too).
 
-```python
+```{code-cell} ipython3
 print
 ```
 
@@ -335,7 +341,7 @@ variable name is entirely up to you, though there are some
 you must abide by; for instance, you can't use spaces, so these are
 often replaced with **underscores** `_`.
 
-```python
+```{code-cell} ipython3
 string = "one\ttwo\nthree\tfour"
 string
 ```
@@ -343,13 +349,13 @@ string
 Anywhere you want to use that object, you can then refer to it using the
 name of the variable that points to it.
 
-```python
+```{code-cell} ipython3
 print(string)
 ```
 
 Multiple names can refer to the same object.
 
-```python
+```{code-cell} ipython3
 another_name = string
 print(another_name)
 ```
@@ -357,15 +363,15 @@ print(another_name)
 Whether two names refer to the same object or not can be checked using
 the `is` operator.
 
-```python
+```{code-cell} ipython3
 string is another_name
 ```
 
-```python
+```{code-cell} ipython3
 string is print
 ```
 
-```python
+```{code-cell} ipython3
 string2 = "one\ttwo\nthree\tfour"
 # NOTE: when not in the notebook environment, Python will usually be
 # smart enough to figure out that string and string2 contain the same
@@ -379,7 +385,7 @@ When two objects are not the same, they might still be **equal**, in
 that they *look* the same, they have the same contents. You can check
 for that using the **equality operator**, `==`.
 
-```python
+```{code-cell} ipython3
 string == string2
 ```
 
@@ -390,11 +396,11 @@ true, since they look the same.
 The `==` is also a good opportunity to check that numbers and strings
 really are two completely different things in Python:
 
-```python
+```{code-cell} ipython3
 42 == "42"
 ```
 
-# Attributes: objects on objects (on objects...)
+## Attributes: objects on objects (on objects...)
 
 Only rarely is an object [an island entire of
 itself](https://web.cs.dal.ca/~johnston/poetry/island.html), most
@@ -409,7 +415,7 @@ number](https://en.wikipedia.org/wiki/Complex_number), which consists of
 two parts, a *real* and an *imaginary* one. This is the literal syntax
 for complex numbers in Python:
 
-```python
+```{code-cell} ipython3
 c = 1 + 2j
 c
 ```
@@ -418,15 +424,15 @@ Let's not worry about what complex numbers are good for right now, we're
 interested in attributes. Complex numbers store their real and imaginary
 parts as `.real` and `.imag` attributes, respectively.
 
-```python
+```{code-cell} ipython3
 c.real
 ```
 
-```python
+```{code-cell} ipython3
 c.imag
 ```
 
-## Methods
+### Methods
 
 Functions are regular objects and as such, they can also be attached to
 other objects as attributes, as little snippets of dynamic behavior
@@ -437,11 +443,11 @@ basically just functions. For instance, inspect the the `print()`
 function we already saw above, and compare it with the `.conjugate()`
 method.
 
-```python
+```{code-cell} ipython3
 print
 ```
 
-```python
+```{code-cell} ipython3
 c.conjugate
 ```
 
@@ -453,17 +459,15 @@ instance, the `print()` function prints objects to the screen, as we saw
 previously. The `.conjugate()` method computes the complex number's
 [conjugate](https://en.wikipedia.org/wiki/Complex_number#Conjugate).
 
-```python
+```{code-cell} ipython3
 c.conjugate()
 ```
 
-<!-- #md tags=["popout"] -->
-
+```{margin}
 Tab completion can actually complete more than just attributes, it also
 covers variable names (just start typing the beginning and press `Tab`),
 and filesystem paths inside strings.
-
-<!-- #endmd -->
+```
 
 Let's drop complex numbers as the running example and come back to
 strings -- they have a much greater variety of interesting methods we
@@ -472,11 +476,13 @@ JupyterLab, a great feature which helps you do so is **tab completion**.
 If you type a variable name + `.` and hit the `Tab` key, a menu should
 come up with all the attributes available on the object. Try it!
 
-```python
+```{code-cell} ipython3
 # type string. and press Tab on your keyboard
 ```
 
-```python tags=["hide_input", "output_scroll"]
+```{code-cell} ipython3
+:tags: [remove-input, output_scroll]
+
 # NOTE: this is a hack to show the tab completion list in the static
 # version of the book
 [a for a in dir(string) if not a.startswith("_")]
@@ -486,19 +492,19 @@ You can see there's quite a lot going on in there. There's a whole lot
 of methods starting with the prefix `is*`, which are there to answer
 some questions you might have about the contents of your strings.
 
-```python
+```{code-cell} ipython3
 "cat".islower()
 ```
 
-```python
+```{code-cell} ipython3
 "DOG".isupper()
 ```
 
-```python
+```{code-cell} ipython3
 "Frank".istitle()
 ```
 
-```python
+```{code-cell} ipython3
 "42".isnumeric()
 ```
 
@@ -508,11 +514,13 @@ of the object you're interested in, evaluate the cell, and detailed
 information about that object will be shown. For instance, if we're
 interested in what the `.isprintable()` method does:
 
-```python
+```{code-cell} ipython3
 ?string.isprintable
 ```
 
-```python tags=["hide_input", "output_scroll"]
+```{code-cell} ipython3
+:tags: [remove-input, output_scroll]
+
 # NOTE: and this is a hack to show interactive help outputs in the
 # static version of the book
 def print_help(obj, **kwargs):
@@ -521,8 +529,7 @@ def print_help(obj, **kwargs):
 print_help(string.isprintable)
 ```
 
-<!-- #md tags=["popout"] -->
-
+```{margin}
 To be completely accurate, the question mark interactive help feature,
 as well as some other extensions to Python syntax we'll come across, are
 implemented by the [IPython](https://ipython.org/) library, which
@@ -532,8 +539,7 @@ line](https://en.wikipedia.org/wiki/Command-line_interface), then these
 features are also available inside the IPython
 [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop),
 which you can start with the `ipython` command (if installed).
-
-<!-- #endmd -->
+```
 
 **The question mark is not regular Python syntax**, it only works inside
 notebooks and is intended to make interactive exploration easier. Stock
@@ -542,19 +548,29 @@ similar, but it displays less information. If you want even more
 details, you can insist by typing two question marks `??` instead of
 one:
 
-```python
+```{code-cell} ipython3
 ??string.isprintable
 ```
 
-```python tags=["hide_input", "output_scroll"]
+```{code-cell} ipython3
+:tags: [remove-input, output_scroll]
+
 print_help(string.isprintable, detail_level=1)
 ```
 
-For convenience, the question mark(s) can also go behind the object
-you're taking a peek at.
+... though sometimes (as in this case), more detail might not be
+available and the help output will be the same as with one question
+mark. For convenience, the question mark(s) can also go behind the
+object you're taking a peek at.
 
-```python
+```{code-cell} ipython3
 string.isprintable?
+```
+
+```{code-cell} ipython3
+:tags: [remove-input, output_scroll]
+
+print_help(string.isprintable)
 ```
 
 And another way to trigger interactive help is by pressing `Shift-Tab`
@@ -562,39 +578,35 @@ while your typing cursor is inside an object's name. A floating window
 will pop up with the help contents inside. This is useful for quick
 checks, because you don't even have to evaluate the cell.
 
-```python tags=["hide_input", "output_scroll"]
-print_help(string.isprintable)
-```
-
 There are also several methods which allow you to create new strings
 with some of the characters changed.
 
-```python
+```{code-cell} ipython3
 # convert to upper case
 "klein".upper()
 ```
 
-```python
+```{code-cell} ipython3
 # convert to lower case
 "GROß".lower()
 ```
 
-```python
+```{code-cell} ipython3
 # convert to lower case in an even more aggressive way, which is usually
 # the safer option if you really want to make sure all case distinctions
 # are ignored
 "GROß".casefold()
 ```
 
-```python
+```{code-cell} ipython3
 "pride and prejudice".capitalize()
 ```
 
-```python
+```{code-cell} ipython3
 "pride and prejudice".title()
 ```
 
-```python
+```{code-cell} ipython3
 # remove leading and trailing whitespace
 """
 
@@ -610,19 +622,19 @@ Arguments are written out between the parentheses doing the function
 call, and if you can't remember what they are or what order they come
 in, that's precisely what interactive help is there for!
 
-```python
+```{code-cell} ipython3
 "I love cats and categories.".replace("cat", "dog")
 ```
 
 Note that **none of these methods modify the original string**, they
 just use it to derive what the new string should look like.
 
-```python
+```{code-cell} ipython3
 animal = "cat"
 animal.upper()
 ```
 
-```python
+```{code-cell} ipython3
 animal
 ```
 
@@ -631,20 +643,20 @@ can't change them in place. You can create new strings and re-assign
 them to old variable names, but the old strings will always stay the way
 they were at the beginning.
 
-```python
+```{code-cell} ipython3
 # create a string and give it two names
 name1 = "string"
 name2 = name1
 ```
 
-```python
+```{code-cell} ipython3
 # create a new string which is an uppercase version of the original
 # string, and re-assign it to the name2 variable
 name2 = name2.upper()
 name2
 ```
 
-```python
+```{code-cell} ipython3
 # but the old string is still there, undisturbed
 name1
 ```
@@ -662,7 +674,7 @@ exhaustively, just skim the list, read the descriptions of some of the
 methods that sound particularly useful, leave those that sound confusing
 for later (or never).
 
-# Collections
+## Collections
 
 **Collections** or **containers** are objects intended to contain other
 objects, so that you can conveniently manipulate them together. We saw
@@ -678,7 +690,7 @@ To motivate the need for collections, imagine that you want to store the
 individual tokens in a sentence, "Let it be.". Without collections, you
 would have to use separate variables:
 
-```python
+```{code-cell} ipython3
 string1 = "Let"
 string2 = "it"
 string3 = "be"
@@ -688,13 +700,13 @@ string4 = "."
 This gets really tedious really quickly. Instead, you can use a Python
 list:
 
-```python
+```{code-cell} ipython3
 strings = ["Let", "it", "be", "."]
 ```
 
 Much better!
 
-## Collection literals
+### Collection literals
 
 We'll start getting acquainted with Python's builtin collections by
 learning about their literals, i.e. the special syntax used to create
@@ -707,26 +719,26 @@ We've already met **lists**. In general, Python really doesn't care what
 kinds of objects you store in your collections, it's entirely up to you,
 so you can mix and match at will.
 
-```python
+```{code-cell} ipython3
 [1, "two", print]
 ```
 
 Lists are great for storing tokenized text:
 
-```python
+```{code-cell} ipython3
 ["Help", "!", "I", "need", "somebody", ",", "help", "!"]
 ```
 
 This is how you create an empty list:
 
-```python
+```{code-cell} ipython3
 []
 ```
 
 Closely related to lists are **tuples** (we'll discuss the differences
 below).
 
-```python
+```{code-cell} ipython3
 (1, "two", print)
 ```
 
@@ -735,13 +747,13 @@ see me using tuples when I want to output multiple objects from a code
 cell, because Python only uses the last expression in the cell as its
 output value.
 
-```python
+```{code-cell} ipython3
 1
 "two"
 print
 ```
 
-```python
+```{code-cell} ipython3
 1, "two", print
 ```
 
@@ -751,14 +763,14 @@ then, it might be a good idea to play it safe and always use them. This
 means "take the number 1, the result of the comparison 2 < 3, and the
 number 4, and create a 3-tuple out of them":
 
-```python
+```{code-cell} ipython3
 1, 2 < 3, 4
 ```
 
 Whereas this says, "create a 2-tuple `(1, 2)` and a 2-tuple `(3, 4)` and
 *only then* do a comparison of the resulting tuples":
 
-```python
+```{code-cell} ipython3
 (1, 2) < (3, 4)
 ```
 
@@ -769,7 +781,7 @@ multiplication", overriding the default $4 + 3 * 2$ which goes the other
 way round. One place they're never optional though is when creating an
 empty tuple.
 
-```python
+```{code-cell} ipython3
 ()
 ```
 
@@ -778,27 +790,27 @@ their purpose is not to store only values, but **key--value pairs**. We
 say that they **map** keys to values, kind of like real-world
 dictionaries map words in one language to another.
 
-```python
+```{code-cell} ipython3
 {"cat": "chat", "dog": "chien"}
 ```
 
 A constraint on dictionaries is that the **keys must be unique**. If you
 provide multiple values per key, only the last one will be retained.
 
-```python
+```{code-cell} ipython3
 {"odd": 1, "even": 2, "odd": 3, "even": 4, "odd": 5}
 ```
 
 If you need multiple values per key, well... Just store a collection as
 the value instead!
 
-```python
+```{code-cell} ipython3
 {"odd": [1, 3, 5], "even": [2, 4]}
 ```
 
 And this is how you create an empty dictionary:
 
-```python
+```{code-cell} ipython3
 {}
 ```
 
@@ -813,79 +825,79 @@ that their values be unique and throw away any duplicates, so there is a
 conceptual similarity with dictionaries which motivates that syntactic
 similarity.
 
-```python
+```{code-cell} ipython3
 {1, 2, 3, 1, 2, 3}
 ```
 
 This deduplication behavior makes sets great for deriving vocabularies
 of unique words.
 
-```python
+```{code-cell} ipython3
 {"the", "cat", "sat", "on", "the", "mat"}
 ```
 
 Since `{}` is already taken to mean empty dictionary, empty set literals
 actually look like a function call:
 
-```python
+```{code-cell} ipython3
 set()
 ```
 
 This is a somewhat ugly inconsistency in a language that otherwise tries
 hard to be consistent, but oh well, what can you do.
 
-## `len()`: number of items in collection
+### `len()`: number of items in collection
 
 The `len()` function works on **all** collections. It tells you how many
 elements a collection has.
 
-```python
+```{code-cell} ipython3
 len([1, 2, 3])
 ```
 
-```python
+```{code-cell} ipython3
 len("Norwegian Wood")
 ```
 
 In the case of dictionaries, it counts the number of key--value pairs.
 
-```python
+```{code-cell} ipython3
 len({"cat": "chat", "dog": "chien"})
 ```
 
-## `in`: checking collection membership
+### `in`: checking collection membership
 
 The `in` operator also works on **all** collections. It tells you
 whether the collection contains a given element.
 
-```python
+```{code-cell} ipython3
 1 in [1, 2, 3]
 ```
 
-```python
+```{code-cell} ipython3
 "one" in {1, 2, 3}
 ```
 
 For dictionaries, it tests against keys, not values.
 
-```python
+```{code-cell} ipython3
 "cat" in {"cat": "chat", "dog": "chien"}
 ```
 
-```python
+```{code-cell} ipython3
 "chat" in {"cat": "chat", "dog": "chien"}
 ```
 
 <!-- TODO: in set vs in list -->
 
-## `[...]`: retrieving and modifying collection elements
+### `[...]`: retrieving and modifying collection elements
 
-```python
+```{code-cell} ipython3
 lst = [1, 2, 3]
 lst[0]
 ```
 
-```python
+```{code-cell} ipython3
 lst[0] = 100
 lst
 ```
@@ -898,25 +910,25 @@ lst
 For sequences, i.e. collections which naturally preserve order -- lists,
 tuples and strings -- you can also extract slices.
 
-```python
+```{code-cell} ipython3
 string = "Can't buy me love"
 string[13:]
 ```
 
-## `del`: removing collection elements
+### `del`: removing collection elements
 
 <!-- TODO: immutable? -->
 
 The `del` operator can remove elements from collections that you point
 at with the `[...]` operator.
 
-```python
+```{code-cell} ipython3
 lst = [1, 2, 3]
 del lst[1]
 lst
 ```
 
-```python
+```{code-cell} ipython3
 dct = {"one": 1, "two": 2}
 del dct["one"]
 dct
@@ -924,37 +936,39 @@ dct
 
 It also works for variables.
 
-```python
+```{code-cell} ipython3
 # create a variable
 num = 1
 num
 ```
 
-```python tags=["raises-exception", "output_scroll"]
+```{code-cell} ipython3
+:tags: [raises-exception, output_scroll]
+
 # poof! it's gone
 del num
 num
 ```
 
-## Converting between collections
+### Converting between collections
 
 If you want to convert between the different types of collections, you
 can mostly use built-in functions named after the target collection. For
 instance, if you want to turn a set into a list:
 
-```python
+```{code-cell} ipython3
 list({1, 2, 3, 1, 2, 3})
 ```
 
 Or a list into a tuple:
 
-```python
+```{code-cell} ipython3
 tuple([1, 2, 3])
 ```
 
 Or a tuple into a set:
 
-```python
+```{code-cell} ipython3
 set((1, 2, 3, 1))
 ```
 
@@ -964,20 +978,20 @@ you thus have to decide whether you want just the keys (the default, but
 you can also request it explicitly with the `.keys()` method), just the
 values, or key--value pairs -- so-called `.items()`.
 
-```python
+```{code-cell} ipython3
 en2fr = {"cat": "chat", "dog": "chien"}
 list(en2fr)
 ```
 
-```python
+```{code-cell} ipython3
 list(en2fr.keys())
 ```
 
-```python
+```{code-cell} ipython3
 tuple(en2fr.values())
 ```
 
-```python
+```{code-cell} ipython3
 set(en2fr.items())
 ```
 
@@ -986,14 +1000,14 @@ collection which can be interpreted as containing *both* keys and
 values, otherwise you can't really build a dictionary out of it. One
 possible option is a list of 2-tuples.
 
-```python
+```{code-cell} ipython3
 dict([("a", "b"), ("c", "d")])
 ```
 
 But it's definitely not the only one. Try to understand and describe
 what's going on in the next cell!
 
-```python
+```{code-cell} ipython3
 dict(["ab", "cd"])
 ```
 
@@ -1002,7 +1016,7 @@ way that may be slightly easier to type, with fewer curly braces and
 quotes, if your keys are strings which also happen to be valid
 **identifiers** (i.e., they could be used as variable names).
 
-```python
+```{code-cell} ipython3
 dict(cat="chat", dog="chien")
 ```
 
@@ -1012,22 +1026,24 @@ the same sense the other functions we've seen work. It returns a
 **string representation** of the collection, intended to suggest how you
 could create such a collection using literal syntax.
 
-```python
+```{code-cell} ipython3
 str([1, 2, 3])
 ```
 
-```python
+```{code-cell} ipython3
 str(en2fr)
 ```
+
+<!-- TODO: string join here or elsewhere? -->
 
 In the other direction, the other collection functions split strings at
 character boundaries.
 
-```python
+```{code-cell} ipython3
 list("abracadabra")
 ```
 
-```python
+```{code-cell} ipython3
 set("abracadabra")
 ```
 
@@ -1035,35 +1051,35 @@ If you want to split anywhere else, you'll have to use the `.split()`
 method on strings. By default, it splits on whitespace, any amount and
 any kind of it.
 
-```python
+```{code-cell} ipython3
 "  foo\nbar  \n baz   qux  ".split()
 ```
 
 But you can also tell it explicitly what string to use as a delimiter,
 and in that case, it'll follow your orders to the letter.
 
-```python
+```{code-cell} ipython3
 "  foo\nbar  \n baz   qux  ".split("\n")
 ```
 
 Even creating empty strings if two designated delimiters immediately
 adjoin each other.
 
-```python
+```{code-cell} ipython3
 "  foo\nbar  \n baz   qux  ".split(" ")
 ```
 
 The delimiter can consist of multiple characters.
 
-```python
+```{code-cell} ipython3
 "the cat sat on the mat".split("at")
 ```
 
-## Combining collections
+### Combining collections
 
 <!-- TODO: + on sequences, update on dicts, set methods and operators -->
 
-## Further exploration
+### Further exploration
 
 The character, specificities and possible use cases of each collection
 type are further revealed by the methods they expose. We'll point them
@@ -1072,7 +1088,7 @@ but if you're curious, I encourage you to play around with the
 individual collections and explore their abilities via the previously
 described tab completion + interactive help approach.
 
-# Importing additional libraries
+## Importing additional libraries
 
 We're about to dive into the magical world of conditionals and
 for-loops, but to make it more interesting, I thought we'd throw in some
@@ -1095,7 +1111,7 @@ interchangeably.
 Import syntax in Python is simple and intuitive; it has a few basic
 variations which we'll presently go through.
 
-```python
+```{code-cell} ipython3
 import nltk
 ```
 
@@ -1104,7 +1120,7 @@ can use to access the objects inside the module via attribute syntax.
 For instance, the `word_tokenize()` function splits text into words, or
 technically, tokens.
 
-```python
+```{code-cell} ipython3
 nltk.word_tokenize("Let it be.")
 ```
 
@@ -1118,14 +1134,14 @@ Of course, it may be the case that you actually have a previously
 created object named `nltk` that you don't want to clobber. If so, then
 you can use renaming imports to pick the namespace yourself.
 
-```python
+```{code-cell} ipython3
 import nltk as ling
 ```
 
 This imports the `nltk` module, but stores it in the variable /
 namespace `ling` instead of `nltk`.
 
-```python
+```{code-cell} ipython3
 ling.word_tokenize("Dig a pony.")
 ```
 
@@ -1136,7 +1152,7 @@ added to your own namespace with the following syntax (notice that it's
 customary to separate imports from regular code by at least one empty
 line):
 
-```python
+```{code-cell} ipython3
 from nltk import word_tokenize
 
 word_tokenize("Two of us wearing raincoats.")
@@ -1144,7 +1160,7 @@ word_tokenize("Two of us wearing raincoats.")
 
 And of course, you can combine this with renaming if necessary.
 
-```python
+```{code-cell} ipython3
 from nltk import word_tokenize as tokenize
 
 tokenize("I, me, mine.")
@@ -1154,13 +1170,15 @@ By the way, if you ever accidentally overwrite a built-in function with
 another object, this is how you can restore it, by importing it from the
 `builtins` module.
 
-```python tags=["raises-exception", "output_scroll"]
+```{code-cell} ipython3
+:tags: [raises-exception, output_scroll]
+
 # oops
 len = 5
 len("five")
 ```
 
-```python
+```{code-cell} ipython3
 # problem solved
 from builtins import len
 
@@ -1170,7 +1188,7 @@ len("five")
 You can perform multiple imports per line by separating the different
 things to import with a comma.
 
-```python
+```{code-cell} ipython3
 import nltk, builtins
 from builtins import len, set
 ```
@@ -1178,7 +1196,7 @@ from builtins import len, set
 If you want to import all objects defined in a module under the names
 given to them in that module, you can use star import syntax.
 
-```python
+```{code-cell} ipython3
 from builtins import *
 ```
 
@@ -1193,7 +1211,7 @@ from.
 
 Finally, the Python standard library contains many useful modules (the
 saying goes that Python comes with batteries included), but for many
-tasks, you're likely to want to install additional packages. This can be
+tasks, you'll likely want to install additional packages. This can be
 done in a variety of different of ways, including a [GUI
 manager](https://docs.anaconda.com/anaconda/navigator/tutorials/manage-packages/)
 if you're using the Anaconda Python distribution, but the official
@@ -1213,7 +1231,9 @@ special JupyterLab features which isn't actually part of Python itself).
 For instance, to instal the `nltk` library, you would run the following
 command:
 
-```python tags=["output_scroll"]
+```{code-cell} ipython3
+:tags: [output_scroll, remove-stderr]
+
 !pip install nltk
 ```
 

@@ -1,25 +1,27 @@
 ---
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.4.1
-  kernelspec:
-    display_name: Python 3
-    language: python
-    name: python3
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.12
+    jupytext_version: 1.6.0
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
 ---
 
 # Regular expressions
 
-> Some people, when confronted with a problem, think “I know, I'll use
-> regular expressions.” Now they have two problems.
->
-> -- http://regex.info/blog/2006-09-15/247
+```{epigraph}
+Some people, when confronted with a problem, think "I know, I'll use
+regular expressions." Now they have two problems.
 
-# Basic orientation
+-- http://regex.info/blog/2006-09-15/247
+```
+
+## Basic orientation
 
 Regular expressions are a powerful tool to slice and dice text, extract
 parts of it, replace them etc. They're also another language of their
@@ -30,14 +32,12 @@ doesn't help that you basically have to embed your regular expression
 which means you have no syntax highlighting to help you and introduces
 some additional gotchas we'll cover below.
 
-<!-- #md tags=["popout"] -->
-
+```{margin}
 The one exception to this suggestion is the [last
 section](#Identifying-graphemes): if you're interested in splitting a
 text into graphemes (e.g. for counting them), the only way to do so
 involves a regular expression, luckily fairly simple.
-
-<!-- #endmd -->
+```
 
 Long story short, regular expressions are powerful but not exactly easy.
 If you don't know them already, I would suggest not trying to learning
@@ -72,7 +72,7 @@ do that because `regex` exposes the same
 using both `regex` and `re` "looks the same" -- the function names are
 the same, they accept the same parameters, etc.
 
-```python
+```{code-cell} ipython3
 import regex as re
 ```
 
@@ -85,7 +85,7 @@ at the [documentation of the `regex`
 module](https://pypi.org/project/regex/) when you need to learn about
 the specifics of some additional feature.
 
-# Quick overview of regex syntax
+## Quick overview of regex syntax
 
 A quick overview of regular expression syntax accepted by the `regex`
 library, borrowed from [chapter 3 of the NLTK
@@ -120,7 +120,7 @@ Book](http://www.nltk.org/book/ch03.html) and extended:
 | `a(b\|c)+`    | Parentheses indicate the scope of the operators and capture the corresponding groups of characters, which are then accessible accessible with the `match.group()` or `match.groups()` method, or with a backreference: `\1`, `\2` etc., depending on the order of the groups|
 | `a(?:b\|c)+`  | Non-capturing version of the parentheses|
 
-# Interactive exercises
+## Interactive exercises
 
 The following cell defines a function for creating interactive widgets
 in which you can play around with regular expressions. Don't worry, you
@@ -128,7 +128,7 @@ are not expected to understand this code, but if you're curious, you can
 poke around and use it to implement your own interactive widgets inside
 Jupyter notebooks.
 
-```python
+```{code-cell} ipython3
 import IPython.core.display as ipd
 import ipywidgets as ipw
 
@@ -171,7 +171,7 @@ expressions:
 <!-- TODO: change the example strings? I seem to remember I originally -->
 <!-- borrowed these from the NLTK Book. -->
 
-```python
+```{code-cell} ipython3
 MARY = """Mary had a little lamb.
 And everywhere that Mary
 went, the lamb was sure
@@ -230,50 +230,50 @@ jupyter labextension install @jupyter-widgets/jupyterlab-manager
 Alternatively, you can check out the [`ipywidgets` installation
 instructions](https://ipywidgets.readthedocs.io/en/latest/user_install.html).
 
-```python
+```{code-cell} ipython3
 #   .a
 #   [a-z]a
 interactive_findall(MARY)
 ```
 
-```python
+```{code-cell} ipython3
 #   .*
 #   \.\*
 interactive_findall(SPECIAL)
 ```
 
-```python
+```{code-cell} ipython3
 #   cat|dog|bird
 interactive_findall(PETS)
 ```
 
-```python
+```{code-cell} ipython3
 #   =first|second=
 #   =(first|second)=
 interactive_findall(FIRST)
 ```
 
-```python
+```{code-cell} ipython3
 #   @(=#=)*@
 interactive_findall(QUANT1)
 ```
 
-```python
+```{code-cell} ipython3
 #   A+B*C?D
 interactive_findall(QUANT2)
 ```
 
-```python
+```{code-cell} ipython3
 #   a{,4}
 interactive_findall(QUANT3)
 ```
 
-```python
+```{code-cell} ipython3
 #   (abc|xyz) \1
 interactive_findall(BACK)
 ```
 
-```python
+```{code-cell} ipython3
 #   \bth\p{Alphabetic}*s\b
 interactive_findall(LAZY)
 ```
@@ -285,7 +285,7 @@ character properties and categories in the context of regular
 expressions, see
 [here](https://www.regular-expressions.info/unicode.html).
 
-# Using regular expressions in Python
+## Using regular expressions in Python
 
 We've mentioned that writing regular expressions is like writing little
 programs in a different programming language *inside* Python strings,
@@ -297,19 +297,19 @@ trying to put a tab or newline inside a string, or some Unicode
 character that you can't directly type on your keyboard but happen to
 know its codepoint value or name.
 
-```python
+```{code-cell} ipython3
 "a\tb"
 ```
 
-```python
+```{code-cell} ipython3
 print("a\tb")
 ```
 
-```python
+```{code-cell} ipython3
 "\U0001f600"
 ```
 
-```python
+```{code-cell} ipython3
 "\N{SMILING FACE WITH OPEN MOUTH AND COLD SWEAT}"
 ```
 
@@ -324,11 +324,11 @@ are string literals prefixed with a `r`, and what that does is turn all
 of these magic escape sequencs off. Which makes writing regular
 expressions a whole lot easier.
 
-```python
+```{code-cell} ipython3
 r"\n"
 ```
 
-```python
+```{code-cell} ipython3
 print(r"\n")
 ```
 
@@ -347,7 +347,7 @@ but the API is the same as the standard library `re` module, so that's
 where you should look for [further
 information](https://docs.python.org/3/library/re.html).
 
-```python
+```{code-cell} ipython3
 import regex as re
 ```
 
@@ -355,19 +355,19 @@ The `match()` function matches a regular expression at the beginning of
 a string, and returns a `Match` object if a match is found, otherwise
 `None`.
 
-```python
+```{code-cell} ipython3
 re.match(r"foo", "foo bar baz")
 ```
 
 The result of `match()` can be used in conditionals -- `Match` objects
 are truthy and `None` is falsey, so everything works as expected.
 
-```python
+```{code-cell} ipython3
 if re.match(r"foo", "foo bar baz"):
     print("It matches!")
 ```
 
-```python
+```{code-cell} ipython3
 if re.match(r"qux", "foo bar baz"):
     print("It matches!")
 ```
@@ -375,87 +375,87 @@ if re.match(r"qux", "foo bar baz"):
 The `Match` object's attributes allow you to explore the specifics of
 the match.
 
-```python
+```{code-cell} ipython3
 m = re.match(r"foo", "foo bar baz")
 ```
 
-```python
+```{code-cell} ipython3
 m.start()
 ```
 
-```python
+```{code-cell} ipython3
 m.end()
 ```
 
-```python
+```{code-cell} ipython3
 m.group()
 ```
 
-```python
+```{code-cell} ipython3
 s = "foo bar baz"
 ```
 
-```python
+```{code-cell} ipython3
 s[m.start():m.end()]
 ```
 
 If the regular expressions contains **capturing groups**, their captured
 values can be accessed via the `.group()` method.
 
-```python
+```{code-cell} ipython3
 m = re.match(r"(f)o(o)", "foo bar baz")
 ```
 
-```python
+```{code-cell} ipython3
 m
 ```
 
-```python
+```{code-cell} ipython3
 m.group()
 ```
 
-```python
+```{code-cell} ipython3
 m.group(1)
 ```
 
-```python
+```{code-cell} ipython3
 m.group(2)
 ```
 
-```python
+```{code-cell} ipython3
 m.groups()
 ```
 
-```python
+```{code-cell} ipython3
 m.span()
 ```
 
 The `fullmatch()` function requires that the provided regular expression
 pattern matches the *entire* string -- it's stricter than just `match`.
 
-```python
+```{code-cell} ipython3
 re.fullmatch(r"foo", "foo bar baz")
 ```
 
-```python
+```{code-cell} ipython3
 re.fullmatch(r"foo.*", "foo bar baz")
 ```
 
 Conversely, the `search()` function is more lenient -- it searches for a
 match anywhere within the string.
 
-```python
+```{code-cell} ipython3
 re.match(r"bar", "foo bar baz")
 ```
 
-```python
+```{code-cell} ipython3
 re.search(r"bar", "foo bar baz")
 ```
 
 `findall()` finds all matches and returns a list of the matching
 substrings.
 
-```python
+```{code-cell} ipython3
 re.findall(r"foo", "foo bar baz foo")
 ```
 
@@ -465,16 +465,16 @@ consider using `finditer()` instead, which returns an iterator over
 `Match` objects. This avoids building a list of all the matches and
 storing all of it at once in memory.
 
-```python
+```{code-cell} ipython3
 re.finditer(r"s.", "My father likes cars.")
 ```
 
-```python
+```{code-cell} ipython3
 for m in re.finditer(r"s.", "My father likes cars."):
     print(m)
 ```
 
-```python
+```{code-cell} ipython3
 for m in re.finditer(r"s.", "My father likes cars."):
     print(m.group())
     print(m.span())
@@ -482,14 +482,14 @@ for m in re.finditer(r"s.", "My father likes cars."):
 
 The `sub()` function performs substitutions.
 
-```python
+```{code-cell} ipython3
 re.sub(r"cat|like", r"dog", "I like cats and categories.")
 ```
 
 By default, all occurrences are substituted, but you can change this via
 the `count=` parameter.
 
-```python
+```{code-cell} ipython3
 re.sub(r"cat|like", r"dog", "I like cats and categories.", count=1)
 ```
 
@@ -499,7 +499,7 @@ capture groups. The syntax for backreferences involves -- you guessed it
 -- backslashes, so you should make that second argument a raw string
 too, for good measure.
 
-```python
+```{code-cell} ipython3
 re.sub(
     r"(cat|like)",
     r"dog\1",
@@ -512,7 +512,7 @@ These are documented
 [here](https://docs.python.org/3/howto/regex.html#compilation-flags). We
 may e.g. want to ignore case differences.
 
-```python
+```{code-cell} ipython3
 re.match(r"a.", "ASDF")
 ```
 
@@ -522,18 +522,18 @@ clunky for historical reasons, it's inspired by more low-level languages
 than Python, so instead, you have to pass the special `re.IGNORECASE`
 value to the `flags=` argument.
 
-```python
+```{code-cell} ipython3
 re.match(r"a.", "ASDF", flags=re.IGNORECASE)
 ```
 
 Where this gets especially weird is when you need to combine multiple
 flags -- it's done via `|`, the *bitwise or* operator.
 
-```python
+```{code-cell} ipython3
 re.match(r"a.", "A\nDF", flags=re.IGNORECASE)
 ```
 
-```python
+```{code-cell} ipython3
 re.match(
     r"a.",
     "A\nDF",
@@ -546,19 +546,19 @@ whose binary representation is all zeros except one `1` in one place,
 different for each flag. By looking at where that `1` is, the `regex`
 module can figure out which flag has been set.
 
-```python
+```{code-cell} ipython3
 print(re.IGNORECASE)
 print(re.DOTALL)
 ```
 
-```python
+```{code-cell} ipython3
 print(f"{re.IGNORECASE:08b}  IGNORECASE")
 print(f"{re.DOTALL:08b}  DOTALL")
 ```
 
 Doing a bitwise or with `|` combines the `1`'s from both numbers.
 
-```python
+```{code-cell} ipython3
 combined = re.IGNORECASE | re.DOTALL
 # the part after : is a format specifier -- 08 says to left-pad with
 # 0's to a total width of 8 characters, b says to print the number in
@@ -574,7 +574,7 @@ combined. Looking at the decimal representation, if you squint, the
 bitwise or kind of looks like an addition which prevents the same flag
 from being added twice.
 
-```python
+```{code-cell} ipython3
 print(f"  {re.IGNORECASE:2}  IGNORECASE")
 print(f"| {re.DOTALL:2}  DOTALL")
 print("-" * 4)
@@ -592,25 +592,25 @@ or operation for each pair of bits at the same position in both numbers
 -- and of the fact that the flag numbers are constructed to be all zeros
 and one `1` in a different position for each flag.
 
-```python
+```{code-cell} ipython3
 combined
 ```
 
-# Identifying graphemes
+## Identifying graphemes
 
 One super useful use of regular expressions from a linguistic
 perspective is counting the number of **extended grapheme clusters** (~
 graphemes) in a string.
 
-```python
+```{code-cell} ipython3
 pronunciation_of_three_in_czech = "tr̝̥i"
 ```
 
-```python
+```{code-cell} ipython3
 len(pronunciation_of_three_in_czech)
 ```
 
-```python
+```{code-cell} ipython3
 list(pronunciation_of_three_in_czech)
 ```
 
@@ -618,11 +618,11 @@ Diacritics are separate Unicode characters, which doesn't correspond to
 our intuitive notion of how many "letters" (graphemes) the string
 consists of. Regular expressions to the rescue:
 
-```python
+```{code-cell} ipython3
 re.findall(r"\X", pronunciation_of_three_in_czech)
 ```
 
-```python
+```{code-cell} ipython3
 len(re.findall(r"\X", pronunciation_of_three_in_czech))
 ```
 
