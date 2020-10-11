@@ -1,25 +1,25 @@
 ---
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.4.1
-  kernelspec:
-    display_name: Python 3
-    language: python
-    name: python3
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.12
+    jupytext_version: 1.6.0
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
 ---
 
 # Text inside the computer
 
-# Why should I care?
+## Why should I care?
 
 Even though as linguists, we may think we know everything about text,
-definitely more than programmers, thank you very much, this ain't Kansas
-anymore as they say, this is Computerland, and the rules for how text
-works are strict and sometimes surprising. If we're going to take
+definitely more than programmers, thank you very much -- this ain't
+Kansas anymore as they say, this is Computerland, and the rules for how
+text works are strict and sometimes surprising. If we're going to take
 advantage of computers to supercharge our linguistic analyses, we need
 to learn to play by their rules, otherwise we stand a big chance of
 shooting ourselves in the foot.
@@ -33,7 +33,7 @@ there are professional programmers who get some of this wrong. When was
 the last time an e-shop maltreated the diacritics in your name, for
 instance?
 
-# Binary and hexadeci-what-now?
+## Binary and hexadeci-what-now?
 
 Before we get started, humor me as I engage in a short digression on
 representing numbers, to make sure we're all on the same page. Why
@@ -56,12 +56,10 @@ another digit and carry on. The only difference is that the fewer
 different digits a system uses, the more digits it takes to represent a
 number.
 
-<!-- #md tags=["popout"] -->
-
+```{margin}
 The **base** of a numeral system corresponds to the number of digits it
 uses: 2 for binary, 10 for decimal, 16 for hexadecimal.
-
-<!-- #endmd -->
+```
 
 If you're curious how that works, just take a moment to reflect on what
 you do implicitly each time you read a regular decimal number: you
@@ -76,8 +74,7 @@ this all up:
 - and for hexadecimal c: $c \times 16^0 = c \times 1 = 12 \times 1 =
   12$.
 
-<!-- #md tags=["popout"] -->
-
+```{margin}
 In theory, nothing prevents us from building decimal computer memory
 where each slot distinguishes between ten digits instead of two bits,
 and [some early
@@ -86,8 +83,7 @@ design. In practice though, it's much harder to make such slots
 reliable: distinguishing between ten levels per slot, e.g. based on
 differences in voltage, is much more error prone than distinguishing
 between just two.
-
-<!-- #endmd -->
+```
 
 Decimal numbers are useful because everybody knows them, which makes
 them universally easy to read. Binary numbers are useful because they
@@ -100,7 +96,7 @@ different systems. If you don't want to do so by hand, Python has your
 back! The `bin()` function gives you a *string representation* of the
 binary form of a number:
 
-```python
+```{code-cell} ipython3
 bin(65)
 ```
 
@@ -110,25 +106,25 @@ what follows after (i.e. 1000001).
 
 Similarly, hexadecimal numbers are given an `0x` prefix:
 
-```python
+```{code-cell} ipython3
 hex(65)
 ```
 
 To convert in the opposite direction, i.e. *to* decimal, just evaluate
 the binary or hexadecimal representation of a number:
 
-```python
+```{code-cell} ipython3
 0b1000001
 ```
 
-```python
+```{code-cell} ipython3
 0x41
 ```
 
 Number literals using these different bases are mutually compatible,
 e.g. for comparison purposes:
 
-```python
+```{code-cell} ipython3
 0b1000001 == 0x41 == 65
 ```
 
@@ -137,15 +133,15 @@ condensed** way of representing sequences of bits: each hexadecimal
 digit can represent 16 different values, and therefore it can stand in
 for a sequence of 4 bits, i.e. half a byte ($2^4 = 16$).
 
-```python
+```{code-cell} ipython3
 0xa == 0b1010
 ```
 
-```python
+```{code-cell} ipython3
 0xb == 0b1011
 ```
 
-```python
+```{code-cell} ipython3
 # if we paste together hexadecimal a and b, it's the same as pasting
 # together binary 1010 and 1011
 0xab == 0b10101011
@@ -155,21 +151,21 @@ In other words, instead of binary `10101011`, we can just write
 hexadecimal `ab` and save ourselves some space. Of course, this only
 works if shorter binary numbers are **padded to a 4-bit width**:
 
-```python
+```{code-cell} ipython3
 0x2 == 0b10
 ```
 
-```python
+```{code-cell} ipython3
 0x3 == 0b11
 ```
 
-```python
+```{code-cell} ipython3
 # if we paste together hexadecimal 2 and 3, we have to paste together
 # binary 0010 and 0011...
 0x23 == 0b00100011
 ```
 
-```python
+```{code-cell} ipython3
 # ... not just 10 and 11
 0x23 == 0b1011
 ```
@@ -177,7 +173,7 @@ works if shorter binary numbers are **padded to a 4-bit width**:
 The padding has no effect on the value, much like decimal 42 and
 00000042 are effectively the same numbers.
 
-# Representing text: a DIY approach
+## Representing text: a DIY approach
 
 With that out of the way, the best way to understand how computers
 represent text, and why it works like it does, is to try and come up
@@ -199,7 +195,7 @@ represent our character set as a Python dictionary; since we'll mostly
 be concerned with going from characters to numbers, we'll use the
 characters as keys.
 
-```python
+```{code-cell} ipython3
 charset = dict(a=1, b=2, c=3, d=4)
 charset
 ```
@@ -212,15 +208,13 @@ of an **encoding** as a function which decides how to turn a number into
 a sequence of bits. A very simple encoding would be to turn each number
 into the corresponding number of 1's and store those in the memory.
 
-<!-- #md tags=["popout"] -->
-
+```{margin}
 For these demonstration purposes, we'll be representing computer memory
 as strings of 1's and 0's, as it's easier to implement and also see
 what's going on than if we actually twiddled with individual bits.
+```
 
-<!-- #endmd -->
-
-```python
+```{code-cell} ipython3
 def encoding1(char):
     num = charset[char]
     return "1" * num
@@ -228,7 +222,7 @@ def encoding1(char):
 
 Let's see how our new `encoding1` encodes each character in `charset`.
 
-```python
+```{code-cell} ipython3
 for char in charset.keys():
     print(char, "->", encoding1(char))
 ```
@@ -237,7 +231,7 @@ Looks fine so far, all of the characters map to a different sequence of
 bits! Now for something more challenging: let's see how it handles
 encoding strings which consist of multiple characters.
 
-```python
+```{code-cell} ipython3
 [encoding1(char) for char in "ac"]
 ```
 
@@ -249,7 +243,7 @@ fence in the memory after every eight slots. So we have to join this
 list of strings in order to get a more accurate idea of what our
 encoding would actually look like when stored in memory.
 
-```python
+```{code-cell} ipython3
 "".join(encoding1(char) for char in "ac")
 ```
 
@@ -268,7 +262,7 @@ string of 1's. One way we could do this is by using the 0 as a character
 terminator. This `encoding2` is basically the same as `encoding1`, just
 with a 0 tacked at the end each time.
 
-```python
+```{code-cell} ipython3
 def encoding2(char):
     return encoding1(char) + "0"
 
@@ -289,8 +283,7 @@ inverse function. It's a **variable-width** encoding, because different
 characters are encoded using different numbers of bits -- `a` is encoded
 as `10` for a width of 2, whereas `c` is 4 bits wide, `1110`.
 
-<!-- #md tags=["popout"] -->
-
+```{margin}
 The technical term for this kind of encoding is a [prefix
 code](https://en.wikipedia.org/wiki/Prefix_code). The name comes from
 the fact that you have to make sure that no character's encoding can be
@@ -303,8 +296,7 @@ coding](https://en.wikipedia.org/wiki/Huffman_coding), but [this blog
 post](https://fasterthanli.me/blog/2019/huffman-101/) or [this
 video](https://youtu.be/JsTptu56GM8) might be more digestible than the
 Wikipedia article.
-
-<!-- #endmd -->
+```
 
 Unfortunately, it's not very good. The number of bits per character
 quickly gets out of hand. If we had a character set consisting of all 26
@@ -317,7 +309,7 @@ those 1's. If we could use both to encode the number, say in its usual
 binary form, then we could squeeze a lot more information into the same
 space. Something like this:
 
-```python
+```{code-cell} ipython3
 def encoding3(char):
     num = charset[char]
     binary = bin(num)
@@ -353,7 +345,7 @@ For our toy character set, we don't need 8 bits, 2 are enough to encode
 and `11`. Let's what decimal numbers these correspond to -- it's easy,
 you can probably do it in your head, but let Python tell us anyway.
 
-```python
+```{code-cell} ipython3
 0b00, 0b01, 0b10, 0b11
 ```
 
@@ -361,7 +353,7 @@ Neat, we can easily get those numbers by just shifting the number values
 in our character set table by 1 (i.e. subtracting 1). So an `encoding4`
 function could look something like this:
 
-```python
+```{code-cell} ipython3
 def encoding4(char):
     num = charset[char] - 1
     binary = bin(num)
@@ -377,7 +369,7 @@ wider). Perhaps confusingly, `.rjust()` pads on the left and vice versa;
 this is because padding on the left *justifies* the text along the
 *right* margin (hence `.rjust()`). Let's take this baby out for a spin.
 
-```python
+```{code-cell} ipython3
 for char in charset.keys():
     print(char, "->", encoding4(char))
 
@@ -390,7 +382,7 @@ yields `a` and `10` yields `c`. Piece of cake. This is where we leave
 our toy example character set and encodings as they have no more to
 teach us, and pick up the thread of the story in the real world.
 
-# Fixed-width encodings: ASCII et al.
+## Fixed-width encodings: ASCII et al.
 
 Obviously, how many different characters your encoding can handle
 depends on how many bits you allow per character:
@@ -407,18 +399,16 @@ The oldest encoding still in widespread use is called
 encoding. What's the number of *different* sequences of seven 1's and
 0's?
 
-```python
+```{code-cell} ipython3
 # this is how Python spells 2⁷, i.e. 2*2*2*2*2*2*2
 2**7
 ```
 
-<!-- #md tags=["popout"] -->
-
+```{margin}
 "ASCII" stands for "**American** Standard Code for Information
 Interchange" -- which explains why there are no accented characters, for
 instance.
-
-<!-- #endmd -->
+```
 
 This means `ASCII` can represent [128 different
 characters](http://www.ascii-code.com/), which comfortably fits the
@@ -435,7 +425,7 @@ worth of information. That extra bit means that there's **room for
 another 128 characters in addition to the 128 ASCII ones**, coming up to
 a total of 256.
 
-```python
+```{code-cell} ipython3
 2**(7+1)
 ```
 
@@ -458,7 +448,15 @@ default, and switch to a different encoding if evidence becomes
 available to the contrary. For instance, HTML files describing web pages
 displayed in your browser should all start with something like this:
 
-<!-- #md -->
+```{margin}
+You may be thinking, that `charset` attribute should have more properly
+been called `encoding`, and you would be right. As we've seen, a
+character set is just a table of characters and numbers. Specifying how
+they're represented inside the computer is the encoding's job, which is
+what this attribute is supposed to help determine. Which only goes to
+show you that this text stuff is hard and even professional programmers
+involved in defining standards like HTML sometimes get it wrong.
+```
 
 ```html
 <!DOCTYPE html>
@@ -467,20 +465,6 @@ displayed in your browser should all start with something like this:
   <meta charset="utf-8"/>
   ...
 ```
-
-<!-- #endmd -->
-
-<!-- #md tags=["popout"] -->
-
-You may be thinking, that `charset` attribute should have more properly
-been called `encoding`, and you would be right. As we've seen, a
-character set is just a table of characters and numbers. Specifying how
-they're represented inside the computer is the encoding's job, which is
-what this attribute is supposed to help determine. Which only goes to
-show you that this text stuff is hard and even professional programmers
-involved in defining standards like HTML sometimes get it wrong.
-
-<!-- #endmd -->
 
 This way, whenever a program wants to read a file like this, it can
 start off with `ASCII`, waiting to see if it reaches the `charset` (i.e.
@@ -505,7 +489,9 @@ a **codepoint**. The `Latin-2` **encoding** then defines how to encode
 each of these integers as a series of bits (1's and 0's) in the
 computer's memory.
 
-```python tags=["output_scroll"]
+```{code-cell} ipython3
+:tags: [output_scroll]
+
 latin2_printable_characters = []
 # the Latin-2 character set has 256 codepoints, corresponding to
 # integers from 0 to 255
@@ -531,7 +517,7 @@ literally dozens of encodings. Additional drawbacks include:
 - how to handle writing systems which have way more than 256
   "characters", e.g. Chinese, Japanese and Korean (CJK) ideograms?
 
-# Unicode and UTF-8
+## Unicode and UTF-8
 
 For these purposes, a standard character set known as
 [**Unicode**](https://en.wikipedia.org/wiki/Unicode) was developed which
@@ -544,14 +530,16 @@ Plane](https://en.wikipedia.org/wiki/Plane_%28Unicode%29#Basic_Multilingual_Plan
 has $2^{16}$ codepoints, but overall the number of codepoints is past 1M
 and there's room to accommodate many more.
 
-```python
+```{code-cell} ipython3
 2**16
 ```
 
 Here's just a small sample of the treasure trove of codepoints that is
 Unicode.
 
-```python tags=["output_scroll"]
+```{code-cell} ipython3
+:tags: [output_scroll]
+
 from unicodedata import name
 
 print("\N{HORIZONTAL ELLIPSIS}")
@@ -597,7 +585,7 @@ only `ASCII` characters are the same regardless of whether you use
 handle many more additional characters, as defined by the Unicode
 standard, by using progressively longer and longer sequences of bits.
 
-```python
+```{code-cell} ipython3
 def print_utf8_bytes(char):
     """Prints binary representation of character as encoded by UTF-8.
 
@@ -634,20 +622,18 @@ a variable width-encoding, you can't just skip 10 * 7 or 8 or 16 bits;
 you have to read all the intervening characters to figure out how much
 space they take up. Take the following example:
 
-```python
+```{code-cell} ipython3
 for char in "Básník 李白":
     print_utf8_bytes(char)
 ```
 
-<!-- #md tags=["popout"] -->
-
+```{margin}
 If this explanation of how UTF-8 works sounds confusing to you, you can
 instead try to watch the [Characters, Symbols and the Unicode
 Miracle](https://youtu.be/MijmeoH9LT4) video by the
 [Computerphile](https://www.youtube.com/channel/UC9-y-6csu5WGm29I7JiwpnA)
 channel on YouTube.
-
-<!-- #endmd -->
+```
 
 Notice the initial bits in each byte of a character follow a pattern
 depending on how many bytes in total that character has:
@@ -687,20 +673,20 @@ the special string escape sequence `\uXXXX` (where `XXXX` is the
 hexadecimal representation of the codepoint) -- both are ways to get the
 character corresponding to the given codepoint:
 
-```python
+```{code-cell} ipython3
 # "č" as LATIN SMALL LETTER C WITH CARON, codepoint 010d
 print(chr(0x010d))
 print("\u010d")
 ```
 
-```python
+```{code-cell} ipython3
 # "č" as a sequence of LATIN SMALL LETTER C, codepoint 0063, and
 # COMBINING CARON, codepoint 030c
 print(chr(0x0063) + chr(0x030c))
 print("\u0063\u030c")
 ```
 
-```python
+```{code-cell} ipython3
 # of course, chr() also works with decimal numbers
 chr(269)
 ```
@@ -710,14 +696,14 @@ accents, because **to a computer, the two possible representations are
 of course different strings**, even though to you, they're conceptually
 the same:
 
-```python
+```{code-cell} ipython3
 s1 = "\u010d"
 s2 = "\u0063\u030c"
 # s1 and s2 look the same to the naked eye...
 print(s1, s2)
 ```
 
-```python
+```{code-cell} ipython3
 # ... but they're not
 s1 == s2
 ```
@@ -725,7 +711,7 @@ s1 == s2
 Watch out, **they even have different lengths**! This might come to bite
 you if you're trying to compute the length of a word in letters.
 
-```python
+```{code-cell} ipython3
 print("s1 is", len(s1), "character(s) long.")
 print("s2 is", len(s2), "character(s) long.")
 ```
@@ -741,7 +727,7 @@ warrants being suspicious and defensive about your material). If you're
 worried about inconsistencies in your data, you can perform a
 [normalization](https://en.wikipedia.org/wiki/Unicode_equivalence#Normalization):
 
-```python
+```{code-cell} ipython3
 from unicodedata import normalize
 
 # NFC stands for Normal Form C; this normalization applies a canonical
@@ -801,7 +787,7 @@ unreliable source, is to look at the set of codepoints contained in it
 and eliminate or replace those that look suspicious. Here's a function
 to help with that:
 
-```python
+```{code-cell} ipython3
 import unicodedata as ud
 from collections import Counter
 
@@ -834,7 +820,7 @@ G`, but also their specialized but visually similar variants
 might want to replace such codepoints before doing further text
 processing...
 
-```python
+```{code-cell} ipython3
 inspect_codepoints("Intruders here, good 𝗍hinɡ I checked.")
 ```
 
@@ -842,7 +828,7 @@ inspect_codepoints("Intruders here, good 𝗍hinɡ I checked.")
 different variants of "g" is really just two different words, which is
 probably not what you want:
 
-```python
+```{code-cell} ipython3
 "thing" == "thinɡ"
 ```
 

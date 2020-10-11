@@ -1,26 +1,26 @@
 ---
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.4.1
-  kernelspec:
-    display_name: Python 3
-    language: python
-    name: python3
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.12
+    jupytext_version: 1.6.0
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
 ---
 
 # Getting your data into Python
 
-# Overview
+## Overview
 
 This chapter is about interacting with data on your computer's disk --
 mostly loading it into Python, but also writing it back, and storing it
 for quick reloading later.
 
-# Plain text files
+## Plain text files
 
 A **plain text** file is a file where every single bit contributes
 towards representing plain text content. What fits into the concept of
@@ -41,7 +41,9 @@ more you encounter properties which are unlikely to ever make it into
 plain text, like the ability to specify which particular font the text
 should be displayed with.
 
-```python tags=["output_scroll"]
+```{code-cell} ipython3
+:tags: [output_scroll]
+
 from unicodedata import name
 
 for char in "𝘪𝘵𝘢𝘭𝘪𝘤𝘴ˢᵘᵖᵉʳˢᶜʳᶦᵖᵗ":
@@ -58,7 +60,9 @@ corrupting your data. Also, `UTF-8` is becoming more and more prevalent,
 so chances are good that file actually *is* `UTF-8`, in which case
 you're golden. The `text.txt` file below, though, isn't.
 
-```python tags=["raises-exception", "full_width", "output_scroll"]
+```{code-cell} ipython3
+:tags: [raises-exception, full-width, output_scroll]
+
 with open("data/text.txt", encoding="utf-8") as file:
     print(file.read())
 ```
@@ -79,7 +83,7 @@ language. We might want to try `cp1250`, because that's *still* (ugh)
 the default encoding for text files created under the Czech version of
 Windows, and that's where the file might have come from.
 
-```python
+```{code-cell} ipython3
 with open("data/text.txt", encoding="cp1250") as file:
     print(file.read())
 ```
@@ -103,7 +107,7 @@ you can tell you that now, the result looks alright. If you compare with
 the previous attempt, you may see that there are indeed minute
 differences.
 
-```python
+```{code-cell} ipython3
 with open("data/text.txt", encoding="latin2") as file:
     print(file.read())
 ```
@@ -119,17 +123,17 @@ errors), you can specify an error handler. A preview of a few of the
 more common options is given below; for a full list, refer
 [here](https://docs.python.org/3/library/codecs.html#error-handlers).
 
-```python
+```{code-cell} ipython3
 with open("data/text.txt", encoding="utf-8", errors="replace") as file:
     print(file.read())
 ```
 
-```python
+```{code-cell} ipython3
 with open("data/text.txt", encoding="utf-8", errors="ignore") as file:
     print(file.read())
 ```
 
-```python
+```{code-cell} ipython3
 with open("data/text.txt", encoding="utf-8", errors="backslashreplace") as file:
     print(file.read())
 ```
@@ -145,29 +149,28 @@ is metadata, e.g. who wrote the text and when, or possibly encoding
 information, so that the word processor doesn't have to take blind
 guesses at which encoding the text is stored in like we just had to.
 
-```python
+```{code-cell} ipython3
 with open("data/text.doc", encoding="utf-8", errors="replace") as file:
     txt = file.read()
 txt[:10]
 ```
 
-```python
+```{code-cell} ipython3
 # this is probably author metadata?
 index = txt.find("Lukeš")
 txt[index-2:index+15]
 ```
 
-```python
+```{code-cell} ipython3
 # and this is probably the part which corresponds to "Magda kaňonem" in
 # our plain text file
 index = txt.find("M")
 txt[index:index+25]
 ```
 
-# Manipulating tabular data
+## Manipulating tabular data
 
-<!-- #md tags=["popout"] -->
-
+```{margin}
 CSVs are actually plain text files -- in their simplest form, each row
 of the table is just a line of text, with columns separated by commas.
 However, in order to allow the individual fields to contain commas or
@@ -176,8 +179,7 @@ standard defines fairly complicated escaping mechanisms which you don't
 want to implement yourself. So it's generally better to rely on a
 library to parse CSVs and not do it manually, unless you know for a fact
 that the CSV contains none of these gotchas.
-
-<!-- #endmd -->
+```
 
 Data often comes in tabular format -- Excel files, CSV files and the
 like. The easiest and most convenient way to load this type of data into
@@ -193,44 +195,44 @@ commands instead of clicking around in a graphical user interface. Not
 to mention that this makes it trivial to apply the same series of
 processing steps to similarly shaped data, once you've figured them out.
 
-## The `pandas` library
+### The `pandas` library
 
 Let's fire up `pandas` and take a look at how it can help you to slice
 and dice tables in Python. Or should I say `DataFrame`s, because that's
 what `pandas` calls them, acknowledging inspiration from R's trademark
 data structure.
 
-```python
+```{code-cell} ipython3
 import pandas as pd
 ```
 
-```python
+```{code-cell} ipython3
 df = pd.read_excel("data/concordance_corpus.xlsx")
 ```
 
-```python
+```{code-cell} ipython3
 type(df)
 ```
 
-```python
+```{code-cell} ipython3
 df
 ```
 
 <!-- TODO: Whew, preview long and unwieldy, let's use the `.head()` method -->
 <!-- from now on to condense it a little bit. -->
 
-```python
+```{code-cell} ipython3
 pd.read_excel(
     "data/concordance_corpus.xlsx",
     header=None
 )
 ```
 
-```python
+```{code-cell} ipython3
 pd.read_excel?
 ```
 
-```python
+```{code-cell} ipython3
 df = pd.read_excel(
     "data/concordance_corpus.xlsx",
     header=None,
@@ -239,125 +241,127 @@ df = pd.read_excel(
 df
 ```
 
-```python
+```{code-cell} ipython3
 df["domain"]
 ```
 
-```python
+```{code-cell} ipython3
 len(set(df["domain"]))
 ```
 
-```python
+```{code-cell} ipython3
 df[["domain", "kwic"]]
 ```
 
-```python
+```{code-cell} ipython3
 df.loc[1:3, "domain":"kwic"]
 ```
 
-```python
+```{code-cell} ipython3
 df.loc[1:3, ["domain", "kwic"]]
 ```
 
-```python
+```{code-cell} ipython3
 df.kwic
 ```
 
-```python
+```{code-cell} ipython3
 df.domain == "newadvent.org"
 ```
 
-```python
+```{code-cell} ipython3
 df.loc[1:3]
 ```
 
-```python
+```{code-cell} ipython3
 df.loc[df.domain == "newadvent.org"]
 ```
 
-```python
+```{code-cell} ipython3
 df.loc
 ```
 
-```python
+```{code-cell} ipython3
 df.query("domain == 'newadvent.org'")
 ```
 
-```python
+```{code-cell} ipython3
 df.domain.str.endswith(".org")
 ```
 
-```python
+```{code-cell} ipython3
 df.loc[df.domain.str.endswith(".org")]
 ```
 
-```python
+```{code-cell} ipython3
 df.kwic.str.split("/")
 ```
 
-```python
+```{code-cell} ipython3
 for row in df.kwic.str.split("/"):
     print(row)
     break
 ```
 
-```python
+```{code-cell} ipython3
 df.kwic.str.split("/", expand=True)
 ```
 
-```python
+```{code-cell} ipython3
 df[["kwic", "domain"]]
 ```
 
-```python tags=["raises-exception", "full_width", "output_scroll"]
+```{code-cell} ipython3
+:tags: [raises-exception, full-width, output_scroll]
+
 df[["word", "lemma", "tag"]]
 ```
 
-```python
+```{code-cell} ipython3
 df[["word", "lemma", "tag"]] = df.kwic.str.split("/", expand=True)
 ```
 
-```python
+```{code-cell} ipython3
 df
 ```
 
-```python
+```{code-cell} ipython3
 df2 = df[["domain", "left", "word", "lemma", "tag", "right"]]
 ```
 
-```python
+```{code-cell} ipython3
 df2
 ```
 
-```python
+```{code-cell} ipython3
 df.plot?
 ```
 
-```python
+```{code-cell} ipython3
 df["domain"]
 ```
 
-```python
+```{code-cell} ipython3
 df["domain"].value_counts()
 ```
 
-```python
+```{code-cell} ipython3
 df["domain"].value_counts().plot(kind="bar")
 ```
 
-```python
+```{code-cell} ipython3
 df["domain"].value_counts().head().plot(kind="bar")
 ```
 
-```python
+```{code-cell} ipython3
 pd.read_csv("data/frequencies_intensifiers.csv")
 ```
 
-```python
+```{code-cell} ipython3
 pd.read_csv?
 ```
 
-```python
+```{code-cell} ipython3
 pd.read_csv(
     "data/frequencies_intensifiers.csv",
     sep=";",
@@ -385,7 +389,7 @@ tasks](https://pandas.pydata.org/docs/getting_started/index.html#intro-to-pandas
 you might want to use `pandas` for along with recipes telling you how to
 achieve that.
 
-## The `csv` module in the standard library
+### The `csv` module in the standard library
 
 The Python standard library also comes with a [`csv`
 module](https://docs.python.org/3/library/csv.html). This is useful when
@@ -401,18 +405,18 @@ Let's first take a peek at the contents of a CSV file. As mentioned,
 it's basically just a plain text file. This particular CSV file contains
 a frequency distribution of *intensifier + adverb* combinations.
 
-```python
+```{code-cell} ipython3
 with open("data/frequencies_intensifiers.csv", encoding="utf-8") as file:
     for line in file:
         print(line)
         break
 ```
 
-```python
+```{code-cell} ipython3
 import csv
 ```
 
-```python
+```{code-cell} ipython3
 with open("data/frequencies_intensifiers.csv", encoding="utf-8") as file:
     reader = csv.reader(file)
     for row in reader:
@@ -420,19 +424,19 @@ with open("data/frequencies_intensifiers.csv", encoding="utf-8") as file:
         break
 ```
 
-```python
+```{code-cell} ipython3
 row
 ```
 
-```python
+```{code-cell} ipython3
 len(row)
 ```
 
-```python
+```{code-cell} ipython3
 csv.reader?
 ```
 
-```python
+```{code-cell} ipython3
 with open("data/frequencies_intensifiers.csv", encoding="utf-8") as file:
     reader = csv.reader(file, delimiter=";")
     for row in reader:
@@ -440,34 +444,34 @@ with open("data/frequencies_intensifiers.csv", encoding="utf-8") as file:
         break
 ```
 
-```python
+```{code-cell} ipython3
 len(row)
 ```
 
-```python
+```{code-cell} ipython3
 int("4")
 ```
 
-```python
+```{code-cell} ipython3
 float("4.5")
 ```
 
-```python
+```{code-cell} ipython3
 row[1]
 ```
 
-```python
+```{code-cell} ipython3
 row[1].split()
 ```
 
-```python
+```{code-cell} ipython3
 adv, adj = row[1].split()
 ```
 
 Let's divide up the adjectives into sets based on which intensifiers
 they co-occur.
 
-```python
+```{code-cell} ipython3
 completely = set()
 totally = set()
 entirely = set()
@@ -492,65 +496,67 @@ with open("data/frequencies_intensifiers.csv", encoding="utf-8") as file:
 By using set operations, we can now figure out which intensifiers tend
 (not) to co-occur with which adjectives.
 
-```python
+```{code-cell} ipython3
 not_utterly = completely | totally | entirely
 # or: not_utterly = completely.union(totally).union(entirely)
 ```
 
-```python tags=["output_scroll"]
+```{code-cell} ipython3
+:tags: [output_scroll]
+
 utterly - not_utterly
 # or: utterly.difference(not_utterly)
 ```
 
-# Storing objects on disk and reloading them
+## Storing objects on disk and reloading them
 
 Some values take a long time to compute, so you don't want to have to
 compute them again and again each time you close and reopen JupyterLab.
 Instead, you'd like to compute them once, store them somewhere, and
 reload them (almost) instantaneously whenever you need.
 
-## The `%store` magic function
+### The `%store` magic function
 
 The `%store` magic function can store individual variables; it's perhaps
 the simplest option, but you don't really control where the object gets
 stored.
 
-```python
+```{code-cell} ipython3
 a = 2
 ```
 
-```python
+```{code-cell} ipython3
 %store a
 ```
 
-```python
+```{code-cell} ipython3
 a = 3
 a
 ```
 
 Reload the stored value of the `a` variable:
 
-```python
+```{code-cell} ipython3
 %store -r a
 ```
 
-```python
+```{code-cell} ipython3
 a
 ```
 
 For more information, consult `%store`'s docstring.
 
-```python
+```{code-cell} ipython3
 ?%store
 ```
 
-## The `json` standard library module
+### The `json` standard library module
 
 The standard library [`json`
 module](https://docs.python.org/3/library/json.html) can also be used
 for this purpose.
 
-```python
+```{code-cell} ipython3
 import json
 ```
 
@@ -559,7 +565,7 @@ actually results in plain text, which is nice and mostly human readable,
 if it's pretty-printed. It looks close to how the same data structure
 is written down in Python (can you spot the differences?).
 
-```python
+```{code-cell} ipython3
 person = {
     "name": "John Doe",
     "age": 31,
@@ -576,22 +582,22 @@ sets the mode of the open file to *write* (the `"r"` mode for *reading*
 is the default, so we didn't need to set it explicitly before when
 reading files).
 
-```python
+```{code-cell} ipython3
 with open("person.json", "w") as file:
     json.dump(person, file, indent=2)
 ```
 
-```python
+```{code-cell} ipython3
 %cat person.json
 ```
 
-```python
+```{code-cell} ipython3
 with open("person.json") as file:
     data = json.load(file)
 data
 ```
 
-```python
+```{code-cell} ipython3
 # cleanup
 %rm person.json
 ```
@@ -612,17 +618,17 @@ Some additional types can be stored as JSON, but only by being converted
 to one of the above -- e.g. if you store a tuple in JSON and load it
 back, it will become a list.
 
-```python
+```{code-cell} ipython3
 json.loads(json.dumps((1, 2, 3)))
 ```
 
-## The `pickle` standard library module
+### The `pickle` standard library module
 
 [Pickling objects](https://docs.python.org/3/library/pickle.html) works
 in a very similar way to dumping them as JSON, just make sure to open
 the file for writing **in binary mode** (`"wb"`):
 
-```python
+```{code-cell} ipython3
 import pickle
 
 with open("person.pickle", "wb") as file:
@@ -631,7 +637,7 @@ with open("person.pickle", "wb") as file:
 
 ... and for reading as well (`"rb"`):
 
-```python
+```{code-cell} ipython3
 with open("person.pickle", "rb") as file:
     data = pickle.load(file)
 data
@@ -640,11 +646,13 @@ data
 This is because pickling doesn't use a plain text format, but a custom
 binary format.
 
-```python tags=["output_scroll"]
+```{code-cell} ipython3
+:tags: [output_scroll]
+
 %cat person.pickle
 ```
 
-```python
+```{code-cell} ipython3
 # cleanup
 %rm person.pickle
 ```
@@ -671,7 +679,7 @@ Like with JSON, if you want to pickle multiple objects, you still have
 to store them separately, or put them all in a dict manually and store
 the dict.
 
-## The `dill` library
+### The `dill` library
 
 [`dill`](https://dill.readthedocs.io) is `pickle` on steroids. For any
 less proficient English speakers reading and/or those without a
@@ -686,14 +694,14 @@ one of the objects which can't be even dill-pickled. (You don't have to
 remember this by heart, I certainly don't -- Python will complain loudly
 if you try to pickle something that can't be pickled.)
 
-```python
+```{code-cell} ipython3
 import dill
 
 del reader
 dill.dump_session("session.pickle")
 ```
 
-```python
+```{code-cell} ipython3
 dill.load_session("session.pickle")
 # cleanup
 %rm session.pickle

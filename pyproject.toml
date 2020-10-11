@@ -6,7 +6,7 @@ authors = ["David Lukes <dafydd.lukes@gmail.com>", "Rudolf Rosa <rosa@ufal.mff.c
 license = "CC-BY-NC-SA-4.0"
 
 [tool.poetry.dependencies]
-python = "3.7.*"
+python = ">=3.7,<4.0"
 nltk = "^3.4.5"
 corpy = "^0.2.3"
 requests = "^2.23.0"
@@ -20,7 +20,7 @@ scipy = "^1.4.1"
 
 [tool.poetry.dev-dependencies]
 jupyterlab = "^2.0.1"
-jupyter-book = "^0.6.4"
+jupyter-book = "^0.8"
 jupytext = "^1.4.1"
 ghp-import = "^0.5.5"
 

@@ -1,20 +1,20 @@
 ---
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.4.1
-  kernelspec:
-    display_name: Python 3
-    language: python
-    name: python3
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.12
+    jupytext_version: 1.6.0
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
 ---
 
 # Parting words
 
-# Where to go from here
+## Where to go from here
 
 Now that you've made it to the end, perhaps you're wondering where to go
 from here. Programming is perhaps the easiest skill to learn using only
@@ -27,13 +27,15 @@ Thank you for reading so far, and if you have any suggestions for
 improvement, additions, or just spotted a few typos, please [report them
 on GitHub](https://github.com/v4py/v4py.github.io/issues)!
 
-# Books
+## Books
 
-<!-- #md tags=["popout"]-->
+```{margin}
 <a href="https://www.nltk.org/book/" target="_blank">
+
 <img src="images/outro/nltk_book.jpg" width="200" alt="Natural Language Processing with Python book cover">
+
 </a>
-<!-- #endmd -->
+```
 
 As a general introduction to Python programming which focuses on
 linguistic applications, I've already recommended [*Natural Language
@@ -55,11 +57,13 @@ of always blindly following how-to style recipes, because even
 copy-pasting black box code can go seriously wrong if you don't have a
 larger picture of what's going on.
 
-<!-- #md tags=["popout"]-->
+```{margin}
 <a href="https://jakevdp.github.io/PythonDataScienceHandbook/" target="_blank">
+
 <img src="images/outro/python_data_science.png" width="200" alt="Python Data Science Handbook cover">
+
 </a>
-<!-- #endmd -->
+```
 
 On perhaps a more practical note, I can definitely recommend Jake
 VanderPlas's [*Python Data Science
@@ -82,11 +86,13 @@ sometimes hard to know which libraries and techniques to use when
 getting started with data analysis in Python. The *Python Data Science
 Handbook* is there to help you with that.
 
-<!-- #md tags=["popout"]-->
+```{margin}
 <a href="https://jakevdp.github.io/WhirlwindTourOfPython/" target="_blank">
+
 <img src="images/outro/whirlwind_tour.gif" width="200" alt="A Whirlwind Tour of Python cover">
+
 </a>
-<!-- #endmd -->
+```
 
 Finally, if you just want a fast-paced overview of Python syntax and
 features, another great free resource, also by Jake VanderPlas, is [*A
@@ -98,7 +104,7 @@ practical-minded and well-organized reference resource which you can use
 to quickly refresh your knowledge on specific areas of Python
 programming.
 
-# Videos
+## Videos
 
 Unlike conferences in linguistics, programming conferences are often
 recorded and professionally produced videos (including presentation
@@ -120,58 +126,55 @@ either Raymond Hettinger, Ned Batchelder or David Beazley. Their
 contributions are consistently extremely informative, well-prepared and
 entertaining at the same time.
 
-## Improving your Python chops
+### Improving your Python chops
 
 <!-- Beazley: builtins _____________________________________________ -->
 
-<!-- #md tags=["popout"] -->
-
-A great tour of Python's built-in functionality, i.e. stuff that's
-always available, without having to load any libraries, and tips and
-tricks on how to use it. A great way to top off your Python initiation
-and graduate to a proficient beginner.
-
-<!-- #endmd -->
-
-<!-- #md -->
 <iframe width="560" height="315"
   src="https://www.youtube-nocookie.com/embed/lyDLAutA88s" frameborder="0"
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen>
 </iframe>
-<!-- #endmd -->
+
+```{margin}
+A great tour of Python's built-in functionality, i.e. stuff that's
+always available, without having to load any libraries, and tips and
+tricks on how to use it. A great way to top off your Python initiation
+and graduate to a proficient beginner.
+```
 
 <!-- Batchelder: variables _________________________________________ -->
 
-<!-- #md tags=["popout"] -->
-
-This is perhaps the most useful intermediate Python talk ever. It'll
-clear up any misconceptions about how variables work in Python that you
-might have accumulated on your programming journey so far, and enable
-you to work on more complicated and larger pieces of code with more
-confidence.
-
-<!-- #endmd -->
-
-<!-- #md -->
 <iframe width="560" height="315"
   src="https://www.youtube-nocookie.com/embed/_AEJHKGk9ns" frameborder="0"
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen>
 </iframe>
-<!-- #endmd -->
+
+```{margin}
+This is perhaps the most useful intermediate Python talk ever. It'll
+clear up any misconceptions about how variables work in Python that you
+might have accumulated on your programming journey so far, and enable
+you to work on more complicated and larger pieces of code with more
+confidence.
+```
 
 <!-- =============================================================== -->
-<!-- #md tags=["full_width"] -->
+```{div} full-width
 <hr style="margin-top: 4rem;">
-<!-- #endmd -->
+```
 
-## Data analysis and NLP
+### Data analysis and NLP
 
 <!-- VanderPlas: PyData 101 ________________________________________ -->
 
-<!-- #md tags=["popout"] -->
+<iframe width="560" height="315"
+  src="https://www.youtube-nocookie.com/embed/DifMYH3iuFw" frameborder="0"
+  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen>
+</iframe>
 
+```{margin}
 If you're interested in using Python for data analysis, I can recommend
 anything by Jake VanderPlas (who wrote the *Python Data Science
 Handbook* mentioned earlier). This is an introductory talk which
@@ -179,21 +182,17 @@ provides basic orientation in the Python data analysis landscape -- what
 tools exist and when to use which. As a keynote, it's somewhat longer
 and also provides a bit of historical background on Python, with a bias
 for data science applications of course.
-
-<!-- #endmd -->
-
-<!-- #md -->
-<iframe width="560" height="315"
-  src="https://www.youtube-nocookie.com/embed/DifMYH3iuFw" frameborder="0"
-  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen>
-</iframe>
-<!-- #endmd -->
+```
 
 <!-- VanderPlas: statistics ________________________________________ -->
 
-<!-- #md tags=["popout"] -->
+<iframe width="560" height="315"
+  src="https://www.youtube-nocookie.com/embed/Iq9DzN6mvYA" frameborder="0"
+  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen>
+</iframe>
 
+```{margin}
 A bit unsure how statistics works, or what it's even good for? This
 particular talk may be titled *Statistics for Hackers*, but in reality
 it's geared towards anyone with a keen mind who's interested in
@@ -203,42 +202,34 @@ applies to linguists, including myself. This may also be a good place to
 point out that ['hacker'](https://en.wikipedia.org/wiki/Hacker) doesn't
 always (and certainly not here) refer to someone who breaks into other
 people's computers.
-
-<!-- #endmd -->
-
-<!-- #md -->
-<iframe width="560" height="315"
-  src="https://www.youtube-nocookie.com/embed/Iq9DzN6mvYA" frameborder="0"
-  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen>
-</iframe>
-<!-- #endmd -->
+```
 
 <!-- VanderPlas: cutting-edge viz __________________________________ -->
 
-<!-- #md tags=["popout"] -->
+<iframe width="560" height="315"
+  src="https://www.youtube-nocookie.com/embed/vTingdk_pVM" frameborder="0"
+  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen>
+</iframe>
 
+```{margin}
 Visualization is currently a rapidly evolving landscape in Python, and
 this talk is about new developments based on the *grammar of graphics*
 and *declarative visualization* approach, which was popularized by the R
 package [ggplot2](https://ggplot2.tidyverse.org/). The first part is a
 teaches you how to think about visualization in general, while the
 second introduces the [Altair](https://altair-viz.github.io/) library.
-
-<!-- #endmd -->
-
-<!-- #md -->
-<iframe width="560" height="315"
-  src="https://www.youtube-nocookie.com/embed/vTingdk_pVM" frameborder="0"
-  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen>
-</iframe>
-<!-- #endmd -->
+```
 
 <!-- VanderPlas: traditional viz ___________________________________ -->
 
-<!-- #md tags=["popout"] -->
+<iframe width="560" height="315"
+  src="https://www.youtube-nocookie.com/embed/FytuB8nFHPQ" frameborder="0"
+  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen>
+</iframe>
 
+```{margin}
 By contrast, this older talk gives an overview of the Python
 visualization landscape including the more traditional and established
 Python visualization tools, which many people continue using and which
@@ -248,78 +239,66 @@ use them from random people on the internet. A good accompanying
 resource for this talk is [Part
 4](https://jakevdp.github.io/PythonDataScienceHandbook/04.00-introduction-to-matplotlib.html)
 of the *Python Data Science Handbook*.
-
-<!-- #endmd -->
-
-<!-- #md -->
-<iframe width="560" height="315"
-  src="https://www.youtube-nocookie.com/embed/FytuB8nFHPQ" frameborder="0"
-  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen>
-</iframe>
-<!-- #endmd -->
+```
 
 <!-- Zhao: NLP tutorial ____________________________________________ -->
 
-<!-- #md tags=["popout"] -->
-
-An NLP tutorial whose most valuable aspect is that if offers an extended
-worked example of data analysis, from collecting raw data to
-communicating insights. It gives a very good idea of what this entire
-process typically looks like and what are the pitfalls to look out for.
-
-<!-- #endmd -->
-
-<!-- #md -->
 <iframe width="560" height="315"
   src="https://www.youtube-nocookie.com/embed/xvqsFTUsOmc" frameborder="0"
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen>
 </iframe>
-<!-- #endmd -->
+
+```{margin}
+An NLP tutorial whose most valuable aspect is that if offers an extended
+worked example of data analysis, from collecting raw data to
+communicating insights. It gives a very good idea of what this entire
+process typically looks like and what are the pitfalls to look out for.
+```
 
 <!-- =============================================================== -->
-<!-- #md tags=["full_width"] -->
+```{div} full-width
 <hr style="margin-top: 4rem;">
-<!-- #endmd -->
+```
 
-## War stories
+### War stories
 
 <!-- Beazley: mission impossible ___________________________________ -->
 
-<!-- #md tags=["popout"] -->
+<iframe width="560" height="315"
+  src="https://www.youtube-nocookie.com/embed/RZ4Sn-Y7AP8" frameborder="0"
+  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen>
+</iframe>
 
+```{margin}
 A real-life story on how Python helped David Beazley to make sense of
 large amounts of unknown data in order to prepare an expert testimony in
 a legal case. More on the entertaining side than the educational, but it
 *will* teach you that Python is a Swiss-army knife for slicing and
 dicing data. The *Mission: Impossible* of programming conference talks,
 with Python starring as agent Ethan Hunt!
-
-<!-- #endmd -->
-
-<!-- #md -->
-<iframe width="560" height="315"
-  src="https://www.youtube-nocookie.com/embed/RZ4Sn-Y7AP8" frameborder="0"
-  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen>
-</iframe>
-<!-- #endmd -->
+```
 
 <!-- =============================================================== -->
-<!-- #md tags=["full_width"] -->
+```{div} full-width
 <hr style="margin-top: 4rem;">
-<!-- #endmd -->
+```
 
-## Nuts and bolts (advanced)
+### Nuts and bolts (advanced)
 
 And finally, here are a few more advanced talks which I heartily
 recommend watching after you've spent a little more time with Python.
 
 <!-- Hettinger: dictionaries _______________________________________ -->
 
-<!-- #md tags=["popout"] -->
+<iframe width="560" height="315"
+  src="https://www.youtube-nocookie.com/embed/npw4s1QTmPg" frameborder="0"
+  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen>
+</iframe>
 
+```{margin}
 Dictionaries are the bread and butter of the Python programmer, and
 they're also at the core of how many of the features in the language
 work. As such, their implementation has evolved over the years to
@@ -327,62 +306,45 @@ incorporate increasingly clever tricks. Learn what they are from the
 proverbial horse's mouth, Python core developer Raymond Hettinger, who's
 also one of the most consistently entertaining conference speakers I've
 seen!
-
-<!-- #endmd -->
-
-<!-- #md -->
-<iframe width="560" height="315"
-  src="https://www.youtube-nocookie.com/embed/npw4s1QTmPg" frameborder="0"
-  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen>
-</iframe>
-<!-- #endmd -->
+```
 
 <!-- Hettinger: concurrency ________________________________________ -->
 
-<!-- #md tags=["popout"] -->
-
-Another talk by Raymond Hettinger, this time about making the computer
-do multiple things at the same time. Spoiler: it's hard to get this
-right, and you should probably think twice whether you really need to do
-so before you start tinkering with it.
-
-<!-- #endmd -->
-
-<!-- #md -->
 <iframe width="560" height="315"
   src="https://www.youtube-nocookie.com/embed/9zinZmE3Ogk" frameborder="0"
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen>
 </iframe>
-<!-- #endmd -->
+
+```{margin}
+Another talk by Raymond Hettinger, this time about making the computer
+do multiple things at the same time. Spoiler: it's hard to get this
+right, and you should probably think twice whether you really need to do
+so before you start tinkering with it.
+```
 
 <!-- NJ Smith: trio ________________________________________________ -->
 
-<!-- #md tags=["popout"] -->
-
-On a similar topic as the previous one, a talk on how computers can
-*pretend* they're doing several things at the same time by quickly
-switching between tasks, and on designing a Python library which makes
-such programming fairly intuitive and less error-prone. If you've heard
-the buzzwords `async` and `await`, they feature prominently.
-
-<!-- #endmd -->
-
-<!-- #md -->
 <iframe width="560" height="315"
   src="https://www.youtube-nocookie.com/embed/oLkfnc_UMcE" frameborder="0"
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen>
 </iframe>
-<!-- #endmd -->
+
+```{margin}
+On a similar topic as the previous one, a talk on how computers can
+*pretend* they're doing several things at the same time by quickly
+switching between tasks, and on designing a Python library which makes
+such programming fairly intuitive and less error-prone. If you've heard
+the buzzwords `async` and `await`, they feature prominently.
+```
 
 <!-- =============================================================== -->
-<!-- #md tags=["full_width"] -->
+```{div} full-width
 <hr style="margin-top: 4rem;">
-<!-- #endmd -->
+```
 
-# Libraries
+## Libraries
 
 Finally, let's take a look at some library recommendations. In Python,
 there are often multiple libraries available to help you do the same
@@ -403,7 +365,9 @@ As a reminder, additional libraries are typically installed using the
 within JupyterLab by prefixing them with a `!`. For instance, to install
 the package [`pyrsistent`](https://pyrsistent.readthedocs.io/):
 
-```python tags=["output_scroll"]
+```{code-cell} ipython3
+:tags: [output_scroll]
+
 !pip install pyrsistent
 ```
 
@@ -414,7 +378,7 @@ then you can also use the [Anaconda
 Navigator](https://docs.anaconda.com/anaconda/navigator/) GUI or the
 [`conda`](https://docs.conda.io/) command line tool.
 
-## NLP
+### NLP
 
 - [`nltk`](https://nltk.org/): the Natural Language Toolkit offers great
   resources both for learning about NLP and doing it in practice
@@ -446,7 +410,7 @@ Navigator](https://docs.anaconda.com/anaconda/navigator/) GUI or the
   functions or methods -- even after years of intermitten use, it still
   feels a bit like a maze to me.
 
-## Fetching data from the web
+### Fetching data from the web
 
 - [`requests`](https://requests.readthedocs.io/) for fetching individual
   web pages and interacting with [REST APIs](rest)
@@ -462,7 +426,7 @@ Navigator](https://docs.anaconda.com/anaconda/navigator/) GUI or the
   the documentation is on the lighter side, so getting it up and running
   might require some effort.
 
-## Data analysis, machine learning and statistics
+### Data analysis, machine learning and statistics
 
 - [`pandas`](https://pandas.pydata.org/) as the workhorse library for
   manipulating tabular data, including some basic analyses and
@@ -488,7 +452,7 @@ Navigator](https://docs.anaconda.com/anaconda/navigator/) GUI or the
   starting resource if you have time for a deep dive is
   <https://scipy-lectures.org/>.
 
-## Data visualization
+### Data visualization
 
 - [`altair`](https://altair-viz.github.io/) is a newer library which
   hopefully anticipates the future of data visualization in Python. It
@@ -504,7 +468,7 @@ Navigator](https://docs.anaconda.com/anaconda/navigator/) GUI or the
   by offering more appealing default visual styles and easy high-level
   functions for commonly used plot types
 
-## Miscellaneous and advanced
+### Miscellaneous and advanced
 
 - [`pendulum`](https://pendulum.eustace.io/) for easier handling of
   dates and times than with standard library
@@ -513,8 +477,8 @@ Navigator](https://docs.anaconda.com/anaconda/navigator/) GUI or the
   really tricky to get right, if you ever need to do so, I strongly
   advise you to use a library like this one to do the heavy lifting for
   you.)
-- if you use the terminal, then [rich](https://rich.readthedocs.io/) can
-  help you generate rich terminal output, including colors, tables,
+- if you use the terminal, then [`rich`](https://rich.readthedocs.io/)
+  can help you generate rich terminal output, including colors, tables,
   progress bars, and more
 - larger projects often have a battery of
   [tests](https://en.wikipedia.org/wiki/Software_testing) which are run
@@ -522,10 +486,9 @@ Navigator](https://docs.anaconda.com/anaconda/navigator/) GUI or the
   easiest way to add tests to your code is via the standard library
   [`doctest`](https://docs.python.org/3/library/doctest.html) module,
   but if you find yourself needing a more featureful solution, I would
-  suggest either [`pytest`](https://docs.pytest.org/), the current
-  incumbent go-to solution in this space, or
-  [`wardpy`](https://wardpy.com/), a challenger which appeared
-  relatively recently but shows promise.
+  suggest either [`pytest`](https://docs.pytest.org/), the incumbent
+  go-to solution in this space, or [`wardpy`](https://wardpy.com/), a
+  challenger which appeared relatively recently but shows promise.
 - [`poetry`](https://python-poetry.org/): larger projects also need to
   keep track of which (versions of) other packages they depend on, so
   that you can easily recreate the environment they need for running
