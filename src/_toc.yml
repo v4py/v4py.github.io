@@ -1,0 +1,32 @@
+format: jb-book
+root: welcome
+parts:
+- caption: Authors
+  chapters:
+  - url: https://dlukes.github.io/
+    title: David Lukeš
+  - url: https://ufal.mff.cuni.cz/rudolf-rosa
+    title: Rudolf Rosa
+- caption: Table of contents
+  numbered: true
+  chapters:
+  - file: intro
+  - file: basics
+  - file: unicode
+  - file: data
+  - file: rest
+  - file: regex
+  # - file: gotchas
+  # - file: case
+  #   expand_sections: true
+  #   sections:
+  #     - file: case/collocations
+  #     - file: case/keywords
+  #     - file: case/topic
+  - file: outro
+- caption: Links
+  chapters:
+  - url: https://ufal.mff.cuni.cz/
+    title: ÚFAL MFF UK
+  - url: https://korpus.cz/
+    title: Czech National Corpus

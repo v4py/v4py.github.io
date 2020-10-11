@@ -1,0 +1,54 @@
+title: An Introduction to Python for Linguists
+author: David Lukeš, Rudolf Rosa
+copyright: 2020--present
+logo: images/v4py_logo_wide.svg
+
+execute:
+  execute_notebooks: cache
+
+parse:
+  # Cf. https://myst-parser.readthedocs.io/en/latest/syntax/optional.html for a list of
+  # available extensions.
+  myst_enable_extensions:
+    - amsmath
+    - colon_fence
+    - deflist
+    - dollarmath
+    - html_admonition
+    - html_image
+    - linkify
+    - replacements
+    - smartquotes
+    - substitution
+
+html:
+  favicon: images/v4py_logo.svg
+  use_edit_page_button: true
+  use_repository_button: true
+  use_issues_button: true
+  baseurl: https://v4py.github.io/
+  home_page_in_navbar: false
+  extra_navbar: >-
+    Sponsored by <a href="https://www.visegradfund.org/">Visegrad Fund</a>
+    grant nr. 21820079 "Training Digital Scholars: Knowledge Exchange
+    between V4 and Austria". Available under the terms of the <a
+    href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA
+    4.0</a> license.
+  extra_footer: >-
+    Sponsored by <a href="https://www.visegradfund.org/">Visegrad Fund</a>
+    grant nr. 21820079 "Training Digital Scholars: Knowledge Exchange
+    between V4 and Austria". Available under the terms of the <a
+    href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA
+    4.0</a> license.
+
+latex:
+  latex_engine: xelatex
+
+launch_buttons:
+  notebook_interface: jupyterlab
+  jupyterhub_url: https://jupyter.korpus.cz/
+
+repository:
+  url: https://github.com/v4py/v4py.github.io
+  path_to_book: src
+  branch: source

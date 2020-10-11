@@ -1,37 +1,39 @@
-.PHONY: help install content clean build serve site publish
-
-export GEM_HOME := $(CURDIR)/.gems
-export PATH := $(GEM_HOME)/bin:$(PATH)
+.PHONY: help install update clean build serve site publish
 
 help:
-	@echo "Make sure you're running these in 'poetry shell'."
 	@echo "Please use 'make <target>' where <target> is one of:"
-	@echo "  install     to install the necessary dependencies for jupyter-book to build"
-	@echo "  clean       remove ignored files (built site, caches, non-customized resources)"
-	@echo "  build       to build the Jekyll input and store in _build/"
-	@echo "  serve       to serve the repository locally with Jekyll"
-	@echo "  site        to build the final site HTML, store in _site/"
-	@echo "  publish     build _site/ and publish to GitHub pages"
+	@echo "  install     to set up the environment and install the dependencies for the book to build"
+	@echo "  update      to update the dependencies to the latest semver-compatible versions"
+	@echo "  clean       remove ignored files (built site, caches etc.)"
+	@echo "  build       to build the book and store it in _build"
+	@echo "  serve       to serve the book locally with the http.server module"
+	@echo "  publish     build and publish to GitHub pages"
 
 install:
-	scripts/install.sh
+	poetry install
+	scripts/do_patches.sh
 
-content:
-	scripts/src2content.sh
+# `poetry update` can't currently be used to keep pip and setuptools
+# up-to-date:
+# - https://github.com/python-poetry/poetry/issues/1651
+# - https://github.com/python-poetry/poetry/issues/1584#issuecomment-567628022
+update:
+	poetry update
+	poetry run pip install -U pip setuptools
+	scripts/do_patches.sh
 
 clean:
 	git clean -dfX
 
-build: content
-	jupyter-book build ./ --overwrite
+# --all rebuilds all pages, which is currently necessary in order to get
+# the updated TOC everywhere, even on pages which haven't been modified
+build:
+	poetry run jupyter-book build src --path-output . --all
 
 serve: build
-	bundle exec guard
+	poetry run python -m http.server --directory _build/html
 
-site: build
-	bundle exec jekyll build
+publish: build
 	touch _site/.nojekyll
-	poetry export --format requirements.txt --without-hashes --output _site/requirements.txt
-
-publish: site
-	ghp-import -b master -m Publish -n -p -f _site
+	poetry export --format requirements.txt --without-hashes --output _build/html/requirements.txt
+	ghp-import -b master -m Publish -n -p -f _build/html

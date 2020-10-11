@@ -1,20 +1,22 @@
 ---
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.4.1
-  kernelspec:
-    display_name: Python 3
-    language: python
-    name: python3
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.10.3
+kernelspec:
+  display_name: Python 3 (ipykernel)
+  language: python
+  name: python3
 ---
 
 # Introduction
 
-```python tags=["remove_cell"]
+```{code-cell} ipython3
+:tags: [remove-cell]
+
 # Download NLTK resources. Remove code from START_NLTK_TMP to
 # END_NLTK_TMP to store them in a permanent location instead of a
 # temporary directory.
@@ -32,24 +34,13 @@ import nltk
 nltk.download(["punkt", "stopwords"])
 ```
 
-<!-- #md tags=["popout"] -->
+```{epigraph}
+On second thought, let's not go to Camelot. ’Tis a silly place.
 
-**Acknowledgments:** The authors are grateful to [Visegrad
-Fund](https://www.visegradfund.org/) grant nr. 21820079 "Training
-Digital Scholars: Knowledge Exchange between V4 and Austria" for kindly
-sponsoring this project.
+-- King Arthur, Monty [Python](https://python.org) and the Holy Grail
+```
 
-<!-- #endmd -->
-
-<!-- #md tags=["epigraph"] -->
-
-> On second thought, let's not go to Camelot. 'Tis a silly place.
->
-> -- King Arthur, Monty [Python](https://python.org) and the Holy Grail
-
-<!-- #endmd -->
-
-# Why programming?
+## Why programming?
 
 When I suggest to fellow linguists that they might want to take up
 programming as a way to supercharge their abilities to confront and
@@ -70,8 +61,7 @@ this book being one example, and all you need to take full advantage of
 them is a computer and an internet connection.
 
 Much like any other learning experience, it's also a [journey that never
-really
-ends](https://nedbatchelder.com/blog/202003/how_long_did_it_take_you_to_learn_python.html).
+really ends](https://nedbatchelder.com/blog/202003/how_long_did_it_take_you_to_learn_python.html).
 There's always room for improvement and for learning more, so you might
 as well start now and get on with it. For my part, it's been almost ten
 years since I set out, and while I consider myself a fairly proficient
@@ -99,8 +89,7 @@ changes and comments across the board, but that includes author names,
 which is very conspicuous and feels like an even more flagrant admission
 of guilt, plus if there are multiple authors, you might need to keep
 them anyway. Luckily, it turns out you can tease the document apart
-using a [Python
-script](https://gist.github.com/dlukes/2b5c2a163cd8adba420aaae0c8ea2c00)
+using a [Python script](https://gist.github.com/dlukes/2b5c2a163cd8adba420aaae0c8ea2c00)
 and selectively target those pesky timestamps associated with your
 username. (If this doesn't sound familiar at all, then congratulations,
 you don't have OCD!)
@@ -121,7 +110,7 @@ repository](https://github.com/v4py/v4py.github.io). Please open issues
 with requests for clarification, tips for improvement, or even just
 typos!
 
-# Target audience
+## Target audience
 
 This book is intended as an introduction to programming using the
 [Python](https://python.org) programming language. No previous
@@ -144,12 +133,12 @@ of dedication. If you make it through, or at least part-way, your
 feedback on how to make the parts you struggled with more accessible
 would be absolutely invaluable!
 
-# Python gives you wings!
+## Python gives you wings!
 
-<!-- #md tags=["popout"] -->
+```{margin}
 <img alt="Python logo" style="width: 100%;"
   src="https://www.python.org/static/community_logos/python-logo-generic.svg">
-<!-- #endmd -->
+```
 
 So what is this [Python](https://python.org/) business all about? I've
 said before that learning programming was to me the most transformative
@@ -169,8 +158,7 @@ Jokes aside though (which is sort of hard to do in a language named
 after [Monty Python's Flying
 Circus](https://en.wikipedia.org/wiki/Monty_Python)), the key reason why
 Python exhibits these desirable properties is that it was designed with
-teachability to [curious
-amateurs](https://blog.dropbox.com/topics/work-culture/-the-mind-at-work--guido-van-rossum-on-how-python-makes-thinking)
+teachability to [curious amateurs](https://blog.dropbox.com/topics/work-culture/-the-mind-at-work--guido-van-rossum-on-how-python-makes-thinking)
 as a primary goal, and it has stayed an important concern during the
 thirty odd years that Python has evolved and matured since its first
 public release in 1990. The result is an approachable programming
@@ -180,14 +168,14 @@ many seasoned programmers. After all, the computer doesn't care, so we
 might as well make the language as easy as possible for humans to wrap
 their head around -- is the general idea.
 
-> I don't know how well people know ABC's influence on Python. [...]
-> ABC's design had a very clear, sharp focus. ABC was intended to be a
-> programming language that could be taught to intelligent computer
-> users who were not computer programmers or software developers in any
-> sense.
->
-> -- Guido van Rossum, creator of Python, in [*The Making of
-> Python*](https://www.artima.com/intv/python.html)
+```{epigraph}
+I don't know how well people know ABC's influence on Python. [...] ABC's
+design had a very clear, sharp focus. ABC was intended to be a
+programming language that could be taught to intelligent computer users
+who were not computer programmers or software developers in any sense.
+
+-- Guido van Rossum, creator of Python, in [*The Making of Python*](https://www.artima.com/intv/python.html)
+```
 
 Python was also designed as a **general purpose language**, i.e. it is
 intended to enable its users to build all kinds of programs in a variety
@@ -244,11 +232,11 @@ in *The Zen of Python*, which you can print out in a Python session by
 importing the `this` module. Especially the first four entries are key
 to the argument that I'm trying to make here:
 
-```python
+```{code-cell} ipython3
 import this
 ```
 
-# How to use this book
+## How to use this book
 
 This book actually consists of a series of [Jupyter
 notebooks](https://jupyter.org/), which is a file format, recognizable
@@ -260,7 +248,7 @@ which can be modified and run at will, which encourages interactive
 exploration and makes learning easier. This is what a code cell looks
 like:
 
-```python
+```{code-cell} ipython3
 1 + 1
 ```
 
@@ -269,11 +257,11 @@ a plain old `2`.
 
 If you can, it's a great idea to follow along in JupyterLab, running the
 code in each chapter of the book yourself and tinkering with it. There
-are several options for that. The easiest one is to use either the **▶
-mybinder.org** or **▶ jupyter.korpus.cz** buttons at the top of the
-page, which will take care of everything for you and open an interactive
-version of this text in your browser, without you needing to install
-anything on your computer.
+are several options for that. The easiest one is to use either the
+**Binder** or **JupyterHub** buttons under the <i class="fas fa-rocket"></i>
+icon at the top of the page, which will take care of everything for you
+and open an interactive version of this text in your browser, without
+you needing to install anything on your computer.
 
 Note that the second button requires that you have an account at
 <https://jupyter.korpus.cz> (attendees of the V4Py summer school do).
@@ -282,8 +270,7 @@ automatically open; if it doesn't, try reloading the page, or as a last
 resort, navigating to the `v4py.github.io` folder and opening the
 appropriate notebook manually.
 
-<!-- #md tags=["popout"] -->
-
+```{margin}
 If you do end up installing Python yourself, make sure you install
 **Python 3**. The previous major version, Python 2, has reached
 end-of-life at the end of 2019 and is no longer in active development.
@@ -291,8 +278,7 @@ For a beginning programmer with an interest in linguistics, Python 3 is
 an improvement in every way, because it is much stricter about how it
 handles text data, making data corruption or silent processing errors
 which yield spurious results much less likely.
-
-<!-- #endmd -->
+```
 
 If you want to install Python on your own computer and run JupyterLab
 locally, I would suggest using [the Anaconda
@@ -316,7 +302,7 @@ docs](https://jupyterlab.readthedocs.io/en/latest/user/notebook.html).
 Finally, some usage tips which I personally find useful can be found in
 the [this blog post](https://dlukes.github.io/jupyter-magic.html).
 
-# Diving right in: a frequency analysis of this text
+## Diving right in: a frequency analysis of this text
 
 To get our feet wet, let's do a quick frequency analysis of the text
 you're currently reading. If you've never programmed before, don't worry
@@ -337,16 +323,14 @@ and every word means. The goal at this point is to get familiar with how
 Python code looks and how the terminology sounds, even if you don't
 fully understand what's happening yet.
 
-<!-- #md tags=["popout"] -->
-
+```{margin}
 **HTML** is the [Hypertext Markup
 Language](https://en.wikipedia.org/wiki/HTML) and it's what web pages
 are built from, specifically their structure. Layout is mostly done
 using [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) and
 interactive features with
 [JavaScript](https://en.wikipedia.org/wiki/JavaScript).
-
-<!-- #endmd -->
+```
 
 We start by **importing** `HTMLSession` from the
 [`requests_html`](http://html.python-requests.org) **library**, which
@@ -354,25 +338,23 @@ contains functionality related to fetching HTML pages from the web.  We
 create a fresh `HTMLSession` **object** and store it in the `session`
 **variable**. Think of it as a simple web browser inside Python.
 
-```python
+```{code-cell} ipython3
 from requests_html import HTMLSession
 
 session = HTMLSession()
 ```
 
-<!-- #md tags=["popout"] -->
-
+```{margin}
 **HTTP** stands for [Hypertext Transfer
 Protocol](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol).
 It's the main protocol used for sending around data on the web.
-
-<!-- #endmd -->
+```
 
 We can fetch the page you're currently reading by calling the `get()`
 **method** of the `session` object and passing it the link to this
 website as an **argument**. We get back an HTTP response.
 
-```python
+```{code-cell} ipython3
 link = "https://v4py.github.io/intro.html"
 response = session.get(link)
 ```
@@ -383,7 +365,7 @@ code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) which
 indicates that all went well with our request and we received a
 sucessful response.
 
-```python
+```{code-cell} ipython3
 response
 ```
 
@@ -391,14 +373,14 @@ If we don't know or remember which HTTP status code is which, we can
 check that everything is fine by inspecting the `.ok` **attribute** on
 the `response` object.
 
-```python
+```{code-cell} ipython3
 response.ok
 ```
 
 The contents of the web page are stored in the `.html` attribute of the
 `response` object.
 
-```python
+```{code-cell} ipython3
 response.html
 ```
 
@@ -412,7 +394,7 @@ downloaded the right document. If you're running this notebook inside
 JupyterLab, you can delete the square brackets and inspect the full
 HTML; I've not done that here to save some space.
 
-```python
+```{code-cell} ipython3
 response.html.html[:50]
 ```
 
@@ -423,12 +405,12 @@ page. Trouble is, from our point of view as linguists, this is just junk
 that we need to get rid of. One thing we could try is the `.text`
 attribute, which extracts only the text parts of a web page.
 
-```python
+```{code-cell} ipython3
 # the first 50 characters
 response.html.text[:50]
 ```
 
-```python
+```{code-cell} ipython3
 # the last 50 characters
 response.html.text[-50:]
 ```
@@ -471,7 +453,7 @@ first 5 divs using the `[:5]` syntax -- but you can delete those square
 brackets and re-evaluate the cell to see the full list should you wish
 so.
 
-```python tags=["full_width"]
+```{code-cell} ipython3
 divs = response.html.find(".rendered_html", clean=True)
 divs[:5]
 ```
@@ -487,7 +469,7 @@ of those `.text` attributes into one string by splicing a **newline**
 character, written using the **escape sequence** `"\n"`, in between
 every two pieces of text.
 
-```python
+```{code-cell} ipython3
 string = "\n".join(div.text for div in divs)
 string[:30]
 ```
@@ -503,7 +485,7 @@ the number of characters using the `len()` **function**.
 <!-- TODO: add something like "we've cut it roughly in half!" based on how -->
 <!-- much it turns out to be in the end -->
 
-```python
+```{code-cell} ipython3
 len(response.html.full_text), len(response.html.text), len(string)
 ```
 
@@ -530,7 +512,7 @@ of right off the bat if we were to implement it ourselves off the top of
 our head. This function **returns** a list of strings, and again we can
 do a sanity check by inspecting a slice of it.
 
-```python
+```{code-cell} ipython3
 import nltk
 
 tokenized = nltk.word_tokenize(string.lower())
@@ -547,7 +529,7 @@ concerned, `token` is as different from `Token` as it is from
 lowercasing everything beforehand. We can measure the length of the list
 and thus get the number of tokens using the `len()` function.
 
-```python
+```{code-cell} ipython3
 len(tokenized)
 ```
 
@@ -558,7 +540,7 @@ a lot of the tokens in the `tokenized` list are junk, at least
 linguistically speaking, they are special characters related to the
 notebook format.
 
-```python
+```{code-cell} ipython3
 tokenized[:15]
 ```
 
@@ -572,7 +554,7 @@ token is a stopword or not. The stopwords are stored in their lowercase
 form, so it comes in handy that we already lowercased our input string
 prior to tokenizing it.
 
-```python
+```{code-cell} ipython3
 from nltk.corpus import stopwords
 
 stop_list = stopwords.words("english")
@@ -588,7 +570,7 @@ in circles for a while (the **for** statement) or potentially skip some
 parts depending on whether a condition **evaluates** to true or false
 (the **if** statement).
 
-```python
+```{code-cell} ipython3
 # create a new empty
 cleaned = []
 # iterate over all the tokens in the tokenized list
@@ -600,14 +582,12 @@ for token in tokenized:
 len(cleaned)
 ```
 
-<!-- #md tags=["popout"] -->
-
+```{margin}
 ‡ At least partially -- if you actually inspect the contents of `cleaned`,
 you'll see that it still contains many tokens, like `cells` or
 `metadata`, which look like regular words, but they don't occur in this
 text, they're part of the notebook format structure.
-
-<!-- #endmd -->
+```
 
 `cleaned` is a lot shorter than `tokenized`, so it looks like it
 worked!‡ Note how Python uses **indentation** to encode the hierarchy
@@ -631,16 +611,14 @@ We are now finally in a position to create a **frequency distribution**,
 using the `nltk.FreqDist` **class**. It's easy, we just pass it our list
 of clean tokens.
 
-<!-- #md tags=["popout"] -->
-
+```{margin}
 Each object in Python has a **type**. Some of those are built-in, like
 strings, lists or sets. But users can also define new types of their
 own; those are called **classes**. `nltk.FreqDist` is one of those
 user-defined types.
+```
 
-<!-- #endmd -->
-
-```python tags=["output_scroll"]
+```{code-cell} ipython3
 freq_dist = nltk.FreqDist(cleaned)
 freq_dist
 ```
@@ -648,13 +626,13 @@ freq_dist
 We can access individual **values** inside the frequency distribution by
 requesting them using the corresponding **key**.
 
-```python
+```{code-cell} ipython3
 freq_dist["python"]
 ```
 
 We can also list the top $n$ items using the `.most_common()` method.
 
-```python
+```{code-cell} ipython3
 freq_dist.most_common(10)
 ```
 
@@ -664,7 +642,7 @@ about Python programming and language data! That checks out.
 Finally, we can visualize this result using a wordcloud, to get a quick
 and intuitive overview of these important words.
 
-```python tags=["full_width"]
+```{code-cell} ipython3
 from corpy.vis import wordcloud
 
 wordcloud(freq_dist, size=(800, 400), rounded=True)
@@ -679,7 +657,7 @@ indented under the function header starting with `def` is part of the
 function body, and will be run step by step each time the function is
 **called**.
 
-```python
+```{code-cell} ipython3
 def chapter_wordcloud(link, size=(800, 400), rounded=True):
     session = HTMLSession()
     response = session.get(link)
@@ -704,7 +682,9 @@ called the function.
 We can now easily create a wordcloud based on the final chapter of this
 book, for comparison.
 
-```python tags=["full_width"]
+```{code-cell} ipython3
+:tags: [full-width]
+
 chapter_wordcloud("https://v4py.github.io/outro.html")
 ```
 
@@ -716,7 +696,9 @@ Expressions*](https://www.textbook.ds100.org/ch/08/text_regex.html) from
 the book [*Principles and Techniques of Data
 Science*](https://www.textbook.ds100.org/).
 
-```python tags=["full_width"]
+```{code-cell} ipython3
+:tags: [full-width]
+
 chapter_wordcloud("https://www.textbook.ds100.org/ch/08/text_regex.html")
 ```
 
