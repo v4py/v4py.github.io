@@ -1,0 +1,157 @@
+Traceback (most recent call last):
+  File "/home/david/repos/v4py.github.io/.venv/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/home/david/repos/v4py.github.io/.venv/lib/python3.9/site-packages/nbclient/client.py", line 1117, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/home/david/repos/v4py.github.io/.venv/lib/python3.9/site-packages/nbclient/util.py", line 78, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/home/david/repos/v4py.github.io/.venv/lib/python3.9/site-packages/nbclient/util.py", line 57, in just_run
+    return loop.run_until_complete(coro)
+  File "/home/david/.local/pyenv/versions/3.9.6/lib/python3.9/asyncio/base_events.py", line 642, in run_until_complete
+    return future.result()
+  File "/home/david/repos/v4py.github.io/.venv/lib/python3.9/site-packages/nbclient/client.py", line 558, in async_execute
+    await self.async_execute_cell(
+  File "/home/david/repos/v4py.github.io/.venv/lib/python3.9/site-packages/nbclient/client.py", line 862, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/home/david/repos/v4py.github.io/.venv/lib/python3.9/site-packages/nbclient/client.py", line 765, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# link = "https://v4py.github.io/intro.html"
+link = "http://localhost:8000/intro.html"
+response = session.get(link)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mConnectionRefusedError[0m                    Traceback (most recent call last)
+[0;32m~/repos/v4py.github.io/.venv/lib/python3.9/site-packages/urllib3/connection.py[0m in [0;36m_new_conn[0;34m(self)[0m
+[1;32m    173[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 174[0;31m             conn = connection.create_connection(
+[0m[1;32m    175[0m                 [0;34m([0m[0mself[0m[0;34m.[0m[0m_dns_host[0m[0;34m,[0m [0mself[0m[0;34m.[0m[0mport[0m[0;34m)[0m[0;34m,[0m [0mself[0m[0;34m.[0m[0mtimeout[0m[0;34m,[0m [0;34m**[0m[0mextra_kw[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/repos/v4py.github.io/.venv/lib/python3.9/site-packages/urllib3/util/connection.py[0m in [0;36mcreate_connection[0;34m(address, timeout, source_address, socket_options)[0m
+[1;32m     95[0m     [0;32mif[0m [0merr[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 96[0;31m         [0;32mraise[0m [0merr[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     97[0m [0;34m[0m[0m
+
+[0;32m~/repos/v4py.github.io/.venv/lib/python3.9/site-packages/urllib3/util/connection.py[0m in [0;36mcreate_connection[0;34m(address, timeout, source_address, socket_options)[0m
+[1;32m     85[0m                 [0msock[0m[0;34m.[0m[0mbind[0m[0;34m([0m[0msource_address[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 86[0;31m             [0msock[0m[0;34m.[0m[0mconnect[0m[0;34m([0m[0msa[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     87[0m             [0;32mreturn[0m [0msock[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mConnectionRefusedError[0m: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+[0;31mNewConnectionError[0m                        Traceback (most recent call last)
+[0;32m~/repos/v4py.github.io/.venv/lib/python3.9/site-packages/urllib3/connectionpool.py[0m in [0;36murlopen[0;34m(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, **response_kw)[0m
+[1;32m    698[0m             [0;31m# Make the request on the httplib connection object.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 699[0;31m             httplib_response = self._make_request(
+[0m[1;32m    700[0m                 [0mconn[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/repos/v4py.github.io/.venv/lib/python3.9/site-packages/urllib3/connectionpool.py[0m in [0;36m_make_request[0;34m(self, conn, method, url, timeout, chunked, **httplib_request_kw)[0m
+[1;32m    393[0m             [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 394[0;31m                 [0mconn[0m[0;34m.[0m[0mrequest[0m[0;34m([0m[0mmethod[0m[0;34m,[0m [0murl[0m[0;34m,[0m [0;34m**[0m[0mhttplib_request_kw[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    395[0m [0;34m[0m[0m
+
+[0;32m~/repos/v4py.github.io/.venv/lib/python3.9/site-packages/urllib3/connection.py[0m in [0;36mrequest[0;34m(self, method, url, body, headers)[0m
+[1;32m    238[0m             [0mheaders[0m[0;34m[[0m[0;34m"User-Agent"[0m[0;34m][0m [0;34m=[0m [0m_get_default_user_agent[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 239[0;31m         [0msuper[0m[0;34m([0m[0mHTTPConnection[0m[0;34m,[0m [0mself[0m[0;34m)[0m[0;34m.[0m[0mrequest[0m[0;34m([0m[0mmethod[0m[0;34m,[0m [0murl[0m[0;34m,[0m [0mbody[0m[0;34m=[0m[0mbody[0m[0;34m,[0m [0mheaders[0m[0;34m=[0m[0mheaders[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    240[0m [0;34m[0m[0m
+
+[0;32m~/.local/pyenv/versions/3.9.6/lib/python3.9/http/client.py[0m in [0;36mrequest[0;34m(self, method, url, body, headers, encode_chunked)[0m
+[1;32m   1256[0m         [0;34m"""Send a complete request to the server."""[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1257[0;31m         [0mself[0m[0;34m.[0m[0m_send_request[0m[0;34m([0m[0mmethod[0m[0;34m,[0m [0murl[0m[0;34m,[0m [0mbody[0m[0;34m,[0m [0mheaders[0m[0;34m,[0m [0mencode_chunked[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1258[0m [0;34m[0m[0m
+
+[0;32m~/.local/pyenv/versions/3.9.6/lib/python3.9/http/client.py[0m in [0;36m_send_request[0;34m(self, method, url, body, headers, encode_chunked)[0m
+[1;32m   1302[0m             [0mbody[0m [0;34m=[0m [0m_encode[0m[0;34m([0m[0mbody[0m[0;34m,[0m [0;34m'body'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1303[0;31m         [0mself[0m[0;34m.[0m[0mendheaders[0m[0;34m([0m[0mbody[0m[0;34m,[0m [0mencode_chunked[0m[0;34m=[0m[0mencode_chunked[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1304[0m [0;34m[0m[0m
+
+[0;32m~/.local/pyenv/versions/3.9.6/lib/python3.9/http/client.py[0m in [0;36mendheaders[0;34m(self, message_body, encode_chunked)[0m
+[1;32m   1251[0m             [0;32mraise[0m [0mCannotSendHeader[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1252[0;31m         [0mself[0m[0;34m.[0m[0m_send_output[0m[0;34m([0m[0mmessage_body[0m[0;34m,[0m [0mencode_chunked[0m[0;34m=[0m[0mencode_chunked[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1253[0m [0;34m[0m[0m
+
+[0;32m~/.local/pyenv/versions/3.9.6/lib/python3.9/http/client.py[0m in [0;36m_send_output[0;34m(self, message_body, encode_chunked)[0m
+[1;32m   1011[0m         [0;32mdel[0m [0mself[0m[0;34m.[0m[0m_buffer[0m[0;34m[[0m[0;34m:[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1012[0;31m         [0mself[0m[0;34m.[0m[0msend[0m[0;34m([0m[0mmsg[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1013[0m [0;34m[0m[0m
+
+[0;32m~/.local/pyenv/versions/3.9.6/lib/python3.9/http/client.py[0m in [0;36msend[0;34m(self, data)[0m
+[1;32m    951[0m             [0;32mif[0m [0mself[0m[0;34m.[0m[0mauto_open[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 952[0;31m                 [0mself[0m[0;34m.[0m[0mconnect[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    953[0m             [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/repos/v4py.github.io/.venv/lib/python3.9/site-packages/urllib3/connection.py[0m in [0;36mconnect[0;34m(self)[0m
+[1;32m    204[0m     [0;32mdef[0m [0mconnect[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 205[0;31m         [0mconn[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_new_conn[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    206[0m         [0mself[0m[0;34m.[0m[0m_prepare_conn[0m[0;34m([0m[0mconn[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/repos/v4py.github.io/.venv/lib/python3.9/site-packages/urllib3/connection.py[0m in [0;36m_new_conn[0;34m(self)[0m
+[1;32m    185[0m         [0;32mexcept[0m [0mSocketError[0m [0;32mas[0m [0me[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 186[0;31m             raise NewConnectionError(
+[0m[1;32m    187[0m                 [0mself[0m[0;34m,[0m [0;34m"Failed to establish a new connection: %s"[0m [0;34m%[0m [0me[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNewConnectionError[0m: <urllib3.connection.HTTPConnection object at 0x7f61ce24f520>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+[0;31mMaxRetryError[0m                             Traceback (most recent call last)
+[0;32m~/repos/v4py.github.io/.venv/lib/python3.9/site-packages/requests/adapters.py[0m in [0;36msend[0;34m(self, request, stream, timeout, verify, cert, proxies)[0m
+[1;32m    438[0m             [0;32mif[0m [0;32mnot[0m [0mchunked[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 439[0;31m                 resp = conn.urlopen(
+[0m[1;32m    440[0m                     [0mmethod[0m[0;34m=[0m[0mrequest[0m[0;34m.[0m[0mmethod[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/repos/v4py.github.io/.venv/lib/python3.9/site-packages/urllib3/connectionpool.py[0m in [0;36murlopen[0;34m(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, **response_kw)[0m
+[1;32m    754[0m [0;34m[0m[0m
+[0;32m--> 755[0;31m             retries = retries.increment(
+[0m[1;32m    756[0m                 [0mmethod[0m[0;34m,[0m [0murl[0m[0;34m,[0m [0merror[0m[0;34m=[0m[0me[0m[0;34m,[0m [0m_pool[0m[0;34m=[0m[0mself[0m[0;34m,[0m [0m_stacktrace[0m[0;34m=[0m[0msys[0m[0;34m.[0m[0mexc_info[0m[0;34m([0m[0;34m)[0m[0;34m[[0m[0;36m2[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/repos/v4py.github.io/.venv/lib/python3.9/site-packages/urllib3/util/retry.py[0m in [0;36mincrement[0;34m(self, method, url, response, error, _pool, _stacktrace)[0m
+[1;32m    573[0m         [0;32mif[0m [0mnew_retry[0m[0;34m.[0m[0mis_exhausted[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 574[0;31m             [0;32mraise[0m [0mMaxRetryError[0m[0;34m([0m[0m_pool[0m[0;34m,[0m [0murl[0m[0;34m,[0m [0merror[0m [0;32mor[0m [0mResponseError[0m[0;34m([0m[0mcause[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    575[0m [0;34m[0m[0m
+
+[0;31mMaxRetryError[0m: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /intro.html (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f61ce24f520>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+[0;31mConnectionError[0m                           Traceback (most recent call last)
+[0;32m/tmp/ipykernel_75078/888160018.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m# link = "https://v4py.github.io/intro.html"[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0mlink[0m [0;34m=[0m [0;34m"http://localhost:8000/intro.html"[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0mresponse[0m [0;34m=[0m [0msession[0m[0;34m.[0m[0mget[0m[0;34m([0m[0mlink[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/repos/v4py.github.io/.venv/lib/python3.9/site-packages/requests/sessions.py[0m in [0;36mget[0;34m(self, url, **kwargs)[0m
+[1;32m    553[0m [0;34m[0m[0m
+[1;32m    554[0m         [0mkwargs[0m[0;34m.[0m[0msetdefault[0m[0;34m([0m[0;34m'allow_redirects'[0m[0;34m,[0m [0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 555[0;31m         [0;32mreturn[0m [0mself[0m[0;34m.[0m[0mrequest[0m[0;34m([0m[0;34m'GET'[0m[0;34m,[0m [0murl[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    556[0m [0;34m[0m[0m
+[1;32m    557[0m     [0;32mdef[0m [0moptions[0m[0;34m([0m[0mself[0m[0;34m,[0m [0murl[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/repos/v4py.github.io/.venv/lib/python3.9/site-packages/requests/sessions.py[0m in [0;36mrequest[0;34m(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)[0m
+[1;32m    540[0m         }
+[1;32m    541[0m         [0msend_kwargs[0m[0;34m.[0m[0mupdate[0m[0;34m([0m[0msettings[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 542[0;31m         [0mresp[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0msend[0m[0;34m([0m[0mprep[0m[0;34m,[0m [0;34m**[0m[0msend_kwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    543[0m [0;34m[0m[0m
+[1;32m    544[0m         [0;32mreturn[0m [0mresp[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/repos/v4py.github.io/.venv/lib/python3.9/site-packages/requests/sessions.py[0m in [0;36msend[0;34m(self, request, **kwargs)[0m
+[1;32m    653[0m [0;34m[0m[0m
+[1;32m    654[0m         [0;31m# Send the request[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 655[0;31m         [0mr[0m [0;34m=[0m [0madapter[0m[0;34m.[0m[0msend[0m[0;34m([0m[0mrequest[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    656[0m [0;34m[0m[0m
+[1;32m    657[0m         [0;31m# Total elapsed time of the request (approximately)[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/repos/v4py.github.io/.venv/lib/python3.9/site-packages/requests/adapters.py[0m in [0;36msend[0;34m(self, request, stream, timeout, verify, cert, proxies)[0m
+[1;32m    514[0m                 [0;32mraise[0m [0mSSLError[0m[0;34m([0m[0me[0m[0;34m,[0m [0mrequest[0m[0;34m=[0m[0mrequest[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    515[0m [0;34m[0m[0m
+[0;32m--> 516[0;31m             [0;32mraise[0m [0mConnectionError[0m[0;34m([0m[0me[0m[0;34m,[0m [0mrequest[0m[0;34m=[0m[0mrequest[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    517[0m [0;34m[0m[0m
+[1;32m    518[0m         [0;32mexcept[0m [0mClosedPoolError[0m [0;32mas[0m [0me[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mConnectionError[0m: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /intro.html (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f61ce24f520>: Failed to establish a new connection: [Errno 111] Connection refused'))
+ConnectionError: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /intro.html (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f61ce24f520>: Failed to establish a new connection: [Errno 111] Connection refused'))
+

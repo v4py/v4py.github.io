@@ -1,920 +1,395 @@
+
 <!DOCTYPE html>
-<html lang="en">
+
+<html>
   <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width,minimum-scale=1">
-
-  <title>Parting words</title>
-  <meta name="description" content="        Parting words    Where to go from here Now that you've made it to the end, perhaps you're wondering where to gofrom here. Programming is perhaps the ...">
-
-  <link rel="canonical" href="https://v4py.github.io//outro.html">
-  <link rel="alternate" type="application/rss+xml" title="An Introduction to Python for Linguists" href="https://v4py.github.io//feed.xml">
-
-  <meta property="og:url"         content="https://v4py.github.io//outro.html" />
-<meta property="og:type"        content="article" />
-<meta property="og:title"       content="Parting words" />
-<meta property="og:description" content="        Parting words    Where to go from here Now that you've made it to the end, perhaps you're wondering where to gofrom here. Programming is perhaps the ..." />
-<meta property="og:image"       content="https://v4py.github.io/images/v4py_logo_wide.svg" />
-
-<meta name="twitter:card" content="summary">
-
-
-  <script type="application/ld+json">
-  {
-  "@context": "http://schema.org",
-  "@type": "NewsArticle",
-  "mainEntityOfPage": "https://v4py.github.io//outro.html",
-  "headline": "Parting words",
-  "datePublished": "2020-06-23T16:14:31+02:00",
-  "dateModified": "2020-06-23T16:14:31+02:00",
-  "description": "        Parting words    Where to go from here Now that you've made it to the end, perhaps you're wondering where to gofrom here. Programming is perhaps the ...",
-  "author": {
-    "@type": "Person",
-    "name": "David Lukeš, Rudolf Rosa"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Data 100 at UC Berkeley",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://v4py.github.io/",
-      "width": 60,
-      "height": 60
-    }
-  },
-  "image": {
-    "@type": "ImageObject",
-    "url": "https://v4py.github.io/",
-    "height": 60,
-    "width": 60
-  }
-}
-
-  </script>
-  <link rel="stylesheet" href="/assets/css/styles.css">
-
-  <!-- <link rel="manifest" href="/manifest.json"> -->
-  <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
-  <meta name="theme-color" content="#233947">
-
-  <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="/images/v4py_logo.svg">
-
-  <!-- MathJax Config -->
-  <!-- Allow inline math using $ and automatically break long math lines -->
-<!-- (mostly) copied from nbconvert configuration -->
-<!-- https://github.com/jupyter/nbconvert/blob/master/nbconvert/templates/html/mathjax.tpl -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-        processEscapes: true,
-        processEnvironments: true
-    },
-    // Center justify equations in code and markdown cells. Elsewhere
-    // we use CSS to left justify single line equations in code cells.
-    displayAlign: 'center',
-    "HTML-CSS": {
-        styles: {'.MathJax_Display': {"margin": 0}},
-        linebreaks: { automatic: true },
-    },
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7. Parting words &#8212; An Introduction to Python for Linguists</title>
     
-});
-</script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML' async></script>
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
-
-  <!-- DOM updating function -->
-  <script src="/assets/js/page/dom-update.js"></script>
-
-  <!-- Selectors for elements on the page -->
-  <script src="/assets/js/page/documentSelectors.js"></script>
-
-  <!-- Define some javascript variables that will be useful in other javascript -->
-  <script>
-    const site_basename = '/';
-  </script>
-
-  <!-- Add AnchorJS to let headers be linked -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js" async></script>
-  <script src="/assets/js/page/anchors.js" async></script>
-
-  <!-- Include Turbolinks to make page loads fast -->
-  <!-- https://github.com/turbolinks/turbolinks -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js" async></script>
-  <meta name="turbolinks-cache-control" content="no-cache">
-
-  <!-- Load nbinteract for widgets -->
-  
-
-  <!-- Load Thebelab for interactive widgets -->
-  <!-- Include Thebelab for interactive code if it's enabled -->
-
-
-
-  <!-- Load the auto-generating TOC (non-async otherwise the TOC won't load w/ turbolinks) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.8.1/tocbot.min.js" async></script>
-  <script src="/assets/js/page/tocbot.js"></script>
-
-  <!-- Google analytics -->
-  
-
-
-  <!-- Clipboard copy button -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script>
-
-  <!-- Load custom website scripts -->
-  <script src="/assets/js/scripts.js" async></script>
-
-  <!-- Load custom user CSS and JS  -->
-  <script src="/assets/custom/custom.js" async></script>
-  <link rel="stylesheet" href="/assets/custom/custom.css">
-
-  <!-- Update interact links w/ REST param, is defined in includes so we can use templates -->
-  
-<script>
-/**
-  * To auto-embed hub URLs in interact links if given in a RESTful fashion
- */
-
-function getJsonFromUrl(url) {
-  var query = url.split('?');
-  if (query.length < 2) {
-    // No queries so just return false
-    return false;
-  }
-  query = query[1];
-  // Collect REST params into a dictionary
-  var result = {};
-  query.split("&").forEach(function(part) {
-    var item = part.split("=");
-    result[item[0]] = decodeURIComponent(item[1]);
-  });
-  return result;
-}
     
-function dict2param(dict) {
-    params = Object.keys(dict).map(function(k) {
-        return encodeURIComponent(k) + '=' + encodeURIComponent(dict[k])
-    });
-    return params.join('&')
-}
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-// Parse a Binder URL, converting it to the string needed for JupyterHub
-function binder2Jupyterhub(url) {
-  newUrl = {};
-  parts = url.split('v2/gh/')[1];
-  // Grab the base repo information
-  repoinfo = parts.split('?')[0];
-  var [org, repo, ref] = repoinfo.split('/');
-  newUrl['repo'] = ['https://github.com', org, repo].join('/');
-  newUrl['branch'] = ref
-  // Grab extra parameters passed
-  params = getJsonFromUrl(url);
-  if (params['filepath'] !== undefined) {
-    newUrl['subPath'] = params['filepath']
-  }
-  return dict2param(newUrl);
-}
-
-// Filter out potentially unsafe characters to prevent xss
-function safeUrl(url)
-{
-   return String(encodeURIComponent(url))
-            .replace(/&/g, '&amp;')
-            .replace(/"/g, '&quot;')
-            .replace(/'/g, '&#39;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;');
-}
-
-function addParamToInternalLinks(hub) {
-  var links = document.querySelectorAll("a").forEach(function(link) {
-    var href = link.href;
-    // If the link is an internal link...
-    if (href.search("https://v4py.github.io") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
-      // Assume we're an internal link, add the hub param to it
-      var params = getJsonFromUrl(href);
-      if (params !== false) {
-        // We have REST params, so append a new one
-        params['jupyterhub'] = hub;
-      } else {
-        // Create the REST params
-        params = {'jupyterhub': hub};
-      }
-      // Update the link
-      var newHref = href.split('?')[0] + '?' + dict2param(params);
-      link.setAttribute('href', decodeURIComponent(newHref));
-    }
-  });
-  return false;
-}
-
-
-// Update interact links
-function updateInteractLink() {
-    // hack to make this work since it expects a ? in the URL
-    rest = getJsonFromUrl("?" + location.search.substr(1));
-    jupyterHubUrl = rest['jupyterhub'];
-    var hubType = null;
-    var hubUrl = null;
-    if (jupyterHubUrl !== undefined) {
-      hubType = 'jupyterhub';
-      hubUrl = jupyterHubUrl;
-    }
-
-    if (hubType !== null) {
-      // Sanitize the hubUrl
-      hubUrl = safeUrl(hubUrl);
-
-      // Add HTTP text if omitted
-      if (hubUrl.indexOf('http') < 0) {hubUrl = 'http://' + hubUrl;}
-      var interactButtons = document.querySelectorAll("button.interact-button")
-      var lastButton = interactButtons[interactButtons.length-1];
-      var link = lastButton.parentElement;
-
-      // If we've already run this, skip the link updating
-      if (link.nextElementSibling !== null) {
-        return;
-      }
-
-      // Update the link and add context div
-      var href = link.getAttribute('href');
-      if (lastButton.id === 'interact-button-binder') {
-        // If binder links exist, we need to re-work them for jupyterhub
-        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
-          // If localhost, assume we're working from a local Jupyter server and remove `/hub`
-          first = [hubUrl, 'git-sync'].join('/')
-        } else {
-          first = [hubUrl, 'hub', 'user-redirect', 'git-sync'].join('/')
-        }
-        href = first + '?' + binder2Jupyterhub(href);
-      } else {
-        // If interact button isn't binderhub, assume it's jupyterhub
-        // If JupyterHub links, we only need to replace the hub url
-        href = href.replace("https://jupyter.korpus.cz", hubUrl);
-        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
-          // Assume we're working from a local Jupyter server and remove `/hub`
-          href = href.replace("/hub/user-redirect", "");
-        }
-      }
-      link.setAttribute('href', decodeURIComponent(href));
-
-      // Add text after interact link saying where we're launching
-      hubUrlNoHttp = decodeURIComponent(hubUrl).replace('http://', '').replace('https://', '');
-      link.insertAdjacentHTML('afterend', '<div class="interact-context">on ' + hubUrlNoHttp + '</div>');
-
-      // Update internal links so we retain the hub url
-      addParamToInternalLinks(hubUrl);
-    }
-}
-
-runWhenDOMLoaded(updateInteractLink)
-document.addEventListener('turbolinks:load', updateInteractLink)
-</script>
-
-
-  <!-- Lunr search code - will only be executed on the /search page -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js" async></script>
-  <script>var initQuery = function() {
-  // See if we have a search box
-  var searchInput = document.querySelector('input#lunr_search');
-  if (searchInput === null) {
-    return;
-  }
-
-  // Function to parse our lunr cache
-  var idx = lunr(function () {
-    this.field('title')
-    this.field('excerpt')
-    this.field('categories')
-    this.field('tags')
-    this.ref('id')
-
-    this.pipeline.remove(lunr.trimmer)
-
-    for (var item in store) {
-      this.add({
-        title: store[item].title,
-        excerpt: store[item].excerpt,
-        categories: store[item].categories,
-        tags: store[item].tags,
-        id: item
-      })
-    }
-  });
-
-  // Run search upon keyup
-  searchInput.addEventListener('keyup', function () {
-    var resultdiv = document.querySelector('#results');
-    var query = document.querySelector("input#lunr_search").value.toLowerCase();
-    var result =
-      idx.query(function (q) {
-        query.split(lunr.tokenizer.separator).forEach(function (term) {
-          q.term(term, { boost: 100 })
-          if(query.lastIndexOf(" ") != query.length-1){
-            q.term(term, {  usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
-          }
-          if (term != ""){
-            q.term(term, {  usePipeline: false, editDistance: 1, boost: 1 })
-          }
-        })
-      });
-
-      // Empty the results div
-      while (resultdiv.firstChild) {
-        resultdiv.removeChild(resultdiv.firstChild);
-      }
-
-    resultdiv.insertAdjacentHTML('afterbegin', '<p class="results__found">'+result.length+' Result(s) found</p>');
-    for (var item in result) {
-      var ref = result[item].ref;
-      if(store[ref].teaser){
-        var searchitem =
-          '<div class="list__item">'+
-            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
-              '<h2 class="archive__item-title" itemprop="headline">'+
-                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
-              '</h2>'+
-              '<div class="archive__item-teaser">'+
-                '<img src="'+store[ref].teaser+'" alt="">'+
-              '</div>'+
-              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
-            '</article>'+
-          '</div>';
-      }
-      else{
-    	  var searchitem =
-          '<div class="list__item">'+
-            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
-              '<h2 class="archive__item-title" itemprop="headline">'+
-                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
-              '</h2>'+
-              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
-            '</article>'+
-          '</div>';
-      }
-      resultdiv.insertAdjacentHTML('beforeend', searchitem);
-    }
-  });
-};
-
-initFunction(initQuery);
-</script>
-
-  <!-- Load JS that depends on site variables -->
-  <script src="/assets/js/page/copy-button.js" async></script>
-
-  <!-- Hide cell code -->
-  <script src="/assets/js/page/hide-cell.js" async></script>
-
-  <!-- Printing the screen -->
-  <!-- Include nbinteract for interactive widgets -->
-<script src="https://printjs-4de6.kxcdn.com/print.min.js" async></script>
-<script>
-printContent = () => {
-    // MathJax displays a second version of any math for assistive devices etc.
-    // This prevents double-rendering in the PDF output.
-    var ignoreAssistList = [];
-    assistives = document.querySelectorAll('.MathJax_Display span.MJX_Assistive_MathML').forEach((element, index) => {
-        var thisId = 'MathJax-assistive-' + index.toString();
-        element.setAttribute('id', thisId);
-        ignoreAssistList.push(thisId)
-    });
-
-    // Print the actual content object
-    printJS({
-        printable: 'textbook_content',
-        type: 'html',
-        css: "/assets/css/styles.css",
-        style: "#textbook_content {padding-top: 40px};",
-        scanStyles: false,
-        targetStyles: ["*"],
-        ignoreElements: ignoreAssistList,
-        documentTitle: "An Introduction to Python for Linguists"
-    })
-};
-
-initPrint = () => {
-    document.querySelector('#interact-button-print').addEventListener('click', printContent)
-}
-
-initFunction(initPrint)
-</script>
-
-</head>
-
-  <body>
-    <!-- Include the ThebeLab config so it gets reloaded on each page -->
-    <script type="text/x-thebe-config">{
-    requestKernel: true,
-    binderOptions: {
-    repo: "v4py/v4py.github.io",
-    ref: "master",
-    },
-    codeMirrorConfig: {
-    theme: "abcdef",
-    mode: "python"
-    },
-    kernelOptions: {
-    kernelName: "python3",
-    path: "content"
-    }
-}
-</script>
-
-    <!-- .js-show-sidebar shows sidebar by default -->
-    <div id="js-textbook" class="c-textbook js-show-sidebar">
-      
-
-
-
-<nav id="js-sidebar" class="c-textbook__sidebar">
-  <a href="https://v4py.github.io"><img src="/images/v4py_logo_wide.svg" class="textbook_logo" id="sidebar-logo" alt="textbook logo" data-turbolinks-permanent/></a>
-  <h2 class="c-sidebar__title">An Introduction to Python for Linguists</h2>
-  <ul class="c-sidebar__chapters">
     
       
-      
 
-      
-      
-      
-      
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
 
-      
-      
-      <li class="c-sidebar__chapter" data-url="https://dlukes.github.io/">
-        <a class="c-sidebar__entry"
-          href="https://dlukes.github.io/"
-        >
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://v4py.github.io/outro.html" />
+    <link rel="shortcut icon" href="_static/v4py_logo.svg"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="6. Regular expressions" href="regex.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
           
-          David Lukeš
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-
-      
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
       
-      
-
-      
-      
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter" data-url="https://ufal.mff.cuni.cz/rudolf-rosa">
-        <a class="c-sidebar__entry"
-          href="https://ufal.mff.cuni.cz/rudolf-rosa"
-        >
-          
-          Rudolf Rosa
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-
-      
-    
-      
-      
-        <li><h2 class="c-sidebar__title">Table of contents</li>
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
         
       
       
+      <img src="_static/v4py_logo_wide.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">An Introduction to Python for Linguists</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Authors
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://dlukes.github.io/">
+   David Lukeš
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://ufal.mff.cuni.cz/rudolf-rosa">
+   Rudolf Rosa
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Table of contents
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="basics.html">
+   2. A tour of Python and NLTK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="unicode.html">
+   3. Text inside the computer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data.html">
+   4. Getting your data into Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="rest.html">
+   5. Working with online resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="regex.html">
+   6. Regular expressions
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   7. Parting words
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Links
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://ufal.mff.cuni.cz/">
+   ÚFAL MFF UK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://korpus.cz/">
+   Czech National Corpus
+  </a>
+ </li>
+</ul>
 
-      
-      
-      
-      
+    </div>
+</nav> <!-- To handle the deprecated key -->
 
-      
-      
-      <li class="c-sidebar__chapter" data-url="/intro">
-        <a class="c-sidebar__entry"
-          href="/intro.html"
-        >
+<div class="navbar_extra_footer">
+  Sponsored by <a href="https://www.visegradfund.org/">Visegrad Fund</a> grant nr. 21820079 "Training Digital Scholars: Knowledge Exchange between V4 and Austria". Available under the terms of the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> license.
+</div>
+
+</div>
+
+
           
-            1.
+
+
           
-          Introduction
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-
-      
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-      
-      
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
 
-      
-      
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter" data-url="/basics">
-        <a class="c-sidebar__entry"
-          href="/basics.html"
-        >
-          
-            2.
-          
-          A tour of Python and NLTK
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-
-      
-    
-      
-      
-
-      
-      
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter" data-url="/unicode">
-        <a class="c-sidebar__entry"
-          href="/unicode.html"
-        >
-          
-            3.
-          
-          Text inside the computer
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-
-      
-    
-      
-      
-
-      
-      
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter" data-url="/data">
-        <a class="c-sidebar__entry"
-          href="/data.html"
-        >
-          
-            4.
-          
-          Getting your data into Python
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-
-      
-    
-      
-      
-
-      
-      
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter" data-url="/rest">
-        <a class="c-sidebar__entry"
-          href="/rest.html"
-        >
-          
-            5.
-          
-          Working with online resources
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-
-      
-    
-      
-      
-
-      
-      
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter" data-url="/regex">
-        <a class="c-sidebar__entry"
-          href="/regex.html"
-        >
-          
-            6.
-          
-          Regular expressions
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-
-      
-    
-      
-      
-
-      
-      
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter" data-url="/outro">
-        <a class="c-sidebar__entry"
-          href="/outro.html"
-        >
-          
-            7.
-          
-          Parting words
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-
-      
-    
-      
-      
-        <li><h2 class="c-sidebar__title">Links</li>
-        
-      
-      
-
-      
-      
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter" data-url="https://ufal.mff.cuni.cz/">
-        <a class="c-sidebar__entry"
-          href="https://ufal.mff.cuni.cz/"
-        >
-          
-          ÚFAL MFF UK
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-
-      
-    
-      
-      
-
-      
-      
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter" data-url="https://korpus.cz/">
-        <a class="c-sidebar__entry"
-          href="https://korpus.cz/"
-        >
-          
-          Czech National Corpus
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-
-      
-    
-  </ul>
-  <p class="sidebar_footer">Sponsored by <a href="https://www.visegradfund.org/">Visegrad Fund</a> grant nr. 21820079 "Training Digital Scholars: Knowledge Exchange between V4 and Austria". Available under the terms of the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> license.</p>
-</nav>
-
-      
-      <div class="c-topbar" id="top-navbar">
-  <!-- We show the sidebar by default so we use .is-active -->
-  <div class="c-topbar__buttons">
-    <button
-      id="js-sidebar-toggle"
-      class="hamburger hamburger--arrowalt is-active"
-    >
-      <span class="hamburger-box">
-        <span class="hamburger-inner"></span>
-      </span>
-    </button>
-    <div class="buttons">
-<div class="download-buttons-dropdown">
-    <button id="dropdown-button-trigger" class="interact-button"><img src="/assets/images/download-solid.svg" alt="Download" /></button>
-    <div class="download-buttons">
-        <a href="/content/outro.ipynb" download>
-        <button id="interact-button-download" class="interact-button">.ipynb</button>
-        </a>
-        
-        <a id="interact-button-print"><button id="interact-button-download" class="interact-button">.pdf</button></a>
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="_sources/outro.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/outro.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
+            <!-- Source interaction buttons -->
 
-  
-  
-  
-
-
-
-
-
-
-<a target="_blank" href="https://mybinder.org/v2/gh/v4py/v4py.github.io/master?urlpath=lab/tree/content%2Foutro.ipynb"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="/assets/images/logo_binder.svg" alt="Interact" />▶ mybinder.org</button></a>
-  
-
-
-
-
-
-<a target="_blank" href="https://jupyter.korpus.cz/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fv4py%2Fv4py.github.io&amp;branch=master&amp;urlpath=lab%2Ftree%2Fv4py.github.io%2Fcontent%2Foutro.ipynb%3Fautodecode"><button class="interact-button" id="interact-button-jupyterhub"><img class="interact-button-logo" src="/assets/images/logo_jupyterhub.svg" alt="Interact" />▶ jupyter.korpus.cz</button></a>
-
-
-
-
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/v4py/v4py.github.io"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/v4py/v4py.github.io/issues/new?title=Issue%20on%20page%20%2Foutro.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/v4py/v4py.github.io/edit/source/src/outro.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
 </div>
 
-  </div>
-  <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
-  <aside class="sidebar__right">
-    <header><h4 class="nav__title"><img src="/assets/images/list-solid.svg" alt="Search" />   On this page</h4></header>
-    <nav class="onthispage">
-    </nav>
-  </aside>
-  <a href="/search.html" class="topbar-right-button" id="search-button">
-    <img src="/assets/images/search-solid.svg" alt="Search" />
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/v4py/v4py.github.io/master?urlpath=lab/tree/_sources/outro.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://jupyter.korpus.cz//hub/user-redirect/git-pull?repo=https://github.com/v4py/v4py.github.io&urlpath=lab/tree/v4py.github.io/_sources/outro.ipynb&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#where-to-go-from-here">
+   7.1. Where to go from here
   </a>
-</div>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#books">
+   7.2. Books
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#videos">
+   7.3. Videos
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#improving-your-python-chops">
+     7.3.1. Improving your Python chops
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-analysis-and-nlp">
+     7.3.2. Data analysis and NLP
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#war-stories">
+     7.3.3. War stories
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nuts-and-bolts-advanced">
+     7.3.4. Nuts and bolts (advanced)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#libraries">
+   7.4. Libraries
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nlp">
+     7.4.1. NLP
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fetching-data-from-the-web">
+     7.4.2. Fetching data from the web
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-analysis-machine-learning-and-statistics">
+     7.4.3. Data analysis, machine learning and statistics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-visualization">
+     7.4.4. Data visualization
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#miscellaneous-and-advanced">
+     7.4.5. Miscellaneous and advanced
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
 
-      <main class="c-textbook__page" tabindex="-1">
-            <div class="c-textbook__content" id="textbook_content">
-                  <main class="jupyter-page">
-    <div id="page-info"><div id="page-title">Parting words</div>
+            </nav>
+        </div>
+    </div>
 </div>
-    <div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Where-to-go-from-here">Where to go from here<a class="anchor-link" href="#Where-to-go-from-here"> </a></h1><p>Now that you've made it to the end, perhaps you're wondering where to go
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="parting-words">
+<h1><span class="section-number">7. </span>Parting words<a class="headerlink" href="#parting-words" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="where-to-go-from-here">
+<h2><span class="section-number">7.1. </span>Where to go from here<a class="headerlink" href="#where-to-go-from-here" title="Permalink to this headline">¶</a></h2>
+<p>Now that you’ve made it to the end, perhaps you’re wondering where to go
 from here. Programming is perhaps the easiest skill to learn using only
-the internet, so there are many options. There's also always room for
-improvement and learning new things, it's a lifelong journey. In lieu of
+the internet, so there are many options. There’s also always room for
+improvement and learning new things, it’s a lifelong journey. In lieu of
 parting words, here are some tips on where to get started, at least in
 the world of Python.</p>
 <p>Thank you for reading so far, and if you have any suggestions for
-improvement, additions, or just spotted a few typos, please <a href="https://github.com/v4py/v4py.github.io/issues">report them
+improvement, additions, or just spotted a few typos, please <a class="reference external" href="https://github.com/v4py/v4py.github.io/issues">report them
 on GitHub</a>!</p>
-<h1 id="Books">Books<a class="anchor-link" href="#Books"> </a></h1>
 </div>
+<div class="section" id="books">
+<h2><span class="section-number">7.2. </span>Books<a class="headerlink" href="#books" title="Permalink to this headline">¶</a></h2>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<a href="https://www.nltk.org/book/" target="_blank">
+<a class="reference internal image-reference" href="_images/nltk_book.jpg"><img alt="Natural Language Processing with Python book cover" src="_images/nltk_book.jpg" style="width: 200px;" /></a>
+</a>
 </div>
-</div>
-</div>
-
-<div class="jb_cell tag_popout">
-
-<div class="cell border-box-sizing text_cell rendered tag_popout"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="https://www.nltk.org/book/" target="_blank">
-<img src="images/outro/nltk_book.jpg" width="200" alt="Natural Language Processing with Python book cover">
-</a></p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p>As a general introduction to Python programming which focuses on
-linguistic applications, I've already recommended <a href="https://www.nltk.org/book/"><em>Natural Language
+linguistic applications, I’ve already recommended <a class="reference external" href="https://www.nltk.org/book/"><em>Natural Language
 Processing with Python: Analyzing Text with the Natural Language
 Toolkit</em></a> by Steven Bird, Ewan Klein and
-Edward Loper, and I'm going to recommend it again. It's a great
-resource, all the more useful since it's freely available online. It
-doesn't provide just recipes on how to use the latest and greatest fancy
+Edward Loper, and I’m going to recommend it again. It’s a great
+resource, all the more useful since it’s freely available online. It
+doesn’t provide just recipes on how to use the latest and greatest fancy
 stuff in
-<a href="https://en.wikipedia.org/wiki/Natural_language_processing">NLP</a>,
+<a class="reference external" href="https://en.wikipedia.org/wiki/Natural_language_processing">NLP</a>,
 treating the tools as black boxes, but rather focuses on understanding
 algorithms and concepts and improving your programming skills. This
 means that it often spends time on less cutting-edge methods, which are
@@ -923,43 +398,26 @@ Depending on what your immediate needs are, this may be a strength or a
 weakness, but in the long run, I would argue that every programming
 linguist should spend some time honing their programming skills instead
 of always blindly following how-to style recipes, because even
-copy-pasting black box code can go seriously wrong if you don't have a
-larger picture of what's going on.</p>
-
+copy-pasting black box code can go seriously wrong if you don’t have a
+larger picture of what’s going on.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<a href="https://jakevdp.github.io/PythonDataScienceHandbook/" target="_blank">
+<a class="reference internal image-reference" href="_images/python_data_science.png"><img alt="Python Data Science Handbook cover" src="_images/python_data_science.png" style="width: 200px;" /></a>
+</a>
 </div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_popout">
-
-<div class="cell border-box-sizing text_cell rendered tag_popout"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="https://jakevdp.github.io/PythonDataScienceHandbook/" target="_blank">
-<img src="images/outro/python_data_science.png" width="200" alt="Python Data Science Handbook cover">
-</a></p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p>On perhaps a more practical note, I can definitely recommend Jake
-VanderPlas's <a href="https://jakevdp.github.io/PythonDataScienceHandbook/"><em>Python Data Science
+VanderPlas’s <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/"><em>Python Data Science
 Handbook</em></a>, an
 other great resource which is also freely available online. This book is
 not concerned with NLP per se but rather with data analysis, i.e. with
-what happens after you've processed your text data and want to do some
+what happens after you’ve processed your text data and want to do some
 statistical modeling or machine learning with it. This has traditionally
-been the domain of <a href="https://www.r-project.org/">R</a>, especially among
+been the domain of <a class="reference external" href="https://www.r-project.org/">R</a>, especially among
 linguists, but R is a very idiosyncratic language which encourages the
 copy-paste, black box approach: while it sometimes provides pleasant and
 easy-to-use abstractions (especially in the
-<a href="https://www.tidyverse.org/">tidyverse</a> third-party packages), building
+<a class="reference external" href="https://www.tidyverse.org/">tidyverse</a> third-party packages), building
 them yourself or wiring them together can be challenging because the
 underlying language is not really well-designed, edge cases and
 surprising behaviors abound. Python is much easier to wrap your head
@@ -968,45 +426,31 @@ general-purpose programming language, but by the same token, it can be
 sometimes hard to know which libraries and techniques to use when
 getting started with data analysis in Python. The <em>Python Data Science
 Handbook</em> is there to help you with that.</p>
-
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<a href="https://jakevdp.github.io/WhirlwindTourOfPython/" target="_blank">
+<a class="reference internal image-reference" href="_images/whirlwind_tour.gif"><img alt="A Whirlwind Tour of Python cover" src="_images/whirlwind_tour.gif" style="width: 200px;" /></a>
+</a>
 </div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_popout">
-
-<div class="cell border-box-sizing text_cell rendered tag_popout"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="https://jakevdp.github.io/WhirlwindTourOfPython/" target="_blank">
-<img src="images/outro/whirlwind_tour.gif" width="200" alt="A Whirlwind Tour of Python cover">
-</a></p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p>Finally, if you just want a fast-paced overview of Python syntax and
-features, another great free resource, also by Jake VanderPlas, is <a href="https://jakevdp.github.io/WhirlwindTourOfPython/"><em>A
+features, another great free resource, also by Jake VanderPlas, is <a class="reference external" href="https://jakevdp.github.io/WhirlwindTourOfPython/"><em>A
 Whirlwind Tour of
-Python</em></a>. It's pretty
+Python</em></a>. It’s pretty
 condensed and expects the reader to be reasonably familiar with
 programming concepts terminology, but in exchange, it offers a
 practical-minded and well-organized reference resource which you can use
 to quickly refresh your knowledge on specific areas of Python
 programming.</p>
-<h1 id="Videos">Videos<a class="anchor-link" href="#Videos"> </a></h1><p>Unlike conferences in linguistics, programming conferences are often
+</div>
+<div class="section" id="videos">
+<h2><span class="section-number">7.3. </span>Videos<a class="headerlink" href="#videos" title="Permalink to this headline">¶</a></h2>
+<p>Unlike conferences in linguistics, programming conferences are often
 recorded and professionally produced videos (including presentation
 slides) are subsequently made available, most often for free. For
 tutorials and workshops, the materials often remain available long after
 the conference via sites like GitHub, so you can follow along at your
 leisure.</p>
-<p>Since conferences are popular, there's potentially <em>a lot</em> of watching
+<p>Since conferences are popular, there’s potentially <em>a lot</em> of watching
 material, not all of it great. Some people are better programmers than
 speakers or teachers, some are good at neither, but there are so many
 conferences that they can accommodate all of them. Below is a collection
@@ -1017,764 +461,447 @@ language data, or both.</p>
 either Raymond Hettinger, Ned Batchelder or David Beazley. Their
 contributions are consistently extremely informative, well-prepared and
 entertaining at the same time.</p>
-<h2 id="Improving-your-Python-chops">Improving your Python chops<a class="anchor-link" href="#Improving-your-Python-chops"> </a></h2><!-- Beazley: builtins _____________________________________________ -->
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_popout">
-
-<div class="cell border-box-sizing text_cell rendered tag_popout"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>A great tour of Python's built-in functionality, i.e. stuff that's
-always available, without having to load any libraries, and tips and
-tricks on how to use it. A great way to top off your Python initiation
-and graduate to a proficient beginner.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+<div class="section" id="improving-your-python-chops">
+<h3><span class="section-number">7.3.1. </span>Improving your Python chops<a class="headerlink" href="#improving-your-python-chops" title="Permalink to this headline">¶</a></h3>
+<!-- Beazley: builtins _____________________________________________ -->
 <iframe width="560" height="315"
   src="https://www.youtube-nocookie.com/embed/lyDLAutA88s" frameborder="0"
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen>
 </iframe>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>A great tour of Python’s built-in functionality, i.e. stuff that’s
+always available, without having to load any libraries, and tips and
+tricks on how to use it. A great way to top off your Python initiation
+and graduate to a proficient beginner.</p>
 </div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <!-- Batchelder: variables _________________________________________ -->
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_popout">
-
-<div class="cell border-box-sizing text_cell rendered tag_popout"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>This is perhaps the most useful intermediate Python talk ever. It'll
-clear up any misconceptions about how variables work in Python that you
-might have accumulated on your programming journey so far, and enable
-you to work on more complicated and larger pieces of code with more
-confidence.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <iframe width="560" height="315"
   src="https://www.youtube-nocookie.com/embed/_AEJHKGk9ns" frameborder="0"
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen>
 </iframe>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>This is perhaps the most useful intermediate Python talk ever. It’ll
+clear up any misconceptions about how variables work in Python that you
+might have accumulated on your programming journey so far, and enable
+you to work on more complicated and larger pieces of code with more
+confidence.</p>
 </div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <!-- =============================================================== -->
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_full_width">
-
-<div class="cell border-box-sizing text_cell rendered tag_full_width"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+<div class="full-width docutils">
 <hr style="margin-top: 4rem;">
 </div>
 </div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Data-analysis-and-NLP">Data analysis and NLP<a class="anchor-link" href="#Data-analysis-and-NLP"> </a></h2><!-- VanderPlas: PyData 101 ________________________________________ -->
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_popout">
-
-<div class="cell border-box-sizing text_cell rendered tag_popout"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>If you're interested in using Python for data analysis, I can recommend
-anything by Jake VanderPlas (who wrote the <em>Python Data Science
-Handbook</em> mentioned earlier). This is an introductory talk which
-provides basic orientation in the Python data analysis landscape -- what
-tools exist and when to use which. As a keynote, it's somewhat longer
-and also provides a bit of historical background on Python, with a bias
-for data science applications of course.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+<div class="section" id="data-analysis-and-nlp">
+<h3><span class="section-number">7.3.2. </span>Data analysis and NLP<a class="headerlink" href="#data-analysis-and-nlp" title="Permalink to this headline">¶</a></h3>
+<!-- VanderPlas: PyData 101 ________________________________________ -->
 <iframe width="560" height="315"
   src="https://www.youtube-nocookie.com/embed/DifMYH3iuFw" frameborder="0"
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen>
 </iframe>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>If you’re interested in using Python for data analysis, I can recommend
+anything by Jake VanderPlas (who wrote the <em>Python Data Science
+Handbook</em> mentioned earlier). This is an introductory talk which
+provides basic orientation in the Python data analysis landscape – what
+tools exist and when to use which. As a keynote, it’s somewhat longer
+and also provides a bit of historical background on Python, with a bias
+for data science applications of course.</p>
 </div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <!-- VanderPlas: statistics ________________________________________ -->
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_popout">
-
-<div class="cell border-box-sizing text_cell rendered tag_popout"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>A bit unsure how statistics works, or what it's even good for? This
-particular talk may be titled <em>Statistics for Hackers</em>, but in reality
-it's geared towards anyone with a keen mind who's interested in
-statistics but hasn't had extensive formal training in math, which means
-they sometimes struggle with a formula-heavy approach. Which often
-applies to linguists, including myself. This may also be a good place to
-point out that <a href="https://en.wikipedia.org/wiki/Hacker">'hacker'</a> doesn't
-always (and certainly not here) refer to someone who breaks into other
-people's computers.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <iframe width="560" height="315"
   src="https://www.youtube-nocookie.com/embed/Iq9DzN6mvYA" frameborder="0"
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen>
 </iframe>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>A bit unsure how statistics works, or what it’s even good for? This
+particular talk may be titled <em>Statistics for Hackers</em>, but in reality
+it’s geared towards anyone with a keen mind who’s interested in
+statistics but hasn’t had extensive formal training in math, which means
+they sometimes struggle with a formula-heavy approach. Which often
+applies to linguists, including myself. This may also be a good place to
+point out that <a class="reference external" href="https://en.wikipedia.org/wiki/Hacker">‘hacker’</a> doesn’t
+always (and certainly not here) refer to someone who breaks into other
+people’s computers.</p>
 </div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <!-- VanderPlas: cutting-edge viz __________________________________ -->
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_popout">
-
-<div class="cell border-box-sizing text_cell rendered tag_popout"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Visualization is currently a rapidly evolving landscape in Python, and
-this talk is about new developments based on the <em>grammar of graphics</em>
-and <em>declarative visualization</em> approach, which was popularized by the R
-package <a href="https://ggplot2.tidyverse.org/">ggplot2</a>. The first part is a
-teaches you how to think about visualization in general, while the
-second introduces the <a href="https://altair-viz.github.io/">Altair</a> library.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <iframe width="560" height="315"
   src="https://www.youtube-nocookie.com/embed/vTingdk_pVM" frameborder="0"
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen>
 </iframe>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Visualization is currently a rapidly evolving landscape in Python, and
+this talk is about new developments based on the <em>grammar of graphics</em>
+and <em>declarative visualization</em> approach, which was popularized by the R
+package <a class="reference external" href="https://ggplot2.tidyverse.org/">ggplot2</a>. The first part is a
+teaches you how to think about visualization in general, while the
+second introduces the <a class="reference external" href="https://altair-viz.github.io/">Altair</a> library.</p>
 </div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <!-- VanderPlas: traditional viz ___________________________________ -->
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_popout">
-
-<div class="cell border-box-sizing text_cell rendered tag_popout"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>By contrast, this older talk gives an overview of the Python
-visualization landscape including the more traditional and established
-Python visualization tools, which many people continue using and which
-aren't going away anytime soon. Their advantage is that they're mature,
-stable and widely known, so it can be much easier to get help on how to
-use them from random people on the internet. A good accompanying
-resource for this talk is <a href="https://jakevdp.github.io/PythonDataScienceHandbook/04.00-introduction-to-matplotlib.html">Part
-4</a>
-of the <em>Python Data Science Handbook</em>.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <iframe width="560" height="315"
   src="https://www.youtube-nocookie.com/embed/FytuB8nFHPQ" frameborder="0"
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen>
 </iframe>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>By contrast, this older talk gives an overview of the Python
+visualization landscape including the more traditional and established
+Python visualization tools, which many people continue using and which
+aren’t going away anytime soon. Their advantage is that they’re mature,
+stable and widely known, so it can be much easier to get help on how to
+use them from random people on the internet. A good accompanying
+resource for this talk is <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/04.00-introduction-to-matplotlib.html">Part
+4</a>
+of the <em>Python Data Science Handbook</em>.</p>
 </div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <!-- Zhao: NLP tutorial ____________________________________________ -->
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_popout">
-
-<div class="cell border-box-sizing text_cell rendered tag_popout"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>An NLP tutorial whose most valuable aspect is that if offers an extended
-worked example of data analysis, from collecting raw data to
-communicating insights. It gives a very good idea of what this entire
-process typically looks like and what are the pitfalls to look out for.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <iframe width="560" height="315"
   src="https://www.youtube-nocookie.com/embed/xvqsFTUsOmc" frameborder="0"
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen>
 </iframe>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>An NLP tutorial whose most valuable aspect is that if offers an extended
+worked example of data analysis, from collecting raw data to
+communicating insights. It gives a very good idea of what this entire
+process typically looks like and what are the pitfalls to look out for.</p>
 </div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <!-- =============================================================== -->
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_full_width">
-
-<div class="cell border-box-sizing text_cell rendered tag_full_width"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+<div class="full-width docutils">
 <hr style="margin-top: 4rem;">
 </div>
 </div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="War-stories">War stories<a class="anchor-link" href="#War-stories"> </a></h2><!-- Beazley: mission impossible ___________________________________ -->
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_popout">
-
-<div class="cell border-box-sizing text_cell rendered tag_popout"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+<div class="section" id="war-stories">
+<h3><span class="section-number">7.3.3. </span>War stories<a class="headerlink" href="#war-stories" title="Permalink to this headline">¶</a></h3>
+<!-- Beazley: mission impossible ___________________________________ -->
+<iframe width="560" height="315"
+  src="https://www.youtube-nocookie.com/embed/RZ4Sn-Y7AP8" frameborder="0"
+  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen>
+</iframe>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
 <p>A real-life story on how Python helped David Beazley to make sense of
 large amounts of unknown data in order to prepare an expert testimony in
 a legal case. More on the entertaining side than the educational, but it
 <em>will</em> teach you that Python is a Swiss-army knife for slicing and
 dicing data. The <em>Mission: Impossible</em> of programming conference talks,
 with Python starring as agent Ethan Hunt!</p>
-
 </div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<iframe width="560" height="315"
-  src="https://www.youtube-nocookie.com/embed/RZ4Sn-Y7AP8" frameborder="0"
-  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen>
-</iframe>
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <!-- =============================================================== -->
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_full_width">
-
-<div class="cell border-box-sizing text_cell rendered tag_full_width"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+<div class="full-width docutils">
 <hr style="margin-top: 4rem;">
 </div>
 </div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Nuts-and-bolts-(advanced)">Nuts and bolts (advanced)<a class="anchor-link" href="#Nuts-and-bolts-(advanced)"> </a></h2><p>And finally, here are a few more advanced talks which I heartily
-recommend watching after you've spent a little more time with Python.</p>
+<div class="section" id="nuts-and-bolts-advanced">
+<h3><span class="section-number">7.3.4. </span>Nuts and bolts (advanced)<a class="headerlink" href="#nuts-and-bolts-advanced" title="Permalink to this headline">¶</a></h3>
+<p>And finally, here are a few more advanced talks which I heartily
+recommend watching after you’ve spent a little more time with Python.</p>
 <!-- Hettinger: dictionaries _______________________________________ -->
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_popout">
-
-<div class="cell border-box-sizing text_cell rendered tag_popout"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Dictionaries are the bread and butter of the Python programmer, and
-they're also at the core of how many of the features in the language
-work. As such, their implementation has evolved over the years to
-incorporate increasingly clever tricks. Learn what they are from the
-proverbial horse's mouth, Python core developer Raymond Hettinger, who's
-also one of the most consistently entertaining conference speakers I've
-seen!</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <iframe width="560" height="315"
   src="https://www.youtube-nocookie.com/embed/npw4s1QTmPg" frameborder="0"
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen>
 </iframe>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Dictionaries are the bread and butter of the Python programmer, and
+they’re also at the core of how many of the features in the language
+work. As such, their implementation has evolved over the years to
+incorporate increasingly clever tricks. Learn what they are from the
+proverbial horse’s mouth, Python core developer Raymond Hettinger, who’s
+also one of the most consistently entertaining conference speakers I’ve
+seen!</p>
 </div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <!-- Hettinger: concurrency ________________________________________ -->
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_popout">
-
-<div class="cell border-box-sizing text_cell rendered tag_popout"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Another talk by Raymond Hettinger, this time about making the computer
-do multiple things at the same time. Spoiler: it's hard to get this
-right, and you should probably think twice whether you really need to do
-so before you start tinkering with it.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <iframe width="560" height="315"
   src="https://www.youtube-nocookie.com/embed/9zinZmE3Ogk" frameborder="0"
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen>
 </iframe>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Another talk by Raymond Hettinger, this time about making the computer
+do multiple things at the same time. Spoiler: it’s hard to get this
+right, and you should probably think twice whether you really need to do
+so before you start tinkering with it.</p>
 </div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <!-- NJ Smith: trio ________________________________________________ -->
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_popout">
-
-<div class="cell border-box-sizing text_cell rendered tag_popout"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>On a similar topic as the previous one, a talk on how computers can
-<em>pretend</em> they're doing several things at the same time by quickly
-switching between tasks, and on designing a Python library which makes
-such programming fairly intuitive and less error-prone. If you've heard
-the buzzwords <code>async</code> and <code>await</code>, they feature prominently.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <iframe width="560" height="315"
   src="https://www.youtube-nocookie.com/embed/oLkfnc_UMcE" frameborder="0"
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen>
 </iframe>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>On a similar topic as the previous one, a talk on how computers can
+<em>pretend</em> they’re doing several things at the same time by quickly
+switching between tasks, and on designing a Python library which makes
+such programming fairly intuitive and less error-prone. If you’ve heard
+the buzzwords <code class="docutils literal notranslate"><span class="pre">async</span></code> and <code class="docutils literal notranslate"><span class="pre">await</span></code>, they feature prominently.</p>
 </div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <!-- =============================================================== -->
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_full_width">
-
-<div class="cell border-box-sizing text_cell rendered tag_full_width"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+<div class="full-width docutils">
 <hr style="margin-top: 4rem;">
 </div>
 </div>
 </div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Libraries">Libraries<a class="anchor-link" href="#Libraries"> </a></h1><p>Finally, let's take a look at some library recommendations. In Python,
+<div class="section" id="libraries">
+<h2><span class="section-number">7.4. </span>Libraries<a class="headerlink" href="#libraries" title="Permalink to this headline">¶</a></h2>
+<p>Finally, let’s take a look at some library recommendations. In Python,
 there are often multiple libraries available to help you do the same
-thing, or that at least partially overlap in the domain they're trying
+thing, or that at least partially overlap in the domain they’re trying
 to cover. For a newcomer, it may be sometimes hard to decide which to
-use when they've never heard about any of them. The purpose of this
+use when they’ve never heard about any of them. The purpose of this
 (admittedly non-exhaustive and biased) list is to familiarize yourself
 with some of the more popular and well-designed ones, so that when they
 come up in your searches, you can lean towards them as a first choice.</p>
 <p>Some of these have already come up over the course of the book, some
-haven't, and some you probably won't need until you've programmed in
-Python for a while, so don't feel like you immediately need to start
+haven’t, and some you probably won’t need until you’ve programmed in
+Python for a while, so don’t feel like you immediately need to start
 using every single one of those.</p>
 <p>As a reminder, additional libraries are typically installed using the
-<code>pip</code> command line tool, and command line programs can be run from
-within JupyterLab by prefixing them with a <code>!</code>. For instance, to install
-the package <a href="https://pyrsistent.readthedocs.io/"><code>pyrsistent</code></a>:</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_output_scroll">
-
-<div class="cell border-box-sizing code_cell rendered tag_output_scroll">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pip install pyrsistent
+<code class="docutils literal notranslate"><span class="pre">pip</span></code> command line tool, and command line programs can be run from
+within JupyterLab by prefixing them with a <code class="docutils literal notranslate"><span class="pre">!</span></code>. For instance, to install
+the package <a class="reference external" href="https://pyrsistent.readthedocs.io/"><code class="docutils literal notranslate"><span class="pre">pyrsistent</span></code></a>:</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install pyrsistent
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Requirement already satisfied: pyrsistent in /home/david/.cache/pypoetry/virtualenvs/e-v4py-fruCn8TM-py3.7/lib/python3.7/site-packages (0.16.0)
-Requirement already satisfied: six in /home/david/.cache/pypoetry/virtualenvs/e-v4py-fruCn8TM-py3.7/lib/python3.7/site-packages (from pyrsistent) (1.14.0)
-<span class="ansi-yellow-fg">WARNING: You are using pip version 19.2.3, however version 20.1.1 is available.
-You should consider upgrading via the &#39;pip install --upgrade pip&#39; command.</span>
-</pre>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://packagecloud.io/akopytov/sysbench/pypi/simple
+Requirement already satisfied: pyrsistent in /home/david/repos/v4py.github.io/.venv/lib/python3.9/site-packages (0.18.0)
+</pre></div>
 </div>
 </div>
 </div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Or <code>!pip install --user pyrsistent</code> if that fails with some kind of
-permission error. If you've installed Python on your own computer using
-the <a href="https://www.anaconda.com/distribution/">Anaconda Distribution</a>,
-then you can also use the <a href="https://docs.anaconda.com/anaconda/navigator/">Anaconda
+<p>Or <code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">install</span> <span class="pre">--user</span> <span class="pre">pyrsistent</span></code> if that fails with some kind of
+permission error. If you’ve installed Python on your own computer using
+the <a class="reference external" href="https://www.anaconda.com/distribution/">Anaconda Distribution</a>,
+then you can also use the <a class="reference external" href="https://docs.anaconda.com/anaconda/navigator/">Anaconda
 Navigator</a> GUI or the
-<a href="https://docs.conda.io/"><code>conda</code></a> command line tool.</p>
-<h2 id="NLP">NLP<a class="anchor-link" href="#NLP"> </a></h2><ul>
-<li><a href="https://nltk.org/"><code>nltk</code></a>: the Natural Language Toolkit offers great
-resources both for learning about NLP and doing it in practice</li>
-<li><a href="https://spacy.io/"><code>spacy</code></a> focuses more on applied NLP and offers
-convenient black-box-type APIs for a variety of practical tasks</li>
-<li><a href="https://pypi.org/project/ufal.morphodita/"><code>ufal.morphodita</code></a> and
-<a href="https://pypi.org/project/ufal.udpipe/"><code>ufal.udpipe</code></a> for
+<a class="reference external" href="https://docs.conda.io/"><code class="docutils literal notranslate"><span class="pre">conda</span></code></a> command line tool.</p>
+<div class="section" id="nlp">
+<h3><span class="section-number">7.4.1. </span>NLP<a class="headerlink" href="#nlp" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://nltk.org/"><code class="docutils literal notranslate"><span class="pre">nltk</span></code></a>: the Natural Language Toolkit offers great
+resources both for learning about NLP and doing it in practice</p></li>
+<li><p><a class="reference external" href="https://spacy.io/"><code class="docutils literal notranslate"><span class="pre">spacy</span></code></a> focuses more on applied NLP and offers
+convenient black-box-type APIs for a variety of practical tasks</p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/ufal.morphodita/"><code class="docutils literal notranslate"><span class="pre">ufal.morphodita</span></code></a> and
+<a class="reference external" href="https://pypi.org/project/ufal.udpipe/"><code class="docutils literal notranslate"><span class="pre">ufal.udpipe</span></code></a> for
 morphological tagging and syntactic parsing. These are automatically
-generated wrappers for the C++ libraries <code>morphodita</code> and <code>udpipe</code> and
+generated wrappers for the C++ libraries <code class="docutils literal notranslate"><span class="pre">morphodita</span></code> and <code class="docutils literal notranslate"><span class="pre">udpipe</span></code> and
 as such, they might be somewhat hard to use for beginners, though
 examples are provided. For a more convenient API added on top of these
 more low-level libraries, see the
-<a href="https://corpy.readthedocs.io/"><code>corpy</code></a> library.</li>
-<li><a href="https://pypi.org/project/regex/"><code>regex</code></a> is a regular expression
+<a class="reference external" href="https://corpy.readthedocs.io/"><code class="docutils literal notranslate"><span class="pre">corpy</span></code></a> library.</p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/regex/"><code class="docutils literal notranslate"><span class="pre">regex</span></code></a> is a regular expression
 library with enhanced Unicode support compared to the standard library
-<code>re</code> module. The API is the same though, so use <a href="https://docs.python.org/3/library/re.html"><code>re</code>'s
+<code class="docutils literal notranslate"><span class="pre">re</span></code> module. The API is the same though, so use <a class="reference external" href="https://docs.python.org/3/library/re.html"><code class="docutils literal notranslate"><span class="pre">re</span></code>’s
 documentation</a> to learn how
-to use <code>regex</code>, and only consult <code>regex</code>'s documentation to learn
-about additional features.</li>
-<li>language data sometimes comes in
-<a href="https://en.wikipedia.org/wiki/XML">XML</a> format. Though Python does
-have facilities for <a href="https://docs.python.org/3.8/library/xml.etree.elementtree.html#tutorial">processing XML in the standard
+to use <code class="docutils literal notranslate"><span class="pre">regex</span></code>, and only consult <code class="docutils literal notranslate"><span class="pre">regex</span></code>’s documentation to learn
+about additional features.</p></li>
+<li><p>language data sometimes comes in
+<a class="reference external" href="https://en.wikipedia.org/wiki/XML">XML</a> format. Though Python does
+have facilities for <a class="reference external" href="https://docs.python.org/3.8/library/xml.etree.elementtree.html#tutorial">processing XML in the standard
 library</a>,
-the <a href="https://lxml.de/"><code>lxml</code></a> offers more functionality and
+the <a class="reference external" href="https://lxml.de/"><code class="docutils literal notranslate"><span class="pre">lxml</span></code></a> package offers more functionality and
 robustness. The docs are somewhat old-fashioned but the tutorial parts
-(e.g. <a href="https://lxml.de/tutorial.html">here</a>) are well-written. What
+(e.g. <a class="reference external" href="https://lxml.de/tutorial.html">here</a>) are well-written. What
 <em>can</em> sometimes be a somewhat painful experience is searching through
-the <a href="https://lxml.de/api/index.html">API reference</a> for specific
-functions or methods -- even after years of intermitten use, it still
-feels a bit like a maze to me.</li>
+the <a class="reference external" href="https://lxml.de/api/index.html">API reference</a> for specific
+functions or methods – even after years of intermitten use, it still
+feels a bit like a maze to me.</p></li>
 </ul>
-<h2 id="Fetching-data-from-the-web">Fetching data from the web<a class="anchor-link" href="#Fetching-data-from-the-web"> </a></h2><ul>
-<li><a href="https://requests.readthedocs.io/"><code>requests</code></a> for fetching individual
-web pages and interacting with <a href="rest">REST APIs</a></li>
-<li><a href="https://requests.readthedocs.io/projects/requests-html/"><code>requests_html</code></a>
+</div>
+<div class="section" id="fetching-data-from-the-web">
+<h3><span class="section-number">7.4.2. </span>Fetching data from the web<a class="headerlink" href="#fetching-data-from-the-web" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://requests.readthedocs.io/"><code class="docutils literal notranslate"><span class="pre">requests</span></code></a> for fetching individual
+web pages and interacting with <a class="reference internal" href="rest.html"><span class="doc std std-doc">REST APIs</span></a></p></li>
+<li><p><a class="reference external" href="https://requests.readthedocs.io/projects/requests-html/"><code class="docutils literal notranslate"><span class="pre">requests_html</span></code></a>
 for fetching individual web pages and slicing and dicing their HTML
-content</li>
-<li><a href="https://scrapy.org/"><code>scrapy</code></a> is a flexible, configurable <a href="https://en.wikipedia.org/wiki/Web_crawler">web
+content</p></li>
+<li><p><a class="reference external" href="https://scrapy.org/"><code class="docutils literal notranslate"><span class="pre">scrapy</span></code></a> is a flexible, configurable <a class="reference external" href="https://en.wikipedia.org/wiki/Web_crawler">web
 crawler</a>, i.e. a tool which
 can help you fetch large amounts of data from the web without having
-to specify each page manually as with <code>requests</code></li>
-<li><a href="http://corpus.tools/wiki/SpiderLing"><code>spiderling</code></a>, a web crawler
+to specify each page manually as with <code class="docutils literal notranslate"><span class="pre">requests</span></code></p></li>
+<li><p><a class="reference external" href="http://corpus.tools/wiki/SpiderLing"><code class="docutils literal notranslate"><span class="pre">spiderling</span></code></a>, a web crawler
 optimized for creating language corpora. Clever and sophisticated, but
 the documentation is on the lighter side, so getting it up and running
-might require some effort.</li>
+might require some effort.</p></li>
 </ul>
-<h2 id="Data-analysis,-machine-learning-and-statistics">Data analysis, machine learning and statistics<a class="anchor-link" href="#Data-analysis,-machine-learning-and-statistics"> </a></h2><ul>
-<li><a href="https://pandas.pydata.org/"><code>pandas</code></a> as the workhorse library for
+</div>
+<div class="section" id="data-analysis-machine-learning-and-statistics">
+<h3><span class="section-number">7.4.3. </span>Data analysis, machine learning and statistics<a class="headerlink" href="#data-analysis-machine-learning-and-statistics" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pandas.pydata.org/"><code class="docutils literal notranslate"><span class="pre">pandas</span></code></a> as the workhorse library for
 manipulating tabular data, including some basic analyses and
-visualizations</li>
-<li><a href="https://scikit-learn.org/"><code>scikit-learn</code></a> for training and applying
+visualizations</p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/"><code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code></a> for training and applying
 machine learning models through a beautiful, unified API, and also
-<a href="https://youtu.be/HC0J_SPm9co">learning about machine learning</a></li>
-<li><a href="https://www.statsmodels.org/"><code>statsmodels</code></a> for conducting
+<a class="reference external" href="https://youtu.be/HC0J_SPm9co">learning about machine learning</a></p></li>
+<li><p><a class="reference external" href="https://www.statsmodels.org/"><code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a> for conducting
 statistical tests and statistical data exploration. This package is
-still evolving and you're of course still much more likely to find an
+still evolving and you’re of course still much more likely to find an
 obscure statistical procedure implemented in R than here, but it shows
-great promise.</li>
-<li><a href="https://numpy.org/"><code>numpy</code></a> and
-<a href="https://docs.scipy.org/doc/scipy/reference/tutorial/index.html"><code>scipy</code></a>:
+great promise.</p></li>
+<li><p><a class="reference external" href="https://numpy.org/"><code class="docutils literal notranslate"><span class="pre">numpy</span></code></a> and
+<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/tutorial/index.html"><code class="docutils literal notranslate"><span class="pre">scipy</span></code></a>:
 the foundational libraries most of the Python scientific computing
 ecosystem is built on. Whenever large quantities of numbers are
-manipulated in Python, it tends to be done using <code>numpy</code> objects for
-efficiency, so that's where to look if you encounter such operations
-and find them confusing. <code>scipy</code> adds numerical routines in various
+manipulated in Python, it tends to be done using <code class="docutils literal notranslate"><span class="pre">numpy</span></code> objects for
+efficiency, so that’s where to look if you encounter such operations
+and find them confusing. <code class="docutils literal notranslate"><span class="pre">scipy</span></code> adds numerical routines in various
 domains on top of that for convenience, e.g. statistical functions in
-<a href="https://docs.scipy.org/doc/scipy/reference/tutorial/stats.html"><code>scipy.stats</code></a>.
+<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/tutorial/stats.html"><code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code></a>.
 The documentation of these packages can be hard to navigate, a useful
 starting resource if you have time for a deep dive is
-<a href="https://scipy-lectures.org/">https://scipy-lectures.org/</a>.</li>
+<a class="reference external" href="https://scipy-lectures.org/">https://scipy-lectures.org/</a>.</p></li>
 </ul>
-<h2 id="Data-visualization">Data visualization<a class="anchor-link" href="#Data-visualization"> </a></h2><ul>
-<li><a href="https://altair-viz.github.io/"><code>altair</code></a> is a newer library which
+</div>
+<div class="section" id="data-visualization">
+<h3><span class="section-number">7.4.4. </span>Data visualization<a class="headerlink" href="#data-visualization" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://altair-viz.github.io/"><code class="docutils literal notranslate"><span class="pre">altair</span></code></a> is a newer library which
 hopefully anticipates the future of data visualization in Python. It
 tries to provide an intuitive declarative API where you just tell
 Python what data you want to visualize, using which visual cues
-(points, lines, colors...), and Python figures out the how to make the
-plot informative and aesthetically pleasing.</li>
-<li><a href="https://matplotlib.org/"><code>matplotlib</code></a>, Python's traditional plotting
+(points, lines, colors…), and Python figures out the how to make the
+plot informative and aesthetically pleasing.</p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/"><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a>, Python’s traditional plotting
 library, battle-tested and versatile (lots of different output
-formats) but fairly low-level -- you often have to tweak plots
-manually</li>
-<li><a href="https://seaborn.pydata.org/"><code>seaborn</code></a> builds on top of <code>matplotlib</code>
+formats) but fairly low-level – you often have to tweak plots
+manually</p></li>
+<li><p><a class="reference external" href="https://seaborn.pydata.org/"><code class="docutils literal notranslate"><span class="pre">seaborn</span></code></a> builds on top of <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>
 by offering more appealing default visual styles and easy high-level
-functions for commonly used plot types</li>
+functions for commonly used plot types</p></li>
 </ul>
-<h2 id="Miscellaneous-and-advanced">Miscellaneous and advanced<a class="anchor-link" href="#Miscellaneous-and-advanced"> </a></h2><ul>
-<li><a href="https://pendulum.eustace.io/"><code>pendulum</code></a> for easier handling of
+</div>
+<div class="section" id="miscellaneous-and-advanced">
+<h3><span class="section-number">7.4.5. </span>Miscellaneous and advanced<a class="headerlink" href="#miscellaneous-and-advanced" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pendulum.eustace.io/"><code class="docutils literal notranslate"><span class="pre">pendulum</span></code></a> for easier handling of
 dates and times than with standard library
-<a href="https://docs.python.org/3/library/datetime.html"><code>datetime</code></a> module.
+<a class="reference external" href="https://docs.python.org/3/library/datetime.html"><code class="docutils literal notranslate"><span class="pre">datetime</span></code></a> module.
 (Dates and times across various locales and timezones are actually
 really tricky to get right, if you ever need to do so, I strongly
 advise you to use a library like this one to do the heavy lifting for
-you.)</li>
-<li>if you use the terminal, then <a href="https://rich.readthedocs.io/">rich</a> can
-help you generate rich terminal output, including colors, tables,
-progress bars, and more</li>
-<li>larger projects often have a battery of
-<a href="https://en.wikipedia.org/wiki/Software_testing">tests</a> which are run
-automatically to make sure that changes don't break the code. The
+you.)</p></li>
+<li><p>if you use the terminal, then <a class="reference external" href="https://rich.readthedocs.io/"><code class="docutils literal notranslate"><span class="pre">rich</span></code></a>
+can help you generate rich terminal output, including colors, tables,
+progress bars, and more</p></li>
+<li><p>larger projects often have a battery of
+<a class="reference external" href="https://en.wikipedia.org/wiki/Software_testing">tests</a> which are run
+automatically to make sure that changes don’t break the code. The
 easiest way to add tests to your code is via the standard library
-<a href="https://docs.python.org/3/library/doctest.html"><code>doctest</code></a> module,
+<a class="reference external" href="https://docs.python.org/3/library/doctest.html"><code class="docutils literal notranslate"><span class="pre">doctest</span></code></a> module,
 but if you find yourself needing a more featureful solution, I would
-suggest either <a href="https://docs.pytest.org/"><code>pytest</code></a>, the current
-incumbent go-to solution in this space, or
-<a href="https://wardpy.com/"><code>wardpy</code></a>, a challenger which appeared
-relatively recently but shows promise.</li>
-<li><a href="https://python-poetry.org/"><code>poetry</code></a>: larger projects also need to
+suggest either <a class="reference external" href="https://docs.pytest.org/"><code class="docutils literal notranslate"><span class="pre">pytest</span></code></a>, the incumbent
+go-to solution in this space, or <a class="reference external" href="https://wardpy.com/"><code class="docutils literal notranslate"><span class="pre">wardpy</span></code></a>, a
+challenger which appeared relatively recently but shows promise.</p></li>
+<li><p><a class="reference external" href="https://python-poetry.org/"><code class="docutils literal notranslate"><span class="pre">poetry</span></code></a>: larger projects also need to
 keep track of which (versions of) other packages they depend on, so
 that you can easily recreate the environment they need for running
 correctly when moving between computers. The traditional and somewhat
-barebones way of achieving this is via <a href="https://pip.pypa.io/en/stable/user_guide/#requirements-files"><code>pip</code> and a <code>requirements.txt</code>
+barebones way of achieving this is via <a class="reference external" href="https://pip.pypa.io/en/stable/user_guide/#requirements-files"><code class="docutils literal notranslate"><span class="pre">pip</span></code> and a <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>
 file</a>.
-<code>poetry</code> is a much more modern and convenient tool which will gently
-nudge you to adopt current best practices in this area.</li>
-<li><a href="https://trio.readthedocs.io/"><code>trio</code></a> for asynchronous programming.
-If you don't know what that is and you don't care, that's perfectly
-fine. If you're at least a tiny bit curious, the <code>trio</code> docs will do a
-great job at teaching you -- seriously, they're probably the best
-technical documentation I've ever read -- and also show you how much
+<code class="docutils literal notranslate"><span class="pre">poetry</span></code> is a much more modern and convenient tool which will gently
+nudge you to adopt current best practices in this area.</p></li>
+<li><p><a class="reference external" href="https://trio.readthedocs.io/"><code class="docutils literal notranslate"><span class="pre">trio</span></code></a> for asynchronous programming.
+If you don’t know what that is and you don’t care, that’s perfectly
+fine. If you’re at least a tiny bit curious, the <code class="docutils literal notranslate"><span class="pre">trio</span></code> docs will do a
+great job at teaching you – seriously, they’re probably the best
+technical documentation I’ve ever read – and also show you how much
 thought and care goes into designing a polished library in a
-non-trivial domain.</li>
-<li><a href="https://asks.readthedocs.io/"><code>asks</code></a> is a library which is inspired
-by <code>requests</code> but provides an asynchronous API using <code>trio</code>, which can
-make your program run faster if you're trying to fetch a lot of
-resources from various different servers</li>
+non-trivial domain.</p></li>
+<li><p><a class="reference external" href="https://asks.readthedocs.io/"><code class="docutils literal notranslate"><span class="pre">asks</span></code></a> is a library which is inspired
+by <code class="docutils literal notranslate"><span class="pre">requests</span></code> but provides an asynchronous API using <code class="docutils literal notranslate"><span class="pre">trio</span></code>, which can
+make your program run faster if you’re trying to fetch a lot of
+resources from various different servers</p></li>
 </ul>
-<!-- vim: set spell spelllang=en: -->
-</div>
-</div>
+<!-- vim: set spell spelllang=en: --></div>
 </div>
 </div>
 
- 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
-
-    </main>
-    
-            </div>
-            <div class="c-textbook__footer" id="textbook_footer">
+              </div>
               
-<nav class="c-page__nav">
-  
+        
+            
+
+
+
+<div class='prev-next-bottom'>
     
-    
-
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/regex.html">
-      〈 <span class="u-margin-right-tiny"></span> Regular expressions
-    </a>
-  
-
-  
-    
-
-    
-    <a id="js-page__nav__next" class="c-page__nav__next" href="">
-       <span class="u-margin-right-tiny"></span> 〉
-    </a>
-  
-</nav>
-
-              <footer>
-  <p class="footer">Sponsored by <a href="https://www.visegradfund.org/">Visegrad Fund</a> grant nr. 21820079 "Training Digital Scholars: Knowledge Exchange between V4 and Austria". Available under the terms of the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> license.</p>
-</footer>
-
+    <div id="prev">
+        <a class="left-prev" href="regex.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">6. </span>Regular expressions</p>
             </div>
-
-        </div>
-      </main>
+        </a>
     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By David Lukeš, Rudolf Rosa<br/>
+        
+            &copy; Copyright 2020--present.<br/>
+          <div class="extra_footer">
+            Sponsored by <a href="https://www.visegradfund.org/">Visegrad Fund</a> grant nr. 21820079 "Training Digital Scholars: Knowledge Exchange between V4 and Austria". Available under the terms of the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> license.
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
   </body>
 </html>

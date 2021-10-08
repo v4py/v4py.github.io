@@ -1,942 +1,529 @@
+
 <!DOCTYPE html>
-<html lang="en">
+
+<html>
   <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width,minimum-scale=1">
-
-  <title>Working with online resources</title>
-  <meta name="description" content="        Working with online resourcesRudolf Rosa    How to work with this material There is always first a text telling you what to doSo first try to do it y...">
-
-  <link rel="canonical" href="https://v4py.github.io//rest.html">
-  <link rel="alternate" type="application/rss+xml" title="An Introduction to Python for Linguists" href="https://v4py.github.io//feed.xml">
-
-  <meta property="og:url"         content="https://v4py.github.io//rest.html" />
-<meta property="og:type"        content="article" />
-<meta property="og:title"       content="Working with online resources" />
-<meta property="og:description" content="        Working with online resourcesRudolf Rosa    How to work with this material There is always first a text telling you what to doSo first try to do it y..." />
-<meta property="og:image"       content="https://v4py.github.io/images/v4py_logo_wide.svg" />
-
-<meta name="twitter:card" content="summary">
-
-
-  <script type="application/ld+json">
-  {
-  "@context": "http://schema.org",
-  "@type": "NewsArticle",
-  "mainEntityOfPage": "https://v4py.github.io//rest.html",
-  "headline": "Working with online resources",
-  "datePublished": "2020-06-23T16:14:31+02:00",
-  "dateModified": "2020-06-23T16:14:31+02:00",
-  "description": "        Working with online resourcesRudolf Rosa    How to work with this material There is always first a text telling you what to doSo first try to do it y...",
-  "author": {
-    "@type": "Person",
-    "name": "David Lukeš, Rudolf Rosa"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Data 100 at UC Berkeley",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://v4py.github.io/",
-      "width": 60,
-      "height": 60
-    }
-  },
-  "image": {
-    "@type": "ImageObject",
-    "url": "https://v4py.github.io/",
-    "height": 60,
-    "width": 60
-  }
-}
-
-  </script>
-  <link rel="stylesheet" href="/assets/css/styles.css">
-
-  <!-- <link rel="manifest" href="/manifest.json"> -->
-  <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
-  <meta name="theme-color" content="#233947">
-
-  <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="/images/v4py_logo.svg">
-
-  <!-- MathJax Config -->
-  <!-- Allow inline math using $ and automatically break long math lines -->
-<!-- (mostly) copied from nbconvert configuration -->
-<!-- https://github.com/jupyter/nbconvert/blob/master/nbconvert/templates/html/mathjax.tpl -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-        processEscapes: true,
-        processEnvironments: true
-    },
-    // Center justify equations in code and markdown cells. Elsewhere
-    // we use CSS to left justify single line equations in code cells.
-    displayAlign: 'center',
-    "HTML-CSS": {
-        styles: {'.MathJax_Display': {"margin": 0}},
-        linebreaks: { automatic: true },
-    },
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5. Working with online resources &#8212; An Introduction to Python for Linguists</title>
     
-});
-</script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML' async></script>
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
-
-  <!-- DOM updating function -->
-  <script src="/assets/js/page/dom-update.js"></script>
-
-  <!-- Selectors for elements on the page -->
-  <script src="/assets/js/page/documentSelectors.js"></script>
-
-  <!-- Define some javascript variables that will be useful in other javascript -->
-  <script>
-    const site_basename = '/';
-  </script>
-
-  <!-- Add AnchorJS to let headers be linked -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js" async></script>
-  <script src="/assets/js/page/anchors.js" async></script>
-
-  <!-- Include Turbolinks to make page loads fast -->
-  <!-- https://github.com/turbolinks/turbolinks -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js" async></script>
-  <meta name="turbolinks-cache-control" content="no-cache">
-
-  <!-- Load nbinteract for widgets -->
-  
-
-  <!-- Load Thebelab for interactive widgets -->
-  <!-- Include Thebelab for interactive code if it's enabled -->
-
-
-
-  <!-- Load the auto-generating TOC (non-async otherwise the TOC won't load w/ turbolinks) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.8.1/tocbot.min.js" async></script>
-  <script src="/assets/js/page/tocbot.js"></script>
-
-  <!-- Google analytics -->
-  
-
-
-  <!-- Clipboard copy button -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script>
-
-  <!-- Load custom website scripts -->
-  <script src="/assets/js/scripts.js" async></script>
-
-  <!-- Load custom user CSS and JS  -->
-  <script src="/assets/custom/custom.js" async></script>
-  <link rel="stylesheet" href="/assets/custom/custom.css">
-
-  <!-- Update interact links w/ REST param, is defined in includes so we can use templates -->
-  
-<script>
-/**
-  * To auto-embed hub URLs in interact links if given in a RESTful fashion
- */
-
-function getJsonFromUrl(url) {
-  var query = url.split('?');
-  if (query.length < 2) {
-    // No queries so just return false
-    return false;
-  }
-  query = query[1];
-  // Collect REST params into a dictionary
-  var result = {};
-  query.split("&").forEach(function(part) {
-    var item = part.split("=");
-    result[item[0]] = decodeURIComponent(item[1]);
-  });
-  return result;
-}
     
-function dict2param(dict) {
-    params = Object.keys(dict).map(function(k) {
-        return encodeURIComponent(k) + '=' + encodeURIComponent(dict[k])
-    });
-    return params.join('&')
-}
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-// Parse a Binder URL, converting it to the string needed for JupyterHub
-function binder2Jupyterhub(url) {
-  newUrl = {};
-  parts = url.split('v2/gh/')[1];
-  // Grab the base repo information
-  repoinfo = parts.split('?')[0];
-  var [org, repo, ref] = repoinfo.split('/');
-  newUrl['repo'] = ['https://github.com', org, repo].join('/');
-  newUrl['branch'] = ref
-  // Grab extra parameters passed
-  params = getJsonFromUrl(url);
-  if (params['filepath'] !== undefined) {
-    newUrl['subPath'] = params['filepath']
-  }
-  return dict2param(newUrl);
-}
-
-// Filter out potentially unsafe characters to prevent xss
-function safeUrl(url)
-{
-   return String(encodeURIComponent(url))
-            .replace(/&/g, '&amp;')
-            .replace(/"/g, '&quot;')
-            .replace(/'/g, '&#39;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;');
-}
-
-function addParamToInternalLinks(hub) {
-  var links = document.querySelectorAll("a").forEach(function(link) {
-    var href = link.href;
-    // If the link is an internal link...
-    if (href.search("https://v4py.github.io") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
-      // Assume we're an internal link, add the hub param to it
-      var params = getJsonFromUrl(href);
-      if (params !== false) {
-        // We have REST params, so append a new one
-        params['jupyterhub'] = hub;
-      } else {
-        // Create the REST params
-        params = {'jupyterhub': hub};
-      }
-      // Update the link
-      var newHref = href.split('?')[0] + '?' + dict2param(params);
-      link.setAttribute('href', decodeURIComponent(newHref));
-    }
-  });
-  return false;
-}
-
-
-// Update interact links
-function updateInteractLink() {
-    // hack to make this work since it expects a ? in the URL
-    rest = getJsonFromUrl("?" + location.search.substr(1));
-    jupyterHubUrl = rest['jupyterhub'];
-    var hubType = null;
-    var hubUrl = null;
-    if (jupyterHubUrl !== undefined) {
-      hubType = 'jupyterhub';
-      hubUrl = jupyterHubUrl;
-    }
-
-    if (hubType !== null) {
-      // Sanitize the hubUrl
-      hubUrl = safeUrl(hubUrl);
-
-      // Add HTTP text if omitted
-      if (hubUrl.indexOf('http') < 0) {hubUrl = 'http://' + hubUrl;}
-      var interactButtons = document.querySelectorAll("button.interact-button")
-      var lastButton = interactButtons[interactButtons.length-1];
-      var link = lastButton.parentElement;
-
-      // If we've already run this, skip the link updating
-      if (link.nextElementSibling !== null) {
-        return;
-      }
-
-      // Update the link and add context div
-      var href = link.getAttribute('href');
-      if (lastButton.id === 'interact-button-binder') {
-        // If binder links exist, we need to re-work them for jupyterhub
-        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
-          // If localhost, assume we're working from a local Jupyter server and remove `/hub`
-          first = [hubUrl, 'git-sync'].join('/')
-        } else {
-          first = [hubUrl, 'hub', 'user-redirect', 'git-sync'].join('/')
-        }
-        href = first + '?' + binder2Jupyterhub(href);
-      } else {
-        // If interact button isn't binderhub, assume it's jupyterhub
-        // If JupyterHub links, we only need to replace the hub url
-        href = href.replace("https://jupyter.korpus.cz", hubUrl);
-        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
-          // Assume we're working from a local Jupyter server and remove `/hub`
-          href = href.replace("/hub/user-redirect", "");
-        }
-      }
-      link.setAttribute('href', decodeURIComponent(href));
-
-      // Add text after interact link saying where we're launching
-      hubUrlNoHttp = decodeURIComponent(hubUrl).replace('http://', '').replace('https://', '');
-      link.insertAdjacentHTML('afterend', '<div class="interact-context">on ' + hubUrlNoHttp + '</div>');
-
-      // Update internal links so we retain the hub url
-      addParamToInternalLinks(hubUrl);
-    }
-}
-
-runWhenDOMLoaded(updateInteractLink)
-document.addEventListener('turbolinks:load', updateInteractLink)
-</script>
-
-
-  <!-- Lunr search code - will only be executed on the /search page -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js" async></script>
-  <script>var initQuery = function() {
-  // See if we have a search box
-  var searchInput = document.querySelector('input#lunr_search');
-  if (searchInput === null) {
-    return;
-  }
-
-  // Function to parse our lunr cache
-  var idx = lunr(function () {
-    this.field('title')
-    this.field('excerpt')
-    this.field('categories')
-    this.field('tags')
-    this.ref('id')
-
-    this.pipeline.remove(lunr.trimmer)
-
-    for (var item in store) {
-      this.add({
-        title: store[item].title,
-        excerpt: store[item].excerpt,
-        categories: store[item].categories,
-        tags: store[item].tags,
-        id: item
-      })
-    }
-  });
-
-  // Run search upon keyup
-  searchInput.addEventListener('keyup', function () {
-    var resultdiv = document.querySelector('#results');
-    var query = document.querySelector("input#lunr_search").value.toLowerCase();
-    var result =
-      idx.query(function (q) {
-        query.split(lunr.tokenizer.separator).forEach(function (term) {
-          q.term(term, { boost: 100 })
-          if(query.lastIndexOf(" ") != query.length-1){
-            q.term(term, {  usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
-          }
-          if (term != ""){
-            q.term(term, {  usePipeline: false, editDistance: 1, boost: 1 })
-          }
-        })
-      });
-
-      // Empty the results div
-      while (resultdiv.firstChild) {
-        resultdiv.removeChild(resultdiv.firstChild);
-      }
-
-    resultdiv.insertAdjacentHTML('afterbegin', '<p class="results__found">'+result.length+' Result(s) found</p>');
-    for (var item in result) {
-      var ref = result[item].ref;
-      if(store[ref].teaser){
-        var searchitem =
-          '<div class="list__item">'+
-            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
-              '<h2 class="archive__item-title" itemprop="headline">'+
-                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
-              '</h2>'+
-              '<div class="archive__item-teaser">'+
-                '<img src="'+store[ref].teaser+'" alt="">'+
-              '</div>'+
-              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
-            '</article>'+
-          '</div>';
-      }
-      else{
-    	  var searchitem =
-          '<div class="list__item">'+
-            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
-              '<h2 class="archive__item-title" itemprop="headline">'+
-                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
-              '</h2>'+
-              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
-            '</article>'+
-          '</div>';
-      }
-      resultdiv.insertAdjacentHTML('beforeend', searchitem);
-    }
-  });
-};
-
-initFunction(initQuery);
-</script>
-
-  <!-- Load JS that depends on site variables -->
-  <script src="/assets/js/page/copy-button.js" async></script>
-
-  <!-- Hide cell code -->
-  <script src="/assets/js/page/hide-cell.js" async></script>
-
-  <!-- Printing the screen -->
-  <!-- Include nbinteract for interactive widgets -->
-<script src="https://printjs-4de6.kxcdn.com/print.min.js" async></script>
-<script>
-printContent = () => {
-    // MathJax displays a second version of any math for assistive devices etc.
-    // This prevents double-rendering in the PDF output.
-    var ignoreAssistList = [];
-    assistives = document.querySelectorAll('.MathJax_Display span.MJX_Assistive_MathML').forEach((element, index) => {
-        var thisId = 'MathJax-assistive-' + index.toString();
-        element.setAttribute('id', thisId);
-        ignoreAssistList.push(thisId)
-    });
-
-    // Print the actual content object
-    printJS({
-        printable: 'textbook_content',
-        type: 'html',
-        css: "/assets/css/styles.css",
-        style: "#textbook_content {padding-top: 40px};",
-        scanStyles: false,
-        targetStyles: ["*"],
-        ignoreElements: ignoreAssistList,
-        documentTitle: "An Introduction to Python for Linguists"
-    })
-};
-
-initPrint = () => {
-    document.querySelector('#interact-button-print').addEventListener('click', printContent)
-}
-
-initFunction(initPrint)
-</script>
-
-</head>
-
-  <body>
-    <!-- Include the ThebeLab config so it gets reloaded on each page -->
-    <script type="text/x-thebe-config">{
-    requestKernel: true,
-    binderOptions: {
-    repo: "v4py/v4py.github.io",
-    ref: "master",
-    },
-    codeMirrorConfig: {
-    theme: "abcdef",
-    mode: "python"
-    },
-    kernelOptions: {
-    kernelName: "python3",
-    path: "content"
-    }
-}
-</script>
-
-    <!-- .js-show-sidebar shows sidebar by default -->
-    <div id="js-textbook" class="c-textbook js-show-sidebar">
-      
-
-
-
-<nav id="js-sidebar" class="c-textbook__sidebar">
-  <a href="https://v4py.github.io"><img src="/images/v4py_logo_wide.svg" class="textbook_logo" id="sidebar-logo" alt="textbook logo" data-turbolinks-permanent/></a>
-  <h2 class="c-sidebar__title">An Introduction to Python for Linguists</h2>
-  <ul class="c-sidebar__chapters">
     
       
-      
 
-      
-      
-      
-      
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
 
-      
-      
-      <li class="c-sidebar__chapter" data-url="https://dlukes.github.io/">
-        <a class="c-sidebar__entry"
-          href="https://dlukes.github.io/"
-        >
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://v4py.github.io/rest.html" />
+    <link rel="shortcut icon" href="_static/v4py_logo.svg"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="6. Regular expressions" href="regex.html" />
+    <link rel="prev" title="4. Getting your data into Python" href="data.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
           
-          David Lukeš
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-
-      
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
       
-      
-
-      
-      
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter" data-url="https://ufal.mff.cuni.cz/rudolf-rosa">
-        <a class="c-sidebar__entry"
-          href="https://ufal.mff.cuni.cz/rudolf-rosa"
-        >
-          
-          Rudolf Rosa
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-
-      
-    
-      
-      
-        <li><h2 class="c-sidebar__title">Table of contents</li>
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
         
       
       
+      <img src="_static/v4py_logo_wide.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">An Introduction to Python for Linguists</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Authors
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://dlukes.github.io/">
+   David Lukeš
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://ufal.mff.cuni.cz/rudolf-rosa">
+   Rudolf Rosa
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Table of contents
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="basics.html">
+   2. A tour of Python and NLTK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="unicode.html">
+   3. Text inside the computer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data.html">
+   4. Getting your data into Python
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   5. Working with online resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="regex.html">
+   6. Regular expressions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="outro.html">
+   7. Parting words
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Links
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://ufal.mff.cuni.cz/">
+   ÚFAL MFF UK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://korpus.cz/">
+   Czech National Corpus
+  </a>
+ </li>
+</ul>
 
-      
-      
-      
-      
+    </div>
+</nav> <!-- To handle the deprecated key -->
 
-      
-      
-      <li class="c-sidebar__chapter" data-url="/intro">
-        <a class="c-sidebar__entry"
-          href="/intro.html"
-        >
+<div class="navbar_extra_footer">
+  Sponsored by <a href="https://www.visegradfund.org/">Visegrad Fund</a> grant nr. 21820079 "Training Digital Scholars: Knowledge Exchange between V4 and Austria". Available under the terms of the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> license.
+</div>
+
+</div>
+
+
           
-            1.
+
+
           
-          Introduction
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-
-      
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-      
-      
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
 
-      
-      
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter" data-url="/basics">
-        <a class="c-sidebar__entry"
-          href="/basics.html"
-        >
-          
-            2.
-          
-          A tour of Python and NLTK
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-
-      
-    
-      
-      
-
-      
-      
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter" data-url="/unicode">
-        <a class="c-sidebar__entry"
-          href="/unicode.html"
-        >
-          
-            3.
-          
-          Text inside the computer
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-
-      
-    
-      
-      
-
-      
-      
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter" data-url="/data">
-        <a class="c-sidebar__entry"
-          href="/data.html"
-        >
-          
-            4.
-          
-          Getting your data into Python
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-
-      
-    
-      
-      
-
-      
-      
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter" data-url="/rest">
-        <a class="c-sidebar__entry"
-          href="/rest.html"
-        >
-          
-            5.
-          
-          Working with online resources
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-
-      
-    
-      
-      
-
-      
-      
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter" data-url="/regex">
-        <a class="c-sidebar__entry"
-          href="/regex.html"
-        >
-          
-            6.
-          
-          Regular expressions
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-
-      
-    
-      
-      
-
-      
-      
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter" data-url="/outro">
-        <a class="c-sidebar__entry"
-          href="/outro.html"
-        >
-          
-            7.
-          
-          Parting words
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-
-      
-    
-      
-      
-        <li><h2 class="c-sidebar__title">Links</li>
-        
-      
-      
-
-      
-      
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter" data-url="https://ufal.mff.cuni.cz/">
-        <a class="c-sidebar__entry"
-          href="https://ufal.mff.cuni.cz/"
-        >
-          
-          ÚFAL MFF UK
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-
-      
-    
-      
-      
-
-      
-      
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter" data-url="https://korpus.cz/">
-        <a class="c-sidebar__entry"
-          href="https://korpus.cz/"
-        >
-          
-          Czech National Corpus
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-
-      
-    
-  </ul>
-  <p class="sidebar_footer">Sponsored by <a href="https://www.visegradfund.org/">Visegrad Fund</a> grant nr. 21820079 "Training Digital Scholars: Knowledge Exchange between V4 and Austria". Available under the terms of the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> license.</p>
-</nav>
-
-      
-      <div class="c-topbar" id="top-navbar">
-  <!-- We show the sidebar by default so we use .is-active -->
-  <div class="c-topbar__buttons">
-    <button
-      id="js-sidebar-toggle"
-      class="hamburger hamburger--arrowalt is-active"
-    >
-      <span class="hamburger-box">
-        <span class="hamburger-inner"></span>
-      </span>
-    </button>
-    <div class="buttons">
-<div class="download-buttons-dropdown">
-    <button id="dropdown-button-trigger" class="interact-button"><img src="/assets/images/download-solid.svg" alt="Download" /></button>
-    <div class="download-buttons">
-        <a href="/content/rest.ipynb" download>
-        <button id="interact-button-download" class="interact-button">.ipynb</button>
-        </a>
-        
-        <a id="interact-button-print"><button id="interact-button-download" class="interact-button">.pdf</button></a>
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="_sources/rest.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/rest.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
+            <!-- Source interaction buttons -->
 
-  
-  
-  
-
-
-
-
-
-
-<a target="_blank" href="https://mybinder.org/v2/gh/v4py/v4py.github.io/master?urlpath=lab/tree/content%2Frest.ipynb"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="/assets/images/logo_binder.svg" alt="Interact" />▶ mybinder.org</button></a>
-  
-
-
-
-
-
-<a target="_blank" href="https://jupyter.korpus.cz/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fv4py%2Fv4py.github.io&amp;branch=master&amp;urlpath=lab%2Ftree%2Fv4py.github.io%2Fcontent%2Frest.ipynb%3Fautodecode"><button class="interact-button" id="interact-button-jupyterhub"><img class="interact-button-logo" src="/assets/images/logo_jupyterhub.svg" alt="Interact" />▶ jupyter.korpus.cz</button></a>
-
-
-
-
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/v4py/v4py.github.io"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/v4py/v4py.github.io/issues/new?title=Issue%20on%20page%20%2Frest.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/v4py/v4py.github.io/edit/source/src/rest.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
 </div>
 
-  </div>
-  <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
-  <aside class="sidebar__right">
-    <header><h4 class="nav__title"><img src="/assets/images/list-solid.svg" alt="Search" />   On this page</h4></header>
-    <nav class="onthispage">
-    </nav>
-  </aside>
-  <a href="/search.html" class="topbar-right-button" id="search-button">
-    <img src="/assets/images/search-solid.svg" alt="Search" />
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/v4py/v4py.github.io/master?urlpath=lab/tree/_sources/rest.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://jupyter.korpus.cz//hub/user-redirect/git-pull?repo=https://github.com/v4py/v4py.github.io&urlpath=lab/tree/v4py.github.io/_sources/rest.ipynb&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-work-with-this-material">
+   5.1. How to work with this material
   </a>
-</div>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#opening-resources-from-internet">
+   5.2. Opening resources from Internet
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#uncool-variant-copy-paste">
+     5.2.1. Uncool variant: copy-paste
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cool-variant-get-the-text-from-the-webpage-using-python">
+     5.2.2. Cool variant: get the text from the webpage using Python!
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#additional-exercises-1">
+       5.2.2.1. Additional exercises 1
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rest-apis">
+   5.3. REST APIs
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#st-rest-api-machine-translation-transformer">
+     5.3.1. 1st REST API: Machine translation (Transformer)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#url">
+       5.3.1.1. URL
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#parameters">
+       5.3.1.2. Parameters
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#method">
+       5.3.1.3. Method
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#try-it-out">
+       5.3.1.4. Try it out!
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#changing-the-parameters">
+       5.3.1.5. Changing the parameters
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#lets-put-that-into-a-function">
+       5.3.1.6. Let’s put that into a function!
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#improving-the-function">
+       5.3.1.7. Improving the function
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#additional-exercises-2">
+       5.3.1.8. Additional exercises 2
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nd-rest-api-jokes">
+     5.3.2. 2nd REST API: Jokes
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#how-to-use-it">
+       5.3.2.1. How to use it
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#turning-it-into-a-function">
+       5.3.2.2. Turning it into a function
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#adding-parameters">
+       5.3.2.3. Adding parameters
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#additional-exercises-3">
+       5.3.2.4. Additional exercises 3
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rd-rest-api-cat-images">
+     5.3.3. 3rd REST API: Cat images
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#additional-exercises-4">
+       5.3.3.1. Additional exercises 4
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#th-rest-api-named-entities-nametag">
+     5.3.4. 4th REST API: Named entities (NameTag)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#additional-exercises-5">
+       5.3.4.1. Additional exercises 5
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#th-rest-api-morphological-analysis-udpipe">
+     5.3.5. 5th REST API: Morphological analysis (UDPipe)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#conll-u">
+       5.3.5.1. CoNLL-U
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#conllu-module">
+       5.3.5.2. conllu module
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#playing-with-the-output">
+       5.3.5.3. Playing with the output
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-function">
+       5.3.5.4. A function
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#additional-exercises-6">
+       5.3.5.5. Additional exercises 6
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
 
-      <main class="c-textbook__page" tabindex="-1">
-            <div class="c-textbook__content" id="textbook_content">
-                  <main class="jupyter-page">
-    <div id="page-info"><div id="page-title">Working with online resources</div>
-<div id="page-author">Rudolf Rosa</div>
+            </nav>
+        </div>
+    </div>
 </div>
-    <div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="How-to-work-with-this-material">How to work with this material<a class="anchor-link" href="#How-to-work-with-this-material"> </a></h1><ul>
-<li>There is always first a text telling you what to do<ul>
-<li>So first try to do it yourself without looking at the code</li>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="working-with-online-resources">
+<h1><span class="section-number">5. </span>Working with online resources<a class="headerlink" href="#working-with-online-resources" title="Permalink to this headline">¶</a></h1>
+<p><strong>Author:</strong> Rudolf Rosa</p>
+<div class="section" id="how-to-work-with-this-material">
+<h2><span class="section-number">5.1. </span>How to work with this material<a class="headerlink" href="#how-to-work-with-this-material" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>There is always first a text telling you what to do</p>
+<ul>
+<li><p>So first try to do it yourself without looking at the code</p></li>
 </ul>
 </li>
-<li>Below the text, there is always the code that does the task<ul>
-<li>So look at the code and try to run it and understand it</li>
-<li>Try to play with it</li>
-<li>Try to change it and see what happens, this will help you to better
-understand it</li>
+<li><p>Below the text, there is always the code that does the task</p>
+<ul>
+<li><p>So look at the code and try to run it and understand it</p></li>
+<li><p>Try to play with it</p></li>
+<li><p>Try to change it and see what happens, this will help you to better
+understand it</p></li>
 </ul>
 </li>
-<li>Sometimes, there are also suggestions for additional exercises<ul>
-<li>These are typically not accompanied by solutions</li>
-<li>Try to solve these yourself if you wish</li>
+<li><p>Sometimes, there are also suggestions for additional exercises</p>
+<ul>
+<li><p>These are typically not accompanied by solutions</p></li>
+<li><p>Try to solve these yourself if you wish</p></li>
 </ul>
 </li>
-<li>As programmers say: Move fast and break things<ul>
-<li>Don't think too long about how to do something</li>
-<li>Just try to do it somehow, run the code and see what happens</li>
-<li>Don't be afraid to break stuff; you will probably not break anything
-important :-)</li>
+<li><p>As programmers say: Move fast and break things</p>
+<ul>
+<li><p>Don’t think too long about how to do something</p></li>
+<li><p>Just try to do it somehow, run the code and see what happens</p></li>
+<li><p>Don’t be afraid to break stuff; you will probably not break anything
+important :-)</p></li>
 </ul>
 </li>
-<li>There are always more ways to do it<ul>
-<li>So you may create a different piece of code than the sample code
-provided here</li>
-<li>And that's a good thing</li>
-<li>Any code that does the job is good</li>
-<li>Additionally, code that does the job and is efficient and elegant is
-great code<ul>
-<li>But in most cases, any code that works is just fine :-)</li>
+<li><p>There are always more ways to do it</p>
+<ul>
+<li><p>So you may create a different piece of code than the sample code
+provided here</p></li>
+<li><p>And that’s a good thing</p></li>
+<li><p>Any code that does the job is good</p></li>
+<li><p>Additionally, code that does the job and is efficient and elegant is
+great code</p>
+<ul>
+<li><p>But in most cases, any code that works is just fine :-)</p></li>
 </ul>
 </li>
-<li>The codes provided here are just some examples of good code, but
-take them just as examples, feel free to diverge from them!</li>
+<li><p>The codes provided here are just some examples of good code, but
+take them just as examples, feel free to diverge from them!</p></li>
 </ul>
 </li>
 </ul>
-<p>Now, let's get to the actual class on:</p>
-<h1 id="Opening-resources-from-Internet">Opening resources from Internet<a class="anchor-link" href="#Opening-resources-from-Internet"> </a></h1><ul>
-<li>Let's "download" the document from <a href="http://p.nikde.eu">http://p.nikde.eu</a></li>
+<p>Now, let’s get to the actual class on:</p>
+</div>
+<div class="section" id="opening-resources-from-internet">
+<h2><span class="section-number">5.2. </span>Opening resources from Internet<a class="headerlink" href="#opening-resources-from-internet" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Let’s “download” the document from <a class="reference external" href="http://p.nikde.eu">http://p.nikde.eu</a></p></li>
 </ul>
-<h2 id="Uncool-variant:-copy-paste">Uncool variant: copy-paste<a class="anchor-link" href="#Uncool-variant:-copy-paste"> </a></h2><ol>
-<li>Go to <a href="http://p.nikde.eu">http://p.nikde.eu</a></li>
-<li>Copy the text</li>
-<li>Paste it into a variable</li>
+<div class="section" id="uncool-variant-copy-paste">
+<h3><span class="section-number">5.2.1. </span>Uncool variant: copy-paste<a class="headerlink" href="#uncool-variant-copy-paste" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Go to <a class="reference external" href="http://p.nikde.eu">http://p.nikde.eu</a></p></li>
+<li><p>Copy the text</p></li>
+<li><p>Paste it into a variable</p></li>
 </ol>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">copypaste</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;Všichni lidé rodí se svobodní a sobě rovní co do důstojnosti a práv.</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">copypaste</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;Všichni lidé rodí se svobodní a sobě rovní co do důstojnosti a práv.</span>
 <span class="s2">Všetci ľudia sa rodia slobodní a sebe rovní, čo sa týka ich dostojnosti a práv.</span>
 <span class="s2">Wszyscy ludzie rodzą się wolni i równi pod względem swej godności i swych praw.</span>
 <span class="s2">Tutti gli esseri umani nascono liberi ed eguali in dignità e diritti.</span>
@@ -947,36 +534,17 @@ take them just as examples, feel free to diverge from them!</li>
 <span class="s2">Всички хора се раждат свободни и равни по достойнство и права.</span>
 <span class="s2">All human beings are born free and equal in dignity and rights.&quot;&quot;&quot;</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
 </div>
-</div>
-
-<div class="jb_cell tag_full_width">
-
-<div class="cell border-box-sizing code_cell rendered tag_full_width">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">copypaste</span><span class="p">)</span>
+<div class="cell tag_full-width docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">copypaste</span><span class="p">)</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Všichni lidé rodí se svobodní a sobě rovní co do důstojnosti a práv.
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Všichni lidé rodí se svobodní a sobě rovní co do důstojnosti a práv.
 Všetci ľudia sa rodia slobodní a sebe rovní, čo sa týka ich dostojnosti a práv.
 Wszyscy ludzie rodzą się wolni i równi pod względem swej godności i swych praw.
 Tutti gli esseri umani nascono liberi ed eguali in dignità e diritti.
@@ -986,92 +554,46 @@ Kaikki ihmiset syntyvät vapaina ja tasavertaisina arvoltaan ja oikeuksiltaan.
 Все люди рождаются свободными и равными в своем достоинстве и правах.
 Всички хора се раждат свободни и равни по достойнство и права.
 All human beings are born free and equal in dignity and rights.
-</pre>
+</pre></div>
 </div>
 </div>
 </div>
 </div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Cool-variant:-get-the-text-from-the-webpage-using-Python!">Cool variant: get the text from the webpage using Python!<a class="anchor-link" href="#Cool-variant:-get-the-text-from-the-webpage-using-Python!"> </a></h2><ol>
-<li><code>import</code> the <code>requests</code> module</li>
-<li>use its <code>get</code> method to get the contents of the webpage, using the
-webpage's URL as a parameter<ul>
-<li>we will also have to specify the encoding of the response</li>
+<div class="section" id="cool-variant-get-the-text-from-the-webpage-using-python">
+<h3><span class="section-number">5.2.2. </span>Cool variant: get the text from the webpage using Python!<a class="headerlink" href="#cool-variant-get-the-text-from-the-webpage-using-python" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">import</span></code> the <code class="docutils literal notranslate"><span class="pre">requests</span></code> module</p></li>
+<li><p>use its <code class="docutils literal notranslate"><span class="pre">get</span></code> method to get the contents of the webpage, using the
+webpage’s URL as a parameter</p>
+<ul class="simple">
+<li><p>we will also have to specify the encoding of the response</p></li>
 </ul>
 </li>
-<li>find the text of the webpage inside the <code>text</code> field of the response</li>
+<li><p>find the text of the webpage inside the <code class="docutils literal notranslate"><span class="pre">text</span></code> field of the response</p></li>
 </ol>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
 </div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://p.nikde.eu&quot;</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://p.nikde.eu&quot;</span><span class="p">)</span>
 <span class="n">my_response</span><span class="o">.</span><span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;utf8&#39;</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
 </div>
-</div>
-
-<div class="jb_cell tag_full_width">
-
-<div class="cell border-box-sizing code_cell rendered tag_full_width">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">my_response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<div class="cell tag_full-width docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">my_response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Všichni lidé rodí se svobodní a sobě rovní co do důstojnosti a práv.
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Všichni lidé rodí se svobodní a sobě rovní co do důstojnosti a práv.
 Všetci ľudia sa rodia slobodní a sebe rovní, čo sa týka ich dostojnosti a práv.
 Wszyscy ludzie rodzą się wolni i równi pod względem swej godności i swych praw.
 Tutti gli esseri umani nascono liberi ed eguali in dignità e diritti.
@@ -1081,91 +603,39 @@ Kaikki ihmiset syntyvät vapaina ja tasavertaisina arvoltaan ja oikeuksiltaan.
 Все люди рождаются свободными и равными в своем достоинстве и правах.
 Всички хора се раждат свободни и равни по достойнство и права.
 All human beings are born free and equal in dignity and rights.
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Additional-exercises-1">Additional exercises 1<a class="anchor-link" href="#Additional-exercises-1"> </a></h3><ul>
-<li>count the number of characters in the text, i.e. the <code>len</code>gth of the
-text</li>
-<li>split the text into lines (at each newline character <code>\n</code>)</li>
-<li>see e.g. the first and the last line</li>
-</ul>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">my_response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>709</pre>
-</div>
-
 </div>
 </div>
 </div>
+<div class="section" id="additional-exercises-1">
+<h4><span class="section-number">5.2.2.1. </span>Additional exercises 1<a class="headerlink" href="#additional-exercises-1" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>count the number of characters in the text, i.e. the <code class="docutils literal notranslate"><span class="pre">len</span></code>gth of the
+text</p></li>
+<li><p>split the text into lines (at each newline character <code class="docutils literal notranslate"><span class="pre">\n</span></code>)</p></li>
+<li><p>see e.g. the first and the last line</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">my_response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
 </div>
-
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>709
+</pre></div>
 </div>
 </div>
-
-<div class="jb_cell tag_full_width">
-
-<div class="cell border-box-sizing code_cell rendered tag_full_width">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lines</span> <span class="o">=</span> <span class="n">my_response</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</div>
+<div class="cell tag_full-width docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lines</span> <span class="o">=</span> <span class="n">my_response</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="n">lines</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[&#39;Všichni lidé rodí se svobodní a sobě rovní co do důstojnosti a práv.&#39;,
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Všichni lidé rodí se svobodní a sobě rovní co do důstojnosti a práv.&#39;,
  &#39;Všetci ľudia sa rodia slobodní a sebe rovní, čo sa týka ich dostojnosti a práv.&#39;,
  &#39;Wszyscy ludzie rodzą się wolni i równi pod względem swej godności i swych praw.&#39;,
  &#39;Tutti gli esseri umani nascono liberi ed eguali in dignità e diritti.&#39;,
@@ -1174,208 +644,143 @@ text</li>
  &#39;Kaikki ihmiset syntyvät vapaina ja tasavertaisina arvoltaan ja oikeuksiltaan.&#39;,
  &#39;Все люди рождаются свободными и равными в своем достоинстве и правах.&#39;,
  &#39;Всички хора се раждат свободни и равни по достойнство и права.&#39;,
- &#39;All human beings are born free and equal in dignity and rights.&#39;]</pre>
-</div>
-
-</div>
+ &#39;All human beings are born free and equal in dignity and rights.&#39;]
+</pre></div>
 </div>
 </div>
 </div>
-
-</div>
-</div>
-
-<div class="jb_cell tag_full_width">
-
-<div class="cell border-box-sizing code_cell rendered tag_full_width">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<div class="cell tag_full-width docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Všichni lidé rodí se svobodní a sobě rovní co do důstojnosti a práv.
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Všichni lidé rodí se svobodní a sobě rovní co do důstojnosti a práv.
 All human beings are born free and equal in dignity and rights.
-</pre>
+</pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-
 </div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="REST-APIs">REST APIs<a class="anchor-link" href="#REST-APIs"> </a></h1><ul>
-<li>dynamic resources (unlike the static document from previous example,
-which is always the same)</li>
-<li>tools available on the internet for automated use<ul>
-<li>NLP tools (translation, morphological analysis, keyword
-extraction...)</li>
-<li>jokes, images, weather information...</li>
-<li>we will look at 5 REST APIs here</li>
-</ul>
-</li>
-<li>the meaning of the shortcuts is not important<ul>
-<li>REST stands for REpresentational State Transfer</li>
-<li>API stands for Application Programming Interface</li>
-</ul>
-</li>
-<li>to use a tool, you need to know:<ul>
-<li>its URL (<code>http://something.com/some/more/stuff</code>)</li>
-<li>its parameters (it may be e.g. <code>input</code> for input text)</li>
-<li>the method to use (<code>GET</code> or <code>POST</code>)<ul>
-<li>often both are allowed, or just try</li>
-</ul>
-</li>
-<li>and sometimes there are some more complications</li>
-<li>for the static document, there was just the URL (there are no
-parameters)</li>
-</ul>
-</li>
-<li>ideally, the tool has good documentation explaining how to use it<ul>
-<li>but the world is not ideal</li>
-</ul>
-</li>
-<li>The requests module makes an educated guess as of the encoding of the
-response. If it guesses wrong, you can set the encoding manually:<ul>
-<li><code>response.encoding='utf8'</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="1st-REST-API:-Machine-translation-(Transformer)">1st REST API: Machine translation (Transformer)<a class="anchor-link" href="#1st-REST-API:-Machine-translation-(Transformer)"> </a></h2><ul>
-<li>Look at <a href="https://lindat.mff.cuni.cz/services/translation/">LINDAT
-Translation</a></li>
-<li>Try it out in your browser</li>
-<li>Try to look at the documentation in the Docs tab<ul>
-<li>Try to figure out what URL, parameters and method you need to use</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="URL">URL<a class="anchor-link" href="#URL"> </a></h3><p>The URL is composed of:</p>
+<div class="section" id="rest-apis">
+<h2><span class="section-number">5.3. </span>REST APIs<a class="headerlink" href="#rest-apis" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>dynamic resources (unlike the static document from previous example,
+which is always the same)</p></li>
+<li><p>tools available on the internet for automated use</p>
 <ul>
-<li>the server part: <code>https://lindat.mff.cuni.cz/</code></li>
-<li>the base URL: <code>/services/translation/api/v2</code></li>
-<li>the endpoint: <code>/models/{model}</code><ul>
-<li>this says "Send text to be processed by the selected model"</li>
-<li>so instead of <code>{model}</code> we have to put e.g. <code>en-cs</code> for the
-English-Czech model</li>
+<li><p>NLP tools (translation, morphological analysis, keyword
+extraction…)</p></li>
+<li><p>jokes, images, weather information…</p></li>
+<li><p>we will look at 5 REST APIs here</p></li>
 </ul>
 </li>
-<li>the URL parts are to be joined by slashes:
-<code>SERVER/BASE/ENDPOINT/MODEL</code></li>
+<li><p>the meaning of the shortcuts is not important</p>
+<ul>
+<li><p>REST stands for REpresentational State Transfer</p></li>
+<li><p>API stands for Application Programming Interface</p></li>
+</ul>
+</li>
+<li><p>to use a tool, you need to know:</p>
+<ul>
+<li><p>its URL (<code class="docutils literal notranslate"><span class="pre">http://something.com/some/more/stuff</span></code>)</p></li>
+<li><p>its parameters (it may be e.g. <code class="docutils literal notranslate"><span class="pre">input</span></code> for input text)</p></li>
+<li><p>the method to use (<code class="docutils literal notranslate"><span class="pre">GET</span></code> or <code class="docutils literal notranslate"><span class="pre">POST</span></code>)</p>
+<ul>
+<li><p>often both are allowed, or just try</p></li>
+</ul>
+</li>
+<li><p>and sometimes there are some more complications</p></li>
+<li><p>for the static document, there was just the URL (there are no
+parameters)</p></li>
+</ul>
+</li>
+<li><p>ideally, the tool has good documentation explaining how to use it</p>
+<ul>
+<li><p>but the world is not ideal</p></li>
+</ul>
+</li>
+<li><p>The requests module makes an educated guess as of the encoding of the
+response. If it guesses wrong, you can set the encoding manually:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">response.encoding='utf8'</span></code></p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="st-rest-api-machine-translation-transformer">
+<h3><span class="section-number">5.3.1. </span>1st REST API: Machine translation (Transformer)<a class="headerlink" href="#st-rest-api-machine-translation-transformer" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Look at <a class="reference external" href="https://lindat.mff.cuni.cz/services/translation/">LINDAT
+Translation</a></p></li>
+<li><p>Try it out in your browser</p></li>
+<li><p>Try to look at the documentation in the Docs tab</p>
+<ul>
+<li><p>Try to figure out what URL, parameters and method you need to use</p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="url">
+<h4><span class="section-number">5.3.1.1. </span>URL<a class="headerlink" href="#url" title="Permalink to this headline">¶</a></h4>
+<p>The URL is composed of:</p>
+<ul class="simple">
+<li><p>the server part: <code class="docutils literal notranslate"><span class="pre">https://lindat.mff.cuni.cz/</span></code></p></li>
+<li><p>the base URL: <code class="docutils literal notranslate"><span class="pre">/services/translation/api/v2</span></code></p></li>
+<li><p>the endpoint: <code class="docutils literal notranslate"><span class="pre">/models/{model}</span></code></p>
+<ul>
+<li><p>this says “Send text to be processed by the selected model”</p></li>
+<li><p>so instead of <code class="docutils literal notranslate"><span class="pre">{model}</span></code> we have to put e.g. <code class="docutils literal notranslate"><span class="pre">en-cs</span></code> for the
+English-Czech model</p></li>
+</ul>
+</li>
+<li><p>the URL parts are to be joined by slashes:
+<code class="docutils literal notranslate"><span class="pre">SERVER/BASE/ENDPOINT/MODEL</span></code></p></li>
 </ul>
 <p>So the full URL is:</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://lindat.mff.cuni.cz/services/translation/api/v2/models/en-cs&quot;</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://lindat.mff.cuni.cz/services/translation/api/v2/models/en-cs&quot;</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
 </div>
 </div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Parameters">Parameters<a class="anchor-link" href="#Parameters"> </a></h3><p>There are several parameters to set, but we only need one:</p>
-<ul>
-<li><code>input_text</code> text to translate</li>
-<li>we alread specified the <code>model</code> in the URL path</li>
-<li>and the model implies the source and target languages (<code>src</code>, <code>tgt</code>)</li>
+<div class="section" id="parameters">
+<h4><span class="section-number">5.3.1.2. </span>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h4>
+<p>There are several parameters to set, but we only need one:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">input_text</span></code> text to translate</p></li>
+<li><p>we alread specified the <code class="docutils literal notranslate"><span class="pre">model</span></code> in the URL path</p></li>
+<li><p>and the model implies the source and target languages (<code class="docutils literal notranslate"><span class="pre">src</span></code>, <code class="docutils literal notranslate"><span class="pre">tgt</span></code>)</p></li>
 </ul>
 <p>We can put the parameters (one parameter in this case) into a dict:</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;input_text&quot;</span><span class="p">:</span> <span class="s2">&quot;All humans are born equal.&quot;</span><span class="p">}</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;input_text&quot;</span><span class="p">:</span> <span class="s2">&quot;All humans are born equal.&quot;</span><span class="p">}</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
 </div>
 </div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Method">Method<a class="anchor-link" href="#Method"> </a></h3><ul>
-<li>The most typical methods are <code>GET</code> and <code>POST</code>.</li>
-<li>The documentation clearly states that to process text by a translation
-model, we need to use the <code>POST</code> method.</li>
-<li>This means that instead of <code>requests.get()</code>, which we used in the
-previous example, we will use <code>requests.post()</code></li>
+<div class="section" id="method">
+<h4><span class="section-number">5.3.1.3. </span>Method<a class="headerlink" href="#method" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>The most typical methods are <code class="docutils literal notranslate"><span class="pre">GET</span></code> and <code class="docutils literal notranslate"><span class="pre">POST</span></code>.</p></li>
+<li><p>The documentation clearly states that to process text by a translation
+model, we need to use the <code class="docutils literal notranslate"><span class="pre">POST</span></code> method.</p></li>
+<li><p>This means that instead of <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code>, which we used in the
+previous example, we will use <code class="docutils literal notranslate"><span class="pre">requests.post()</span></code></p></li>
 </ul>
-<h3 id="Try-it-out!">Try it out!<a class="anchor-link" href="#Try-it-out!"> </a></h3><p>We now have the URL and parameters, we know which method to use, so shoot!</p>
-
 </div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># NOTE: previously, the API returned the output in a format called JSON</span>
+<div class="section" id="try-it-out">
+<h4><span class="section-number">5.3.1.4. </span>Try it out!<a class="headerlink" href="#try-it-out" title="Permalink to this headline">¶</a></h4>
+<p>We now have the URL and parameters, we know which method to use, so shoot!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># NOTE: previously, the API returned the output in a format called JSON</span>
 <span class="c1"># (see below) by default; currently, the JSON format has to be</span>
 <span class="c1"># explicitly requested by using a *header* (see e.g.</span>
 <span class="c1"># https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)</span>
@@ -1383,205 +788,89 @@ previous example, we will use <code>requests.post()</code></li>
 <span class="n">translation_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">translation_response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[&#34;V\u0161ichni lid\u00e9 jsou si rovni.\n&#34;]
-
-</pre>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&quot;V\u0161ichni lid\u00e9 jsou si rovni.\n&quot;]
+</pre></div>
 </div>
 </div>
 </div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The response does not look very nice. That's because it is encoded in
+<p>The response does not look very nice. That’s because it is encoded in
 JSON. What we see is actually a JSON equivalent of a Python list.</p>
-<p>So, what we need to do is to use <code>translation_response.json()</code> instead
-of <code>translation_response.text</code>, so that instead of taking the text
+<p>So, what we need to do is to use <code class="docutils literal notranslate"><span class="pre">translation_response.json()</span></code> instead
+of <code class="docutils literal notranslate"><span class="pre">translation_response.text</span></code>, so that instead of taking the text
 representation of the JSON data, we parse the JSON data and get their
 Python representation:</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">translation_response_parsed</span> <span class="o">=</span> <span class="n">translation_response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">translation_response_parsed</span> <span class="o">=</span> <span class="n">translation_response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">translation_response_parsed</span><span class="p">)</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[&#39;Všichni lidé jsou si rovni.\n&#39;]
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>That's better, right? What we now have is a Python list, which means we
-can easily print just its first element:</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">translation_response_parsed</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Všichni lidé jsou si rovni.\n&#39;]
 </pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Všichni lidé jsou si rovni.
-
-</pre>
 </div>
 </div>
 </div>
+<p>That’s better, right? What we now have is a Python list, which means we
+can easily print just its first element:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">translation_response_parsed</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
 </div>
 </div>
-
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Všichni lidé jsou si rovni.
+</pre></div>
 </div>
 </div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>And that's it, we're done! :-)</p>
-<h3 id="Changing-the-parameters">Changing the parameters<a class="anchor-link" href="#Changing-the-parameters"> </a></h3><p>REST APIs are dynamic, so we can get translated any text we want,
-between any languages supported by the API! So let's change the
+</div>
+<p>And that’s it, we’re done! :-)</p>
+</div>
+<div class="section" id="changing-the-parameters">
+<h4><span class="section-number">5.3.1.5. </span>Changing the parameters<a class="headerlink" href="#changing-the-parameters" title="Permalink to this headline">¶</a></h4>
+<p>REST APIs are dynamic, so we can get translated any text we want,
+between any languages supported by the API! So let’s change the
 parameters, so that we e.g.:</p>
-<ul>
-<li>Translate the text "I like trains very much."</li>
-<li>From English to French</li>
+<ul class="simple">
+<li><p>Translate the text “I like trains very much.”</p></li>
+<li><p>From English to French</p></li>
 </ul>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#import requests</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import requests</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://lindat.mff.cuni.cz/services/translation/api/v2/models/en-fr&quot;</span>
 <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;input_text&quot;</span><span class="p">:</span> <span class="s2">&quot;I like trains very much.&quot;</span><span class="p">}</span>
 <span class="n">translation_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">translation_response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>J&#39;aime beaucoup les trains.
-
-</pre>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>J&#39;aime beaucoup les trains.
+</pre></div>
 </div>
 </div>
 </div>
 </div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Let's-put-that-into-a-function!">Let's put that into a function!<a class="anchor-link" href="#Let's-put-that-into-a-function!"> </a></h3><ul>
-<li>the first version of the function shall have just one parameter<ul>
-<li>the text to translate</li>
+<div class="section" id="lets-put-that-into-a-function">
+<h4><span class="section-number">5.3.1.6. </span>Let’s put that into a function!<a class="headerlink" href="#lets-put-that-into-a-function" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>the first version of the function shall have just one parameter</p>
+<ul>
+<li><p>the text to translate</p></li>
 </ul>
 </li>
-<li>it needs to set the URL and parameters, do the request, set the
-response encoding, and return the response text</li>
+<li><p>it needs to set the URL and parameters, do the request, set the
+response encoding, and return the response text</p></li>
 </ul>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">translate</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">translate</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://lindat.mff.cuni.cz/services/translation/api/v2/models/en-cs&quot;</span>
     <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;input_text&quot;</span><span class="p">:</span> <span class="n">text</span><span class="p">}</span>
     <span class="n">translation_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
@@ -1589,722 +878,304 @@ response encoding, and return the response text</li>
     <span class="n">translation_response_parsed</span> <span class="o">=</span> <span class="n">translation_response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">translation_response_parsed</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Now let's see how this works:</p>
-
 </div>
 </div>
 </div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;I had a good breakfast.&quot;</span>
+<p>Now let’s see how this works:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;I had a good breakfast.&quot;</span>
 <span class="n">output</span> <span class="o">=</span> <span class="n">translate</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Měl jsem dobrou snídani.
-
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">translate</span><span class="p">(</span><span class="s2">&quot;I really love trains.&quot;</span><span class="p">))</span>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Měl jsem dobrou snídani.
 </pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Opravdu miluju vlaky.
-
-</pre>
 </div>
 </div>
 </div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">translate</span><span class="p">(</span><span class="s2">&quot;My hovercraft is full of eels!&quot;</span><span class="p">))</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">translate</span><span class="p">(</span><span class="s2">&quot;I really love trains.&quot;</span><span class="p">))</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Moje vznášedlo je plné úhořů!
-
-</pre>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Opravdu miluju vlaky.
+</pre></div>
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">translate</span><span class="p">(</span><span class="s2">&quot;My hovercraft is full of eels!&quot;</span><span class="p">))</span>
+</pre></div>
 </div>
 </div>
-
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Moje vznášedlo je plné úhořů!
+</pre></div>
 </div>
 </div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Improving-the-function">Improving the function<a class="anchor-link" href="#Improving-the-function"> </a></h3><p>Now let's improve the function by also making the source and target
+</div>
+</div>
+<div class="section" id="improving-the-function">
+<h4><span class="section-number">5.3.1.7. </span>Improving the function<a class="headerlink" href="#improving-the-function" title="Permalink to this headline">¶</a></h4>
+<p>Now let’s improve the function by also making the source and target
 languages aparmetrizable!</p>
 <p>The improved function should have the following three parameters:</p>
-<ul>
-<li>the text to translate</li>
-<li>the source language code (e.g. "en")</li>
-<li>the target language code (e.g. "fr")</li>
+<ul class="simple">
+<li><p>the text to translate</p></li>
+<li><p>the source language code (e.g. “en”)</p></li>
+<li><p>the target language code (e.g. “fr”)</p></li>
 </ul>
 <p>There should also be some default values for the parameters, so that the
 function can also be called with only the text specified.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">translate</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">target_language</span><span class="o">=</span><span class="s2">&quot;cs&quot;</span><span class="p">,</span> <span class="n">source_language</span><span class="o">=</span><span class="s2">&quot;en&quot;</span><span class="p">):</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">translate</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">target_language</span><span class="o">=</span><span class="s2">&quot;cs&quot;</span><span class="p">,</span> <span class="n">source_language</span><span class="o">=</span><span class="s2">&quot;en&quot;</span><span class="p">):</span>
     <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://lindat.mff.cuni.cz/services/translation/api/v2/models/</span><span class="si">{</span><span class="n">source_language</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">target_language</span><span class="si">}</span><span class="s2">&quot;</span>
     <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;input_text&quot;</span><span class="p">:</span> <span class="n">text</span><span class="p">}</span>
     <span class="n">translation_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;accept&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">})</span>
     <span class="n">translation_response_parsed</span> <span class="o">=</span> <span class="n">translation_response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">translation_response_parsed</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>And now let's see various ways in which this can be used:</p>
-
 </div>
 </div>
 </div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">translate</span><span class="p">(</span><span class="s2">&quot;I had a good breakfast.&quot;</span><span class="p">))</span>
+<p>And now let’s see various ways in which this can be used:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">translate</span><span class="p">(</span><span class="s2">&quot;I had a good breakfast.&quot;</span><span class="p">))</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Měl jsem dobrou snídani.
-
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">translate</span><span class="p">(</span><span class="s2">&quot;I had a good breakfast.&quot;</span><span class="p">,</span> <span class="s2">&quot;fr&quot;</span><span class="p">))</span>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Měl jsem dobrou snídani.
 </pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>J&#39;ai pris un bon petit déjeuner.
-
-</pre>
 </div>
 </div>
 </div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">translate</span><span class="p">(</span><span class="s2">&quot;Jedu vlakem do Prahy.&quot;</span><span class="p">,</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span> <span class="s2">&quot;cs&quot;</span><span class="p">))</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">translate</span><span class="p">(</span><span class="s2">&quot;I had a good breakfast.&quot;</span><span class="p">,</span> <span class="s2">&quot;fr&quot;</span><span class="p">))</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>I&#39;m taking the train to Prague.
-
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">translate</span><span class="p">(</span><span class="n">source_language</span><span class="o">=</span><span class="s2">&quot;cs&quot;</span><span class="p">,</span> <span class="n">target_language</span><span class="o">=</span><span class="s2">&quot;en&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Jedu vlakem do Prahy.&quot;</span><span class="p">))</span>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>J&#39;ai pris un bon petit déjeuner.
 </pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>I&#39;m taking the train to Prague.
-
-</pre>
 </div>
 </div>
 </div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">translate</span><span class="p">(</span><span class="s2">&quot;Jedu vlakem do Prahy.&quot;</span><span class="p">,</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span> <span class="s2">&quot;cs&quot;</span><span class="p">))</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>All human beings are born free and equal in dignity and rights.
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">translate</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I&#39;m taking the train to Prague.
 </pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Všichni lidé se rodí svobodní a rovní v důstojnosti a právech.
-
-</pre>
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">translate</span><span class="p">(</span><span class="n">source_language</span><span class="o">=</span><span class="s2">&quot;cs&quot;</span><span class="p">,</span> <span class="n">target_language</span><span class="o">=</span><span class="s2">&quot;en&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Jedu vlakem do Prahy.&quot;</span><span class="p">))</span>
+</pre></div>
 </div>
 </div>
-
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I&#39;m taking the train to Prague.
+</pre></div>
 </div>
 </div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Additional-exercises-2">Additional exercises 2<a class="anchor-link" href="#Additional-exercises-2"> </a></h3><ul>
-<li>Try to make it work correctly with input text consisting of multiple
-sentences.</li>
-<li>Try to translate the input text into all available target languages at
-once.</li>
-<li>Explore other information that the response object contains.</li>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>All human beings are born free and equal in dignity and rights.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">translate</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Všichni lidé se rodí svobodní a rovní v důstojnosti a právech.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="additional-exercises-2">
+<h4><span class="section-number">5.3.1.8. </span>Additional exercises 2<a class="headerlink" href="#additional-exercises-2" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Try to make it work correctly with input text consisting of multiple
+sentences.</p></li>
+<li><p>Try to translate the input text into all available target languages at
+once.</p></li>
+<li><p>Explore other information that the response object contains.</p></li>
 </ul>
-
 </div>
 </div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2nd-REST-API:-Jokes">2nd REST API: Jokes<a class="anchor-link" href="#2nd-REST-API:-Jokes"> </a></h2><ul>
-<li><a href="http://www.icndb.com/">The Internet Chuck Norris Database</a> provides a
-REST API<ul>
-<li>This is a database of Chuck Norris jokes</li>
-<li>The API returns random Chuck Norris jokes</li>
-<li>See <a href="http://www.icndb.com/api/">http://www.icndb.com/api/</a></li>
-<li>Try to figure out the URL, method, and parameters</li>
+<div class="section" id="nd-rest-api-jokes">
+<h3><span class="section-number">5.3.2. </span>2nd REST API: Jokes<a class="headerlink" href="#nd-rest-api-jokes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.icndb.com/">The Internet Chuck Norris Database</a> provides a
+REST API</p>
+<ul>
+<li><p>This is a database of Chuck Norris jokes</p></li>
+<li><p>The API returns random Chuck Norris jokes</p></li>
+<li><p>See <a class="reference external" href="http://www.icndb.com/api/">http://www.icndb.com/api/</a></p></li>
+<li><p>Try to figure out the URL, method, and parameters</p></li>
 </ul>
 </li>
 </ul>
-<h3 id="How-to-use-it">How to use it<a class="anchor-link" href="#How-to-use-it"> </a></h3><ul>
-<li>The full URL is <code>http://api.icndb.com/jokes/random</code></li>
-<li>There are some optional parametrs, so let's ignore them now</li>
-<li>The method to use is GET</li>
-<li>So the call will actually be very similar to the first example with
-getting the static webpage from the internet:</li>
+<div class="section" id="how-to-use-it">
+<h4><span class="section-number">5.3.2.1. </span>How to use it<a class="headerlink" href="#how-to-use-it" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>The full URL is <code class="docutils literal notranslate"><span class="pre">http://api.icndb.com/jokes/random</span></code></p></li>
+<li><p>There are some optional parametrs, so let’s ignore them now</p></li>
+<li><p>The method to use is GET</p></li>
+<li><p>So the call will actually be very similar to the first example with
+getting the static webpage from the internet:</p></li>
 </ul>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_output_scroll">
-
-<div class="cell border-box-sizing code_cell rendered tag_output_scroll">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://api.icndb.com/jokes/random&quot;</span>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://api.icndb.com/jokes/random&quot;</span>
 <span class="n">joke</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">joke</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>{ &#34;type&#34;: &#34;success&#34;, &#34;value&#34;: { &#34;id&#34;: 57, &#34;joke&#34;: &#34;Chuck Norris is ten feet tall, weighs two-tons, breathes fire, and could eat a hammer and take a shotgun blast standing.&#34;, &#34;categories&#34;: [] } }
-</pre>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{ &quot;type&quot;: &quot;success&quot;, &quot;value&quot;: { &quot;id&quot;: 89, &quot;joke&quot;: &quot;For some, the left testicle is larger than the right one. For Chuck Norris, each testicle is larger than the other one.&quot;, &quot;categories&quot;: [&quot;explicit&quot;] } }
+</pre></div>
 </div>
 </div>
 </div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p>The output is again in JSON, but this time, it is a bit more complex.
 The API documentation does explain the format, so try to extract just
 the joke text from the response.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_output_scroll">
-
-<div class="cell border-box-sizing code_cell rendered tag_output_scroll">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">joke_parsed</span> <span class="o">=</span> <span class="n">joke</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">joke_parsed</span> <span class="o">=</span> <span class="n">joke</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 <span class="n">joke_text</span> <span class="o">=</span> <span class="n">joke_parsed</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">][</span><span class="s1">&#39;joke&#39;</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">joke_text</span><span class="p">)</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Chuck Norris is ten feet tall, weighs two-tons, breathes fire, and could eat a hammer and take a shotgun blast standing.
-</pre>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For some, the left testicle is larger than the right one. For Chuck Norris, each testicle is larger than the other one.
+</pre></div>
 </div>
 </div>
 </div>
 </div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Turning-it-into-a-function">Turning it into a function<a class="anchor-link" href="#Turning-it-into-a-function"> </a></h3><ul>
-<li>Let's again create a function that calls the REST API.</li>
-<li>It will have no parameters.</li>
-<li>But as the REST API always returns a random joke, repeated calls of
-the function will return different results.<ul>
-<li>So it is even more dynamic than the translation service, which for a
-fixed input always returns the same result.</li>
+<div class="section" id="turning-it-into-a-function">
+<h4><span class="section-number">5.3.2.2. </span>Turning it into a function<a class="headerlink" href="#turning-it-into-a-function" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Let’s again create a function that calls the REST API.</p></li>
+<li><p>It will have no parameters.</p></li>
+<li><p>But as the REST API always returns a random joke, repeated calls of
+the function will return different results.</p>
+<ul>
+<li><p>So it is even more dynamic than the translation service, which for a
+fixed input always returns the same result.</p></li>
 </ul>
 </li>
 </ul>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">joke</span><span class="p">():</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">joke</span><span class="p">():</span>
     <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://api.icndb.com/jokes/random&quot;</span>
     <span class="n">joke_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
     <span class="n">joke_parsed</span> <span class="o">=</span> <span class="n">joke_response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
     <span class="n">joke_text</span> <span class="o">=</span> <span class="n">joke_parsed</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">][</span><span class="s1">&#39;joke&#39;</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">joke_text</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
 </div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p>Invoke the function repeatedly and observe how it produces different
 outputs.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_output_scroll">
-
-<div class="cell border-box-sizing code_cell rendered tag_output_scroll">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">joke</span><span class="p">())</span>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">joke</span><span class="p">())</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>&amp;quot;It works on my machine&amp;quot; always holds true for Chuck Norris.
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell tag_output_scroll">
-
-<div class="cell border-box-sizing code_cell rendered tag_output_scroll">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">joke</span><span class="p">())</span>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Wilt Chamberlain claims to have slept with more than 20,000 women in his lifetime. Chuck Norris calls this &amp;quot;a slow Tuesday.&amp;quot;
 </pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>When Chuck Norris throws exceptions, it&#39;s across the room.
-</pre>
 </div>
 </div>
 </div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell tag_output_scroll">
-
-<div class="cell border-box-sizing code_cell rendered tag_output_scroll">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">joke</span><span class="p">())</span>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">joke</span><span class="p">())</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>What was going through the minds of all of Chuck Norris&#39; victims before they died? His shoe.
-</pre>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Chuck Norris doesn&#39;t say &amp;quot;who&#39;s your daddy&amp;quot;, because he knows the answer.
+</pre></div>
 </div>
 </div>
 </div>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">joke</span><span class="p">())</span>
+</pre></div>
 </div>
 </div>
-
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Staring at Chuck Norris for extended periods of time without proper eye protection will cause blindess, and possibly foot sized brusies on the face.
+</pre></div>
 </div>
 </div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Adding-parameters">Adding parameters<a class="anchor-link" href="#Adding-parameters"> </a></h3><ul>
-<li>So far, we have ignored the option to specify some parameters for the
-REST API call.</li>
-<li>Actually, the only thing you can do is change the name of the main
-character in the jokes.</li>
-<li>So let's do it!</li>
+</div>
+</div>
+<div class="section" id="adding-parameters">
+<h4><span class="section-number">5.3.2.3. </span>Adding parameters<a class="headerlink" href="#adding-parameters" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>So far, we have ignored the option to specify some parameters for the
+REST API call.</p></li>
+<li><p>Actually, the only thing you can do is change the name of the main
+character in the jokes.</p></li>
+<li><p>So let’s do it!</p></li>
 </ul>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_output_scroll">
-
-<div class="cell border-box-sizing code_cell rendered tag_output_scroll">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;firstName&quot;</span><span class="p">:</span> <span class="s2">&quot;David&quot;</span><span class="p">,</span> <span class="s2">&quot;lastName&quot;</span><span class="p">:</span> <span class="s2">&quot;Lukes&quot;</span><span class="p">}</span>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;firstName&quot;</span><span class="p">:</span> <span class="s2">&quot;David&quot;</span><span class="p">,</span> <span class="s2">&quot;lastName&quot;</span><span class="p">:</span> <span class="s2">&quot;Lukes&quot;</span><span class="p">}</span>
 <span class="n">joke_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">joke_response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;value&#39;</span><span class="p">][</span><span class="s1">&#39;joke&#39;</span><span class="p">])</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>David Lukes was the orginal sculptor of Mount Rushmore. He completed the entire project using only a bottle opener and a drywall trowel.
-</pre>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>David Lukes qualified with a top speed of 324 mph at the Daytona 500, without a car.
+</pre></div>
 </div>
 </div>
 </div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Now, let's update our function to also allow specifying these
+<p>Now, let’s update our function to also allow specifying these
 parameters.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">joke</span><span class="p">(</span><span class="n">firstName</span> <span class="o">=</span> <span class="s1">&#39;Chuck&#39;</span><span class="p">,</span> <span class="n">lastName</span> <span class="o">=</span> <span class="s1">&#39;Norris&#39;</span><span class="p">):</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">joke</span><span class="p">(</span><span class="n">firstName</span> <span class="o">=</span> <span class="s1">&#39;Chuck&#39;</span><span class="p">,</span> <span class="n">lastName</span> <span class="o">=</span> <span class="s1">&#39;Norris&#39;</span><span class="p">):</span>
     <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://api.icndb.com/jokes/random&quot;</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;firstName&quot;</span><span class="p">:</span> <span class="n">firstName</span><span class="p">,</span> <span class="s2">&quot;lastName&quot;</span><span class="p">:</span> <span class="n">lastName</span><span class="p">}</span>
     <span class="n">joke_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
@@ -2312,314 +1183,152 @@ parameters.</p>
     <span class="n">joke_text</span> <span class="o">=</span> <span class="n">joke_parsed</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">][</span><span class="s1">&#39;joke&#39;</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">joke_text</span>
 </pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>And let's run it with various parameters.</p>
-
 </div>
 </div>
 </div>
-</div>
-
-<div class="jb_cell tag_output_scroll">
-
-<div class="cell border-box-sizing code_cell rendered tag_output_scroll">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">joke</span><span class="p">())</span>
+<p>And let’s run it with various parameters.</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">joke</span><span class="p">())</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>According to the Encyclopedia Brittanica, the Native American &amp;quot;Trail of Tears&amp;quot; has been redefined as anywhere that Chuck Norris walks.
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell tag_output_scroll">
-
-<div class="cell border-box-sizing code_cell rendered tag_output_scroll">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">joke</span><span class="p">(</span><span class="s1">&#39;Rudolf&#39;</span><span class="p">,</span> <span class="s1">&#39;Rosa&#39;</span><span class="p">))</span>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>If you rearrange the letters in &amp;quot;Chuck Norris&amp;quot;, they also spell &amp;quot;Crush Rock In&amp;quot;. The words &amp;quot;with his fists&amp;quot; are understood.
 </pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>When Rudolf Rosa calls 1-900 numbers, he doesn&#39;t get charged. He holds up the phone and money falls out.
-</pre>
 </div>
 </div>
 </div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell tag_output_scroll">
-
-<div class="cell border-box-sizing code_cell rendered tag_output_scroll">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">joke</span><span class="p">(</span><span class="s1">&#39;yo&#39;</span><span class="p">,</span> <span class="s1">&#39;mama&#39;</span><span class="p">))</span>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">joke</span><span class="p">(</span><span class="s1">&#39;Rudolf&#39;</span><span class="p">,</span> <span class="s1">&#39;Rosa&#39;</span><span class="p">))</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>If yo mama were a calendar, every month would be named yotober, and every day he&#39;d kick your ass.
-</pre>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Never look a gift Rudolf Rosa in the mouth, because he will bite your damn eyes off.
+</pre></div>
 </div>
 </div>
 </div>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">joke</span><span class="p">(</span><span class="s1">&#39;yo&#39;</span><span class="p">,</span> <span class="s1">&#39;mama&#39;</span><span class="p">))</span>
+</pre></div>
 </div>
 </div>
-
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>yo mama knows Victoria&#39;s secret.
+</pre></div>
 </div>
 </div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Additional-exercises-3">Additional exercises 3<a class="anchor-link" href="#Additional-exercises-3"> </a></h3><ul>
-<li>Try to connect the joke API with the translation API<ul>
-<li>Get a random joke</li>
-<li>Translate it to another language</li>
-<li>Print the translated joke</li>
+</div>
+</div>
+<div class="section" id="additional-exercises-3">
+<h4><span class="section-number">5.3.2.4. </span>Additional exercises 3<a class="headerlink" href="#additional-exercises-3" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Try to connect the joke API with the translation API</p>
+<ul>
+<li><p>Get a random joke</p></li>
+<li><p>Translate it to another language</p></li>
+<li><p>Print the translated joke</p></li>
 </ul>
 </li>
 </ul>
-<h2 id="3rd-REST-API:-Cat-images">3rd REST API: Cat images<a class="anchor-link" href="#3rd-REST-API:-Cat-images"> </a></h2><ul>
-<li>Let's see some cats!</li>
-<li>Try to search in Google for a cat image REST API</li>
-<li>You may find one e.g. at <a href="https://cataas.com/">https://cataas.com/</a></li>
-<li>The simplest way to use it is to just ask it for a random cat by
-getting <code>https://cataas.com/cat</code></li>
+</div>
+</div>
+<div class="section" id="rd-rest-api-cat-images">
+<h3><span class="section-number">5.3.3. </span>3rd REST API: Cat images<a class="headerlink" href="#rd-rest-api-cat-images" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Let’s see some cats!</p></li>
+<li><p>Try to search in Google for a cat image REST API</p></li>
+<li><p>You may find one e.g. at <a class="reference external" href="https://cataas.com/">https://cataas.com/</a></p></li>
+<li><p>The simplest way to use it is to just ask it for a random cat by
+getting <code class="docutils literal notranslate"><span class="pre">https://cataas.com/cat</span></code></p></li>
 </ul>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_output_scroll">
-
-<div class="cell border-box-sizing code_cell rendered tag_output_scroll">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://cataas.com/cat&quot;</span>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://cataas.com/cat&quot;</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">[:</span><span class="mi">300</span><span class="p">])</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>�PNG
-
-IHDR  X  X   �f��   bKGD � � �����  � IDATxڌ�Y�-I���}��f��3�ɧp���Ȍʬ�*6��F���A�G�$Я�W��	DwUg%��+3#c���g�{���
-D���������=�&gt;��TE�,Y�D���_�������B�R��o8=&lt;����۷o��Rs��B����� �PUJ-( &#34; �s�&#34;!P���E����J��i�&#39;&#34;�5P]^�}^ A�K��#��nJ	AU��jY^ J �@��w��_����߂J��W�T��]_����/�@
+<div class="cell_output docutils container">
+<pre class="output stream literal-block">����JFIFHH��C		
+ $.' &quot;,#(7),01444'9=82&lt;.342��C			2!!22222222222222222222222222222222222222222222222222�� X&quot;����?!1AQ&quot;aq2��#B���R�3b$��r�%4CS����
 </pre>
 </div>
 </div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The output is not very nice. Well, it is an image, so that's binary
+<p>The output is not very nice. Well, it is an image, so that’s binary
 data, not a text which can be meaningfully printed.</p>
-<p>In Python, we can disply the data using the <code>Image()</code> function from the
-<code>IPython.core.display</code> package.  And as the response is not textual, we
+<p>In Python, we can disply the data using the <code class="docutils literal notranslate"><span class="pre">Image()</span></code> function from the
+<code class="docutils literal notranslate"><span class="pre">IPython.core.display</span></code> package.  And as the response is not textual, we
 again need to use a different view on it, this time taking its content
-directly from <code>response.content</code>.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">Image</span>
+directly from <code class="docutils literal notranslate"><span class="pre">response.content</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">Image</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://cataas.com/cat&quot;</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="n">Image</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_jpeg output_subarea output_execute_result">
-<img src="images/rest_61_0.jpg"
->
-</div>
-
+<div class="cell_output docutils container">
+<img alt="_images/rest_59_0.jpg" src="_images/rest_59_0.jpg" />
 </div>
 </div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Additional-exercises-4">Additional exercises 4<a class="anchor-link" href="#Additional-exercises-4"> </a></h3><ul>
-<li>Try to run the code above repeatedly to get a different cat each time.</li>
-<li>Try to put it into a function.</li>
-<li>Check out the options and parameters in the documentation to try
-getting more specific cats than just plain random.</li>
+<div class="section" id="additional-exercises-4">
+<h4><span class="section-number">5.3.3.1. </span>Additional exercises 4<a class="headerlink" href="#additional-exercises-4" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Try to run the code above repeatedly to get a different cat each time.</p></li>
+<li><p>Try to put it into a function.</p></li>
+<li><p>Check out the options and parameters in the documentation to try
+getting more specific cats than just plain random.</p></li>
 </ul>
-<h2 id="4th-REST-API:-Named-entities-(NameTag)">4th REST API: Named entities (NameTag)<a class="anchor-link" href="#4th-REST-API:-Named-entities-(NameTag)"> </a></h2><ul>
-<li>Look at the <a href="http://lindat.mff.cuni.cz/services/nametag/">LINDAT
+</div>
+</div>
+<div class="section" id="th-rest-api-named-entities-nametag">
+<h3><span class="section-number">5.3.4. </span>4th REST API: Named entities (NameTag)<a class="headerlink" href="#th-rest-api-named-entities-nametag" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Look at the <a class="reference external" href="http://lindat.mff.cuni.cz/services/nametag/">LINDAT
 NameTag</a> tool for named
-entity detection and recognition</li>
-<li>Try out the tool using the web interface<ul>
-<li>Select the English model</li>
-<li>Put in e.g. some newspaper text</li>
-<li>Explore the results</li>
-</ul>
-</li>
-<li>Look at the REST API Documentation of the tool<ul>
-<li>Try to find out how to use it (URL, method, parameters)</li>
-<li>Try to call the tool on a sample sentence, e.g.:</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;David Lukes teaches Python in Prague.&quot;</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+entity detection and recognition</p></li>
+<li><p>Try out the tool using the web interface</p>
 <ul>
-<li>This time, we can use either GET or POST as we wish. In such cases,
-using POST is usually better, since GET is more limited (especially in
-the maximum input size).</li>
-<li>There is some clever model selection and guessing, which seems to be
-broken, so you need to use the full model name.</li>
-<li>The default output is XML, which is fine if you know how to work with
-XML. As we do not cover that in our course, we will use the vertical
-output instead.</li>
+<li><p>Select the English model</p></li>
+<li><p>Put in e.g. some newspaper text</p></li>
+<li><p>Explore the results</p></li>
 </ul>
-
+</li>
+<li><p>Look at the REST API Documentation of the tool</p>
+<ul>
+<li><p>Try to find out how to use it (URL, method, parameters)</p></li>
+<li><p>Try to call the tool on a sample sentence, e.g.:</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;David Lukes teaches Python in Prague.&quot;</span>
+</pre></div>
 </div>
 </div>
 </div>
-</div>
-
-<div class="jb_cell tag_output_scroll">
-
-<div class="cell border-box-sizing code_cell rendered tag_output_scroll">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://lindat.mff.cuni.cz/services/nametag/api/recognize&quot;</span>
+<ul class="simple">
+<li><p>This time, we can use either GET or POST as we wish. In such cases,
+using POST is usually better, since GET is more limited (especially in
+the maximum input size).</p></li>
+<li><p>There is some clever model selection and guessing, which seems to be
+broken, so you need to use the full model name.</p></li>
+<li><p>The default output is XML, which is fine if you know how to work with
+XML. As we do not cover that in our course, we will use the vertical
+output instead.</p></li>
+</ul>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://lindat.mff.cuni.cz/services/nametag/api/recognize&quot;</span>
 
 <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">sentence</span><span class="p">,</span>
@@ -2631,183 +1340,99 @@ output instead.</li>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>{
- &#34;model&#34;: &#34;english-conll-140408&#34;
-,&#34;acknowledgements&#34;: [
-  &#34;http://ufal.mff.cuni.cz/nametag#nametag_acknowledgements&#34;
- ,&#34;http://ufal.mff.cuni.cz/morphodita#morphodita_acknowledgements&#34;
- ]
-,&#34;result&#34;: &#34;1,2\tPER\tDavid Lukes\n4\tPER\tPython\n6\tLOC\tPrague\n&#34;
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+ &quot;model&quot;: &quot;english-conll-140408&quot;,
+ &quot;acknowledgements&quot;: [
+  &quot;http://ufal.mff.cuni.cz/nametag/1#nametag_acknowledgements&quot;,
+  &quot;http://ufal.mff.cuni.cz/nametag/1/users-manual#english-conll_acknowledgements&quot;
+ ],
+ &quot;result&quot;: &quot;1,2\tPER\tDavid Lukes\n4\tPER\tPython\n6\tLOC\tPrague\n&quot;
 }
-
-</pre>
+</pre></div>
 </div>
 </div>
 </div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We can see that the output is again JSON, with the <code>result</code> field
-containing the result, so let's print only that one.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;result&#39;</span><span class="p">]</span>
+<p>We can see that the output is again JSON, with the <code class="docutils literal notranslate"><span class="pre">result</span></code> field
+containing the result, so let’s print only that one.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;result&#39;</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1,2	PER	David Lukes
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1,2	PER	David Lukes
 4	PER	Python
 6	LOC	Prague
-
-</pre>
+</pre></div>
 </div>
 </div>
 </div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p>The result lists the named entities found in the text, together with
 their start and end positions and their types.  We can see that the
 result actually uses another format, tab-spearated values. This is fine
 for printing, but for further processing, we would need to split it.
-So, let's split the result into individual lines, split these lines into
-the fields, and let's print only the entity types.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">):</span>
+So, let’s split the result into individual lines, split these lines into
+the fields, and let’s print only the entity types.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">):</span>
     <span class="n">fields</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">fields</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">fields</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>PER
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PER
 PER
 LOC
-</pre>
+</pre></div>
 </div>
 </div>
 </div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Additional-exercises-5">Additional exercises 5<a class="anchor-link" href="#Additional-exercises-5"> </a></h3><ul>
-<li>Try to wrap it into a function</li>
-<li>Try to parametrize it for the language (but only English and Czech are
-supported)</li>
-<li>Try to visualize the outputs somehow, e.g. by prefixing each named
-entity with its type:<ul>
-<li><code>PER David Lukes teaches PER Python in LOC Prague.</code></li>
+<div class="section" id="additional-exercises-5">
+<h4><span class="section-number">5.3.4.1. </span>Additional exercises 5<a class="headerlink" href="#additional-exercises-5" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Try to wrap it into a function</p></li>
+<li><p>Try to parametrize it for the language (but only English and Czech are
+supported)</p></li>
+<li><p>Try to visualize the outputs somehow, e.g. by prefixing each named
+entity with its type:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">PER</span> <span class="pre">David</span> <span class="pre">Lukes</span> <span class="pre">teaches</span> <span class="pre">PER</span> <span class="pre">Python</span> <span class="pre">in</span> <span class="pre">LOC</span> <span class="pre">Prague.</span></code></p></li>
 </ul>
 </li>
 </ul>
-<h2 id="5th-REST-API:-Morphological-analysis-(UDPipe)">5th REST API: Morphological analysis (UDPipe)<a class="anchor-link" href="#5th-REST-API:-Morphological-analysis-(UDPipe)"> </a></h2><ul>
-<li>The last tool we will look at is
-<a href="https://lindat.mff.cuni.cz/services/udpipe/">UDPipe</a></li>
-<li>It performs tokenization, lemmatization, morphological tagging, and
-dependency syntax parsing.</li>
-<li>It follows the <a href="http://universaldependencies.org">Universal Dependencies</a> standards</li>
-<li>It supports something like 50 languages!</li>
-<li>As usual:<ul>
-<li>Check out the tool online</li>
-<li>Try playing with it using the web-based demo, probably copy-pasting
-some texts from news websites</li>
-<li>Try to figure out how to use its REST API and then try to use it</li>
-<li>The syntactic parsing output is hard to use, so let's just stick to
-tokenization and tagging</li>
+</div>
+</div>
+<div class="section" id="th-rest-api-morphological-analysis-udpipe">
+<h3><span class="section-number">5.3.5. </span>5th REST API: Morphological analysis (UDPipe)<a class="headerlink" href="#th-rest-api-morphological-analysis-udpipe" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The last tool we will look at is
+<a class="reference external" href="https://lindat.mff.cuni.cz/services/udpipe/">UDPipe</a></p></li>
+<li><p>It performs tokenization, lemmatization, morphological tagging, and
+dependency syntax parsing.</p></li>
+<li><p>It follows the <a class="reference external" href="http://universaldependencies.org">Universal Dependencies</a> standards</p></li>
+<li><p>It supports something like 50 languages!</p></li>
+<li><p>As usual:</p>
+<ul>
+<li><p>Check out the tool online</p></li>
+<li><p>Try playing with it using the web-based demo, probably copy-pasting
+some texts from news websites</p></li>
+<li><p>Try to figure out how to use its REST API and then try to use it</p></li>
+<li><p>The syntactic parsing output is hard to use, so let’s just stick to
+tokenization and tagging</p></li>
 </ul>
 </li>
 </ul>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_output_scroll">
-
-<div class="cell border-box-sizing code_cell rendered tag_output_scroll">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://lindat.mff.cuni.cz/services/udpipe/api/process&quot;</span>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://lindat.mff.cuni.cz/services/udpipe/api/process&quot;</span>
 
 <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="s2">&quot;All human beings are born free and equal in dignity and rights. I like trains.&quot;</span><span class="p">,</span>
@@ -2819,75 +1444,40 @@ tokenization and tagging</li>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">parameters</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>{
- &#34;model&#34;: &#34;english-ewt-ud-2.5-191206&#34;,
- &#34;acknowledgements&#34;: [
-  &#34;http://ufal.mff.cuni.cz/udpipe#udpipe_acknowledgements&#34;,
-  &#34;http://ufal.mff.cuni.cz/udpipe/models#universal_dependencies_25_models_acknowledgements&#34;
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+ &quot;model&quot;: &quot;english-ewt-ud-2.6-200830&quot;,
+ &quot;acknowledgements&quot;: [
+  &quot;http://ufal.mff.cuni.cz/udpipe/2#udpipe2_acknowledgements&quot;,
+  &quot;http://ufal.mff.cuni.cz/udpipe/2/models#universal_dependencies_26_models&quot;
  ],
- &#34;result&#34;: &#34;# newdoc\n# newpar\n# sent_id = 1\n# text = All human beings are born free and equal in dignity and rights.\n1\tAll\tall\tDET\tDT\t_\t_\t_\t_\t_\n2\thuman\thuman\tADJ\tJJ\tDegree=Pos\t_\t_\t_\t_\n3\tbeings\tbeing\tNOUN\tNNS\tNumber=Plur\t_\t_\t_\t_\n4\tare\tbe\tAUX\tVBP\tMood=Ind|Tense=Pres|VerbForm=Fin\t_\t_\t_\t_\n5\tborn\tbear\tVERB\tVBN\tTense=Past|VerbForm=Part|Voice=Pass\t_\t_\t_\t_\n6\tfree\tfree\tADJ\tJJ\tDegree=Pos\t_\t_\t_\t_\n7\tand\tand\tCCONJ\tCC\t_\t_\t_\t_\t_\n8\tequal\tequal\tADJ\tJJ\tDegree=Pos\t_\t_\t_\t_\n9\tin\tin\tADP\tIN\t_\t_\t_\t_\t_\n10\tdignity\tdignity\tNOUN\tNN\tNumber=Sing\t_\t_\t_\t_\n11\tand\tand\tCCONJ\tCC\t_\t_\t_\t_\t_\n12\trights\trights\tNOUN\tNNS\tNumber=Plur\t_\t_\t_\tSpaceAfter=No\n13\t.\t.\tPUNCT\t.\t_\t_\t_\t_\t_\n\n# sent_id = 2\n# text = I like trains.\n1\tI\tI\tPRON\tPRP\tCase=Nom|Number=Sing|Person=1|PronType=Prs\t_\t_\t_\t_\n2\tlike\tlike\tVERB\tVBP\tMood=Ind|Tense=Pres|VerbForm=Fin\t_\t_\t_\t_\n3\ttrains\ttrain\tNOUN\tNNS\tNumber=Plur\t_\t_\t_\tSpaceAfter=No\n4\t.\t.\tPUNCT\t.\t_\t_\t_\t_\tSpaceAfter=No\n\n&#34;
+ &quot;result&quot;: &quot;# generator = UDPipe 2, https://lindat.mff.cuni.cz/services/udpipe\n# udpipe_model = english-ewt-ud-2.6-200830\n# udpipe_model_licence = CC BY-NC-SA\n# newdoc\n# newpar\n# sent_id = 1\n# text = All human beings are born free and equal in dignity and rights.\n1\tAll\tall\tDET\tDT\t_\t_\t_\t_\t_\n2\thuman\thuman\tADJ\tJJ\tDegree=Pos\t_\t_\t_\t_\n3\tbeings\tbeing\tNOUN\tNNS\tNumber=Plur\t_\t_\t_\t_\n4\tare\tbe\tAUX\tVBP\tMood=Ind|Tense=Pres|VerbForm=Fin\t_\t_\t_\t_\n5\tborn\tbear\tVERB\tVBN\tTense=Past|VerbForm=Part|Voice=Pass\t_\t_\t_\t_\n6\tfree\tfree\tADJ\tJJ\tDegree=Pos\t_\t_\t_\t_\n7\tand\tand\tCCONJ\tCC\t_\t_\t_\t_\t_\n8\tequal\tequal\tADJ\tJJ\tDegree=Pos\t_\t_\t_\t_\n9\tin\tin\tADP\tIN\t_\t_\t_\t_\t_\n10\tdignity\tdignity\tNOUN\tNN\tNumber=Sing\t_\t_\t_\t_\n11\tand\tand\tCCONJ\tCC\t_\t_\t_\t_\t_\n12\trights\trights\tNOUN\tNNS\tNumber=Plur\t_\t_\t_\tSpaceAfter=No\n13\t.\t.\tPUNCT\t.\t_\t_\t_\t_\t_\n\n# sent_id = 2\n# text = I like trains.\n1\tI\tI\tPRON\tPRP\tCase=Nom|Number=Sing|Person=1|PronType=Prs\t_\t_\t_\t_\n2\tlike\tlike\tVERB\tVBP\tMood=Ind|Tense=Pres|VerbForm=Fin\t_\t_\t_\t_\n3\ttrains\ttrain\tNOUN\tNNS\tNumber=Plur\t_\t_\t_\tSpaceAfter=No\n4\t.\t.\tPUNCT\t.\t_\t_\t_\t_\tSpaceAfter=No\n\n&quot;
 }
-
-</pre>
+</pre></div>
 </div>
 </div>
 </div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="CoNLL-U">CoNLL-U<a class="anchor-link" href="#CoNLL-U"> </a></h3><p>Similarly to NameTag, we can see that the result is in the <code>result</code>
+<div class="section" id="conll-u">
+<h4><span class="section-number">5.3.5.1. </span>CoNLL-U<a class="headerlink" href="#conll-u" title="Permalink to this headline">¶</a></h4>
+<p>Similarly to NameTag, we can see that the result is in the <code class="docutils literal notranslate"><span class="pre">result</span></code>
 field of the returned JSON, again using a tab-separated text format; in
-this case, this is actually the standard <a href="http://universaldependencies.org/docs/format.html">CoNLL-U
+this case, this is actually the standard <a class="reference external" href="http://universaldependencies.org/docs/format.html">CoNLL-U
 format</a>, which is
 defined and used with Universal Dependencies.</p>
-<p>Let's parse the JSON and print the result first.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_output_scroll">
-
-<div class="cell border-box-sizing code_cell rendered tag_output_scroll">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;result&#39;</span><span class="p">])</span>
+<p>Let’s parse the JSON and print the result first.</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;result&#39;</span><span class="p">])</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre># newdoc
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># generator = UDPipe 2, https://lindat.mff.cuni.cz/services/udpipe
+# udpipe_model = english-ewt-ud-2.6-200830
+# udpipe_model_licence = CC BY-NC-SA
+# newdoc
 # newpar
 # sent_id = 1
 # text = All human beings are born free and equal in dignity and rights.
@@ -2911,174 +1501,69 @@ defined and used with Universal Dependencies.</p>
 2	like	like	VERB	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	_	_	_	_
 3	trains	train	NOUN	NNS	Number=Plur	_	_	_	SpaceAfter=No
 4	.	.	PUNCT	.	_	_	_	_	SpaceAfter=No
-
-
-</pre>
+</pre></div>
 </div>
 </div>
 </div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p>This is good for viewing the result, but it needs some further
 processing to be usable in Python.  We could parse the result manually
 using some splitting and such, as we did with NameTag, but now the
 format is more complex and has some special properties and special
 rules, so it is not as trivial to process as the NameTag output format
 (but it is still simple enough for reasonably easy processing).</p>
-<h3 id="conllu-module">conllu module<a class="anchor-link" href="#conllu-module"> </a></h3><p>Since we are now dealing with a standard format, we can also simply use
+</div>
+<div class="section" id="conllu-module">
+<h4><span class="section-number">5.3.5.2. </span>conllu module<a class="headerlink" href="#conllu-module" title="Permalink to this headline">¶</a></h4>
+<p>Since we are now dealing with a standard format, we can also simply use
 an existing Python package designed for working with CoNLL-U files,
-which is called <code>conllu</code>.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">conllu</span>
+which is called <code class="docutils literal notranslate"><span class="pre">conllu</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">conllu</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
 </div>
-</div>
-
-<div class="jb_cell tag_output_scroll">
-
-<div class="cell border-box-sizing code_cell rendered tag_output_scroll">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">the_output</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;result&#39;</span><span class="p">]</span>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">the_output</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;result&#39;</span><span class="p">]</span>
 <span class="n">sentences</span> <span class="o">=</span> <span class="n">conllu</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">the_output</span><span class="p">)</span>
 <span class="n">sentences</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[TokenList&lt;All, human, beings, are, born, free, and, equal, in, dignity, and, rights, .&gt;,
- TokenList&lt;I, like, trains, .&gt;]</pre>
-</div>
-
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[TokenList&lt;All, human, beings, are, born, free, and, equal, in, dignity, and, rights, .&gt;,
+ TokenList&lt;I, like, trains, .&gt;]
+</pre></div>
 </div>
 </div>
 </div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p>This way, we get the CoNLL-U data represented as Python objects, which
 is much easier to work with than the original format.  We can see that
 the data are represented as a list of sentences, where each sentence is
-a <code>TokenList</code>.  Let's see just the first sentence.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_output_scroll">
-
-<div class="cell border-box-sizing code_cell rendered tag_output_scroll">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sentences</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+a <code class="docutils literal notranslate"><span class="pre">TokenList</span></code>.  Let’s see just the first sentence.</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentences</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>TokenList&lt;All, human, beings, are, born, free, and, equal, in, dignity, and, rights, .&gt;</pre>
-</div>
-
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>And let's see just the sixth word from the first sentence.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sentences</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">5</span><span class="p">]</span>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TokenList&lt;All, human, beings, are, born, free, and, equal, in, dignity, and, rights, .&gt;
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>OrderedDict([(&#39;id&#39;, 6),
+</div>
+<p>And let’s see just the sixth word from the first sentence.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentences</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OrderedDict([(&#39;id&#39;, 6),
              (&#39;form&#39;, &#39;free&#39;),
              (&#39;lemma&#39;, &#39;free&#39;),
              (&#39;upostag&#39;, &#39;ADJ&#39;),
@@ -3087,103 +1572,46 @@ a <code>TokenList</code>.  Let's see just the first sentence.</p>
              (&#39;head&#39;, None),
              (&#39;deprel&#39;, &#39;_&#39;),
              (&#39;deps&#39;, None),
-             (&#39;misc&#39;, None)])</pre>
-</div>
-
-</div>
+             (&#39;misc&#39;, None)])
+</pre></div>
 </div>
 </div>
 </div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p>This shows us that the tokens themselves are represented as an
-<code>OrderedDict</code>; which is just like a regular <code>dict</code> with a guaranteed
+<code class="docutils literal notranslate"><span class="pre">OrderedDict</span></code>; which is just like a regular <code class="docutils literal notranslate"><span class="pre">dict</span></code> with a guaranteed
 order of its elements. Therefore, it is simple to only get e.g. the
 word form and the Universal Part-of-speech tag for the word.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sentences</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="s1">&#39;form&#39;</span><span class="p">])</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sentences</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="s1">&#39;form&#39;</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sentences</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="s1">&#39;upostag&#39;</span><span class="p">])</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>free
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>free
 ADJ
-</pre>
+</pre></div>
 </div>
 </div>
 </div>
 </div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Playing-with-the-output">Playing with the output<a class="anchor-link" href="#Playing-with-the-output"> </a></h3><p>What we now have is a fine and linguistically richly annotated output,
-so there is a lot of things we can do with it. Let's try a few!</p>
-<p>Let's e.g. try, for each token, to print its word form and its POS tag.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_output_scroll">
-
-<div class="cell border-box-sizing code_cell rendered tag_output_scroll">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">:</span>
+<div class="section" id="playing-with-the-output">
+<h4><span class="section-number">5.3.5.3. </span>Playing with the output<a class="headerlink" href="#playing-with-the-output" title="Permalink to this headline">¶</a></h4>
+<p>What we now have is a fine and linguistically richly annotated output,
+so there is a lot of things we can do with it. Let’s try a few!</p>
+<p>Let’s e.g. try, for each token, to print its word form and its POS tag.</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Writing out a sentence&#39;</span><span class="p">,</span> <span class="n">sentence</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">sentence</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The UPOStag for&quot;</span><span class="p">,</span> <span class="n">token</span><span class="p">[</span><span class="s1">&#39;form&#39;</span><span class="p">],</span> <span class="s2">&quot;is&quot;</span><span class="p">,</span> <span class="n">token</span><span class="p">[</span><span class="s1">&#39;upostag&#39;</span><span class="p">])</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Writing out a sentence TokenList&lt;All, human, beings, are, born, free, and, equal, in, dignity, and, rights, .&gt;
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing out a sentence TokenList&lt;All, human, beings, are, born, free, and, equal, in, dignity, and, rights, .&gt;
 The UPOStag for All is DET
 The UPOStag for human is ADJ
 The UPOStag for beings is NOUN
@@ -3202,85 +1630,37 @@ The UPOStag for I is PRON
 The UPOStag for like is VERB
 The UPOStag for trains is NOUN
 The UPOStag for . is PUNCT
-</pre>
+</pre></div>
 </div>
 </div>
 </div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Or, let's only print the nouns.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">:</span>
+<p>Or, let’s only print the nouns.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">sentence</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">token</span><span class="p">[</span><span class="s1">&#39;upostag&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;NOUN&#39;</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="p">[</span><span class="s1">&#39;form&#39;</span><span class="p">])</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>beings
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>beings
 dignity
 rights
 trains
-</pre>
+</pre></div>
 </div>
 </div>
 </div>
 </div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="A-function">A function<a class="anchor-link" href="#A-function"> </a></h3><p>Let's wrap the whole thing, including printing the nouns, into one
+<div class="section" id="a-function">
+<h4><span class="section-number">5.3.5.4. </span>A function<a class="headerlink" href="#a-function" title="Permalink to this headline">¶</a></h4>
+<p>Let’s wrap the whole thing, including printing the nouns, into one
 function.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">nouns</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s1">&#39;english&#39;</span><span class="p">):</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">nouns</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s1">&#39;english&#39;</span><span class="p">):</span>
     <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://lindat.mff.cuni.cz/services/udpipe/api/process&#39;</span>
     <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">text</span><span class="p">,</span>
@@ -3298,163 +1678,145 @@ function.</p>
             <span class="k">if</span> <span class="n">token</span><span class="p">[</span><span class="s1">&#39;upostag&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;NOUN&#39;</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="p">[</span><span class="s1">&#39;form&#39;</span><span class="p">])</span>
 </pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>And let's invoke the function.</p>
-
 </div>
 </div>
 </div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">nouns</span><span class="p">(</span><span class="s2">&quot;My hovercraft is full of eels.&quot;</span><span class="p">)</span>
+<p>And let’s invoke the function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nouns</span><span class="p">(</span><span class="s2">&quot;My hovercraft is full of eels.&quot;</span><span class="p">)</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>hovercraft
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hovercraft
 eels
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">nouns</span><span class="p">(</span><span class="s2">&quot;Moje vznášedlo je plné úhořů.&quot;</span><span class="p">,</span> <span class="s1">&#39;czech&#39;</span><span class="p">)</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>vznášedlo
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nouns</span><span class="p">(</span><span class="s2">&quot;Moje vznášedlo je plné úhořů.&quot;</span><span class="p">,</span> <span class="s1">&#39;czech&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>vznášedlo
 úhořů
-</pre>
+</pre></div>
 </div>
 </div>
 </div>
 </div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Additional-exercises-6">Additional exercises 6<a class="anchor-link" href="#Additional-exercises-6"> </a></h3><ul>
-<li>Try to join multiple REST APIs together, e.g.<ul>
-<li>Get a joke in English</li>
-<li>Translate it to French</li>
-<li>Print out the morphological analysis of the joke in French; or e.g.
-only print the French nouns from the joke</li>
-<li>Ideally, these should be three separate functions for each of the
+<div class="section" id="additional-exercises-6">
+<h4><span class="section-number">5.3.5.5. </span>Additional exercises 6<a class="headerlink" href="#additional-exercises-6" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Try to join multiple REST APIs together, e.g.</p>
+<ul>
+<li><p>Get a joke in English</p></li>
+<li><p>Translate it to French</p></li>
+<li><p>Print out the morphological analysis of the joke in French; or e.g.
+only print the French nouns from the joke</p></li>
+<li><p>Ideally, these should be three separate functions for each of the
 REST APIs, plus one wrapper function that calls the other functions
-and passes the results from one as the input to the other.</li>
-<li>Observe how you have just managed to do three non-trivial tasks with
+and passes the results from one as the input to the other.</p></li>
+<li><p>Observe how you have just managed to do three non-trivial tasks with
 just a few lines of code, thanks to the fact that the authors of the
 tools made them available through a REST API, and thanks to the fact
-that working with REST APIs is quite simple in Python.</li>
+that working with REST APIs is quite simple in Python.</p></li>
 </ul>
 </li>
-<li>Look for other REST APIs and try to use some of them<ul>
-<li><a href="https://github.com/toddmotto/public-apis/blob/master/README.md">A list of free REST
+<li><p>Look for other REST APIs and try to use some of them</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/toddmotto/public-apis/blob/master/README.md">A list of free REST
 APIs</a>,
-such as <a href="https://alexwohlbruck.github.io/cat-facts/docs/">Cat facts</a></li>
-<li>Many NLP tools and services are also available through REST APIs</li>
-<li>Sometimes you have to register, sometimes you have to pay...</li>
-<li>Often the documentation is scarce, confusing or non-existent, so you
-simply have to try out things and see what results you are getting.</li>
+such as <a class="reference external" href="https://alexwohlbruck.github.io/cat-facts/docs/">Cat facts</a></p></li>
+<li><p>Many NLP tools and services are also available through REST APIs</p></li>
+<li><p>Sometimes you have to register, sometimes you have to pay…</p></li>
+<li><p>Often the documentation is scarce, confusing or non-existent, so you
+simply have to try out things and see what results you are getting.</p></li>
 </ul>
 </li>
 </ul>
-
 </div>
 </div>
 </div>
 </div>
 
- 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
-
-    </main>
-    
-            </div>
-            <div class="c-textbook__footer" id="textbook_footer">
+              </div>
               
-<nav class="c-page__nav">
-  
+        
+            
+
+
+
+<div class='prev-next-bottom'>
     
-    
-
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/data.html">
-      〈 <span class="u-margin-right-tiny"></span> Getting your data into Python
-    </a>
-  
-
-  
-    
-
-    
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/regex.html">
-      Regular expressions <span class="u-margin-right-tiny"></span> 〉
-    </a>
-  
-</nav>
-
-              <footer>
-  <p class="footer">Sponsored by <a href="https://www.visegradfund.org/">Visegrad Fund</a> grant nr. 21820079 "Training Digital Scholars: Knowledge Exchange between V4 and Austria". Available under the terms of the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> license.</p>
-</footer>
-
+    <div id="prev">
+        <a class="left-prev" href="data.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">4. </span>Getting your data into Python</p>
             </div>
-
-        </div>
-      </main>
+        </a>
     </div>
+     <div id="next">
+        <a class="right-next" href="regex.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">6. </span>Regular expressions</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By David Lukeš, Rudolf Rosa<br/>
+        
+            &copy; Copyright 2020--present.<br/>
+          <div class="extra_footer">
+            Sponsored by <a href="https://www.visegradfund.org/">Visegrad Fund</a> grant nr. 21820079 "Training Digital Scholars: Knowledge Exchange between V4 and Austria". Available under the terms of the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> license.
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
   </body>
 </html>

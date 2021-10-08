@@ -1,0 +1,1398 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keyword analysis: Donald Trump’s speeches &#8212; An Introduction to Python for Linguists</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://v4py.github.io/case/keywords.html" />
+    <link rel="shortcut icon" href="../_static/v4py_logo.svg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/v4py_logo_wide.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">An Introduction to Python for Linguists</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Authors
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://dlukes.github.io/">
+   David Lukeš
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://ufal.mff.cuni.cz/rudolf-rosa">
+   Rudolf Rosa
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Table of contents
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics.html">
+   2. A tour of Python and NLTK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../unicode.html">
+   3. Text inside the computer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data.html">
+   4. Getting your data into Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../rest.html">
+   5. Working with online resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../regex.html">
+   6. Regular expressions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../outro.html">
+   7. Parting words
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Links
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://ufal.mff.cuni.cz/">
+   ÚFAL MFF UK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://korpus.cz/">
+   Czech National Corpus
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Sponsored by <a href="https://www.visegradfund.org/">Visegrad Fund</a> grant nr. 21820079 "Training Digital Scholars: Knowledge Exchange between V4 and Austria". Available under the terms of the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> license.
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/case/keywords.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/case/keywords.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/v4py/v4py.github.io"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/v4py/v4py.github.io/issues/new?title=Issue%20on%20page%20%2Fcase/keywords.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/v4py/v4py.github.io/edit/source/src/case/keywords.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/v4py/v4py.github.io/master?urlpath=lab/tree/_sources/case/keywords.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://jupyter.korpus.cz//hub/user-redirect/git-pull?repo=https://github.com/v4py/v4py.github.io&urlpath=lab/tree/v4py.github.io/_sources/case/keywords.ipynb&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reference-corpus-frequency-distribution">
+   Reference corpus &amp; frequency distribution
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="keyword-analysis-donald-trumps-speeches">
+<h1>Keyword analysis: Donald Trump’s speeches<a class="headerlink" href="#keyword-analysis-donald-trumps-speeches" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="reference-corpus-frequency-distribution">
+<h2>Reference corpus &amp; frequency distribution<a class="headerlink" href="#reference-corpus-frequency-distribution" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">inaugural</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">inaugural</span><span class="o">.</span><span class="n">fileids</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;1789-Washington.txt&#39;,
+ &#39;1793-Washington.txt&#39;,
+ &#39;1797-Adams.txt&#39;,
+ &#39;1801-Jefferson.txt&#39;,
+ &#39;1805-Jefferson.txt&#39;,
+ &#39;1809-Madison.txt&#39;,
+ &#39;1813-Madison.txt&#39;,
+ &#39;1817-Monroe.txt&#39;,
+ &#39;1821-Monroe.txt&#39;,
+ &#39;1825-Adams.txt&#39;,
+ &#39;1829-Jackson.txt&#39;,
+ &#39;1833-Jackson.txt&#39;,
+ &#39;1837-VanBuren.txt&#39;,
+ &#39;1841-Harrison.txt&#39;,
+ &#39;1845-Polk.txt&#39;,
+ &#39;1849-Taylor.txt&#39;,
+ &#39;1853-Pierce.txt&#39;,
+ &#39;1857-Buchanan.txt&#39;,
+ &#39;1861-Lincoln.txt&#39;,
+ &#39;1865-Lincoln.txt&#39;,
+ &#39;1869-Grant.txt&#39;,
+ &#39;1873-Grant.txt&#39;,
+ &#39;1877-Hayes.txt&#39;,
+ &#39;1881-Garfield.txt&#39;,
+ &#39;1885-Cleveland.txt&#39;,
+ &#39;1889-Harrison.txt&#39;,
+ &#39;1893-Cleveland.txt&#39;,
+ &#39;1897-McKinley.txt&#39;,
+ &#39;1901-McKinley.txt&#39;,
+ &#39;1905-Roosevelt.txt&#39;,
+ &#39;1909-Taft.txt&#39;,
+ &#39;1913-Wilson.txt&#39;,
+ &#39;1917-Wilson.txt&#39;,
+ &#39;1921-Harding.txt&#39;,
+ &#39;1925-Coolidge.txt&#39;,
+ &#39;1929-Hoover.txt&#39;,
+ &#39;1933-Roosevelt.txt&#39;,
+ &#39;1937-Roosevelt.txt&#39;,
+ &#39;1941-Roosevelt.txt&#39;,
+ &#39;1945-Roosevelt.txt&#39;,
+ &#39;1949-Truman.txt&#39;,
+ &#39;1953-Eisenhower.txt&#39;,
+ &#39;1957-Eisenhower.txt&#39;,
+ &#39;1961-Kennedy.txt&#39;,
+ &#39;1965-Johnson.txt&#39;,
+ &#39;1969-Nixon.txt&#39;,
+ &#39;1973-Nixon.txt&#39;,
+ &#39;1977-Carter.txt&#39;,
+ &#39;1981-Reagan.txt&#39;,
+ &#39;1985-Reagan.txt&#39;,
+ &#39;1989-Bush.txt&#39;,
+ &#39;1993-Clinton.txt&#39;,
+ &#39;1997-Clinton.txt&#39;,
+ &#39;2001-Bush.txt&#39;,
+ &#39;2005-Bush.txt&#39;,
+ &#39;2009-Obama.txt&#39;,
+ &#39;2013-Obama.txt&#39;,
+ &#39;2017-Trump.txt&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">inaugural</span><span class="o">.</span><span class="n">words</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Fellow&#39;, &#39;-&#39;, &#39;Citizens&#39;, &#39;of&#39;, &#39;the&#39;, &#39;Senate&#39;, ...]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">FreqDist</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FreqDist</span><span class="p">([</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">,</span> <span class="s2">&quot;three&quot;</span><span class="p">,</span> <span class="s2">&quot;one&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FreqDist({&#39;one&#39;: 2, &#39;two&#39;: 1, &#39;three&#39;: 1})
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fd</span> <span class="o">=</span> <span class="n">FreqDist</span><span class="p">([</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">,</span> <span class="s2">&quot;three&quot;</span><span class="p">,</span> <span class="s2">&quot;one&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fd</span><span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fd</span><span class="o">.</span><span class="n">N</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fd</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="s2">&quot;one&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fd</span><span class="o">.</span><span class="n">most_common</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;one&#39;, 2), (&#39;two&#39;, 1), (&#39;three&#39;, 1)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fd</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/keywords_13_0.png" src="../_images/keywords_13_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Samples&#39;, ylabel=&#39;Counts&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reference_fd</span> <span class="o">=</span> <span class="n">FreqDist</span><span class="p">(</span><span class="n">inaugural</span><span class="o">.</span><span class="n">words</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_raises-exception tag_full-width tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">inaugural</span><span class="o">.</span><span class="n">words</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_56977</span><span class="o">/</span><span class="mf">2471470118.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">inaugural</span><span class="o">.</span><span class="n">words</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+<span class="ne">AttributeError</span>: &#39;ConcatenatedCorpusView&#39; object has no attribute &#39;lower&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reference_fd</span> <span class="o">=</span> <span class="n">FreqDist</span><span class="p">(</span>
+    <span class="n">word</span><span class="o">.</span><span class="n">casefold</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">inaugural</span><span class="o">.</span><span class="n">words</span><span class="p">()</span>
+    <span class="c1"># if word.isalpha()</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reference_fd</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;the&#39;, 10081),
+ (&#39;of&#39;, 7103),
+ (&#39;,&#39;, 7045),
+ (&#39;and&#39;, 5304),
+ (&#39;.&#39;, 4856),
+ (&#39;to&#39;, 4535),
+ (&#39;in&#39;, 2784),
+ (&#39;a&#39;, 2245),
+ (&#39;our&#39;, 2182),
+ (&#39;that&#39;, 1793)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reference_fd</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/keywords_18_0.png" src="../_images/keywords_18_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Samples&#39;, ylabel=&#39;Counts&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trump</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Chief Justice Roberts, President Carter, President Clinton, President Bush, President Obama, fellow Americans, and people of the world: thank you.</span>
+
+<span class="s2">We, the citizens of America, are now joined in a great national effort to rebuild our country and to restore its promise for all of our people.</span>
+
+<span class="s2">Together, we will determine the course of America and the world for years to come.</span>
+
+<span class="s2">We will face challenges. We will confront hardships. But we will get the job done.</span>
+
+<span class="s2">Every four years, we gather on these steps to carry out the orderly and peaceful transfer of power, and we are grateful to President Obama and First Lady Michelle Obama for their gracious aid throughout this transition. They have been magnificent.</span>
+
+<span class="s2">Today’s ceremony, however, has very special meaning. Because today we are not merely transferring power from one Administration to another, or from one party to another – but we are transferring power from Washington, D.C. and giving it back to you, the American People.</span>
+
+<span class="s2">For too long, a small group in our nation’s Capital has reaped the rewards of government while the people have borne the cost.</span>
+
+<span class="s2">Washington flourished – but the people did not share in its wealth.</span>
+
+<span class="s2">Politicians prospered – but the jobs left, and the factories closed.</span>
+
+<span class="s2">The establishment protected itself, but not the citizens of our country.</span>
+
+<span class="s2">Their victories have not been your victories; their triumphs have not been your triumphs; and while they celebrated in our nation’s Capital, there was little to celebrate for struggling families all across our land.</span>
+
+<span class="s2">That all changes – starting right here, and right now, because this moment is your moment: it belongs to you.</span>
+
+<span class="s2">It belongs to everyone gathered here today and everyone watching all across America.</span>
+
+<span class="s2">This is your day. This is your celebration.</span>
+
+<span class="s2">And this, the United States of America, is your country.</span>
+
+<span class="s2">What truly matters is not which party controls our government, but whether our government is controlled by the people.</span>
+
+<span class="s2">January 20th 2017, will be remembered as the day the people became the rulers of this nation again.</span>
+
+<span class="s2">The forgotten men and women of our country will be forgotten no longer.</span>
+
+<span class="s2">Everyone is listening to you now.</span>
+
+<span class="s2">You came by the tens of millions to become part of a historic movement the likes of which the world has never seen before.</span>
+
+<span class="s2">At the center of this movement is a crucial conviction: that a nation exists to serve its citizens.</span>
+
+<span class="s2">Americans want great schools for their children, safe neighborhoods for their families, and good jobs for themselves.</span>
+
+<span class="s2">These are the just and reasonable demands of a righteous public.</span>
+
+<span class="s2">But for too many of our citizens, a different reality exists: Mothers and children trapped in poverty in our inner cities; rusted-out factories scattered like tombstones across the landscape of our nation; an education system, flush with cash, but which leaves our young and beautiful students deprived of knowledge; and the crime and gangs and drugs that have stolen too many lives and robbed our country of so much unrealized potential.</span>
+
+<span class="s2">This American carnage stops right here and stops right now.</span>
+
+<span class="s2">We are one nation – and their pain is our pain. Their dreams are our dreams; and their success will be our success. We share one heart, one home, and one glorious destiny.</span>
+
+<span class="s2">The oath of office I take today is an oath of allegiance to all Americans.</span>
+
+<span class="s2">For many decades, we’ve enriched foreign industry at the expense of American industry;</span>
+
+<span class="s2">Subsidized the armies of other countries while allowing for the very sad depletion of our military;</span>
+
+<span class="s2">We’ve defended other nation’s borders while refusing to defend our own;</span>
+
+<span class="s2">And spent trillions of dollars overseas while America’s infrastructure has fallen into disrepair and decay.</span>
+
+<span class="s2">We’ve made other countries rich while the wealth, strength, and confidence of our country has disappeared over the horizon.</span>
+
+<span class="s2">One by one, the factories shuttered and left our shores, with not even a thought about the millions upon millions of American workers left behind.</span>
+
+<span class="s2">The wealth of our middle class has been ripped from their homes and then redistributed across the entire world.</span>
+
+<span class="s2">But that is the past. And now we are looking only to the future.</span>
+
+<span class="s2">We assembled here today are issuing a new decree to be heard in every city, in every foreign capital, and in every hall of power.</span>
+
+<span class="s2">From this day forward, a new vision will govern our land.</span>
+
+<span class="s2">From this moment on, it’s going to be America First.</span>
+
+<span class="s2">Every decision on trade, on taxes, on immigration, on foreign affairs, will be made to benefit American workers and American families.</span>
+
+<span class="s2">We must protect our borders from the ravages of other countries making our products, stealing our companies, and destroying our jobs. Protection will lead to great prosperity and strength.</span>
+
+<span class="s2">I will fight for you with every breath in my body – and I will never, ever let you down.</span>
+
+<span class="s2">America will start winning again, winning like never before.</span>
+
+<span class="s2">We will bring back our jobs. We will bring back our borders. We will bring back our wealth. And we will bring back our dreams.</span>
+
+<span class="s2">We will build new roads, and highways, and bridges, and airports, and tunnels, and railways all across our wonderful nation.</span>
+
+<span class="s2">We will get our people off of welfare and back to work – rebuilding our country with American hands and American labor.</span>
+
+<span class="s2">We will follow two simple rules: Buy American and Hire American.</span>
+
+<span class="s2">We will seek friendship and goodwill with the nations of the world – but we do so with the understanding that it is the right of all nations to put their own interests first.</span>
+
+<span class="s2">We do not seek to impose our way of life on anyone, but rather to let it shine as an example for everyone to follow.</span>
+
+<span class="s2">We will reinforce old alliances and form new ones – and unite the civilized world against Radical Islamic Terrorism, which we will eradicate completely from the face of the Earth.</span>
+
+<span class="s2">At the bedrock of our politics will be a total allegiance to the United States of America, and through our loyalty to our country, we will rediscover our loyalty to each other.</span>
+
+<span class="s2">When you open your heart to patriotism, there is no room for prejudice.</span>
+
+<span class="s2">The Bible tells us, “how good and pleasant it is when God’s people live together in unity.”</span>
+
+<span class="s2">We must speak our minds openly, debate our disagreements honestly, but always pursue solidarity.</span>
+
+<span class="s2">When America is united, America is totally unstoppable.</span>
+
+<span class="s2">There should be no fear – we are protected, and we will always be protected.</span>
+
+<span class="s2">We will be protected by the great men and women of our military and law enforcement and, most importantly, we are protected by God.</span>
+
+<span class="s2">Finally, we must think big and dream even bigger.</span>
+
+<span class="s2">In America, we understand that a nation is only living as long as it is striving.</span>
+
+<span class="s2">We will no longer accept politicians who are all talk and no action – constantly complaining but never doing anything about it.</span>
+
+<span class="s2">The time for empty talk is over.</span>
+
+<span class="s2">Now arrives the hour of action.</span>
+
+<span class="s2">Do not let anyone tell you it cannot be done. No challenge can match the heart and fight and spirit of America.</span>
+
+<span class="s2">We will not fail. Our country will thrive and prosper again.</span>
+
+<span class="s2">We stand at the birth of a new millennium, ready to unlock the mysteries of space, to free the Earth from the miseries of disease, and to harness the energies, industries and technologies of tomorrow.</span>
+
+<span class="s2">A new national pride will stir our souls, lift our sights, and heal our divisions.</span>
+
+<span class="s2">It is time to remember that old wisdom our soldiers will never forget: that whether we are black or brown or white, we all bleed the same red blood of patriots, we all enjoy the same glorious freedoms, and we all salute the same great American Flag.</span>
+
+<span class="s2">And whether a child is born in the urban sprawl of Detroit or the windswept plains of Nebraska, they look up at the same night sky, they fill their heart with the same dreams, and they are infused with the breath of life by the same almighty Creator.</span>
+
+<span class="s2">So to all Americans, in every city near and far, small and large, from mountain to mountain, and from ocean to ocean, hear these words:</span>
+
+<span class="s2">You will never be ignored again.</span>
+
+<span class="s2">Your voice, your hopes, and your dreams, will define our American destiny. And your courage and goodness and love will forever guide us along the way.</span>
+
+<span class="s2">Together, We Will Make America Strong Again.</span>
+
+<span class="s2">We Will Make America Wealthy Again.</span>
+
+<span class="s2">We Will Make America Proud Again.</span>
+
+<span class="s2">We Will Make America Safe Again.</span>
+
+<span class="s2">And, Yes, Together, We Will Make America Great Again. Thank you, God Bless You, And God Bless America.</span>
+<span class="s2">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">page</span> -r trump
+</pre></div>
+</div>
+</div>
+</div>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>❄</p></th>
+<th class="head"><p>text</p></th>
+<th class="head"><p>ref. corpus</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>bigly</em></p></td>
+<td><p>270</p></td>
+<td><p>2615</p></td>
+</tr>
+<tr class="row-odd"><td><p>other words</p></td>
+<td><p>19937</p></td>
+<td><p>120 748 715</p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prop_text</span> <span class="o">=</span> <span class="mi">270</span> <span class="o">/</span> <span class="p">(</span><span class="mi">270</span> <span class="o">+</span> <span class="mi">19_937</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prop_text</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.01336170633938734
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prop_ref</span> <span class="o">=</span> <span class="mi">2615</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2615</span> <span class="o">+</span> <span class="mi">120_748_715</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prop_ref</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.1656076169098925e-05
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prop_text</span> <span class="o">&gt;</span> <span class="n">prop_ref</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">chi2_contingency</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chi2_contingency</span><span class="p">([[</span><span class="mi">270</span><span class="p">,</span> <span class="mi">19_937</span><span class="p">],</span> <span class="p">[</span><span class="mi">2615</span><span class="p">,</span> <span class="mi">120_748_715</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(149954.80206610577,
+ 0.0,
+ 1,
+ array([[4.82706410e-01, 2.02065173e+04],
+        [2.88451729e+03, 1.20748445e+08]]))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chi2_contingency</span><span class="p">([[</span><span class="mi">270</span><span class="p">,</span> <span class="mi">19_937</span><span class="p">],</span> <span class="p">[</span><span class="mi">2615</span><span class="p">,</span> <span class="mi">120_748_715</span><span class="p">]])[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chi2_result</span> <span class="o">=</span> <span class="n">chi2_contingency</span><span class="p">([[</span><span class="mi">270</span><span class="p">,</span> <span class="mi">19_937</span><span class="p">],</span> <span class="p">[</span><span class="mi">2615</span><span class="p">,</span> <span class="mi">120_748_715</span><span class="p">]])</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">chi2_result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">p</span> <span class="o">&lt;</span> <span class="mf">0.05</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trump_fd</span> <span class="o">=</span> <span class="n">FreqDist</span><span class="p">(</span>
+    <span class="n">word</span><span class="o">.</span><span class="n">casefold</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">trump</span><span class="p">)</span>
+    <span class="c1"># if word.isalpha()</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trump_fd</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;,&#39;, 95),
+ (&#39;.&#39;, 86),
+ (&#39;and&#39;, 74),
+ (&#39;the&#39;, 70),
+ (&#39;we&#39;, 49),
+ (&#39;of&#39;, 48),
+ (&#39;our&#39;, 48),
+ (&#39;will&#39;, 40),
+ (&#39;to&#39;, 37),
+ (&#39;is&#39;, 21)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_keyword</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">target_fd</span><span class="p">,</span> <span class="n">reference_fd</span><span class="p">):</span>
+    <span class="n">target_freq</span> <span class="o">=</span> <span class="n">target_fd</span><span class="p">[</span><span class="n">word</span><span class="p">]</span>
+    <span class="n">target_rest</span> <span class="o">=</span> <span class="n">target_fd</span><span class="o">.</span><span class="n">N</span><span class="p">()</span> <span class="o">-</span> <span class="n">target_freq</span>
+    <span class="n">reference_freq</span> <span class="o">=</span> <span class="n">reference_fd</span><span class="p">[</span><span class="n">word</span><span class="p">]</span>
+    <span class="n">reference_rest</span> <span class="o">=</span> <span class="n">reference_fd</span><span class="o">.</span><span class="n">N</span><span class="p">()</span> <span class="o">-</span> <span class="n">reference_freq</span>
+    <span class="n">chi2_result</span> <span class="o">=</span> <span class="n">chi2_contingency</span><span class="p">(</span>
+        <span class="p">[[</span><span class="n">target_freq</span><span class="p">,</span> <span class="n">target_rest</span><span class="p">],</span>
+         <span class="p">[</span><span class="n">reference_freq</span><span class="p">,</span> <span class="n">reference_rest</span><span class="p">]]</span>
+    <span class="p">)</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">chi2_result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">target_fd</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">reference_fd</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="ow">and</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="mf">0.05</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trump_fd</span><span class="p">[</span><span class="s2">&quot;and&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>74
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trump_fd</span><span class="o">.</span><span class="n">N</span><span class="p">()</span> <span class="o">-</span> <span class="n">trump_fd</span><span class="p">[</span><span class="s2">&quot;and&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1590
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">din</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">target_fd</span><span class="p">,</span> <span class="n">reference_fd</span><span class="p">):</span>
+    <span class="n">target_freq</span> <span class="o">=</span> <span class="n">target_fd</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="n">reference_freq</span> <span class="o">=</span> <span class="n">reference_fd</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">100</span> <span class="o">*</span> <span class="p">(</span><span class="n">target_freq</span> <span class="o">-</span> <span class="n">reference_freq</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">target_freq</span> <span class="o">+</span> <span class="n">reference_freq</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For more on DIN (Difference INdex), see: <a class="reference external" href="https://kwords.korpus.cz/">https://kwords.korpus.cz/</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">trump_fd</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>chief
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">keywords</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">trump_fd</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">is_keyword</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">trump_fd</span><span class="p">,</span> <span class="n">reference_fd</span><span class="p">):</span>
+        <span class="n">word_din</span> <span class="o">=</span> <span class="n">din</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">trump_fd</span><span class="p">,</span> <span class="n">reference_fd</span><span class="p">)</span>
+        <span class="n">keywords</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">word_din</span><span class="p">,</span> <span class="n">word</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">keywords</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>177
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">keywords</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(97.80273469738084, &#39;roberts&#39;),
+ (66.98269164100009, &#39;president&#39;),
+ (95.65322448979592, &#39;carter&#39;),
+ (97.80273469738084, &#39;obama&#39;),
+ (65.90560468709332, &#39;americans&#39;),
+ (64.28364956401919, &#39;:&#39;),
+ (78.2226161652816, &#39;thank&#39;),
+ (68.88842955794615, &#39;you&#39;),
+ (22.9078612403631, &#39;.&#39;),
+ (43.331449924815, &#39;we&#39;),
+ (76.0921570023243, &#39;america&#39;),
+ (97.80273469738084, &#39;rebuild&#39;),
+ (32.89320572096895, &#39;our&#39;),
+ (43.62702249210978, &#39;country&#39;),
+ (62.535738505357386, &#39;together&#39;),
+ (59.51174372828367, &#39;will&#39;),
+ (97.80273469738084, &#39;hardships&#39;),
+ (95.65322448979592, &#39;get&#39;),
+ (97.80273469738084, &#39;lady&#39;),
+ (97.80273469738084, &#39;michelle&#39;),
+ (63.05092014589975, &#39;today&#39;),
+ (100.00000000000001, &#39;’&#39;),
+ (48.24477135479292, &#39;s&#39;),
+ (97.80273469738084, &#39;transferring&#39;),
+ (47.39954637815924, &#39;one&#39;),
+ (100.0, &#39;–&#39;),
+ (76.4757164315377, &#39;washington&#39;),
+ (100.0, &#39;d.c.&#39;),
+ (88.4843566175314, &#39;back&#39;),
+ (73.77875827292783, &#39;american&#39;),
+ (43.882087324579494, &#39;nation&#39;),
+ (83.67717293343715, &#39;capital&#39;),
+ (97.80273469738084, &#39;reaped&#39;),
+ (72.80580491472013, &#39;while&#39;),
+ (95.65322448979592, &#39;flourished&#39;),
+ (81.36437656260405, &#39;wealth&#39;),
+ (97.80273469738084, &#39;politicians&#39;),
+ (93.54992925853905, &#39;prospered&#39;),
+ (94.07150214091843, &#39;jobs&#39;),
+ (81.82226457004485, &#39;left&#39;),
+ (93.54992925853905, &#39;factories&#39;),
+ (90.27712678324866, &#39;protected&#39;),
+ (95.65322448979592, &#39;victories&#39;),
+ (77.9024302554632, &#39;your&#39;),
+ (91.49137440637124, &#39;triumphs&#39;),
+ (88.81379788452044, &#39;families&#39;),
+ (88.28724309526294, &#39;across&#39;),
+ (95.65322448979592, &#39;starting&#39;),
+ (58.1804031885922, &#39;right&#39;),
+ (63.64371275474254, &#39;here&#39;),
+ (74.76272975984226, &#39;moment&#39;),
+ (84.61889238770743, &#39;belongs&#39;),
+ (94.07150214091843, &#39;everyone&#39;),
+ (93.54992925853905, &#39;gathered&#39;),
+ (68.7565129714922, &#39;whether&#39;),
+ (95.65322448979592, &#39;january&#39;),
+ (97.80273469738084, &#39;2017&#39;),
+ (83.88561272903472, &#39;again&#39;),
+ (88.4843566175314, &#39;forgotten&#39;),
+ (74.76272975984227, &#39;longer&#39;),
+ (97.80273469738084, &#39;listening&#39;),
+ (74.19910030216047, &#39;millions&#39;),
+ (91.49137440637124, &#39;movement&#39;),
+ (97.80273469738084, &#39;likes&#39;),
+ (60.245257889847906, &#39;never&#39;),
+ (83.67717293343715, &#39;exists&#39;),
+ (76.4757164315377, &#39;safe&#39;),
+ (97.80273469738084, &#39;neighborhoods&#39;),
+ (97.80273469738084, &#39;trapped&#39;),
+ (95.65322448979592, &#39;inner&#39;),
+ (100.0, &#39;rusted-out&#39;),
+ (97.80273469738084, &#39;tombstones&#39;),
+ (97.80273469738084, &#39;landscape&#39;),
+ (97.80273469738084, &#39;flush&#39;),
+ (95.65322448979592, &#39;cash&#39;),
+ (95.65322448979592, &#39;students&#39;),
+ (95.65322448979592, &#39;gangs&#39;),
+ (97.80273469738084, &#39;stolen&#39;),
+ (97.80273469738084, &#39;robbed&#39;),
+ (97.80273469738084, &#39;unrealized&#39;),
+ (97.80273469738084, &#39;carnage&#39;),
+ (97.80273469738084, &#39;stops&#39;),
+ (93.54992925853905, &#39;pain&#39;),
+ (92.3095192550874, &#39;dreams&#39;),
+ (79.10909971363492, &#39;heart&#39;),
+ (91.49137440637124, &#39;glorious&#39;),
+ (93.54992925853905, &#39;allegiance&#39;),
+ (97.08100261595844, &#39;ve&#39;),
+ (93.54992925853905, &#39;enriched&#39;),
+ (97.80273469738084, &#39;subsidized&#39;),
+ (75.90100184163504, &#39;countries&#39;),
+ (97.80273469738084, &#39;allowing&#39;),
+ (97.80273469738084, &#39;sad&#39;),
+ (97.80273469738084, &#39;depletion&#39;),
+ (93.54992925853905, &#39;borders&#39;),
+ (93.54992925853905, &#39;refusing&#39;),
+ (95.65322448979592, &#39;trillions&#39;),
+ (95.65322448979592, &#39;dollars&#39;),
+ (97.80273469738084, &#39;overseas&#39;),
+ (97.80273469738084, &#39;infrastructure&#39;),
+ (97.80273469738084, &#39;disrepair&#39;),
+ (93.54992925853905, &#39;disappeared&#39;),
+ (95.65322448979592, &#39;horizon&#39;),
+ (93.54992925853905, &#39;shuttered&#39;),
+ (93.54992925853905, &#39;workers&#39;),
+ (97.80273469738084, &#39;ripped&#39;),
+ (97.80273469738084, &#39;redistributed&#39;),
+ (97.80273469738084, &#39;issuing&#39;),
+ (93.54992925853905, &#39;decree&#39;),
+ (87.50289458696591, &#39;city&#39;),
+ (93.54992925853905, &#39;hall&#39;),
+ (97.80273469738084, &#39;ravages&#39;),
+ (97.80273469738084, &#39;stealing&#39;),
+ (95.65322448979592, &#39;companies&#39;),
+ (93.54992925853905, &#39;destroying&#39;),
+ (88.4843566175314, &#39;fight&#39;),
+ (95.65322448979592, &#39;breath&#39;),
+ (96.72210804173534, &#39;winning&#39;),
+ (78.66475832662432, &#39;bring&#39;),
+ (93.54992925853905, &#39;bridges&#39;),
+ (95.65322448979592, &#39;airports&#39;),
+ (97.80273469738084, &#39;tunnels&#39;),
+ (93.54992925853905, &#39;rebuilding&#39;),
+ (80.00444612676267, &#39;follow&#39;),
+ (97.80273469738084, &#39;hire&#39;),
+ (100.0, &#39;goodwill&#39;),
+ (89.47614740982944, &#39;anyone&#39;),
+ (97.80273469738084, &#39;shine&#39;),
+ (97.80273469738084, &#39;reinforce&#39;),
+ (95.65322448979592, &#39;radical&#39;),
+ (97.80273469738084, &#39;islamic&#39;),
+ (95.65322448979592, &#39;terrorism&#39;),
+ (95.65322448979592, &#39;eradicate&#39;),
+ (97.80273469738084, &#39;bedrock&#39;),
+ (90.47843087389136, &#39;loyalty&#39;),
+ (95.65322448979592, &#39;rediscover&#39;),
+ (93.54992925853905, &#39;tells&#39;),
+ (100.0, &#39;“&#39;),
+ (95.65322448979592, &#39;pleasant&#39;),
+ (53.854923610219544, &#39;god&#39;),
+ (100.0, &#39;unity.&#39;),
+ (100.0, &#39;”&#39;),
+ (97.80273469738084, &#39;disagreements&#39;),
+ (97.80273469738084, &#39;solidarity&#39;),
+ (93.54992925853905, &#39;totally&#39;),
+ (97.80273469738084, &#39;unstoppable&#39;),
+ (95.65322448979592, &#39;importantly&#39;),
+ (94.59589365861896, &#39;talk&#39;),
+ (97.80273469738084, &#39;complaining&#39;),
+ (95.65322448979592, &#39;empty&#39;),
+ (97.80273469738084, &#39;arrives&#39;),
+ (93.54992925853905, &#39;thrive&#39;),
+ (93.54992925853905, &#39;millennium&#39;),
+ (95.65322448979592, &#39;unlock&#39;),
+ (97.80273469738084, &#39;mysteries&#39;),
+ (93.54992925853905, &#39;miseries&#39;),
+ (95.65322448979592, &#39;technologies&#39;),
+ (97.80273469738084, &#39;brown&#39;),
+ (97.80273469738084, &#39;bleed&#39;),
+ (70.89222052154734, &#39;same&#39;),
+ (95.65322448979592, &#39;red&#39;),
+ (95.65322448979592, &#39;freedoms&#39;),
+ (93.54992925853905, &#39;salute&#39;),
+ (97.80273469738084, &#39;urban&#39;),
+ (97.80273469738084, &#39;sprawl&#39;),
+ (95.65322448979592, &#39;detroit&#39;),
+ (97.80273469738084, &#39;windswept&#39;),
+ (93.54992925853905, &#39;plains&#39;),
+ (95.65322448979592, &#39;nebraska&#39;),
+ (93.54992925853905, &#39;sky&#39;),
+ (95.65322448979592, &#39;infused&#39;),
+ (96.72210804173534, &#39;mountain&#39;),
+ (82.74501192502181, &#39;ocean&#39;),
+ (97.80273469738084, &#39;ignored&#39;),
+ (51.26960964994218, &#39;make&#39;),
+ (93.54992925853905, &#39;wealthy&#39;),
+ (79.10909971363492, &#39;bless&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sorted</span><span class="p">(</span><span class="n">keywords</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(100.00000000000001, &#39;’&#39;),
+ (100.0, &#39;”&#39;),
+ (100.0, &#39;“&#39;),
+ (100.0, &#39;–&#39;),
+ (100.0, &#39;unity.&#39;),
+ (100.0, &#39;rusted-out&#39;),
+ (100.0, &#39;goodwill&#39;),
+ (100.0, &#39;d.c.&#39;),
+ (97.80273469738084, &#39;windswept&#39;),
+ (97.80273469738084, &#39;urban&#39;),
+ (97.80273469738084, &#39;unstoppable&#39;),
+ (97.80273469738084, &#39;unrealized&#39;),
+ (97.80273469738084, &#39;tunnels&#39;),
+ (97.80273469738084, &#39;trapped&#39;),
+ (97.80273469738084, &#39;transferring&#39;),
+ (97.80273469738084, &#39;tombstones&#39;),
+ (97.80273469738084, &#39;subsidized&#39;),
+ (97.80273469738084, &#39;stops&#39;),
+ (97.80273469738084, &#39;stolen&#39;),
+ (97.80273469738084, &#39;stealing&#39;),
+ (97.80273469738084, &#39;sprawl&#39;),
+ (97.80273469738084, &#39;solidarity&#39;),
+ (97.80273469738084, &#39;shine&#39;),
+ (97.80273469738084, &#39;sad&#39;),
+ (97.80273469738084, &#39;roberts&#39;),
+ (97.80273469738084, &#39;robbed&#39;),
+ (97.80273469738084, &#39;ripped&#39;),
+ (97.80273469738084, &#39;reinforce&#39;),
+ (97.80273469738084, &#39;redistributed&#39;),
+ (97.80273469738084, &#39;rebuild&#39;),
+ (97.80273469738084, &#39;reaped&#39;),
+ (97.80273469738084, &#39;ravages&#39;),
+ (97.80273469738084, &#39;politicians&#39;),
+ (97.80273469738084, &#39;overseas&#39;),
+ (97.80273469738084, &#39;obama&#39;),
+ (97.80273469738084, &#39;neighborhoods&#39;),
+ (97.80273469738084, &#39;mysteries&#39;),
+ (97.80273469738084, &#39;michelle&#39;),
+ (97.80273469738084, &#39;listening&#39;),
+ (97.80273469738084, &#39;likes&#39;),
+ (97.80273469738084, &#39;landscape&#39;),
+ (97.80273469738084, &#39;lady&#39;),
+ (97.80273469738084, &#39;issuing&#39;),
+ (97.80273469738084, &#39;islamic&#39;),
+ (97.80273469738084, &#39;infrastructure&#39;),
+ (97.80273469738084, &#39;ignored&#39;),
+ (97.80273469738084, &#39;hire&#39;),
+ (97.80273469738084, &#39;hardships&#39;),
+ (97.80273469738084, &#39;flush&#39;),
+ (97.80273469738084, &#39;disrepair&#39;),
+ (97.80273469738084, &#39;disagreements&#39;),
+ (97.80273469738084, &#39;depletion&#39;),
+ (97.80273469738084, &#39;complaining&#39;),
+ (97.80273469738084, &#39;carnage&#39;),
+ (97.80273469738084, &#39;brown&#39;),
+ (97.80273469738084, &#39;bleed&#39;),
+ (97.80273469738084, &#39;bedrock&#39;),
+ (97.80273469738084, &#39;arrives&#39;),
+ (97.80273469738084, &#39;allowing&#39;),
+ (97.80273469738084, &#39;2017&#39;),
+ (97.08100261595844, &#39;ve&#39;),
+ (96.72210804173534, &#39;winning&#39;),
+ (96.72210804173534, &#39;mountain&#39;),
+ (95.65322448979592, &#39;victories&#39;),
+ (95.65322448979592, &#39;unlock&#39;),
+ (95.65322448979592, &#39;trillions&#39;),
+ (95.65322448979592, &#39;terrorism&#39;),
+ (95.65322448979592, &#39;technologies&#39;),
+ (95.65322448979592, &#39;students&#39;),
+ (95.65322448979592, &#39;starting&#39;),
+ (95.65322448979592, &#39;rediscover&#39;),
+ (95.65322448979592, &#39;red&#39;),
+ (95.65322448979592, &#39;radical&#39;),
+ (95.65322448979592, &#39;pleasant&#39;),
+ (95.65322448979592, &#39;nebraska&#39;),
+ (95.65322448979592, &#39;january&#39;),
+ (95.65322448979592, &#39;inner&#39;),
+ (95.65322448979592, &#39;infused&#39;),
+ (95.65322448979592, &#39;importantly&#39;),
+ (95.65322448979592, &#39;horizon&#39;),
+ (95.65322448979592, &#39;get&#39;),
+ (95.65322448979592, &#39;gangs&#39;),
+ (95.65322448979592, &#39;freedoms&#39;),
+ (95.65322448979592, &#39;flourished&#39;),
+ (95.65322448979592, &#39;eradicate&#39;),
+ (95.65322448979592, &#39;empty&#39;),
+ (95.65322448979592, &#39;dollars&#39;),
+ (95.65322448979592, &#39;detroit&#39;),
+ (95.65322448979592, &#39;companies&#39;),
+ (95.65322448979592, &#39;cash&#39;),
+ (95.65322448979592, &#39;carter&#39;),
+ (95.65322448979592, &#39;breath&#39;),
+ (95.65322448979592, &#39;airports&#39;),
+ (94.59589365861896, &#39;talk&#39;),
+ (94.07150214091843, &#39;jobs&#39;),
+ (94.07150214091843, &#39;everyone&#39;),
+ (93.54992925853905, &#39;workers&#39;),
+ (93.54992925853905, &#39;wealthy&#39;),
+ (93.54992925853905, &#39;totally&#39;),
+ (93.54992925853905, &#39;thrive&#39;),
+ (93.54992925853905, &#39;tells&#39;),
+ (93.54992925853905, &#39;sky&#39;),
+ (93.54992925853905, &#39;shuttered&#39;),
+ (93.54992925853905, &#39;salute&#39;),
+ (93.54992925853905, &#39;refusing&#39;),
+ (93.54992925853905, &#39;rebuilding&#39;),
+ (93.54992925853905, &#39;prospered&#39;),
+ (93.54992925853905, &#39;plains&#39;),
+ (93.54992925853905, &#39;pain&#39;),
+ (93.54992925853905, &#39;miseries&#39;),
+ (93.54992925853905, &#39;millennium&#39;),
+ (93.54992925853905, &#39;hall&#39;),
+ (93.54992925853905, &#39;gathered&#39;),
+ (93.54992925853905, &#39;factories&#39;),
+ (93.54992925853905, &#39;enriched&#39;),
+ (93.54992925853905, &#39;disappeared&#39;),
+ (93.54992925853905, &#39;destroying&#39;),
+ (93.54992925853905, &#39;decree&#39;),
+ (93.54992925853905, &#39;bridges&#39;),
+ (93.54992925853905, &#39;borders&#39;),
+ (93.54992925853905, &#39;allegiance&#39;),
+ (92.3095192550874, &#39;dreams&#39;),
+ (91.49137440637124, &#39;triumphs&#39;),
+ (91.49137440637124, &#39;movement&#39;),
+ (91.49137440637124, &#39;glorious&#39;),
+ (90.47843087389136, &#39;loyalty&#39;),
+ (90.27712678324866, &#39;protected&#39;),
+ (89.47614740982944, &#39;anyone&#39;),
+ (88.81379788452044, &#39;families&#39;),
+ (88.4843566175314, &#39;forgotten&#39;),
+ (88.4843566175314, &#39;fight&#39;),
+ (88.4843566175314, &#39;back&#39;),
+ (88.28724309526294, &#39;across&#39;),
+ (87.50289458696591, &#39;city&#39;),
+ (84.61889238770743, &#39;belongs&#39;),
+ (83.88561272903472, &#39;again&#39;),
+ (83.67717293343715, &#39;exists&#39;),
+ (83.67717293343715, &#39;capital&#39;),
+ (82.74501192502181, &#39;ocean&#39;),
+ (81.82226457004485, &#39;left&#39;),
+ (81.36437656260405, &#39;wealth&#39;),
+ (80.00444612676267, &#39;follow&#39;),
+ (79.10909971363492, &#39;heart&#39;),
+ (79.10909971363492, &#39;bless&#39;),
+ (78.66475832662432, &#39;bring&#39;),
+ (78.2226161652816, &#39;thank&#39;),
+ (77.9024302554632, &#39;your&#39;),
+ (76.4757164315377, &#39;washington&#39;),
+ (76.4757164315377, &#39;safe&#39;),
+ (76.0921570023243, &#39;america&#39;),
+ (75.90100184163504, &#39;countries&#39;),
+ (74.76272975984227, &#39;longer&#39;),
+ (74.76272975984226, &#39;moment&#39;),
+ (74.19910030216047, &#39;millions&#39;),
+ (73.77875827292783, &#39;american&#39;),
+ (72.80580491472013, &#39;while&#39;),
+ (70.89222052154734, &#39;same&#39;),
+ (68.88842955794615, &#39;you&#39;),
+ (68.7565129714922, &#39;whether&#39;),
+ (66.98269164100009, &#39;president&#39;),
+ (65.90560468709332, &#39;americans&#39;),
+ (64.28364956401919, &#39;:&#39;),
+ (63.64371275474254, &#39;here&#39;),
+ (63.05092014589975, &#39;today&#39;),
+ (62.535738505357386, &#39;together&#39;),
+ (60.245257889847906, &#39;never&#39;),
+ (59.51174372828367, &#39;will&#39;),
+ (58.1804031885922, &#39;right&#39;),
+ (53.854923610219544, &#39;god&#39;),
+ (51.26960964994218, &#39;make&#39;),
+ (48.24477135479292, &#39;s&#39;),
+ (47.39954637815924, &#39;one&#39;),
+ (43.882087324579494, &#39;nation&#39;),
+ (43.62702249210978, &#39;country&#39;),
+ (43.331449924815, &#39;we&#39;),
+ (32.89320572096895, &#39;our&#39;),
+ (22.9078612403631, &#39;.&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span>sorted
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./case"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By David Lukeš, Rudolf Rosa<br/>
+        
+            &copy; Copyright 2020--present.<br/>
+          <div class="extra_footer">
+            Sponsored by <a href="https://www.visegradfund.org/">Visegrad Fund</a> grant nr. 21820079 "Training Digital Scholars: Knowledge Exchange between V4 and Austria". Available under the terms of the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> license.
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

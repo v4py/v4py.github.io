@@ -1,1010 +1,421 @@
+
 <!DOCTYPE html>
-<html lang="en">
+
+<html>
   <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width,minimum-scale=1">
-
-  <title>Introduction</title>
-  <meta name="description" content="        Introduction    Acknowledgments: The authors are grateful to VisegradFund grant nr. 21820079 "TrainingDigital Scholars: Knowledge Exchange between V4...">
-
-  <link rel="canonical" href="https://v4py.github.io//intro.html">
-  <link rel="alternate" type="application/rss+xml" title="An Introduction to Python for Linguists" href="https://v4py.github.io//feed.xml">
-
-  <meta property="og:url"         content="https://v4py.github.io//intro.html" />
-<meta property="og:type"        content="article" />
-<meta property="og:title"       content="Introduction" />
-<meta property="og:description" content="        Introduction    Acknowledgments: The authors are grateful to VisegradFund grant nr. 21820079 "TrainingDigital Scholars: Knowledge Exchange between V4..." />
-<meta property="og:image"       content="https://v4py.github.io/images/v4py_logo_wide.svg" />
-
-<meta name="twitter:card" content="summary">
-
-
-  <script type="application/ld+json">
-  {
-  "@context": "http://schema.org",
-  "@type": "NewsArticle",
-  "mainEntityOfPage": "https://v4py.github.io//intro.html",
-  "headline": "Introduction",
-  "datePublished": "2020-06-23T16:14:31+02:00",
-  "dateModified": "2020-06-23T16:14:31+02:00",
-  "description": "        Introduction    Acknowledgments: The authors are grateful to VisegradFund grant nr. 21820079 "TrainingDigital Scholars: Knowledge Exchange between V4...",
-  "author": {
-    "@type": "Person",
-    "name": "David Lukeš, Rudolf Rosa"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Data 100 at UC Berkeley",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://v4py.github.io/",
-      "width": 60,
-      "height": 60
-    }
-  },
-  "image": {
-    "@type": "ImageObject",
-    "url": "https://v4py.github.io/",
-    "height": 60,
-    "width": 60
-  }
-}
-
-  </script>
-  <link rel="stylesheet" href="/assets/css/styles.css">
-
-  <!-- <link rel="manifest" href="/manifest.json"> -->
-  <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
-  <meta name="theme-color" content="#233947">
-
-  <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="/images/v4py_logo.svg">
-
-  <!-- MathJax Config -->
-  <!-- Allow inline math using $ and automatically break long math lines -->
-<!-- (mostly) copied from nbconvert configuration -->
-<!-- https://github.com/jupyter/nbconvert/blob/master/nbconvert/templates/html/mathjax.tpl -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-        processEscapes: true,
-        processEnvironments: true
-    },
-    // Center justify equations in code and markdown cells. Elsewhere
-    // we use CSS to left justify single line equations in code cells.
-    displayAlign: 'center',
-    "HTML-CSS": {
-        styles: {'.MathJax_Display': {"margin": 0}},
-        linebreaks: { automatic: true },
-    },
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1. Introduction &#8212; An Introduction to Python for Linguists</title>
     
-});
-</script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML' async></script>
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
-
-  <!-- DOM updating function -->
-  <script src="/assets/js/page/dom-update.js"></script>
-
-  <!-- Selectors for elements on the page -->
-  <script src="/assets/js/page/documentSelectors.js"></script>
-
-  <!-- Define some javascript variables that will be useful in other javascript -->
-  <script>
-    const site_basename = '/';
-  </script>
-
-  <!-- Add AnchorJS to let headers be linked -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js" async></script>
-  <script src="/assets/js/page/anchors.js" async></script>
-
-  <!-- Include Turbolinks to make page loads fast -->
-  <!-- https://github.com/turbolinks/turbolinks -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js" async></script>
-  <meta name="turbolinks-cache-control" content="no-cache">
-
-  <!-- Load nbinteract for widgets -->
-  
-
-  <!-- Load Thebelab for interactive widgets -->
-  <!-- Include Thebelab for interactive code if it's enabled -->
-
-
-
-  <!-- Load the auto-generating TOC (non-async otherwise the TOC won't load w/ turbolinks) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.8.1/tocbot.min.js" async></script>
-  <script src="/assets/js/page/tocbot.js"></script>
-
-  <!-- Google analytics -->
-  
-
-
-  <!-- Clipboard copy button -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script>
-
-  <!-- Load custom website scripts -->
-  <script src="/assets/js/scripts.js" async></script>
-
-  <!-- Load custom user CSS and JS  -->
-  <script src="/assets/custom/custom.js" async></script>
-  <link rel="stylesheet" href="/assets/custom/custom.css">
-
-  <!-- Update interact links w/ REST param, is defined in includes so we can use templates -->
-  
-<script>
-/**
-  * To auto-embed hub URLs in interact links if given in a RESTful fashion
- */
-
-function getJsonFromUrl(url) {
-  var query = url.split('?');
-  if (query.length < 2) {
-    // No queries so just return false
-    return false;
-  }
-  query = query[1];
-  // Collect REST params into a dictionary
-  var result = {};
-  query.split("&").forEach(function(part) {
-    var item = part.split("=");
-    result[item[0]] = decodeURIComponent(item[1]);
-  });
-  return result;
-}
     
-function dict2param(dict) {
-    params = Object.keys(dict).map(function(k) {
-        return encodeURIComponent(k) + '=' + encodeURIComponent(dict[k])
-    });
-    return params.join('&')
-}
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-// Parse a Binder URL, converting it to the string needed for JupyterHub
-function binder2Jupyterhub(url) {
-  newUrl = {};
-  parts = url.split('v2/gh/')[1];
-  // Grab the base repo information
-  repoinfo = parts.split('?')[0];
-  var [org, repo, ref] = repoinfo.split('/');
-  newUrl['repo'] = ['https://github.com', org, repo].join('/');
-  newUrl['branch'] = ref
-  // Grab extra parameters passed
-  params = getJsonFromUrl(url);
-  if (params['filepath'] !== undefined) {
-    newUrl['subPath'] = params['filepath']
-  }
-  return dict2param(newUrl);
-}
-
-// Filter out potentially unsafe characters to prevent xss
-function safeUrl(url)
-{
-   return String(encodeURIComponent(url))
-            .replace(/&/g, '&amp;')
-            .replace(/"/g, '&quot;')
-            .replace(/'/g, '&#39;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;');
-}
-
-function addParamToInternalLinks(hub) {
-  var links = document.querySelectorAll("a").forEach(function(link) {
-    var href = link.href;
-    // If the link is an internal link...
-    if (href.search("https://v4py.github.io") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
-      // Assume we're an internal link, add the hub param to it
-      var params = getJsonFromUrl(href);
-      if (params !== false) {
-        // We have REST params, so append a new one
-        params['jupyterhub'] = hub;
-      } else {
-        // Create the REST params
-        params = {'jupyterhub': hub};
-      }
-      // Update the link
-      var newHref = href.split('?')[0] + '?' + dict2param(params);
-      link.setAttribute('href', decodeURIComponent(newHref));
-    }
-  });
-  return false;
-}
-
-
-// Update interact links
-function updateInteractLink() {
-    // hack to make this work since it expects a ? in the URL
-    rest = getJsonFromUrl("?" + location.search.substr(1));
-    jupyterHubUrl = rest['jupyterhub'];
-    var hubType = null;
-    var hubUrl = null;
-    if (jupyterHubUrl !== undefined) {
-      hubType = 'jupyterhub';
-      hubUrl = jupyterHubUrl;
-    }
-
-    if (hubType !== null) {
-      // Sanitize the hubUrl
-      hubUrl = safeUrl(hubUrl);
-
-      // Add HTTP text if omitted
-      if (hubUrl.indexOf('http') < 0) {hubUrl = 'http://' + hubUrl;}
-      var interactButtons = document.querySelectorAll("button.interact-button")
-      var lastButton = interactButtons[interactButtons.length-1];
-      var link = lastButton.parentElement;
-
-      // If we've already run this, skip the link updating
-      if (link.nextElementSibling !== null) {
-        return;
-      }
-
-      // Update the link and add context div
-      var href = link.getAttribute('href');
-      if (lastButton.id === 'interact-button-binder') {
-        // If binder links exist, we need to re-work them for jupyterhub
-        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
-          // If localhost, assume we're working from a local Jupyter server and remove `/hub`
-          first = [hubUrl, 'git-sync'].join('/')
-        } else {
-          first = [hubUrl, 'hub', 'user-redirect', 'git-sync'].join('/')
-        }
-        href = first + '?' + binder2Jupyterhub(href);
-      } else {
-        // If interact button isn't binderhub, assume it's jupyterhub
-        // If JupyterHub links, we only need to replace the hub url
-        href = href.replace("https://jupyter.korpus.cz", hubUrl);
-        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
-          // Assume we're working from a local Jupyter server and remove `/hub`
-          href = href.replace("/hub/user-redirect", "");
-        }
-      }
-      link.setAttribute('href', decodeURIComponent(href));
-
-      // Add text after interact link saying where we're launching
-      hubUrlNoHttp = decodeURIComponent(hubUrl).replace('http://', '').replace('https://', '');
-      link.insertAdjacentHTML('afterend', '<div class="interact-context">on ' + hubUrlNoHttp + '</div>');
-
-      // Update internal links so we retain the hub url
-      addParamToInternalLinks(hubUrl);
-    }
-}
-
-runWhenDOMLoaded(updateInteractLink)
-document.addEventListener('turbolinks:load', updateInteractLink)
-</script>
-
-
-  <!-- Lunr search code - will only be executed on the /search page -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js" async></script>
-  <script>var initQuery = function() {
-  // See if we have a search box
-  var searchInput = document.querySelector('input#lunr_search');
-  if (searchInput === null) {
-    return;
-  }
-
-  // Function to parse our lunr cache
-  var idx = lunr(function () {
-    this.field('title')
-    this.field('excerpt')
-    this.field('categories')
-    this.field('tags')
-    this.ref('id')
-
-    this.pipeline.remove(lunr.trimmer)
-
-    for (var item in store) {
-      this.add({
-        title: store[item].title,
-        excerpt: store[item].excerpt,
-        categories: store[item].categories,
-        tags: store[item].tags,
-        id: item
-      })
-    }
-  });
-
-  // Run search upon keyup
-  searchInput.addEventListener('keyup', function () {
-    var resultdiv = document.querySelector('#results');
-    var query = document.querySelector("input#lunr_search").value.toLowerCase();
-    var result =
-      idx.query(function (q) {
-        query.split(lunr.tokenizer.separator).forEach(function (term) {
-          q.term(term, { boost: 100 })
-          if(query.lastIndexOf(" ") != query.length-1){
-            q.term(term, {  usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
-          }
-          if (term != ""){
-            q.term(term, {  usePipeline: false, editDistance: 1, boost: 1 })
-          }
-        })
-      });
-
-      // Empty the results div
-      while (resultdiv.firstChild) {
-        resultdiv.removeChild(resultdiv.firstChild);
-      }
-
-    resultdiv.insertAdjacentHTML('afterbegin', '<p class="results__found">'+result.length+' Result(s) found</p>');
-    for (var item in result) {
-      var ref = result[item].ref;
-      if(store[ref].teaser){
-        var searchitem =
-          '<div class="list__item">'+
-            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
-              '<h2 class="archive__item-title" itemprop="headline">'+
-                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
-              '</h2>'+
-              '<div class="archive__item-teaser">'+
-                '<img src="'+store[ref].teaser+'" alt="">'+
-              '</div>'+
-              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
-            '</article>'+
-          '</div>';
-      }
-      else{
-    	  var searchitem =
-          '<div class="list__item">'+
-            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
-              '<h2 class="archive__item-title" itemprop="headline">'+
-                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
-              '</h2>'+
-              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
-            '</article>'+
-          '</div>';
-      }
-      resultdiv.insertAdjacentHTML('beforeend', searchitem);
-    }
-  });
-};
-
-initFunction(initQuery);
-</script>
-
-  <!-- Load JS that depends on site variables -->
-  <script src="/assets/js/page/copy-button.js" async></script>
-
-  <!-- Hide cell code -->
-  <script src="/assets/js/page/hide-cell.js" async></script>
-
-  <!-- Printing the screen -->
-  <!-- Include nbinteract for interactive widgets -->
-<script src="https://printjs-4de6.kxcdn.com/print.min.js" async></script>
-<script>
-printContent = () => {
-    // MathJax displays a second version of any math for assistive devices etc.
-    // This prevents double-rendering in the PDF output.
-    var ignoreAssistList = [];
-    assistives = document.querySelectorAll('.MathJax_Display span.MJX_Assistive_MathML').forEach((element, index) => {
-        var thisId = 'MathJax-assistive-' + index.toString();
-        element.setAttribute('id', thisId);
-        ignoreAssistList.push(thisId)
-    });
-
-    // Print the actual content object
-    printJS({
-        printable: 'textbook_content',
-        type: 'html',
-        css: "/assets/css/styles.css",
-        style: "#textbook_content {padding-top: 40px};",
-        scanStyles: false,
-        targetStyles: ["*"],
-        ignoreElements: ignoreAssistList,
-        documentTitle: "An Introduction to Python for Linguists"
-    })
-};
-
-initPrint = () => {
-    document.querySelector('#interact-button-print').addEventListener('click', printContent)
-}
-
-initFunction(initPrint)
-</script>
-
-</head>
-
-  <body>
-    <!-- Include the ThebeLab config so it gets reloaded on each page -->
-    <script type="text/x-thebe-config">{
-    requestKernel: true,
-    binderOptions: {
-    repo: "v4py/v4py.github.io",
-    ref: "master",
-    },
-    codeMirrorConfig: {
-    theme: "abcdef",
-    mode: "python"
-    },
-    kernelOptions: {
-    kernelName: "python3",
-    path: "content"
-    }
-}
-</script>
-
-    <!-- .js-show-sidebar shows sidebar by default -->
-    <div id="js-textbook" class="c-textbook js-show-sidebar">
-      
-
-
-
-<nav id="js-sidebar" class="c-textbook__sidebar">
-  <a href="https://v4py.github.io"><img src="/images/v4py_logo_wide.svg" class="textbook_logo" id="sidebar-logo" alt="textbook logo" data-turbolinks-permanent/></a>
-  <h2 class="c-sidebar__title">An Introduction to Python for Linguists</h2>
-  <ul class="c-sidebar__chapters">
     
       
-      
 
-      
-      
-      
-      
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
 
-      
-      
-      <li class="c-sidebar__chapter" data-url="https://dlukes.github.io/">
-        <a class="c-sidebar__entry"
-          href="https://dlukes.github.io/"
-        >
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://v4py.github.io/intro.html" />
+    <link rel="shortcut icon" href="_static/v4py_logo.svg"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2. A tour of Python and NLTK" href="basics.html" />
+    <link rel="prev" title="Welcome!" href="welcome.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
           
-          David Lukeš
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-
-      
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
       
-      
-
-      
-      
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter" data-url="https://ufal.mff.cuni.cz/rudolf-rosa">
-        <a class="c-sidebar__entry"
-          href="https://ufal.mff.cuni.cz/rudolf-rosa"
-        >
-          
-          Rudolf Rosa
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-
-      
-    
-      
-      
-        <li><h2 class="c-sidebar__title">Table of contents</li>
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
         
       
       
+      <img src="_static/v4py_logo_wide.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">An Introduction to Python for Linguists</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Authors
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://dlukes.github.io/">
+   David Lukeš
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://ufal.mff.cuni.cz/rudolf-rosa">
+   Rudolf Rosa
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Table of contents
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="basics.html">
+   2. A tour of Python and NLTK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="unicode.html">
+   3. Text inside the computer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data.html">
+   4. Getting your data into Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="rest.html">
+   5. Working with online resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="regex.html">
+   6. Regular expressions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="outro.html">
+   7. Parting words
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Links
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://ufal.mff.cuni.cz/">
+   ÚFAL MFF UK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://korpus.cz/">
+   Czech National Corpus
+  </a>
+ </li>
+</ul>
 
-      
-      
-      
-      
+    </div>
+</nav> <!-- To handle the deprecated key -->
 
-      
-      
-      <li class="c-sidebar__chapter" data-url="/intro">
-        <a class="c-sidebar__entry"
-          href="/intro.html"
-        >
+<div class="navbar_extra_footer">
+  Sponsored by <a href="https://www.visegradfund.org/">Visegrad Fund</a> grant nr. 21820079 "Training Digital Scholars: Knowledge Exchange between V4 and Austria". Available under the terms of the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> license.
+</div>
+
+</div>
+
+
           
-            1.
+
+
           
-          Introduction
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-
-      
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-      
-      
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
 
-      
-      
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter" data-url="/basics">
-        <a class="c-sidebar__entry"
-          href="/basics.html"
-        >
-          
-            2.
-          
-          A tour of Python and NLTK
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-
-      
-    
-      
-      
-
-      
-      
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter" data-url="/unicode">
-        <a class="c-sidebar__entry"
-          href="/unicode.html"
-        >
-          
-            3.
-          
-          Text inside the computer
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-
-      
-    
-      
-      
-
-      
-      
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter" data-url="/data">
-        <a class="c-sidebar__entry"
-          href="/data.html"
-        >
-          
-            4.
-          
-          Getting your data into Python
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-
-      
-    
-      
-      
-
-      
-      
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter" data-url="/rest">
-        <a class="c-sidebar__entry"
-          href="/rest.html"
-        >
-          
-            5.
-          
-          Working with online resources
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-
-      
-    
-      
-      
-
-      
-      
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter" data-url="/regex">
-        <a class="c-sidebar__entry"
-          href="/regex.html"
-        >
-          
-            6.
-          
-          Regular expressions
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-
-      
-    
-      
-      
-
-      
-      
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter" data-url="/outro">
-        <a class="c-sidebar__entry"
-          href="/outro.html"
-        >
-          
-            7.
-          
-          Parting words
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-
-      
-    
-      
-      
-        <li><h2 class="c-sidebar__title">Links</li>
-        
-      
-      
-
-      
-      
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter" data-url="https://ufal.mff.cuni.cz/">
-        <a class="c-sidebar__entry"
-          href="https://ufal.mff.cuni.cz/"
-        >
-          
-          ÚFAL MFF UK
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-
-      
-    
-      
-      
-
-      
-      
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter" data-url="https://korpus.cz/">
-        <a class="c-sidebar__entry"
-          href="https://korpus.cz/"
-        >
-          
-          Czech National Corpus
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-
-      
-    
-  </ul>
-  <p class="sidebar_footer">Sponsored by <a href="https://www.visegradfund.org/">Visegrad Fund</a> grant nr. 21820079 "Training Digital Scholars: Knowledge Exchange between V4 and Austria". Available under the terms of the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> license.</p>
-</nav>
-
-      
-      <div class="c-topbar" id="top-navbar">
-  <!-- We show the sidebar by default so we use .is-active -->
-  <div class="c-topbar__buttons">
-    <button
-      id="js-sidebar-toggle"
-      class="hamburger hamburger--arrowalt is-active"
-    >
-      <span class="hamburger-box">
-        <span class="hamburger-inner"></span>
-      </span>
-    </button>
-    <div class="buttons">
-<div class="download-buttons-dropdown">
-    <button id="dropdown-button-trigger" class="interact-button"><img src="/assets/images/download-solid.svg" alt="Download" /></button>
-    <div class="download-buttons">
-        <a href="/content/intro.ipynb" download>
-        <button id="interact-button-download" class="interact-button">.ipynb</button>
-        </a>
-        
-        <a id="interact-button-print"><button id="interact-button-download" class="interact-button">.pdf</button></a>
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="_sources/intro.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/intro.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
+            <!-- Source interaction buttons -->
 
-  
-  
-  
-
-
-
-
-
-
-<a target="_blank" href="https://mybinder.org/v2/gh/v4py/v4py.github.io/master?urlpath=lab/tree/content%2Fintro.ipynb"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="/assets/images/logo_binder.svg" alt="Interact" />▶ mybinder.org</button></a>
-  
-
-
-
-
-
-<a target="_blank" href="https://jupyter.korpus.cz/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Fv4py%2Fv4py.github.io&amp;branch=master&amp;urlpath=lab%2Ftree%2Fv4py.github.io%2Fcontent%2Fintro.ipynb%3Fautodecode"><button class="interact-button" id="interact-button-jupyterhub"><img class="interact-button-logo" src="/assets/images/logo_jupyterhub.svg" alt="Interact" />▶ jupyter.korpus.cz</button></a>
-
-
-
-
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/v4py/v4py.github.io"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/v4py/v4py.github.io/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/v4py/v4py.github.io/edit/source/src/intro.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
 </div>
 
-  </div>
-  <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
-  <aside class="sidebar__right">
-    <header><h4 class="nav__title"><img src="/assets/images/list-solid.svg" alt="Search" />   On this page</h4></header>
-    <nav class="onthispage">
-    </nav>
-  </aside>
-  <a href="/search.html" class="topbar-right-button" id="search-button">
-    <img src="/assets/images/search-solid.svg" alt="Search" />
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/v4py/v4py.github.io/master?urlpath=lab/tree/_sources/intro.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://jupyter.korpus.cz//hub/user-redirect/git-pull?repo=https://github.com/v4py/v4py.github.io&urlpath=lab/tree/v4py.github.io/_sources/intro.ipynb&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-programming">
+   1.1. Why programming?
   </a>
-</div>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#target-audience">
+   1.2. Target audience
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-gives-you-wings">
+   1.3. Python gives you wings!
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-use-this-book">
+   1.4. How to use this book
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#diving-right-in-a-frequency-analysis-of-this-text">
+   1.5. Diving right in: a frequency analysis of this text
+  </a>
+ </li>
+</ul>
 
-      <main class="c-textbook__page" tabindex="-1">
-            <div class="c-textbook__content" id="textbook_content">
-                  <main class="jupyter-page">
-    <div id="page-info"><div id="page-title">Introduction</div>
+            </nav>
+        </div>
+    </div>
 </div>
-    <div class="jb_cell tag_popout">
-
-<div class="cell border-box-sizing text_cell rendered tag_popout"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Acknowledgments:</strong> The authors are grateful to <a href="https://www.visegradfund.org/">Visegrad
-Fund</a> grant nr. 21820079 "Training
-Digital Scholars: Knowledge Exchange between V4 and Austria" for kindly
-sponsoring this project.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_epigraph">
-
-<div class="cell border-box-sizing text_cell rendered tag_epigraph"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<blockquote><p>On second thought, let's not go to Camelot. 'Tis a silly place.</p>
-<p>-- King Arthur, Monty <a href="https://python.org">Python</a> and the Holy Grail</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Why-programming?">Why programming?<a class="anchor-link" href="#Why-programming?"> </a></h1><p>When I suggest to fellow linguists that they might want to take up
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="introduction">
+<h1><span class="section-number">1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<blockquote class="epigraph">
+<div><p>On second thought, let’s not go to <a class="reference external" href="https://en.wikipedia.org/wiki/Perl#Camel">Camel</a>ot. ’Tis a silly place.</p>
+<p class="attribution">—King Arthur, Monty <a class="reference external" href="https://python.org">Python</a> and the Holy Grail</p>
+</div></blockquote>
+<div class="section" id="why-programming">
+<h2><span class="section-number">1.1. </span>Why programming?<a class="headerlink" href="#why-programming" title="Permalink to this headline">¶</a></h2>
+<p>When I suggest to fellow linguists that they might want to take up
 programming as a way to supercharge their abilities to confront and
 extract meaning from language data, I get a variety of responses. Among
 the negative ones, two tend to dominate: a fear that it might be too
-late to start anyway, and a dismissive attitude in the vein of "why
-should I even care".</p>
-<p>Let's examine these concerns in turn. Regarding the first one, it's
+late to start anyway, and a dismissive attitude in the vein of “why
+should I even care”.</p>
+<p>Let’s examine these concerns in turn. Regarding the first one, it’s
 never too late, trust me. I myself started programming at uni, and not
 even in my first year. Back then, I thought I was interested in literary
 studies, and it took me a while to realize that my interests lay
 elsewhere. Programming is perhaps the easiest skill to acquire from the
 comfort of your own home, without the need for formal training (though
 of course interacting with a live teacher can help jumpstart your
-learning). There's a wealth of resources available via the internet,
+learning). There’s a wealth of resources available via the internet,
 this book being one example, and all you need to take full advantage of
 them is a computer and an internet connection.</p>
-<p>Much like any other learning experience, it's also a <a href="https://nedbatchelder.com/blog/202003/how_long_did_it_take_you_to_learn_python.html">journey that never
-really
-ends</a>.
-There's always room for improvement and for learning more, so you might
-as well start now and get on with it. For my part, it's been almost ten
+<p>Much like any other learning experience, it’s also a <a class="reference external" href="https://nedbatchelder.com/blog/202003/how_long_did_it_take_you_to_learn_python.html">journey that never
+really ends</a>.
+There’s always room for improvement and for learning more, so you might
+as well start now and get on with it. For my part, it’s been almost ten
 years since I set out, and while I consider myself a fairly proficient
-programmer by this point, I learn new stuff all the time. If you're
+programmer by this point, I learn new stuff all the time. If you’re
 anything like me, that sense of curiosity that got you into linguistics,
 and perhaps even an academic career, is likely to be rewarded by
 pursuing programming as well.</p>
 <p>I would argue that this sense of curiosity is also what should prevent
-you from having that second kneejerk negative response, "why should I
-even care". For my part, I can tell you that <strong>programming is very
+you from having that second kneejerk negative response, “why should I
+even care”. For my part, I can tell you that <strong>programming is very
 likely the most useful skill I acquired since learning to read</strong>. It
-really expanded the range of what I'm able to achieve not just in
+really expanded the range of what I’m able to achieve not just in
 linguistics, but in everyday life as well. Our society increasingly
 relies on software to go about its daily business, and being able to
 program puts me in much better control of the tools I must willy-nilly
 use to be a part of it.</p>
 <p>One concrete example: have you ever had a month to provide feedback on a
 Microsoft Word document, only to find yourself pulling an all-nighter
-just before the deadline because there just wasn't time earlier, and
-feeling ashamed of the trail of 3AM timestamps you're leaving behind?
+just before the deadline because there just wasn’t time earlier, and
+feeling ashamed of the trail of 3AM timestamps you’re leaving behind?
 Word offers the nuclear option of removing all metadata in tracked
 changes and comments across the board, but that includes author names,
 which is very conspicuous and feels like an even more flagrant admission
 of guilt, plus if there are multiple authors, you might need to keep
 them anyway. Luckily, it turns out you can tease the document apart
-using a <a href="https://gist.github.com/dlukes/2b5c2a163cd8adba420aaae0c8ea2c00">Python
-script</a>
+using a <a class="reference external" href="https://gist.github.com/dlukes/2b5c2a163cd8adba420aaae0c8ea2c00">Python script</a>
 and selectively target those pesky timestamps associated with your
-username. (If this doesn't sound familiar at all, then congratulations,
-you don't have OCD!)</p>
-<p>But admittedly, these are just words, to see for yourself, you're going
+username. (If this doesn’t sound familiar at all, then congratulations,
+you don’t have OCD!)</p>
+<p>But admittedly, these are just words, to see for yourself, you’re going
 to have to get your hands dirty and spend some time learning what
 programming feels like, and what it empowers you to do, what new,
 unsuspected perspectives it opens. This book is an attempt to help you
-get started on that path. And if it doesn't strike a chord with you, it
-might at least point you to <a href="outro">other related resources</a>, some of
+get started on that path. And if it doesn’t strike a chord with you, it
+might at least point you to <a class="reference internal" href="outro.html"><span class="doc std std-doc">other related resources</span></a>, some of
 which will hopefully be a better fit.</p>
 <p>If on the other hand, it turns out this book <em>is</em> a good fit for you,
 then great! And if you end up on the fence, then please consider
 helping us improve it for future readers like you. The source code of
-this book lives in a <a href="https://github.com/v4py/v4py.github.io">GitHub
+this book lives in a <a class="reference external" href="https://github.com/v4py/v4py.github.io">GitHub
 repository</a>. Please open issues
 with requests for clarification, tips for improvement, or even just
 typos!</p>
-<h1 id="Target-audience">Target audience<a class="anchor-link" href="#Target-audience"> </a></h1><p>This book is intended as an introduction to programming using the
-<a href="https://python.org">Python</a> programming language. No previous
-programming experience is required, though a basic amount of <a href="https://www.learnenough.com/command-line-tutorial/basics#aside-technical_sophistication">technical
+</div>
+<div class="section" id="target-audience">
+<h2><span class="section-number">1.2. </span>Target audience<a class="headerlink" href="#target-audience" title="Permalink to this headline">¶</a></h2>
+<p>This book is intended as an introduction to programming using the
+<a class="reference external" href="https://python.org">Python</a> programming language. No previous
+programming experience is required, though a basic amount of <a class="reference external" href="https://www.learnenough.com/command-line-tutorial/basics#aside-technical_sophistication">technical
 sophistication</a>
-is needed; you will hopefully acquire a lot more by the time you're done
+is needed; you will hopefully acquire a lot more by the time you’re done
 reading it.</p>
-<p>If you've programmed before, but not in Python, or even in Python, but
+<p>If you’ve programmed before, but not in Python, or even in Python, but
 not with a focus on language data, you might still glean useful
 information from this book, though the pace might feel sluggish at
 times. And even if you feel at home in both these areas, there might be
 tricks or gotchas addressed herein that will help you further refine
 your skills, though of course your mileage may vary.</p>
-<p>Finally, if you've never programmed, have no background in linguistics
+<p>Finally, if you’ve never programmed, have no background in linguistics
 and are not particularly computer-literate, reading this book might
 prove somewhat challenging, though not impossible with the right amount
 of dedication. If you make it through, or at least part-way, your
 feedback on how to make the parts you struggled with more accessible
 would be absolutely invaluable!</p>
-<h1 id="Python-gives-you-wings!">Python gives you wings!<a class="anchor-link" href="#Python-gives-you-wings!"> </a></h1>
 </div>
+<div class="section" id="python-gives-you-wings">
+<h2><span class="section-number">1.3. </span>Python gives you wings!<a class="headerlink" href="#python-gives-you-wings" title="Permalink to this headline">¶</a></h2>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><img alt="Python logo" src="https://www.python.org/static/community_logos/python-logo-generic.svg" /></p>
 </div>
-</div>
-</div>
-
-<div class="jb_cell tag_popout">
-
-<div class="cell border-box-sizing text_cell rendered tag_popout"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img alt="Python logo" style="width: 100%;"
-  src="https://www.python.org/static/community_logos/python-logo-generic.svg"></p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>So what is this <a href="https://python.org/">Python</a> business all about? I've
+<p>So what is this <a class="reference external" href="https://python.org/">Python</a> business all about? I’ve
 said before that learning programming was to me the most transformative
 new skill since learning to read, but it can also prove an uphill
 struggle. Python is a good entrypoint because it strikes a good balance
@@ -1012,109 +423,87 @@ between simplicity and flexibility, making the learning experience fun
 and rewarding and just enough challenging. The comic below might poke
 fun at this claim to get overzealous Python advocates off their soapbox,
 but by the same token, it shows that Python indeed has this sort of
-general reputation, otherwise the joke wouldn't work.</p>
-<p><img src="https://imgs.xkcd.com/comics/python.png" alt="Python XKCD"></p>
-<p>Credit: Randall Munroe, XKCD, <a href="https://xkcd.com/353/">https://xkcd.com/353/</a></p>
+general reputation, otherwise the joke wouldn’t work.</p>
+<p><img alt="Python XKCD" src="https://imgs.xkcd.com/comics/python.png" /></p>
+<p>Credit: Randall Munroe, XKCD, <a class="reference external" href="https://xkcd.com/353/">https://xkcd.com/353/</a></p>
 <p>Jokes aside though (which is sort of hard to do in a language named
-after <a href="https://en.wikipedia.org/wiki/Monty_Python">Monty Python's Flying
+after <a class="reference external" href="https://en.wikipedia.org/wiki/Monty_Python">Monty Python’s Flying
 Circus</a>), the key reason why
 Python exhibits these desirable properties is that it was designed with
-teachability to <a href="https://blog.dropbox.com/topics/work-culture/-the-mind-at-work--guido-van-rossum-on-how-python-makes-thinking">curious
-amateurs</a>
+teachability to <a class="reference external" href="https://blog.dropbox.com/topics/work-culture/-the-mind-at-work--guido-van-rossum-on-how-python-makes-thinking">curious amateurs</a>
 as a primary goal, and it has stayed an important concern during the
 thirty odd years that Python has evolved and matured since its first
 public release in 1990. The result is an approachable programming
-language which emphasizes readable and easily understandable code --
+language which emphasizes readable and easily understandable code –
 properties which are crucial for beginners, but which also appeal to
-many seasoned programmers. After all, the computer doesn't care, so we
+many seasoned programmers. After all, the computer doesn’t care, so we
 might as well make the language as easy as possible for humans to wrap
-their head around -- is the general idea.</p>
-<blockquote><p>I don't know how well people know ABC's influence on Python. [...]
-ABC's design had a very clear, sharp focus. ABC was intended to be a
-programming language that could be taught to intelligent computer
-users who were not computer programmers or software developers in any
-sense.</p>
-<p>-- Guido van Rossum, creator of Python, in <a href="https://www.artima.com/intv/python.html"><em>The Making of
-Python</em></a></p>
-</blockquote>
+their head around – is the general idea.</p>
+<blockquote class="epigraph">
+<div><p>I don’t know how well people know ABC’s influence on Python. […] ABC’s
+design had a very clear, sharp focus. ABC was intended to be a
+programming language that could be taught to intelligent computer users
+who were not computer programmers or software developers in any sense.</p>
+<p class="attribution">—Guido van Rossum, creator of Python, in <a class="reference external" href="https://www.artima.com/intv/python.html"><em>The Making of Python</em></a></p>
+</div></blockquote>
 <p>Python was also designed as a <strong>general purpose language</strong>, i.e. it is
 intended to enable its users to build all kinds of programs in a variety
 of different domains (though as every programming language, it
 particularly shines in some and is less well-suited for others). A
 possible disadvantage of this inclusive approach is that it may be a bit
-harder to find one's way around the ecosystem of tools and libraries for
+harder to find one’s way around the ecosystem of tools and libraries for
 a particular purpose (e.g. statistics or data science), but it pays off
-in that you're not limited by the one intended use, which is a good
+in that you’re not limited by the one intended use, which is a good
 thing whenever you embark on a bigger project. And Python encourages you
 to do that, making it relatively easy to split your code into reusable
 modules and manage the complexity inherent in that.</p>
 <p>Contrast this with another high-level programming language that
-non-programmers often tend to run into -- as a linguist, you might be
-familiar with <a href="https://www.r-project.org/">R</a>. R is very specifically
+non-programmers often tend to run into – as a linguist, you might be
+familiar with <a class="reference external" href="https://www.r-project.org/">R</a>. R is very specifically
 focused on data analysis, the use case it optimizes for is calling
 existing statistical functions in an interactive session, and for that,
 it works admirably well. For anything else though, it can get really
-ugly. Since "regular" users are mostly meant to consume functions rather
+ugly. Since “regular” users are mostly meant to consume functions rather
 than write their own, there is a big gap between the elegant way in
-which these functions are called, and the messy code with which they're
-implemented. To be clear, I don't mean to say that the code is messy
-because the people who wrote it are bad programmers; it's messy because
+which these functions are called, and the messy code with which they’re
+implemented. To be clear, I don’t mean to say that the code is messy
+because the people who wrote it are bad programmers; it’s messy because
 R deliberately made some tradeoffs which make it a complicated language
 to write larger, reusable pieces of code in, while at the same time
 making these functions somewhat easier to use.</p>
 <p>As a consequence, with R, beginners tend to run up against a wall when
-trying to use it for anything that's not easily achieved by an existing
+trying to use it for anything that’s not easily achieved by an existing
 library, and though it deserves an honorable mention for having a lot of
 libraries with useful functionality, some of them very well-designed
-(I'm looking at you, <a href="https://tidyverse.org/"><code>tidyverse</code></a>), it's one of
+(I’m looking at you, <a class="reference external" href="https://tidyverse.org/"><code class="docutils literal notranslate"><span class="pre">tidyverse</span></code></a>), it’s one of
 the laws of programming that there will always be at least this one
 thing in your project that there is no existing library for (or maybe
-there is, but you can't seem to find it). Not to mention that if you
-ever get interested in other areas of programming, R's laser-sharp focus
+there is, but you can’t seem to find it). Not to mention that if you
+ever get interested in other areas of programming, R’s laser-sharp focus
 on data analysis can become a drawback, as it makes R programming skills
 less transferrable.</p>
-<p>This is not to say that Python is a panacea to all, or that it doesn't
+<p>This is not to say that Python is a panacea to all, or that it doesn’t
 have drawbacks of its own. It definitely does. My point is simply that
 it has a much more consistent and gradual learning curve, which makes it
-less likely you'll quit in frustration, and helps you graduate from
-beginner to intermediate to advanced over time. Perhaps you like R --
-and that's totally fine -- but you never got over that hump which
+less likely you’ll quit in frustration, and helps you graduate from
+beginner to intermediate to advanced over time. Perhaps you like R –
+and that’s totally fine – but you never got over that hump which
 separates people who use R packages from people who write them. Learning
 Python might actually be a good way to get there, by improving your
-general programming skills to a point where you'll feel confident to
+general programming skills to a point where you’ll feel confident to
 tackle that uglier side of R.</p>
-<p>Python's philosophy can be summed up by the guiding principles contained
+<p>Python’s philosophy can be summed up by the guiding principles contained
 in <em>The Zen of Python</em>, which you can print out in a Python session by
-importing the <code>this</code> module. Especially the first four entries are key
-to the argument that I'm trying to make here:</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">this</span>
+importing the <code class="docutils literal notranslate"><span class="pre">this</span></code> module. Especially the first four entries are key
+to the argument that I’m trying to make here:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">this</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>The Zen of Python, by Tim Peters
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Zen of Python, by Tim Peters
 
 Beautiful is better than ugly.
 Explicit is better than implicit.
@@ -1135,98 +524,51 @@ Although never is often better than *right* now.
 If the implementation is hard to explain, it&#39;s a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let&#39;s do more of those!
-</pre>
+</pre></div>
 </div>
 </div>
 </div>
 </div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="How-to-use-this-book">How to use this book<a class="anchor-link" href="#How-to-use-this-book"> </a></h1><p>This book actually consists of a series of <a href="https://jupyter.org/">Jupyter
+<div class="section" id="how-to-use-this-book">
+<h2><span class="section-number">1.4. </span>How to use this book<a class="headerlink" href="#how-to-use-this-book" title="Permalink to this headline">¶</a></h2>
+<p>This book actually consists of a series of <a class="reference external" href="https://jupyter.org/">Jupyter
 notebooks</a>, which is a file format, recognizable
-by its <code>.ipynb</code> extension, which intermixes expository prose with
+by its <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> extension, which intermixes expository prose with
 programming code. It can be opened using the
-<a href="https://jupyterlab.readthedocs.io/">JupyterLab</a> application, which runs
+<a class="reference external" href="https://jupyterlab.readthedocs.io/">JupyterLab</a> application, which runs
 in your browser. In the notebooks, code is stored inside code cells
 which can be modified and run at will, which encourages interactive
 exploration and makes learning easier. This is what a code cell looks
 like:</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>2</pre>
-</div>
-
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
 </div>
 </div>
 </div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>You can see the code cell's output right below it -- in this case, it's
-a plain old <code>2</code>.</p>
-<p>If you can, it's a great idea to follow along in JupyterLab, running the
+<p>You can see the code cell’s output right below it – in this case, it’s
+a plain old <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p>
+<p>If you can, it’s a great idea to follow along in JupyterLab, running the
 code in each chapter of the book yourself and tinkering with it. There
-are several options for that. The easiest one is to use either the <strong>▶
-mybinder.org</strong> or <strong>▶ jupyter.korpus.cz</strong> buttons at the top of the
-page, which will take care of everything for you and open an interactive
-version of this text in your browser, without you needing to install
-anything on your computer.</p>
+are several options for that. The easiest one is to use either the
+<strong>Binder</strong> or <strong>JupyterHub</strong> buttons under the <i class="fas fa-rocket"></i>
+icon at the top of the page, which will take care of everything for you
+and open an interactive version of this text in your browser, without
+you needing to install anything on your computer.</p>
 <p>Note that the second button requires that you have an account at
-<a href="https://jupyter.korpus.cz">https://jupyter.korpus.cz</a> (attendees of the V4Py summer school do).
-The notebook corresponding to the chapter you're reading should
-automatically open; if it doesn't, try reloading the page, or as a last
-resort, navigating to the <code>v4py.github.io</code> folder and opening the
+<a class="reference external" href="https://jupyter.korpus.cz">https://jupyter.korpus.cz</a> (attendees of the V4Py summer school do).
+The notebook corresponding to the chapter you’re reading should
+automatically open; if it doesn’t, try reloading the page, or as a last
+resort, navigating to the <code class="docutils literal notranslate"><span class="pre">v4py.github.io</span></code> folder and opening the
 appropriate notebook manually.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_popout">
-
-<div class="cell border-box-sizing text_cell rendered tag_popout"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
 <p>If you do end up installing Python yourself, make sure you install
 <strong>Python 3</strong>. The previous major version, Python 2, has reached
 end-of-life at the end of 2019 and is no longer in active development.
@@ -1234,869 +576,421 @@ For a beginning programmer with an interest in linguistics, Python 3 is
 an improvement in every way, because it is much stricter about how it
 handles text data, making data corruption or silent processing errors
 which yield spurious results much less likely.</p>
-
 </div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p>If you want to install Python on your own computer and run JupyterLab
-locally, I would suggest using <a href="https://www.anaconda.com/distribution/">the Anaconda
+locally, I would suggest using <a class="reference external" href="https://www.anaconda.com/distribution/">the Anaconda
 Distribution</a>, which installs
 Python alongside many popular additional packages and libraries for data
-analysis. In that case, you'll be opening JupyterLab via the <a href="https://docs.anaconda.com/anaconda/navigator/">Anaconda
-Navigator</a>, and you'll
-need to <a href="https://github.com/v4py/v4py.github.io/archive/master.zip">download the notebooks
+analysis. In that case, you’ll be opening JupyterLab via the <a class="reference external" href="https://docs.anaconda.com/anaconda/navigator/">Anaconda
+Navigator</a>, and you’ll
+need to <a class="reference external" href="https://github.com/v4py/v4py.github.io/archive/master.zip">download the notebooks
 manually</a>
-(after unzipping, the notebooks are in the <code>content/</code> subdirectory). If
-you don't mind downloading the notebooks individually, you can also use
-the download button at the top of the page, but that won't get you any
+(after unzipping, the notebooks are in the <code class="docutils literal notranslate"><span class="pre">content/</span></code> subdirectory). If
+you don’t mind downloading the notebooks individually, you can also use
+the download button at the top of the page, but that won’t get you any
 of the additional files that some of the notebooks rely on.</p>
-<p>If you want to learn more about using notebooks, <a href="https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks">here's a gallery of
+<p>If you want to learn more about using notebooks, <a class="reference external" href="https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks">here’s a gallery of
 interesting notebooks to help you get acquainted with the
 format</a>,
 including some introductory tutorials on how to use it right. The
-JupyterLab notebook user interface is described in more detail in <a href="https://jupyterlab.readthedocs.io/en/latest/user/notebook.html">their
+JupyterLab notebook user interface is described in more detail in <a class="reference external" href="https://jupyterlab.readthedocs.io/en/latest/user/notebook.html">their
 docs</a>.
 Finally, some usage tips which I personally find useful can be found in
-the <a href="https://dlukes.github.io/jupyter-magic.html">this blog post</a>.</p>
-<h1 id="Diving-right-in:-a-frequency-analysis-of-this-text">Diving right in: a frequency analysis of this text<a class="anchor-link" href="#Diving-right-in:-a-frequency-analysis-of-this-text"> </a></h1><p>To get our feet wet, let's do a quick frequency analysis of the text
-you're currently reading. If you've never programmed before, don't worry
-if parts (or all) of the code below seems a little mysterious!  We'll
+the <a class="reference external" href="https://dlukes.github.io/jupyter-magic.html">this blog post</a>.</p>
+</div>
+<div class="section" id="diving-right-in-a-frequency-analysis-of-this-text">
+<h2><span class="section-number">1.5. </span>Diving right in: a frequency analysis of this text<a class="headerlink" href="#diving-right-in-a-frequency-analysis-of-this-text" title="Permalink to this headline">¶</a></h2>
+<p>To get our feet wet, let’s do a quick frequency analysis of the text
+you’re currently reading. If you’ve never programmed before, don’t worry
+if parts (or all) of the code below seems a little mysterious!  We’ll
 cover all of that in much more detail in the following chapters.
-However, before we dive into the particulars, I think it's a good idea
+However, before we dive into the particulars, I think it’s a good idea
 to get acquainted with what actual useful Python code looks like, so
-that we have a general picture of where we're headed. Without a global
-perspective and a clear goal in our heads, it's easy to get discouraged
+that we have a general picture of where we’re headed. Without a global
+perspective and a clear goal in our heads, it’s easy to get discouraged
 by the many seemingly unconnected details that await us along the way.</p>
 <p>So take a while to look at each code chunk below, try and figure out
 what its purpose might be and how it achieves it, try and discover
-repeating patterns in Python's syntax and their meaning. Read the
-commentary and let the programming vocabulary soak into your brain. It's
-alright to be confused, it's OK not to understand precisely what each
+repeating patterns in Python’s syntax and their meaning. Read the
+commentary and let the programming vocabulary soak into your brain. It’s
+alright to be confused, it’s OK not to understand precisely what each
 and every word means. The goal at this point is to get familiar with how
-Python code looks and how the terminology sounds, even if you don't
-fully understand what's happening yet.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_popout">
-
-<div class="cell border-box-sizing text_cell rendered tag_popout"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>HTML</strong> is the <a href="https://en.wikipedia.org/wiki/HTML">Hypertext Markup
-Language</a> and it's what web pages
+Python code looks and how the terminology sounds, even if you don’t
+fully understand what’s happening yet.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><strong>HTML</strong> is the <a class="reference external" href="https://en.wikipedia.org/wiki/HTML">Hypertext Markup
+Language</a> and it’s what web pages
 are built from, specifically their structure. Layout is mostly done
-using <a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets">CSS</a> and
+using <a class="reference external" href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets">CSS</a> and
 interactive features with
-<a href="https://en.wikipedia.org/wiki/JavaScript">JavaScript</a>.</p>
-
+<a class="reference external" href="https://en.wikipedia.org/wiki/JavaScript">JavaScript</a>.</p>
 </div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We start by <strong>importing</strong> <code>HTMLSession</code> from the
-<a href="http://html.python-requests.org"><code>requests_html</code></a> <strong>library</strong>, which
+<p>We start by <strong>importing</strong> <code class="docutils literal notranslate"><span class="pre">HTMLSession</span></code> from the
+<a class="reference external" href="http://html.python-requests.org"><code class="docutils literal notranslate"><span class="pre">requests_html</span></code></a> <strong>library</strong>, which
 contains functionality related to fetching HTML pages from the web.  We
-create a fresh <code>HTMLSession</code> <strong>object</strong> and store it in the <code>session</code>
+create a fresh <code class="docutils literal notranslate"><span class="pre">HTMLSession</span></code> <strong>object</strong> and store it in the <code class="docutils literal notranslate"><span class="pre">session</span></code>
 <strong>variable</strong>. Think of it as a simple web browser inside Python.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">requests_html</span> <span class="kn">import</span> <span class="n">HTMLSession</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">requests_html</span> <span class="kn">import</span> <span class="n">HTMLSession</span>
 
 <span class="n">session</span> <span class="o">=</span> <span class="n">HTMLSession</span><span class="p">()</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
 </div>
-</div>
-
-<div class="jb_cell tag_popout">
-
-<div class="cell border-box-sizing text_cell rendered tag_popout"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>HTTP</strong> stands for <a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol">Hypertext Transfer
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><strong>HTTP</strong> stands for <a class="reference external" href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol">Hypertext Transfer
 Protocol</a>.
-It's the main protocol used for sending around data on the web.</p>
-
+It’s the main protocol used for sending around data on the web.</p>
 </div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We can fetch the page you're currently reading by calling the <code>get()</code>
-<strong>method</strong> of the <code>session</code> object and passing it the link to this
+<p>We can fetch the page you’re currently reading by calling the <code class="docutils literal notranslate"><span class="pre">get()</span></code>
+<strong>method</strong> of the <code class="docutils literal notranslate"><span class="pre">session</span></code> object and passing it the link to this
 website as an <strong>argument</strong>. We get back an HTTP response.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">link</span> <span class="o">=</span> <span class="s2">&quot;https://v4py.github.io/intro.html&quot;</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># link = &quot;https://v4py.github.io/intro.html&quot;</span>
+<span class="n">link</span> <span class="o">=</span> <span class="s2">&quot;http://localhost:8000/intro.html&quot;</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
 </div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Inspecting the <code>response</code> variable, we see <code>&lt;Response [200]&gt;</code>. <code>200</code> is
-the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">HTTP status
+<p>Inspecting the <code class="docutils literal notranslate"><span class="pre">response</span></code> variable, we see <code class="docutils literal notranslate"><span class="pre">&lt;Response</span> <span class="pre">[200]&gt;</span></code>. <code class="docutils literal notranslate"><span class="pre">200</span></code> is
+the <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">HTTP status
 code</a> which
 indicates that all went well with our request and we received a
 sucessful response.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;Response [200]&gt;</pre>
-</div>
-
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>If we don't know or remember which HTTP status code is which, we can
-check that everything is fine by inspecting the <code>.ok</code> <strong>attribute</strong> on
-the <code>response</code> object.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span><span class="o">.</span><span class="n">ok</span>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Response [200]&gt;
 </pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>True</pre>
-</div>
-
 </div>
 </div>
 </div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The contents of the web page are stored in the <code>.html</code> attribute of the
-<code>response</code> object.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span><span class="o">.</span><span class="n">html</span>
+<p>If we don’t know or remember which HTTP status code is which, we can
+check that everything is fine by inspecting the <code class="docutils literal notranslate"><span class="pre">.ok</span></code> <strong>attribute</strong> on
+the <code class="docutils literal notranslate"><span class="pre">response</span></code> object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span><span class="o">.</span><span class="n">ok</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;HTML url=&#39;https://v4py.github.io/intro.html&#39;&gt;</pre>
-</div>
-
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
 </div>
 </div>
 </div>
+<p>The contents of the web page are stored in the <code class="docutils literal notranslate"><span class="pre">.html</span></code> attribute of the
+<code class="docutils literal notranslate"><span class="pre">response</span></code> object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span><span class="o">.</span><span class="n">html</span>
+</pre></div>
 </div>
-
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;HTML url=&#39;http://localhost:8000/intro.html&#39;&gt;
+</pre></div>
 </div>
 </div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+</div>
 <p>That attribute is itself an object with attributes and methods of its
 own, which allow us to inspect it and manipulate it. For instance, it
-has in turn its own <code>.html</code> attribute, which contains the raw HTML code
-underlying the web page you're reading, stored as a <strong>string</strong> of
+has in turn its own <code class="docutils literal notranslate"><span class="pre">.html</span></code> attribute, which contains the raw HTML code
+underlying the web page you’re reading, stored as a <strong>string</strong> of
 <strong>characters</strong>. We can take a look at a <strong>slice</strong> of the first 50
-characters of the string using the <code>[:50]</code> syntax, just to make sure we
-downloaded the right document. If you're running this notebook inside
+characters of the string using the <code class="docutils literal notranslate"><span class="pre">[:50]</span></code> syntax, just to make sure we
+downloaded the right document. If you’re running this notebook inside
 JupyterLab, you can delete the square brackets and inspect the full
-HTML; I've not done that here to save some space.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">html</span><span class="p">[:</span><span class="mi">50</span><span class="p">]</span>
+HTML; I’ve not done that here to save some space.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">html</span><span class="p">[:</span><span class="mi">50</span><span class="p">]</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;&lt;!DOCTYPE html&gt;\n&lt;html lang=&#34;en&#34;&gt;\n  &lt;head&gt;\n  &lt;meta &#39;</pre>
-</div>
-
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\n&lt;!DOCTYPE html&gt;\n\n&lt;html&gt;\n  &lt;head&gt;\n    &lt;meta charse&#39;
+</pre></div>
 </div>
 </div>
 </div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Uh-oh, I don't remember reading anything about any doctypes at the
-beginning of this text. What's this all about? Well this is all part of
+<p>Uh-oh, I don’t remember reading anything about any doctypes at the
+beginning of this text. What’s this all about? Well this is all part of
 the HTML language, which tells your browser how to display this web
 page. Trouble is, from our point of view as linguists, this is just junk
-that we need to get rid of. One thing we could try is the <code>.text</code>
+that we need to get rid of. One thing we could try is the <code class="docutils literal notranslate"><span class="pre">.text</span></code>
 attribute, which extracts only the text parts of a web page.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># the first 50 characters</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the first 50 characters</span>
 <span class="n">response</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">text</span><span class="p">[:</span><span class="mi">50</span><span class="p">]</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;Introduction\n{ &#34;@context&#34;: &#34;http://schema.org&#34;, &#34;@&#39;</pre>
-</div>
-
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1. Introduction — An Introduction to Python for Li&#39;
+</pre></div>
 </div>
 </div>
 </div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># the last 50 characters</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the last 50 characters</span>
 <span class="n">response</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="o">-</span><span class="mi">50</span><span class="p">:]</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;le under the terms of the CC BY-NC-SA 4.0 license.&#39;</pre>
-</div>
-
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;le under the terms of the CC BY-NC-SA 4.0 license.&#39;
+</pre></div>
 </div>
 </div>
 </div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>That looks somewhat better, but there's clearly still some "junk" left.
-Turns out that the "text" content of an HTML page includes not only all
-the stuff that's visible on the page (navigation elements, button
-labels, and other things we probably want to exclude from our analysis),
-but also invisible things like JavaScript programs which add
-interactivity to the page (surrounded by <code>&lt;script/&gt;</code> tags) or CSS styles
-which define the layout and other aesthetic aspects of the page
-(surrounded by <code>&lt;style/&gt;</code> tags).</p>
-<p>Ideally, we'd like to get rid of all of this. How to achieve that? We
-first need to figure out which parts of the HTML enclose the content
-we're interested in. For that, we'll use our browser's inspector tools.
+<p>That looks promising, although this still includes header and footer
+text which we might want to exclude from our analysis if we’re being
+pedantic. Furthermore, JavaScript programs (which add interactivity to
+the page; surrounded by <code class="docutils literal notranslate"><span class="pre">&lt;script/&gt;</span></code> tags) or CSS styles (which define
+the layout and other aesthetic aspects of the page; surrounded by
+<code class="docutils literal notranslate"><span class="pre">&lt;style/&gt;</span></code> tags) might be hiding in the middle of all this. These
+elements are invisible when you read the rendered page in a browser, but
+unfortunately, they count as “text”.</p>
+<p>More broadly, some pages simply might not be so well-behaved and yield
+such good results out-of-the-box. So let’s learn a technique to zero in
+on what you want in a sea of HTML.</p>
+<p>We first need to figure out which parts of the HTML enclose the content
+we’re interested in. For that, we’ll use our browser’s inspector tools.
 If you right click anywhere on this page, you should get a menu where
 one of the items says something like <em>Inspect</em> or <em>Inspect Element</em>.
 Click on that and a pane will open beside the page which lets you peek
 under the hood of this page. If you right click on this paragraph
 specifically and select <em>Inspect Element</em>, the inspector will focus on
 where in the HTML hierarchy this particular paragraph is placed.</p>
-<p><img src="images/intro/inspector.png" alt="Firefox inspector screenshot"></p>
-<p>We can see that this paragraph is contained with a <code>&lt;div/&gt;</code> HTML element
-which has a class of <code>rendered_html</code>, among others. This sounds like a
-property which could be true of all the interesting content on this page
--- after all, we know it was <em>rendered</em> from a Jupyter notebook to HTML
--- so let's go on a limb here and retrieve all of those <code>divs</code> using the
-<code>.find()</code> method. This method uses <a href="https://www.w3schools.com/cssref/css_selectors.asp">CSS
-selectors</a> to slice
-and dice the page; all we need to know right now is that the syntax to
-find all HTML elements of a certain class is to prefix the class name
-with a period, so <code>.rendered_html</code> in our case. We get back a <strong>list</strong>
-of <code>divs</code>; the <code>clean=True</code> <strong>keyword argument</strong> makes sure that we
-throw away those pesky invisible <code>&lt;script/&gt;</code> and <code>&lt;style/&gt;</code> tags, if
-any. Again, I'm showing just a slice of the list to save space -- the
-first 5 divs using the <code>[:5]</code> syntax -- but you can delete those square
-brackets and re-evaluate the cell to see the full list should you wish
-so.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_full_width">
-
-<div class="cell border-box-sizing code_cell rendered tag_full_width">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">divs</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;.rendered_html&quot;</span><span class="p">,</span> <span class="n">clean</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">divs</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+<p><img alt="Firefox inspector screenshot" src="_images/inspector.png" /></p>
+<p>We can see that this paragraph is ultimately contained within a <code class="docutils literal notranslate"><span class="pre">&lt;div/&gt;</span></code>
+HTML element which has an ID of <code class="docutils literal notranslate"><span class="pre">main-content</span></code>. This sounds promising –
+hopefully, all of the main, interesting content on the page should be
+placed under this <code class="docutils literal notranslate"><span class="pre">div</span></code> somewhere, otherwise the ID is a real misnomer.
+So let’s go on a limb here and retrieve that <code class="docutils literal notranslate"><span class="pre">div</span></code> using the <code class="docutils literal notranslate"><span class="pre">.find()</span></code>
+method. This method uses <a class="reference external" href="https://www.w3schools.com/cssref/css_selectors.asp">CSS selectors</a> to slice and
+dice the page; all we need to know right now is that the syntax to find
+an HTML element by its ID is to prefix the ID with a hash symbol (also
+called pound sign or octothorpe), so <code class="docutils literal notranslate"><span class="pre">#main-content</span></code> in our case. We get
+back a <strong>list</strong> of <code class="docutils literal notranslate"><span class="pre">div</span></code>s; the <code class="docutils literal notranslate"><span class="pre">clean=True</span></code> <strong>keyword argument</strong> makes
+sure that we throw away those pesky invisible <code class="docutils literal notranslate"><span class="pre">&lt;script/&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;style/&gt;</span></code>
+tags, if any.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">divs</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;#main-content&quot;</span><span class="p">,</span> <span class="n">clean</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">divs</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[&lt;Element &#39;div&#39; class=(&#39;text_cell_render&#39;, &#39;border-box-sizing&#39;, &#39;rendered_html&#39;)&gt;,
- &lt;Element &#39;div&#39; class=(&#39;text_cell_render&#39;, &#39;border-box-sizing&#39;, &#39;rendered_html&#39;)&gt;,
- &lt;Element &#39;div&#39; class=(&#39;text_cell_render&#39;, &#39;border-box-sizing&#39;, &#39;rendered_html&#39;)&gt;,
- &lt;Element &#39;div&#39; class=(&#39;text_cell_render&#39;, &#39;border-box-sizing&#39;, &#39;rendered_html&#39;)&gt;,
- &lt;Element &#39;div&#39; class=(&#39;text_cell_render&#39;, &#39;border-box-sizing&#39;, &#39;rendered_html&#39;)&gt;]</pre>
-</div>
-
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;Element &#39;div&#39; id=&#39;main-content&#39; class=(&#39;row&#39;,)&gt;]
+</pre></div>
 </div>
 </div>
 </div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Apart from <code class="docutils literal notranslate"><span class="pre">id</span></code> attributes, another common way of selecting HTML
+elements is via <code class="docutils literal notranslate"><span class="pre">class</span></code> attributes. Each element should have only one,
+unique <code class="docutils literal notranslate"><span class="pre">id</span></code>, but it can have multiple classes and share them with other
+elements. E.g. on the page you’re reading, all of the cells with Python
+code live inside <code class="docutils literal notranslate"><span class="pre">div</span></code>s with a <code class="docutils literal notranslate"><span class="pre">class</span></code> of <code class="docutils literal notranslate"><span class="pre">cell_input</span></code> (see for yourself
+with <em>Inspect Element</em>). The resulting lists can thus easily have more
+than one element. Try it out! Class selectors start with <code class="docutils literal notranslate"><span class="pre">.</span></code> instead of
+<code class="docutils literal notranslate"><span class="pre">#</span></code>. And here’s how you can join a list of <code class="docutils literal notranslate"><span class="pre">div</span></code>s into one big string
+using <code class="docutils literal notranslate"><span class="pre">\n</span></code>ewlines: <code class="docutils literal notranslate"><span class="pre">&quot;\n&quot;.join(div.text</span> <span class="pre">for</span> <span class="pre">div</span> <span class="pre">in</span> <span class="pre">divs)</span></code>.</p>
 </div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<!-- TODO: explain escape sequence or later? -->
-
-<p>Each of these <code>divs</code> has a <code>.text</code> attribute, which hopefully contains
-reasonable text and not some junk. We'd like to lump it all together
-into one long string before moving on to further processing, because we
-don't really care which part of the text was in which <code>div</code>, we just
-want to have it all in one place to make things easy. So we can join all
-of those <code>.text</code> attributes into one string by splicing a <strong>newline</strong>
-character, written using the <strong>escape sequence</strong> <code>"\n"</code>, in between
-every two pieces of text.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">div</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">div</span> <span class="ow">in</span> <span class="n">divs</span><span class="p">)</span>
+<p>The list has a single <code class="docutils literal notranslate"><span class="pre">div</span></code> element, which makes sense – IDs should be
+unique, so the entire document has just one element which matches the
+selector <code class="docutils literal notranslate"><span class="pre">#main-content</span></code>. We can again use the <code class="docutils literal notranslate"><span class="pre">[...]</span></code> syntax to reach
+into the list, but this time, we put a single number between the square
+brackets, because we want to access a single element, not a slice.
+Additionally, lists in Python are numbered starting from 0, so the way
+to refer to the first and only item in the list is as <code class="docutils literal notranslate"><span class="pre">divs[0]</span></code>. We can
+then retrieve the text inside the <code class="docutils literal notranslate"><span class="pre">div</span></code> as one long string via its
+<code class="docutils literal notranslate"><span class="pre">.text</span></code> attribute, as previously.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">string</span> <span class="o">=</span> <span class="n">divs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span>
 <span class="n">string</span><span class="p">[:</span><span class="mi">30</span><span class="p">]</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;Acknowledgments: The authors a&#39;</pre>
-</div>
-
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<!-- TODO: explain function vs. method or later? -->
-
-<p>This is starting to look good! We've possibly thrown out some stuff that
-could have been included, like the chapter title, but it's definitely
-much better than accidentally including all that JavaScript junk in our
-analysis. Just to see how much stuff we've gotten rid of, we can compare
-the number of characters using the <code>len()</code> <strong>function</strong>.</p>
-<!-- TODO: add something like "we've cut it roughly in half!" based on how -->
-<!-- much it turns out to be in the end -->
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">full_text</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">text</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1. Introduction¶\nOn second tho&#39;
 </pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>(43440, 40289, 26390)</pre>
-</div>
-
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">string</span> <span class="o">=</span> <span class="n">divs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span>
+<span class="n">string</span><span class="p">[</span><span class="o">-</span><span class="mi">30</span><span class="p">:]</span>
+</pre></div>
 </div>
-
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;t\n2. A tour of Python and NLTK&#39;
+</pre></div>
 </div>
 </div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+</div>
+<p>This is starting to look good! Just to see how much stuff we’ve gotten
+rid of, we can compare the number of characters using the <code class="docutils literal notranslate"><span class="pre">len()</span></code>
+<strong>function</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">full_text</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">text</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(33853, 32836, 31337)
+</pre></div>
+</div>
+</div>
+</div>
+<p>(Hmpf. That’s not a whole lot – in this case, we’re probably just being
+pedantic. But like I said, in general, the results out-of-the-box can
+vary, or you might want to focus on just part of the content, so this
+technique is worth knowing about.)</p>
 <p>Now in order to do a frequency analysis, we need to split that text into
 words or <strong>tokens</strong>, which is a technical term used when we want to
 avoid the kind of philosophical hairsplitting that linguists sometimes
 engage in with respect to what is or is not a word. Referring to words
-as 'tokens' is basically a way of saying, "I don't want to pick a fight
-about the precise meaning of 'word' right now, I made a pragmatic
+as ‘tokens’ is basically a way of saying, “I don’t want to pick a fight
+about the precise meaning of ‘word’ right now, I made a pragmatic
 decision to split the text into pieces which broadly make sense, but of
-course reasonable people might disagree on the details." It also allows
+course reasonable people might disagree on the details.” It also allows
 us to be precise that we are referring to specific <em>instances</em> of words.
-The word 'word' is ambiguous, a sentence like "I know I screwed up." can
+The word ‘word’ is ambiguous, a sentence like “I know I screwed up.” can
 be described as containing either 5 (total running) words or 4
 (different) words. If we want to avoid confusion, we can say instead
 that it consists of <strong>5 tokens</strong> and <strong>4 types</strong>.</p>
 <p>Word-splitting or <strong>tokenization</strong> is a trickier problem than it might
 seem at first glance, because punctuation keeps getting in the way. So
-let's not do it manually ourselves, let's use instead the
-<code>word_tokenize()</code> function in the <a href="http://www.nltk.org/"><code>nltk</code></a>
-library, which hopefully covers some of the edge cases we wouldn't think
+let’s not do it manually ourselves, let’s use instead the
+<code class="docutils literal notranslate"><span class="pre">word_tokenize()</span></code> function in the <a class="reference external" href="http://www.nltk.org/"><code class="docutils literal notranslate"><span class="pre">nltk</span></code></a>
+library, which hopefully covers some of the edge cases we wouldn’t think
 of right off the bat if we were to implement it ourselves off the top of
 our head. This function <strong>returns</strong> a list of strings, and again we can
 do a sanity check by inspecting a slice of it.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
 
 <span class="n">tokenized</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
 <span class="n">tokenized</span><span class="p">[</span><span class="mi">100</span><span class="p">:</span><span class="mi">115</span><span class="p">]</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[&#39;negative&#39;,
- &#39;ones&#39;,
- &#39;,&#39;,
- &#39;two&#39;,
- &#39;tend&#39;,
- &#39;to&#39;,
- &#39;dominate&#39;,
- &#39;:&#39;,
- &#39;a&#39;,
- &#39;fear&#39;,
- &#39;that&#39;,
- &#39;it&#39;,
- &#39;might&#39;,
- &#39;be&#39;,
- &#39;too&#39;]</pre>
-</div>
-
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Looks fine. Notice that before tokenizing the string, we converted in to
-<strong>lowercase</strong> using the <code>.lower()</code> <strong>method</strong>. This is because in our
-frequency analysis, we probably don't want to make a distinction between
-e.g. <code>token</code> and <code>Token</code>. They refer to the same thing, so they should
-be counted together, but the computer doesn't know that, as far as it's
-concerned, <code>token</code> is as different from <code>Token</code> as it is from
-<code>grapefruit</code>, so it's our job to make them exactly the same by
-lowercasing everything beforehand. We can measure the length of the list
-and thus get the number of tokens using the <code>len()</code> function.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">tokenized</span><span class="p">)</span>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;of&#39;,
+ &#39;“&#39;,
+ &#39;why&#39;,
+ &#39;should&#39;,
+ &#39;i&#39;,
+ &#39;even&#39;,
+ &#39;care&#39;,
+ &#39;”&#39;,
+ &#39;.&#39;,
+ &#39;let&#39;,
+ &#39;’&#39;,
+ &#39;s&#39;,
+ &#39;examine&#39;,
+ &#39;these&#39;,
+ &#39;concerns&#39;]
 </pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>5266</pre>
-</div>
-
 </div>
 </div>
 </div>
+<p>Looks fine. Notice that before tokenizing the string, we converted in to
+<strong>lowercase</strong> using the <code class="docutils literal notranslate"><span class="pre">.lower()</span></code> <strong>method</strong>. This is because in our
+frequency analysis, we probably don’t want to make a distinction between
+e.g. <code class="docutils literal notranslate"><span class="pre">token</span></code> and <code class="docutils literal notranslate"><span class="pre">Token</span></code>. They refer to the same thing, so they should
+be counted together, but the computer doesn’t know that, as far as it’s
+concerned, <code class="docutils literal notranslate"><span class="pre">token</span></code> is as different from <code class="docutils literal notranslate"><span class="pre">Token</span></code> as it is from
+<code class="docutils literal notranslate"><span class="pre">grapefruit</span></code>, so it’s our job to make them exactly the same by
+lowercasing everything beforehand. We can measure the length of the list
+and thus get the number of tokens using the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">tokenized</span><span class="p">)</span>
+</pre></div>
 </div>
-
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6556
+</pre></div>
 </div>
 </div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>That's quite a lot, thanks for reading so far!</p>
+</div>
+<p>That’s quite a lot, thanks for reading so far!</p>
 <p>But hang on, that count is likely to be somewhat inflated. First of all,
-a lot of the tokens in the <code>tokenized</code> list are junk, at least
+a lot of the tokens in the <code class="docutils literal notranslate"><span class="pre">tokenized</span></code> list are junk, at least
 linguistically speaking, they are special characters related to the
 notebook format.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tokenized</span><span class="p">[:</span><span class="mi">15</span><span class="p">]</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokenized</span><span class="p">[:</span><span class="mi">15</span><span class="p">]</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[&#39;acknowledgments&#39;,
- &#39;:&#39;,
- &#39;the&#39;,
- &#39;authors&#39;,
- &#39;are&#39;,
- &#39;grateful&#39;,
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;1.&#39;,
+ &#39;introduction¶&#39;,
+ &#39;on&#39;,
+ &#39;second&#39;,
+ &#39;thought&#39;,
+ &#39;,&#39;,
+ &#39;let&#39;,
+ &#39;’&#39;,
+ &#39;s&#39;,
+ &#39;not&#39;,
+ &#39;go&#39;,
  &#39;to&#39;,
- &#39;visegrad&#39;,
- &#39;fund&#39;,
- &#39;grant&#39;,
- &#39;nr&#39;,
+ &#39;camelot&#39;,
  &#39;.&#39;,
- &#39;21820079&#39;,
- &#39;``&#39;,
- &#39;training&#39;]</pre>
-</div>
-
+ &#39;’&#39;]
+</pre></div>
 </div>
 </div>
 </div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Second of all, it doesn't take a linguist to realize that the most
-common words in an English text will be words like <code>a</code> or <code>the</code>. We
-probably don't want to include those in our frequency analysis, since
-they're not very interesting, they don't tell us a lot. Luckily, <code>nltk</code>
+<p>Second of all, it doesn’t take a linguist to realize that the most
+common words in an English text will be words like <code class="docutils literal notranslate"><span class="pre">a</span></code> or <code class="docutils literal notranslate"><span class="pre">the</span></code>. We
+probably don’t want to include those in our frequency analysis, since
+they’re not very interesting, they don’t tell us a lot. Luckily, <code class="docutils literal notranslate"><span class="pre">nltk</span></code>
 has a list of these uninteresting <strong>stopwords</strong> for English which we can
 load and store in a <strong>set</strong>, so that we can quickly check if a given
 token is a stopword or not. The stopwords are stored in their lowercase
 form, so it comes in handy that we already lowercased our input string
 prior to tokenizing it.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
 
 <span class="n">stop_list</span> <span class="o">=</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s2">&quot;english&quot;</span><span class="p">)</span>
 <span class="n">stop_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">stop_list</span><span class="p">)</span>
 <span class="n">stop_list</span><span class="p">[:</span><span class="mi">15</span><span class="p">]</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[&#39;i&#39;,
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;i&#39;,
  &#39;me&#39;,
  &#39;my&#39;,
  &#39;myself&#39;,
@@ -2105,47 +999,26 @@ prior to tokenizing it.</p>
  &#39;ours&#39;,
  &#39;ourselves&#39;,
  &#39;you&#39;,
- &#34;you&#39;re&#34;,
- &#34;you&#39;ve&#34;,
- &#34;you&#39;ll&#34;,
- &#34;you&#39;d&#34;,
+ &quot;you&#39;re&quot;,
+ &quot;you&#39;ve&quot;,
+ &quot;you&#39;ll&quot;,
+ &quot;you&#39;d&quot;,
  &#39;your&#39;,
- &#39;yours&#39;]</pre>
-</div>
-
-</div>
+ &#39;yours&#39;]
+</pre></div>
 </div>
 </div>
 </div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p>We can now get rid of any unwanted tokens. The following code snippet is
 a bit more complicated than the previous ones, it involves some
 non-linear <strong>control flow</strong>, which is a fancy way of saying the code
-doesn't just linearly execute from top to bottom, but it can run around
+doesn’t just linearly execute from top to bottom, but it can run around
 in circles for a while (the <strong>for</strong> statement) or potentially skip some
 parts depending on whether a condition <strong>evaluates</strong> to true or false
 (the <strong>if</strong> statement).</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create a new empty</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a new empty</span>
 <span class="n">cleaned</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="c1"># iterate over all the tokens in the tokenized list</span>
 <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">tokenized</span><span class="p">:</span>
@@ -2155,50 +1028,22 @@ parts depending on whether a condition <strong>evaluates</strong> to true or fal
         <span class="n">cleaned</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
 <span class="nb">len</span><span class="p">(</span><span class="n">cleaned</span><span class="p">)</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>2232</pre>
-</div>
-
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2501
+</pre></div>
 </div>
 </div>
 </div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>‡ At least partially – if you actually inspect the contents of <code class="docutils literal notranslate"><span class="pre">cleaned</span></code>,
+you’ll see that it still contains many tokens, like <code class="docutils literal notranslate"><span class="pre">cells</span></code> or
+<code class="docutils literal notranslate"><span class="pre">metadata</span></code>, which look like regular words, but they don’t occur in this
+text, they’re part of the notebook format structure.</p>
 </div>
-
-</div>
-</div>
-
-<div class="jb_cell tag_popout">
-
-<div class="cell border-box-sizing text_cell rendered tag_popout"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>‡ At least partially -- if you actually inspect the contents of <code>cleaned</code>,
-you'll see that it still contains many tokens, like <code>cells</code> or
-<code>metadata</code>, which look like regular words, but they don't occur in this
-text, they're part of the notebook format structure.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>cleaned</code> is a lot shorter than <code>tokenized</code>, so it looks like it
+<p><code class="docutils literal notranslate"><span class="pre">cleaned</span></code> is a lot shorter than <code class="docutils literal notranslate"><span class="pre">tokenized</span></code>, so it looks like it
 worked!‡ Note how Python uses <strong>indentation</strong> to encode the hierarchy
 of <strong>statements</strong> in the code: everything which is indented under the
 <strong>for-loop header</strong> on the second line is part of the <strong>for-loop body</strong>
@@ -2208,262 +1053,109 @@ conditional <strong>expression</strong> is satisfied. By dedenting, we escape th
 tyranny of those fors and ifs, so that the last line gets executed only
 once, after the for-loop has completed.</p>
 <p>Notice also that with suitably chosen variable names, Python code can
-read almost like English. Readability is one of Python's main strengths,
-though it can sometimes be a pitfall for beginners -- when they're not
+read almost like English. Readability is one of Python’s main strengths,
+though it can sometimes be a pitfall for beginners – when they’re not
 sure how to do something in Python, they try to write it in an
 English-like way and hope for the best, but this approach can yield
 valid Python code which however does something different than the plain
 English interpretation would suggest.</p>
 <p>We are now finally in a position to create a <strong>frequency distribution</strong>,
-using the <code>nltk.FreqDist</code> <strong>class</strong>. It's easy, we just pass it our list
+using the <code class="docutils literal notranslate"><span class="pre">nltk.FreqDist</span></code> <strong>class</strong>. It’s easy, we just pass it our list
 of clean tokens.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_popout">
-
-<div class="cell border-box-sizing text_cell rendered tag_popout"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
 <p>Each object in Python has a <strong>type</strong>. Some of those are built-in, like
 strings, lists or sets. But users can also define new types of their
-own; those are called <strong>classes</strong>. <code>nltk.FreqDist</code> is one of those
+own; those are called <strong>classes</strong>. <code class="docutils literal notranslate"><span class="pre">nltk.FreqDist</span></code> is one of those
 user-defined types.</p>
-
 </div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_output_scroll">
-
-<div class="cell border-box-sizing code_cell rendered tag_output_scroll">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">freq_dist</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">FreqDist</span><span class="p">(</span><span class="n">cleaned</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">freq_dist</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">FreqDist</span><span class="p">(</span><span class="n">cleaned</span><span class="p">)</span>
 <span class="n">freq_dist</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>FreqDist({&#39;python&#39;: 41, &#39;code&#39;: 26, &#39;programming&#39;: 24, &#39;get&#39;: 23, &#39;like&#39;: 23, &#39;using&#39;: 17, &#39;page&#39;: 17, &#39;might&#39;: 16, &#39;language&#39;: 15, &#39;one&#39;: 15, ...})</pre>
-</div>
-
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FreqDist({&#39;python&#39;: 48, &#39;code&#39;: 27, &#39;programming&#39;: 24, &#39;get&#39;: 22, &#39;one&#39;: 22, &#39;might&#39;: 19, &#39;like&#39;: 19, &#39;page&#39;: 17, &#39;way&#39;: 16, &#39;using&#39;: 16, ...})
+</pre></div>
 </div>
 </div>
 </div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p>We can access individual <strong>values</strong> inside the frequency distribution by
 requesting them using the corresponding <strong>key</strong>.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">freq_dist</span><span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="p">]</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">freq_dist</span><span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="p">]</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>41</pre>
-</div>
-
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We can also list the top $n$ items using the <code>.most_common()</code> method.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">freq_dist</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>48
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[(&#39;python&#39;, 41),
- (&#39;code&#39;, 26),
+</div>
+<p>We can also list the top <span class="math notranslate nohighlight">\(n\)</span> items using the <code class="docutils literal notranslate"><span class="pre">.most_common()</span></code> method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">freq_dist</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;python&#39;, 48),
+ (&#39;code&#39;, 27),
  (&#39;programming&#39;, 24),
- (&#39;get&#39;, 23),
- (&#39;like&#39;, 23),
- (&#39;using&#39;, 17),
+ (&#39;get&#39;, 22),
+ (&#39;one&#39;, 22),
+ (&#39;might&#39;, 19),
+ (&#39;like&#39;, 19),
  (&#39;page&#39;, 17),
- (&#39;might&#39;, 16),
- (&#39;language&#39;, 15),
- (&#39;one&#39;, 15)]</pre>
-</div>
-
+ (&#39;way&#39;, 16),
+ (&#39;using&#39;, 16)]
+</pre></div>
 </div>
 </div>
 </div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p>Based on the most frequent lexical items, it looks like this is a text
 about Python programming and language data! That checks out.</p>
 <p>Finally, we can visualize this result using a wordcloud, to get a quick
 and intuitive overview of these important words.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_full_width">
-
-<div class="cell border-box-sizing code_cell rendered tag_full_width">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">corpy.vis</span> <span class="kn">import</span> <span class="n">wordcloud</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">corpy.vis</span> <span class="kn">import</span> <span class="n">wordcloud</span>
 
 <span class="n">wordcloud</span><span class="p">(</span><span class="n">freq_dist</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">400</span><span class="p">),</span> <span class="n">rounded</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_png output_subarea ">
-<img src="images/intro_53_0.png"
->
-</div>
-
-</div>
-</div>
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;wordcloud.wordcloud.WordCloud at 0x7fb5d602a890&gt;</pre>
-</div>
-
+<div class="cell_output docutils container">
+<img alt="_images/intro_45_0.png" src="_images/intro_45_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;wordcloud.wordcloud.WordCloud at 0x7f5bc33711f0&gt;
+</pre></div>
 </div>
 </div>
 </div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Whew! That was actually a lot of work. Now that we've figured out how to
+<p>Whew! That was actually a lot of work. Now that we’ve figured out how to
 do this, we could package all of these steps into a reusable recipe, so
-that we don't have to re-cobble all of this together if we want to run a
+that we don’t have to re-cobble all of this together if we want to run a
 same analysis on a different chapter. We can do so by writing a
-function. Again, as with for-loops and if statements, everything that's
-indented under the function header starting with <code>def</code> is part of the
+function. Again, as with for-loops and if statements, everything that’s
+indented under the function header starting with <code class="docutils literal notranslate"><span class="pre">def</span></code> is part of the
 function body, and will be run step by step each time the function is
 <strong>called</strong>.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">chapter_wordcloud</span><span class="p">(</span><span class="n">link</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">400</span><span class="p">),</span> <span class="n">rounded</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">chapter_wordcloud</span><span class="p">(</span><span class="n">link</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">400</span><span class="p">),</span> <span class="n">rounded</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
     <span class="n">session</span> <span class="o">=</span> <span class="n">HTMLSession</span><span class="p">()</span>
     <span class="n">response</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
-    <span class="n">divs</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;.rendered_html&quot;</span><span class="p">,</span> <span class="n">clean</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">div</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">div</span> <span class="ow">in</span> <span class="n">divs</span><span class="p">)</span>
+    <span class="n">divs</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;#main-content&quot;</span><span class="p">,</span> <span class="n">clean</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1"># we expect just one div, abort if there are more, otherwise we&#39;d</span>
+    <span class="c1"># silently ignore some content (it shouldn&#39;t happen, but just in</span>
+    <span class="c1"># case)</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">divs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Expected one div with ID main-content, found more!&quot;</span>
+    <span class="n">string</span> <span class="o">=</span> <span class="n">divs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span>
     <span class="n">tokenized</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
     <span class="n">stop_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">nltk</span><span class="o">.</span><span class="n">corpus</span><span class="o">.</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s2">&quot;english&quot;</span><span class="p">))</span>
     <span class="n">cleaned</span> <span class="o">=</span> <span class="p">[]</span>
@@ -2474,232 +1166,141 @@ function body, and will be run step by step each time the function is
     <span class="c1"># a list of tokens, without making an intermediate nltk.FreqDist</span>
     <span class="k">return</span> <span class="n">wordcloud</span><span class="p">(</span><span class="n">cleaned</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">rounded</span><span class="o">=</span><span class="n">rounded</span><span class="p">)</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
 </div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The <code>return</code> keyword specifies what the result is that the function
-spits out at the other end. Once the function reaches a return
-statement, it stops execution and gives the result back to whoever
-called the function.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">return</span></code> keyword specifies the result that the function spits out at
+the other end. Once the function reaches a return statement, it stops
+execution and gives the result back to whoever called the function.</p>
 <p>We can now easily create a wordcloud based on the final chapter of this
 book, for comparison.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_full_width">
-
-<div class="cell border-box-sizing code_cell rendered tag_full_width">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">chapter_wordcloud</span><span class="p">(</span><span class="s2">&quot;https://v4py.github.io/outro.html&quot;</span><span class="p">)</span>
+<div class="cell tag_full-width docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># chapter_wordcloud(&quot;https://v4py.github.io/outro.html&quot;)</span>
+<span class="n">chapter_wordcloud</span><span class="p">(</span><span class="s2">&quot;http://localhost:8000/outro.html&quot;</span><span class="p">)</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_png output_subarea ">
-<img src="images/intro_57_0.png"
->
-</div>
-
-</div>
-</div>
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;wordcloud.wordcloud.WordCloud at 0x7fb5d34fdd50&gt;</pre>
-</div>
-
+<div class="cell_output docutils container">
+<img alt="_images/intro_49_0.png" src="_images/intro_49_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;wordcloud.wordcloud.WordCloud at 0x7f5bc4ba2100&gt;
+</pre></div>
 </div>
 </div>
 </div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p>Indeed, we can use this function on any chapter in any online book
-created (much like the present book) with the <a href="">jupyter-book</a> package,
-because they all use the same HTML structure. For instance, here's a
-wordcloud of the chapter on <a href="https://www.textbook.ds100.org/ch/08/text_regex.html"><em>Regular
+created (much like the present book) with the
+<a class="reference external" href="https://jupyterbook.org/">jupyter-book</a> package, because they all use
+the same HTML structure. For instance, here’s a wordcloud of the chapter
+on <a class="reference external" href="https://www.textbook.ds100.org/ch/13/text_regex.html"><em>Regular
 Expressions</em></a> from
-the book <a href="https://www.textbook.ds100.org/"><em>Principles and Techniques of Data
+the book <a class="reference external" href="https://www.textbook.ds100.org/"><em>Principles and Techniques of Data
 Science</em></a>.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_full_width">
-
-<div class="cell border-box-sizing code_cell rendered tag_full_width">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">chapter_wordcloud</span><span class="p">(</span><span class="s2">&quot;https://www.textbook.ds100.org/ch/08/text_regex.html&quot;</span><span class="p">)</span>
+<div class="cell tag_full-width docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chapter_wordcloud</span><span class="p">(</span><span class="s2">&quot;https://www.textbook.ds100.org/ch/13/text_regex.html&quot;</span><span class="p">)</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_png output_subarea ">
-<img src="images/intro_59_0.png"
->
-</div>
-
-</div>
-</div>
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;wordcloud.wordcloud.WordCloud at 0x7fb5d168c490&gt;</pre>
-</div>
-
+<div class="cell_output docutils container">
+<img alt="_images/intro_51_0.png" src="_images/intro_51_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;wordcloud.wordcloud.WordCloud at 0x7f5bc0171820&gt;
+</pre></div>
 </div>
 </div>
 </div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>This is the real power of programming: once you've figured out and
+<p>This is the real power of programming: once you’ve figured out and
 tweaked a processing and analysis recipe, you can apply it to similar
 data with lightning speed and each time consistently in exactly the same
 way.</p>
 <p>To wrap up, let me reiterate that I realize this is a lot to take in if
 this is your first time seeing Python code, and even more so if this is
 your first time seeing any programming language code whatsoever. Again,
-it's totally fine if you don't understand all the details at this point.
-I encourage you to revisit this extended worked example once you're done
-reading the book, as a way to reflect on what you've learned and bring
+it’s totally fine if you don’t understand all the details at this point.
+I encourage you to revisit this extended worked example once you’re done
+reading the book, as a way to reflect on what you’ve learned and bring
 it all together.</p>
-<!-- TODO: remove or develop -->
-
-<!-- # NLTK Book -->
-
-<!-- A great, longer free resource. <http://www.nltk.org/book/> -->
-
-<!-- ![NLTK Book](./nltk_book.jpg) -->
-
-<!-- Credit: ??? -->
-
-<!-- # The NLP pipeline -->
-
-<!-- NOTE: maybe leave this out? Not strictly necessary, this is probably -->
-<!-- better to discuss in class, plus I shouldn't rely too much on NLTK Book -->
-<!-- materials for licensing reasons. -->
-
-<!-- ![NLP](./dialogue.png) -->
-
-<!-- Credit: ??? -->
-
-<!-- # Overview -->
-
-<!-- - Python basics (functions, control flow, collections) -->
-<!-- - The NLTK [package](http://www.nltk.org/) & -->
-<!--   [book](http://www.nltk.org/book) as a good starting point for people -->
-<!--   interested in language data -->
-<!-- - [How text is represented inside -->
-<!--   computers](https://dlukes.github.io/unicode.html) -->
-<!-- - Regular expressions in Python -->
-<!-- - Accessing web services ("REST APIs") from Python & Automatic -->
-<!--   annotation of language data (tagging, parsing) - both courtesy of -->
-<!--   [Rudolf Rosa](https://ufal.mff.cuni.cz/rudolf-rosa) -->
-<!-- - Getting data into Python (raw text & tabular data) -->
-<!-- - Some visualizations (dispersion plots, wordclouds) -->
-<!-- - Case studies: collocation strength, keyword analysis -->
-
-<!-- vim: set spell spelllang=en: -->
-</div>
-</div>
-</div>
+<!-- TODO: Quantitative analysis of text data ultimately always boils
+down to frequency or dispersion. Add an example of dispersion at some
+point -- probably a dispersion plot. And say this explicitly. This
+chapter might already be too crowded, although it would be nice to
+mention this principle early on. -->
+<!-- vim: set spell spelllang=en: --></div>
 </div>
 
- 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
-
-    </main>
-    
-            </div>
-            <div class="c-textbook__footer" id="textbook_footer">
+              </div>
               
-<nav class="c-page__nav">
-  
+        
+            
+
+
+
+<div class='prev-next-bottom'>
     
-    
-
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="">
-      〈 <span class="u-margin-right-tiny"></span> 
-    </a>
-  
-
-  
-    
-
-    
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/basics.html">
-      A tour of Python and NLTK <span class="u-margin-right-tiny"></span> 〉
-    </a>
-  
-</nav>
-
-              <footer>
-  <p class="footer">Sponsored by <a href="https://www.visegradfund.org/">Visegrad Fund</a> grant nr. 21820079 "Training Digital Scholars: Knowledge Exchange between V4 and Austria". Available under the terms of the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> license.</p>
-</footer>
-
+    <div id="prev">
+        <a class="left-prev" href="welcome.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Welcome!</p>
             </div>
-
-        </div>
-      </main>
+        </a>
     </div>
+     <div id="next">
+        <a class="right-next" href="basics.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">2. </span>A tour of Python and NLTK</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By David Lukeš, Rudolf Rosa<br/>
+        
+            &copy; Copyright 2020--present.<br/>
+          <div class="extra_footer">
+            Sponsored by <a href="https://www.visegradfund.org/">Visegrad Fund</a> grant nr. 21820079 "Training Digital Scholars: Knowledge Exchange between V4 and Austria". Available under the terms of the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> license.
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
   </body>
 </html>
