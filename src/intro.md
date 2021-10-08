@@ -35,7 +35,7 @@ nltk.download(["punkt", "stopwords"])
 ```
 
 ```{epigraph}
-On second thought, let's not go to Camelot. ’Tis a silly place.
+On second thought, let's not go to [Camel](https://en.wikipedia.org/wiki/Perl#Camel)ot. ’Tis a silly place.
 
 -- King Arthur, Monty [Python](https://python.org) and the Holy Grail
 ```
