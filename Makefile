@@ -34,6 +34,5 @@ serve: build
 	poetry run python -m http.server --directory _build/html
 
 publish: build
-	touch _site/.nojekyll
 	poetry export --format requirements.txt --without-hashes --output _build/html/requirements.txt
-	ghp-import -b master -m Publish -n -p -f _build/html
+	poetry run ghp-import -b master -m Publish -n -p -f _build/html
