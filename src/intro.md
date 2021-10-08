@@ -737,40 +737,10 @@ I encourage you to revisit this extended worked example once you're done
 reading the book, as a way to reflect on what you've learned and bring
 it all together.
 
-<!-- TODO: remove or develop -->
-
-<!-- # NLTK Book -->
-
-<!-- A great, longer free resource. <http://www.nltk.org/book/> -->
-
-<!-- ![NLTK Book](./nltk_book.jpg) -->
-
-<!-- Credit: ??? -->
-
-<!-- # The NLP pipeline -->
-
-<!-- NOTE: maybe leave this out? Not strictly necessary, this is probably -->
-<!-- better to discuss in class, plus I shouldn't rely too much on NLTK Book -->
-<!-- materials for licensing reasons. -->
-
-<!-- ![NLP](./dialogue.png) -->
-
-<!-- Credit: ??? -->
-
-<!-- # Overview -->
-
-<!-- - Python basics (functions, control flow, collections) -->
-<!-- - The NLTK [package](http://www.nltk.org/) & -->
-<!--   [book](http://www.nltk.org/book) as a good starting point for people -->
-<!--   interested in language data -->
-<!-- - [How text is represented inside -->
-<!--   computers](https://dlukes.github.io/unicode.html) -->
-<!-- - Regular expressions in Python -->
-<!-- - Accessing web services ("REST APIs") from Python & Automatic -->
-<!--   annotation of language data (tagging, parsing) - both courtesy of -->
-<!--   [Rudolf Rosa](https://ufal.mff.cuni.cz/rudolf-rosa) -->
-<!-- - Getting data into Python (raw text & tabular data) -->
-<!-- - Some visualizations (dispersion plots, wordclouds) -->
-<!-- - Case studies: collocation strength, keyword analysis -->
+<!-- TODO: Quantitative analysis of text data ultimately always boils
+down to frequency or dispersion. Add an example of dispersion at some
+point -- probably a dispersion plot. And say this explicitly. This
+chapter might already be too crowded, although it would be nice to
+mention this principle early on. -->
 
 <!-- vim: set spell spelllang=en: -->
