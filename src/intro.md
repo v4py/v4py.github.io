@@ -699,7 +699,7 @@ Science*](https://www.textbook.ds100.org/).
 ```{code-cell} ipython3
 :tags: [full-width]
 
-chapter_wordcloud("https://www.textbook.ds100.org/ch/08/text_regex.html")
+chapter_wordcloud("https://www.textbook.ds100.org/ch/13/text_regex.html")
 ```
 
 This is the real power of programming: once you've figured out and
