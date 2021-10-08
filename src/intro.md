@@ -415,17 +415,20 @@ response.html.text[:50]
 response.html.text[-50:]
 ```
 
-That looks somewhat better, but there's clearly still some "junk" left.
-Turns out that the "text" content of an HTML page includes not only all
-the stuff that's visible on the page (navigation elements, button
-labels, and other things we probably want to exclude from our analysis),
-but also invisible things like JavaScript programs which add
-interactivity to the page (surrounded by `<script/>` tags) or CSS styles
-which define the layout and other aesthetic aspects of the page
-(surrounded by `<style/>` tags).
+That looks promising, although this still includes header and footer
+text which we might want to exclude from our analysis if we're being
+pedantic. Furthermore, JavaScript programs (which add interactivity to
+the page; surrounded by `<script/>` tags) or CSS styles (which define
+the layout and other aesthetic aspects of the page; surrounded by
+`<style/>` tags) might be hiding in the middle of all this. These
+elements are invisible when you read the rendered page in a browser, but
+unfortunately, they count as "text".
 
-Ideally, we'd like to get rid of all of this. How to achieve that? We
-first need to figure out which parts of the HTML enclose the content
+More broadly, some pages simply might not be so well-behaved and yield
+such good results out-of-the-box. So let's learn a technique to zero in
+on what you want in a sea of HTML.
+
+We first need to figure out which parts of the HTML enclose the content
 we're interested in. For that, we'll use our browser's inspector tools.
 If you right click anywhere on this page, you should get a menu where
 one of the items says something like *Inspect* or *Inspect Element*.
@@ -434,60 +437,75 @@ under the hood of this page. If you right click on this paragraph
 specifically and select *Inspect Element*, the inspector will focus on
 where in the HTML hierarchy this particular paragraph is placed.
 
-![Firefox inspector screenshot](images/intro/inspector.png)
-
-We can see that this paragraph is contained with a `<div/>` HTML element
-which has a class of `rendered_html`, among others. This sounds like a
-property which could be true of all the interesting content on this page
--- after all, we know it was *rendered* from a Jupyter notebook to HTML
--- so let's go on a limb here and retrieve all of those `divs` using the
-`.find()` method. This method uses [CSS
-selectors](https://www.w3schools.com/cssref/css_selectors.asp) to slice
-and dice the page; all we need to know right now is that the syntax to
-find all HTML elements of a certain class is to prefix the class name
-with a period, so `.rendered_html` in our case. We get back a **list**
-of `divs`; the `clean=True` **keyword argument** makes sure that we
-throw away those pesky invisible `<script/>` and `<style/>` tags, if
-any. Again, I'm showing just a slice of the list to save space -- the
-first 5 divs using the `[:5]` syntax -- but you can delete those square
-brackets and re-evaluate the cell to see the full list should you wish
-so.
-
-```{code-cell} ipython3
-divs = response.html.find(".rendered_html", clean=True)
-divs[:5]
+```{image} images/intro/inspector.png
+:alt: Firefox inspector screenshot
+:align: center
 ```
 
-<!-- TODO: explain escape sequence or later? -->
+We can see that this paragraph is ultimately contained within a `<div/>`
+HTML element which has an ID of `main-content`. This sounds promising --
+hopefully, all of the main, interesting content on the page should be
+placed under this `div` somewhere, otherwise the ID is a real misnomer.
+So let's go on a limb here and retrieve that `div` using the `.find()`
+method. This method uses [CSS selectors][css-selectors] to slice and
+dice the page; all we need to know right now is that the syntax to find
+an HTML element by its ID is to prefix the ID with a hash symbol (also
+called pound sign or octothorpe), so `#main-content` in our case. We get
+back a **list** of `div`s; the `clean=True` **keyword argument** makes
+sure that we throw away those pesky invisible `<script/>` and `<style/>`
+tags, if any.
 
-Each of these `divs` has a `.text` attribute, which hopefully contains
-reasonable text and not some junk. We'd like to lump it all together
-into one long string before moving on to further processing, because we
-don't really care which part of the text was in which `div`, we just
-want to have it all in one place to make things easy. So we can join all
-of those `.text` attributes into one string by splicing a **newline**
-character, written using the **escape sequence** `"\n"`, in between
-every two pieces of text.
+[css-selectors]: https://www.w3schools.com/cssref/css_selectors.asp
 
 ```{code-cell} ipython3
-string = "\n".join(div.text for div in divs)
+divs = response.html.find("#main-content", clean=True)
+divs
+```
+
+```{margin}
+Apart from `id` attributes, another common way of selecting HTML
+elements is via `class` attributes. Each element should have only one,
+unique `id`, but it can have multiple classes and share them with other
+elements. E.g. on the page you're reading, all of the cells with Python
+code live inside `div`s with a `class` of `cell_input` (see for yourself
+with *Inspect Element*). The resulting lists can thus easily have more
+than one element. Try it out! Class selectors start with `.` instead of
+`#`. And here's how you can join a list of `div`s into one big string
+using `\n`ewlines: `"\n".join(div.text for div in divs)`.
+```
+
+The list has a single `div` element, which makes sense -- IDs should be
+unique, so the entire document has just one element which matches the
+selector `#main-content`. We can again use the `[...]` syntax to reach
+into the list, but this time, we put a single number between the square
+brackets, because we want to access a single element, not a slice.
+Additionally, lists in Python are numbered starting from 0, so the way
+to refer to the first and only item in the list is as `divs[0]`. We can
+then retrieve the text inside the `div` as one long string via its
+`.text` attribute, as previously.
+
+```{code-cell} ipython3
+string = divs[0].text
 string[:30]
 ```
 
-<!-- TODO: explain function vs. method or later? -->
+```{code-cell} ipython3
+string = divs[0].text
+string[-30:]
+```
 
-This is starting to look good! We've possibly thrown out some stuff that
-could have been included, like the chapter title, but it's definitely
-much better than accidentally including all that JavaScript junk in our
-analysis. Just to see how much stuff we've gotten rid of, we can compare
-the number of characters using the `len()` **function**.
-
-<!-- TODO: add something like "we've cut it roughly in half!" based on how -->
-<!-- much it turns out to be in the end -->
+This is starting to look good! Just to see how much stuff we've gotten
+rid of, we can compare the number of characters using the `len()`
+**function**.
 
 ```{code-cell} ipython3
 len(response.html.full_text), len(response.html.text), len(string)
 ```
+
+(Hmpf. That's not a whole lot -- in this case, we're probably just being
+pedantic. But like I said, in general, the results out-of-the-box can
+vary, or you might want to focus on just part of the content, so this
+technique is still worth knowing about.)
 
 Now in order to do a frequency analysis, we need to split that text into
 words or **tokens**, which is a technical term used when we want to
@@ -661,8 +679,12 @@ function body, and will be run step by step each time the function is
 def chapter_wordcloud(link, size=(800, 400), rounded=True):
     session = HTMLSession()
     response = session.get(link)
-    divs = response.html.find(".rendered_html", clean=True)
-    string = "\n".join(div.text for div in divs)
+    divs = response.html.find("#main-content", clean=True)
+    # we expect just one div, abort if there are more, otherwise we'd
+    # silently ignore some content (it shouldn't happen, but just in
+    # case)
+    assert len(divs) == 1, "Expected one div with ID main-content, found more!"
+    string = divs[0].text
     tokenized = nltk.word_tokenize(string.lower())
     stop_set = set(nltk.corpus.stopwords.words("english"))
     cleaned = []
@@ -674,10 +696,9 @@ def chapter_wordcloud(link, size=(800, 400), rounded=True):
     return wordcloud(cleaned, size=size, rounded=rounded)
 ```
 
-The `return` keyword specifies what the result is that the function
-spits out at the other end. Once the function reaches a return
-statement, it stops execution and gives the result back to whoever
-called the function.
+The `return` keyword specifies the result that the function spits out at
+the other end. Once the function reaches a return statement, it stops
+execution and gives the result back to whoever called the function.
 
 We can now easily create a wordcloud based on the final chapter of this
 book, for comparison.
@@ -689,10 +710,11 @@ chapter_wordcloud("https://v4py.github.io/outro.html")
 ```
 
 Indeed, we can use this function on any chapter in any online book
-created (much like the present book) with the [jupyter-book]() package,
-because they all use the same HTML structure. For instance, here's a
-wordcloud of the chapter on [*Regular
-Expressions*](https://www.textbook.ds100.org/ch/08/text_regex.html) from
+created (much like the present book) with the
+[jupyter-book](https://jupyterbook.org/) package, because they all use
+the same HTML structure. For instance, here's a wordcloud of the chapter
+on [*Regular
+Expressions*](https://www.textbook.ds100.org/ch/13/text_regex.html) from
 the book [*Principles and Techniques of Data
 Science*](https://www.textbook.ds100.org/).
 
