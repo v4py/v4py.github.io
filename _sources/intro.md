@@ -355,8 +355,7 @@ We can fetch the page you're currently reading by calling the `get()`
 website as an **argument**. We get back an HTTP response.
 
 ```{code-cell} ipython3
-# link = "https://v4py.github.io/intro.html"
-link = "http://localhost:8000/intro.html"
+link = "https://v4py.github.io/intro.html"
 response = session.get(link)
 ```
 
@@ -438,7 +437,10 @@ under the hood of this page. If you right click on this paragraph
 specifically and select *Inspect Element*, the inspector will focus on
 where in the HTML hierarchy this particular paragraph is placed.
 
-![Firefox inspector screenshot](images/intro/inspector.png)
+```{image} images/intro/inspector.png
+:alt: Firefox inspector screenshot
+:align: center
+```
 
 We can see that this paragraph is ultimately contained within a `<div/>`
 HTML element which has an ID of `main-content`. This sounds promising --
@@ -503,7 +505,7 @@ len(response.html.full_text), len(response.html.text), len(string)
 (Hmpf. That's not a whole lot -- in this case, we're probably just being
 pedantic. But like I said, in general, the results out-of-the-box can
 vary, or you might want to focus on just part of the content, so this
-technique is worth knowing about.)
+technique is still worth knowing about.)
 
 Now in order to do a frequency analysis, we need to split that text into
 words or **tokens**, which is a technical term used when we want to
@@ -704,8 +706,7 @@ book, for comparison.
 ```{code-cell} ipython3
 :tags: [full-width]
 
-# chapter_wordcloud("https://v4py.github.io/outro.html")
-chapter_wordcloud("http://localhost:8000/outro.html")
+chapter_wordcloud("https://v4py.github.io/outro.html")
 ```
 
 Indeed, we can use this function on any chapter in any online book

@@ -651,8 +651,7 @@ It’s the main protocol used for sending around data on the web.</p>
 website as an <strong>argument</strong>. We get back an HTTP response.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># link = &quot;https://v4py.github.io/intro.html&quot;</span>
-<span class="n">link</span> <span class="o">=</span> <span class="s2">&quot;http://localhost:8000/intro.html&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">link</span> <span class="o">=</span> <span class="s2">&quot;https://v4py.github.io/intro.html&quot;</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -699,7 +698,7 @@ the <code class="docutils literal notranslate"><span class="pre">response</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;HTML url=&#39;http://localhost:8000/intro.html&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;HTML url=&#39;https://v4py.github.io/intro.html&#39;&gt;
 </pre></div>
 </div>
 </div>
@@ -776,7 +775,7 @@ Click on that and a pane will open beside the page which lets you peek
 under the hood of this page. If you right click on this paragraph
 specifically and select <em>Inspect Element</em>, the inspector will focus on
 where in the HTML hierarchy this particular paragraph is placed.</p>
-<p><img alt="Firefox inspector screenshot" src="_images/inspector.png" /></p>
+<img alt="Firefox inspector screenshot" class="align-center" src="_images/inspector.png" />
 <p>We can see that this paragraph is ultimately contained within a <code class="docutils literal notranslate"><span class="pre">&lt;div/&gt;</span></code>
 HTML element which has an ID of <code class="docutils literal notranslate"><span class="pre">main-content</span></code>. This sounds promising –
 hopefully, all of the main, interesting content on the page should be
@@ -859,7 +858,7 @@ rid of, we can compare the number of characters using the <code class="docutils 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(33853, 32836, 31337)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(33964, 32937, 31438)
 </pre></div>
 </div>
 </div>
@@ -867,7 +866,7 @@ rid of, we can compare the number of characters using the <code class="docutils 
 <p>(Hmpf. That’s not a whole lot – in this case, we’re probably just being
 pedantic. But like I said, in general, the results out-of-the-box can
 vary, or you might want to focus on just part of the content, so this
-technique is worth knowing about.)</p>
+technique is still worth knowing about.)</p>
 <p>Now in order to do a frequency analysis, we need to split that text into
 words or <strong>tokens</strong>, which is a technical term used when we want to
 avoid the kind of philosophical hairsplitting that linguists sometimes
@@ -934,7 +933,7 @@ and thus get the number of tokens using the <code class="docutils literal notran
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6556
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6594
 </pre></div>
 </div>
 </div>
@@ -1031,7 +1030,7 @@ parts depending on whether a condition <strong>evaluates</strong> to true or fal
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2501
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2510
 </pre></div>
 </div>
 </div>
@@ -1077,7 +1076,7 @@ user-defined types.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FreqDist({&#39;python&#39;: 48, &#39;code&#39;: 27, &#39;programming&#39;: 24, &#39;get&#39;: 22, &#39;one&#39;: 22, &#39;might&#39;: 19, &#39;like&#39;: 19, &#39;page&#39;: 17, &#39;way&#39;: 16, &#39;using&#39;: 16, ...})
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FreqDist({&#39;python&#39;: 49, &#39;code&#39;: 27, &#39;programming&#39;: 24, &#39;get&#39;: 22, &#39;one&#39;: 22, &#39;might&#39;: 20, &#39;like&#39;: 19, &#39;page&#39;: 17, &#39;way&#39;: 16, &#39;using&#39;: 16, ...})
 </pre></div>
 </div>
 </div>
@@ -1091,7 +1090,7 @@ requesting them using the corresponding <strong>key</strong>.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>48
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>49
 </pre></div>
 </div>
 </div>
@@ -1104,12 +1103,12 @@ requesting them using the corresponding <strong>key</strong>.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;python&#39;, 48),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;python&#39;, 49),
  (&#39;code&#39;, 27),
  (&#39;programming&#39;, 24),
  (&#39;get&#39;, 22),
  (&#39;one&#39;, 22),
- (&#39;might&#39;, 19),
+ (&#39;might&#39;, 20),
  (&#39;like&#39;, 19),
  (&#39;page&#39;, 17),
  (&#39;way&#39;, 16),
@@ -1132,7 +1131,7 @@ and intuitive overview of these important words.</p>
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/intro_45_0.png" src="_images/intro_45_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;wordcloud.wordcloud.WordCloud at 0x7f5bc33711f0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;wordcloud.wordcloud.WordCloud at 0x7f0b6e65ac70&gt;
 </pre></div>
 </div>
 </div>
@@ -1176,14 +1175,13 @@ execution and gives the result back to whoever called the function.</p>
 book, for comparison.</p>
 <div class="cell tag_full-width docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># chapter_wordcloud(&quot;https://v4py.github.io/outro.html&quot;)</span>
-<span class="n">chapter_wordcloud</span><span class="p">(</span><span class="s2">&quot;http://localhost:8000/outro.html&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chapter_wordcloud</span><span class="p">(</span><span class="s2">&quot;https://v4py.github.io/outro.html&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/intro_49_0.png" src="_images/intro_49_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;wordcloud.wordcloud.WordCloud at 0x7f5bc4ba2100&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;wordcloud.wordcloud.WordCloud at 0x7f0b6fe40100&gt;
 </pre></div>
 </div>
 </div>
@@ -1204,7 +1202,7 @@ Science</em></a>.</p>
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/intro_51_0.png" src="_images/intro_51_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;wordcloud.wordcloud.WordCloud at 0x7f5bc0171820&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;wordcloud.wordcloud.WordCloud at 0x7f0b6a1baf70&gt;
 </pre></div>
 </div>
 </div>
