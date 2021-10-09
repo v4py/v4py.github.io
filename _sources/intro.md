@@ -150,7 +150,10 @@ fun at this claim to get overzealous Python advocates off their soapbox,
 but by the same token, it shows that Python indeed has this sort of
 general reputation, otherwise the joke wouldn't work.
 
-![Python XKCD](https://imgs.xkcd.com/comics/python.png)
+```{image} https://imgs.xkcd.com/comics/python.png
+:alt: Python XKCD
+:align: center
+```
 
 Credit: Randall Munroe, XKCD, <https://xkcd.com/353/>
 
