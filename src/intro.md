@@ -707,8 +707,6 @@ We can now easily create a wordcloud based on the final chapter of this
 book, for comparison.
 
 ```{code-cell} ipython3
-:tags: [full-width]
-
 chapter_wordcloud("https://v4py.github.io/outro.html")
 ```
 
@@ -722,8 +720,6 @@ the book [*Principles and Techniques of Data
 Science*](https://www.textbook.ds100.org/).
 
 ```{code-cell} ipython3
-:tags: [full-width]
-
 chapter_wordcloud("https://www.textbook.ds100.org/ch/13/text_regex.html")
 ```
 

@@ -70,8 +70,6 @@ All human beings are born free and equal in dignity and rights."""
 ```
 
 ```{code-cell} ipython3
-:tags: [full-width]
-
 print(copypaste)
 ```
 
@@ -93,8 +91,6 @@ my_response.encoding = 'utf8'
 ```
 
 ```{code-cell} ipython3
-:tags: [full-width]
-
 print(my_response.text)
 ```
 
@@ -109,15 +105,11 @@ len(my_response.text)
 ```
 
 ```{code-cell} ipython3
-:tags: [full-width]
-
 lines = my_response.text.split('\n')
 lines
 ```
 
 ```{code-cell} ipython3
-:tags: [full-width]
-
 print(lines[0])
 print(lines[-1])
 ```
