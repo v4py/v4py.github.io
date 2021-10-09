@@ -61,7 +61,7 @@ so chances are good that file actually *is* `UTF-8`, in which case
 you're golden. The `text.txt` file below, though, isn't.
 
 ```{code-cell} ipython3
-:tags: [raises-exception, full-width, output_scroll]
+:tags: [raises-exception, output_scroll]
 
 with open("data/text.txt", encoding="utf-8") as file:
     print(file.read())
