@@ -7,7 +7,7 @@ license = "CC-BY-NC-SA-4.0"
 
 [tool.poetry.dependencies]
 python = ">=3.7.1,<4.0"
-nltk = "^3.4.5"
+nltk = "^3.6.6"
 corpy = "^0.4"
 requests = "^2.23.0"
 requests-html = "^0.10.0"
