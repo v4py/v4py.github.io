@@ -342,8 +342,9 @@ in contrast to the variable-width approach we encountered earlier.
 For our toy character set, we don't need 8 bits, 2 are enough to encode
 4 different characters, corresponding to the 4 different sequences of
 1's and 0's you can create with two available slots: `00`, `01`, `10`
-and `11`. Let's what decimal numbers these correspond to -- it's easy,
-you can probably do it in your head, but let Python tell us anyway.
+and `11`. Let's see what decimal numbers these correspond to -- it's
+easy, you can probably do it in your head, but let Python tell us
+anyway.
 
 ```{code-cell} ipython3
 0b00, 0b01, 0b10, 0b11
@@ -845,7 +846,11 @@ So to sum up:
   when saving plain text files, and always assume it as a first try when
   opening files in an unknown encoding.
 - Internally, Python uses a custom representation of Unicode, which is
-  neither of the encodings we already mentioned.
+  neither of the encodings we already mentioned. You don't have to worry
+  too much about it, the main reason I mention it is to drive home the
+  point that character sets and encodings are two distinct things, and
+  you can pick different encodings for the same character set depending
+  on the tradeoffs that make sense in different contexts.
 - The following functionality is useful for inspecting Unicode data in
   Python: the `ord()` and `chr()` built-in functions, the `unicodedata`
   standard library module, and the `regex` external package, which like

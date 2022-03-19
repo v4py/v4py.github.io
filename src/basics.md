@@ -1035,6 +1035,25 @@ str(en2fr)
 ```
 
 <!-- TODO: string join here or elsewhere? -->
+This is typically not that useful, all those brackets just get in the
+way. What you'll encounter much more frequently is the `.join()` method
+available on strings, which allows you to join a collection of strings
+(not any objects, mind you, **they have to be strings!**) using a
+separator of your choice.
+
+```{code-cell} ipython3
+", ".join(en2fr.keys())
+```
+
+Or even no separator at all.
+
+```{code-cell} ipython3
+"".join(en2fr.values())
+```
+
+Note that you **call this method on the string you want to use as
+separator**, not on the collection whose elements you want to join, which
+may feel a little counter-intuitive at first.
 
 In the other direction, the other collection functions split strings at
 character boundaries.
